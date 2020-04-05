@@ -9,7 +9,7 @@ namespace Algorithms
         {
             // Water jug
             WaterJug waterJugSolver = new WaterJug();
-            var path = waterJugSolver.Solve(4, 3, 2);
+            var path = waterJugSolver.Solve(7, 5, 2);
             if (path == null)
             {
                 Console.WriteLine("No solution");

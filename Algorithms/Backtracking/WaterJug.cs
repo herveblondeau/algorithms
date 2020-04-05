@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // https://www.geeksforgeeks.org/water-jug-problem-using-memoization/?ref=rp
 public class WaterJug
@@ -20,6 +21,7 @@ public class WaterJug
         return isSolved ? _solution : null;
     }
 
+    // TODO: improve the algorithm to return the shortest path
     private bool MemoizationSolve(int left, int right)
     {
         if (IsAlreadyVisited(left, right))
@@ -34,13 +36,24 @@ public class WaterJug
             return true;
         }
 
-        return MemoizationSolve(0, right)               // empty left
-            || MemoizationSolve(left, 0)                // empty right
-            || MemoizationSolve(_leftCapacity, right)   // fill left
-            || MemoizationSolve(left, _rightCapacity)   // fill right
-            || MemoizationSolve(left - Math.Min(left, _rightCapacity - right), right + Math.Min(left, _rightCapacity - right))  // pour left into right
-            || MemoizationSolve(left + Math.Min(right, _leftCapacity - left), right - Math.Min(right, _leftCapacity - left))     // pour right into left
-        ;
+        // Note: in the link above, the initial solution was using memoization by just returning the result of the following combination of paths
+        // We have modified the solution to use a backtracking method:
+        // - we return only if one of the paths yields a solution
+        // - otherwise, we remove the current position from the solution (actual backtracking)
+        if (MemoizationSolve(0, right)               // empty left
+         || MemoizationSolve(left, 0)                // empty right
+         || MemoizationSolve(_leftCapacity, right)   // fill left
+         || MemoizationSolve(left, _rightCapacity)   // fill right
+         || MemoizationSolve(left - Math.Min(left, _rightCapacity - right), right + Math.Min(left, _rightCapacity - right))  // pour left into right
+         || MemoizationSolve(left + Math.Min(right, _leftCapacity - left), right - Math.Min(right, _leftCapacity - left))     // pour right into left
+        )
+        {
+            return true;
+        }
+
+        RemoveCurrentPositionFromSolution();
+
+        return false;
     }
 
     private bool IsAlreadyVisited(int left, int right)
@@ -51,6 +64,11 @@ public class WaterJug
     private void AppendCurrentPositionToSolution(int left, int right)
     {
         _solution.Add((left, right));
+    }
+
+    private void RemoveCurrentPositionFromSolution()
+    {
+        _solution.Remove(_solution.Last());
     }
 
     private bool IsSolved(int left, int right)
