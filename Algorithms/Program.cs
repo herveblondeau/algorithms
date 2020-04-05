@@ -11,7 +11,10 @@ namespace Algorithms
             LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
             string string1 = "ABCDGH";
             string string2 = "AEDFHR";
-            Console.WriteLine(longestCommonSubSequenceSolver.FindLongestCommonSubSequence(string1, string2));
+            Console.Write("Memoization: ");
+            Console.WriteLine(longestCommonSubSequenceSolver.Memoization(string1, string2));
+            Console.Write("Recursion: ");
+            Console.WriteLine(longestCommonSubSequenceSolver.Recursion(string1, string2));
 
             //// Water jug
             //WaterJug waterJugSolver = new WaterJug();

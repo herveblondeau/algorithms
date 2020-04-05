@@ -9,13 +9,29 @@ namespace AlgorithmsTests
         [TestMethod]
         [DataRow("ABCDGH", "AEDFHR", "ADH")]
         [DataRow("AGGTAB", "GXTXAYB", "GTAB")]
-        public void FindLongestCommonSubSequence_WhenCalled_PerformsCorrectly(string string1, string string2, string expected)
+        [DataRow("xyxyxzyDyxzyxyzKyxzyxyzLEOxyzyxyzMxzyzxyzyRJDHxzyxyzyxIOxzyxzyyxRyxyxyETxyyyxzyz", "DKbcbacLEbcacbaOMcbacbRcJcccbDacbabcHIORbcbcabcEacbcaT", "DKLEOMRJDHIORET")]
+        public void Memoization_WhenCalled_PerformsCorrectly(string string1, string string2, string expected)
         {
             // Arrange
             LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
 
             // Act
-            var actual = longestCommonSubSequenceSolver.FindLongestCommonSubSequence(string1, string2);
+            var actual = longestCommonSubSequenceSolver.Memoization(string1, string2);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow("ABCDGH", "AEDFHR", "ADH")]
+        [DataRow("AGGTAB", "GXTXAYB", "GTAB")]
+        public void Recursion_WhenCalled_PerformsCorrectly(string string1, string string2, string expected)
+        {
+            // Arrange
+            LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
+
+            // Act
+            var actual = longestCommonSubSequenceSolver.Recursion(string1, string2);
 
             // Assert
             Assert.AreEqual(expected, actual);
