@@ -7,17 +7,23 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            // Water jug
-            WaterJug waterJugSolver = new WaterJug();
-            var path = waterJugSolver.Solve(7, 5, 2);
-            if (path == null)
-            {
-                Console.WriteLine("No solution");
-            }
-            else
-            {
-                Console.WriteLine(string.Join("->", path.ToArray()));
-            }
+            // Longest common subsequence
+            LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
+            string string1 = "ABCDGH";
+            string string2 = "AEDFHR";
+            Console.WriteLine(longestCommonSubSequenceSolver.FindLongestCommonSubSequence(string1, string2));
+
+            //// Water jug
+            //WaterJug waterJugSolver = new WaterJug();
+            //var path = waterJugSolver.Solve(7, 5, 2);
+            //if (path == null)
+            //{
+            //    Console.WriteLine("No solution");
+            //}
+            //else
+            //{
+            //    Console.WriteLine(string.Join("->", path.ToArray()));
+            //}
 
             //// Fibonacci
             //long number = 150;
