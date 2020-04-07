@@ -1,20 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Trees;
 
 namespace Algorithms
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            // Longest common subsequence
-            LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
-            string string1 = "ABCDGH";
-            string string2 = "AEDFHR";
-            Console.Write("Memoization: ");
-            Console.WriteLine(longestCommonSubSequenceSolver.Memoization(string1, string2));
-            Console.Write("Recursion: ");
-            Console.WriteLine(longestCommonSubSequenceSolver.Recursion(string1, string2));
+            // Binary search tree
+            //      4
+            //     / \
+            //    /   \
+            //   2     6
+            //  / \   / \
+            // 1   3 5   7
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Insert(4);
+            tree.Insert(2);
+            tree.Insert(3);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(5);
+            tree.Insert(7);
+            Console.WriteLine(" Pre: " + string.Join('-', tree.TraversePreOrder(tree.Root).Select(n => n.Value)));
+            Console.WriteLine("  In: " + string.Join('-', tree.TraverseInOrder(tree.Root).Select(n => n.Value)));
+            Console.WriteLine("Post: " + string.Join('-', tree.TraversePostOrder(tree.Root).Select(n => n.Value)));
+            Console.WriteLine("  BF: " + string.Join('-', tree.TraverseBreadFirst(tree.Root).Select(n => n.Value)));
+            for (int i = 1; i <= 15; i++)
+            {
+                Console.WriteLine("Find " + i + ": " + (tree.Find(i) == null ? "not found" : "found!"));
+            }
+
+            //// Longest common subsequence
+            //LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
+            //string string1 = "ABCDGH";
+            //string string2 = "AEDFHR";
+            //Console.Write("Memoization: ");
+            //Console.WriteLine(longestCommonSubSequenceSolver.Memoization(string1, string2));
+            //Console.Write("Recursion: ");
+            //Console.WriteLine(longestCommonSubSequenceSolver.Recursion(string1, string2));
 
             //// Water jug
             //WaterJug waterJugSolver = new WaterJug();
