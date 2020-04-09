@@ -1,13 +1,16 @@
-﻿namespace Algorithms
+﻿using System;
+
+namespace Algorithms
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            // First duplicate
-            Duplicates firstDuplicate = new Duplicates();
-
+            // Goro want chocolate
+            GoroWantChocolate goroWantChocolateSolver = new GoroWantChocolate();
+            Console.WriteLine(goroWantChocolateSolver.GetMinimalNumberOfSquares(5, 3));
+            
             //// Skynet revolution
             //SkynetGraph skynetGraph = new SkynetGraph();
             //skynetGraph.AddLink(11, 6);
