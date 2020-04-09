@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+// https://www.codingame.com/training/medium/skynet-revolution-episode-1
 public class SkynetGraph
 {
     private HashSet<int> _gateways { get; set; }

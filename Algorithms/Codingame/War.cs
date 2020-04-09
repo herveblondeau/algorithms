@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// https://www.codingame.com/training/medium/winamax-battle
 public class War
 {
     // Returns a tuple:
