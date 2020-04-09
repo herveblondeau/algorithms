@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-public class FirstDuplicate
+public class Duplicates
 {
-    public T Find<T>(T[] elements)
+    public T FindFirstDuplicate<T>(T[] elements)
     {
         HashSet<T> visited = new HashSet<T>();
 

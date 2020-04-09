@@ -6,7 +6,7 @@
         static void Main(string[] args)
         {
             // First duplicate
-            FirstDuplicate firstDuplicate = new FirstDuplicate();
+            Duplicates firstDuplicate = new Duplicates();
 
             //// Skynet revolution
             //SkynetGraph skynetGraph = new SkynetGraph();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace AlgorithmsTests
 {
     [TestClass]
-    public class FirstDuplicateTests
+    public class DuplicatesTests
     {
 
         [TestMethod]
@@ -13,13 +13,13 @@ namespace AlgorithmsTests
         [DataRow(new int[] { 8, 2, 3, 1, 2, 5, 6 }, 2)]
         [DataRow(new int[] { 1, 2, 3, 1, 2, 4, 5, 6 }, 1)]
         [DataRow(new int[] { 1, 2, 2, 3, 3, 4 }, 2)]
-        public void Find_DuplicateInt_PerformsCorrectly(int[] elements, int expected)
+        public void FindFirstDuplicate_DuplicateInt_PerformsCorrectly(int[] elements, int expected)
         {
             // Arrange
-            FirstDuplicate firstDuplicate = new FirstDuplicate();
+            Duplicates firstDuplicate = new Duplicates();
 
             // Act
-            var actual = firstDuplicate.Find(elements);
+            var actual = firstDuplicate.FindFirstDuplicate(elements);
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -30,13 +30,13 @@ namespace AlgorithmsTests
         [DataRow(new int[] { 1, 2, 3, 4, 5, 6 })]
         [DataRow(new int[] { 182, 452, 263, 424, 385, 156 })]
         [ExpectedException(typeof(KeyNotFoundException))]
-        public void Find_NoDuplicateInt_ThrowsException(int[] elements)
+        public void FindFirstDuplicate_NoDuplicateInt_ThrowsException(int[] elements)
         {
             // Arrange
-            FirstDuplicate firstDuplicate = new FirstDuplicate();
+            Duplicates firstDuplicate = new Duplicates();
 
             // Act
-            var actual = firstDuplicate.Find(elements);
+            var actual = firstDuplicate.FindFirstDuplicate(elements);
 
             // Assert
         }
