@@ -7,10 +7,14 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Goro want chocolate
-            GoroWantChocolate goroWantChocolateSolver = new GoroWantChocolate();
-            Console.WriteLine(goroWantChocolateSolver.GetMinimalNumberOfSquares(5, 3));
-            
+            // Robbery optimisation
+            RobberyOptimisation robberyOptimisation = new RobberyOptimisation();
+            Console.WriteLine(robberyOptimisation.GetMaximumAmount(new long[] { 1, 2, 3 }));
+
+            //// Goro want chocolate
+            //GoroWantChocolate goroWantChocolateSolver = new GoroWantChocolate();
+            //Console.WriteLine(goroWantChocolateSolver.GetMinimalNumberOfSquares(5, 3));
+
             //// Skynet revolution
             //SkynetGraph skynetGraph = new SkynetGraph();
             //skynetGraph.AddLink(11, 6);
