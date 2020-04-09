@@ -1,40 +1,41 @@
-﻿using System;
-
-namespace Algorithms
+﻿namespace Algorithms
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            // Skynet revolution
-            SkynetGraph skynetGraph = new SkynetGraph();
-            skynetGraph.AddLink(11, 6);
-            skynetGraph.AddLink(0, 9);
-            skynetGraph.AddLink(1, 2);
-            skynetGraph.AddLink(0, 1);
-            skynetGraph.AddLink(10, 1);
-            skynetGraph.AddLink(11, 5);
-            skynetGraph.AddLink(2, 3);
-            skynetGraph.AddLink(4, 5);
-            skynetGraph.AddLink(8, 9);
-            skynetGraph.AddLink(6, 7);
-            skynetGraph.AddLink(7, 8);
-            skynetGraph.AddLink(0, 6);
-            skynetGraph.AddLink(3, 4);
-            skynetGraph.AddLink(0, 2);
-            skynetGraph.AddLink(11, 7);
-            skynetGraph.AddLink(0, 8);
-            skynetGraph.AddLink(0, 4);
-            skynetGraph.AddLink(9, 10);
-            skynetGraph.AddLink(0, 5);
-            skynetGraph.AddLink(0, 7);
-            skynetGraph.AddLink(0, 3);
-            skynetGraph.AddLink(0, 10);
-            skynetGraph.AddLink(5, 6);
-            skynetGraph.SetGateway(0);
-            (int source, int target) = skynetGraph.FindLinkToCut(11);
-            Console.WriteLine(source + " " + target);
+            // First duplicate
+            FirstDuplicate firstDuplicate = new FirstDuplicate();
+
+            //// Skynet revolution
+            //SkynetGraph skynetGraph = new SkynetGraph();
+            //skynetGraph.AddLink(11, 6);
+            //skynetGraph.AddLink(0, 9);
+            //skynetGraph.AddLink(1, 2);
+            //skynetGraph.AddLink(0, 1);
+            //skynetGraph.AddLink(10, 1);
+            //skynetGraph.AddLink(11, 5);
+            //skynetGraph.AddLink(2, 3);
+            //skynetGraph.AddLink(4, 5);
+            //skynetGraph.AddLink(8, 9);
+            //skynetGraph.AddLink(6, 7);
+            //skynetGraph.AddLink(7, 8);
+            //skynetGraph.AddLink(0, 6);
+            //skynetGraph.AddLink(3, 4);
+            //skynetGraph.AddLink(0, 2);
+            //skynetGraph.AddLink(11, 7);
+            //skynetGraph.AddLink(0, 8);
+            //skynetGraph.AddLink(0, 4);
+            //skynetGraph.AddLink(9, 10);
+            //skynetGraph.AddLink(0, 5);
+            //skynetGraph.AddLink(0, 7);
+            //skynetGraph.AddLink(0, 3);
+            //skynetGraph.AddLink(0, 10);
+            //skynetGraph.AddLink(5, 6);
+            //skynetGraph.SetGateway(0);
+            //(int source, int target) = skynetGraph.FindLinkToCut(11);
+            //Console.WriteLine(source + " " + target);
 
             //// Binary search tree
             ////      4
