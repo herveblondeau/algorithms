@@ -7,9 +7,15 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Robbery optimisation
-            RobberyOptimisation robberyOptimisation = new RobberyOptimisation();
-            Console.WriteLine(robberyOptimisation.GetMaximumAmount(new long[] { 1, 2, 3 }));
+            // 3-N tiling
+            ThreeNTiling threeNTiling = new ThreeNTiling();
+            int width = 136;
+            Console.WriteLine("Width " + width);
+            Console.WriteLine(threeNTiling.GetNumberOfValidLayouts(width, 3));
+
+            //// Robbery optimisation
+            //RobberyOptimisation robberyOptimisation = new RobberyOptimisation();
+            //Console.WriteLine(robberyOptimisation.GetMaximumAmount(new long[] { 1, 2, 3 }));
 
             //// Goro want chocolate
             //GoroWantChocolate goroWantChocolateSolver = new GoroWantChocolate();
