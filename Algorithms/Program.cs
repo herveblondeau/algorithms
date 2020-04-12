@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using TrafficLights;
 
 namespace Algorithms
 {
@@ -7,11 +9,22 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // 3-N tiling
-            ThreeNTiling threeNTiling = new ThreeNTiling();
-            int width = 136;
-            Console.WriteLine("Width " + width);
-            Console.WriteLine(threeNTiling.GetNumberOfValidLayouts(width, 3));
+            // Speed calculator
+            SpeedCalculator speedCalculator = new SpeedCalculator();
+            Console.WriteLine(speedCalculator.FindMaxPossibleSpeed(50, new TrafficLight[]
+            {
+                new TrafficLight
+                {
+                    Distance = 200,
+                    Duration = 15,
+                },
+            }));
+
+            //// 3-N tiling
+            //ThreeNTiling threeNTiling = new ThreeNTiling();
+            //int width = 136;
+            //Console.WriteLine("Width " + width);
+            //Console.WriteLine(threeNTiling.GetNumberOfValidLayouts(width, 3));
 
             //// Robbery optimisation
             //RobberyOptimisation robberyOptimisation = new RobberyOptimisation();
