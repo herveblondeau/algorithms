@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TrafficLights;
+using TelephoneNumbers;
 
 namespace Algorithms
 {
@@ -9,16 +9,20 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Speed calculator
-            SpeedCalculator speedCalculator = new SpeedCalculator();
-            Console.WriteLine(speedCalculator.FindMaxPossibleSpeed(50, new TrafficLight[]
-            {
-                new TrafficLight
-                {
-                    Distance = 200,
-                    Duration = 15,
-                },
-            }));
+            // Telephone numbers
+            TelephoneNumbersSolver telephoneNumbersSolver = new TelephoneNumbersSolver();
+            Console.WriteLine(telephoneNumbersSolver.GetNumberOfRequiredNodes(new string[] { "0467123456" }));
+
+            //// Speed calculator
+            //SpeedCalculator speedCalculator = new SpeedCalculator();
+            //Console.WriteLine(speedCalculator.FindMaxPossibleSpeed(50, new TrafficLight[]
+            //{
+            //    new TrafficLight
+            //    {
+            //        Distance = 200,
+            //        Duration = 15,
+            //    },
+            //}));
 
             //// 3-N tiling
             //ThreeNTiling threeNTiling = new ThreeNTiling();
