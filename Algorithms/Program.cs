@@ -11,23 +11,47 @@ namespace Algorithms
         static void Main(string[] args)
         {
             // Bender
-            string[] rows = new string[]
-            {
-                "######",
-                "#@E $#",
-                "# N  #",
-                "#X   #",
-                "######",
+            string[] rows = new string[] {
+                "###############",
+                "#  #@#I  T$#  #",
+                "#  #    IB #  #",
+                "#  #     W #  #",
+                "#  #      ##  #",
+                "#  #B XBN# #  #",
+                "#  ##      #  #",
+                "#  #       #  #",
+                "#  #     W #  #",
+                "#  #      ##  #",
+                "#  #B XBN# #  #",
+                "#  ##      #  #",
+                "#  #       #  #",
+                "#  #     W #  #",
+                "#  #      ##  #",
+                "#  #B XBN# #  #",
+                "#  ##      #  #",
+                "#  #       #  #",
+                "#  #       #  #",
+                "#  #      ##  #",
+                "#  #  XBIT #  #",
+                "#  #########  #",
+                "#             #",
+                "# ##### ##### #",
+                "# #     #     #",
+                "# #     #  ## #",
+                "# #     #   # #",
+                "# ##### ##### #",
+                "#             #",
+                "###############",
             };
             Bender bender = new Bender();
-            var directions = bender.Traverse(rows);
-            if (bender.IsStuckInInfiniteLoop())
+            var result = bender.Traverse(rows);
+            if (result.IsStuckInInfiniteLoop)
             {
                 Console.WriteLine("LOOP");
             }
             else
             {
-                foreach (var direction in directions)
+                foreach (var direction in result.Path)
                 {
                     Console.WriteLine(direction);
                 }

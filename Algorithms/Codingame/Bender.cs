@@ -13,26 +13,36 @@ namespace BenderRobot
 
         // State
         private State _state { get; set; }
+        private HashSet<Snapshot> _history { get; set; }
+        private bool _isStuckInInfiniteLoop { get; set; }
 
-        public string[] Traverse(string[] rows)
+        public BenderResult Traverse(string[] rows)
         {
-            _map = ToMap(rows);
+            _map = Map.Parse(rows);
             _state = new State();
+            _history = new HashSet<Snapshot>();
+            _isStuckInInfiniteLoop = false;
             List<Direction> _path = new List<Direction>();
 
             _state.SetPosition(_map.StartPosition);
+            int n = 0;
             while (_canMove())
             {
                 _updateState();
+                _saveSnapshot();
                 _path.Add(_move());
             }
 
-            return _path.Select(d => d.ToString().ToUpper()).ToArray();
+            return new BenderResult
+            {
+                IsStuckInInfiniteLoop = _isStuckInInfiniteLoop,
+                Path = _path.Select(d => d.ToString().ToUpper()).ToArray(),
+            };
         }
 
         private bool _canMove()
         {
-            return !_isOnSuicideBooth() && !IsStuckInInfiniteLoop(); 
+            return !_isOnSuicideBooth() && !_isStuckInInfiniteLoop;
         }
 
         private bool _isOnSuicideBooth()
@@ -40,11 +50,6 @@ namespace BenderRobot
             // Codingame doesn't handle tuple comparisons, so we need to compare both elements individually
             return _state.Position.Item1 == _map.SuicideBoothPosition.Item1
                 && _state.Position.Item2 == _map.SuicideBoothPosition.Item2;
-        }
-
-        public bool IsStuckInInfiniteLoop()
-        {
-            return false;
         }
 
         private void _updateState()
@@ -96,6 +101,26 @@ namespace BenderRobot
             {
                 _state.ChangeDirection(isFirstDirectionChange);
                 isFirstDirectionChange = false;
+            }
+        }
+
+        private void _saveSnapshot()
+        {
+            Snapshot snapshot = new Snapshot
+            {
+                Position = _state.Position,
+                Direction = _state.Direction,
+                NbObstacles = _map.NbObstacles,
+                BreakerMode = _state.BreakerMode,
+                ArePrioritiesInverted = _state.ArePrioritiesInverted,
+            };
+            if (_history.Contains(snapshot))
+            {
+                _isStuckInInfiniteLoop = true;
+            }
+            else
+            {
+                _history.Add(snapshot);
             }
         }
 
@@ -155,94 +180,98 @@ namespace BenderRobot
             return _state.Direction;
         }
 
-        private static Map ToMap(string[] rows)
-        {
-            Map map = new Map();
-            int nbTeleporters = 0;
-
-            Dictionary<(int, int), Spot> spots = new Dictionary<(int, int), Spot>();
-
-            for (int i = 0; i < rows[0].Length; i++)
-            {
-                for (int j = 0; j < rows.Length; j++)
-                {
-                    switch (rows[j][i])
-                    {
-                        case '@':
-                            spots.Add((i, j), Spot.Start);
-                            map.StartPosition = (i, j);
-                            break;
-
-                        case '$':
-                            spots.Add((i, j), Spot.SuicideBooth);
-                            map.SuicideBoothPosition = (i, j);
-                            break;
-
-                        case ' ':
-                            spots.Add((i, j), Spot.Empty);
-                            break;
-
-                        case '#':
-                            spots.Add((i, j), Spot.Wall);
-                            break;
-
-                        case 'X':
-                            spots.Add((i, j), Spot.Obstacle);
-                            break;
-
-                        case 'T':
-                            spots.Add((i, j), Spot.Teleporter);
-                            if (nbTeleporters++ == 0) map.Teleporter1Position = (i, j);
-                            else map.Teleporter2Position = (i, j);
-                            break;
-
-                        case 'I':
-                            spots.Add((i, j), Spot.Inverter);
-                            break;
-
-                        case 'S':
-                            spots.Add((i, j), Spot.SouthModifier);
-                            break;
-
-                        case 'E':
-                            spots.Add((i, j), Spot.EastModifier);
-                            break;
-
-                        case 'N':
-                            spots.Add((i, j), Spot.NorthModifier);
-                            break;
-
-                        case 'W':
-                            spots.Add((i, j), Spot.WestModifier);
-                            break;
-
-                        case 'B':
-                            spots.Add((i, j), Spot.Beer);
-                            break;
-
-                    }
-                }
-            }
-
-            map.Spots = spots;
-
-            return map;
-        }
-
         private class Map
         {
-            public Dictionary<(int, int), Spot> Spots { get; set; }
-            public (int, int) StartPosition { get; set; }
-            public (int, int) SuicideBoothPosition { get; set; }
-            public (int, int) Teleporter1Position { get; set; }
-            public (int, int) Teleporter2Position { get; set; }
+            public Dictionary<(int, int), Spot> Spots { get; private set; }
+            public (int, int) StartPosition { get; private set; }
+            public (int, int) SuicideBoothPosition { get; private set; }
+            public (int, int) Teleporter1Position { get; private set; }
+            public (int, int) Teleporter2Position { get; private set; }
+            public int NbObstacles { get; private set; }
 
             public void DestroyObstacle((int, int) position)
             {
                 if (Spots.ContainsKey(position) && Spots[position] == Spot.Obstacle)
                 {
                     Spots[position] = Spot.Empty;
+                    NbObstacles--;
                 }
+            }
+
+            public static Map Parse(string[] rows)
+            {
+                Map map = new Map();
+                int nbTeleporters = 0;
+                map.NbObstacles = 0;
+
+                Dictionary<(int, int), Spot> spots = new Dictionary<(int, int), Spot>();
+
+                for (int i = 0; i < rows[0].Length; i++)
+                {
+                    for (int j = 0; j < rows.Length; j++)
+                    {
+                        switch (rows[j][i])
+                        {
+                            case '@':
+                                spots.Add((i, j), Spot.Start);
+                                map.StartPosition = (i, j);
+                                break;
+
+                            case '$':
+                                spots.Add((i, j), Spot.SuicideBooth);
+                                map.SuicideBoothPosition = (i, j);
+                                break;
+
+                            case ' ':
+                                spots.Add((i, j), Spot.Empty);
+                                break;
+
+                            case '#':
+                                spots.Add((i, j), Spot.Wall);
+                                break;
+
+                            case 'X':
+                                spots.Add((i, j), Spot.Obstacle);
+                                map.NbObstacles++;
+                                break;
+
+                            case 'T':
+                                spots.Add((i, j), Spot.Teleporter);
+                                if (nbTeleporters++ == 0) map.Teleporter1Position = (i, j);
+                                else map.Teleporter2Position = (i, j);
+                                break;
+
+                            case 'I':
+                                spots.Add((i, j), Spot.Inverter);
+                                break;
+
+                            case 'S':
+                                spots.Add((i, j), Spot.SouthModifier);
+                                break;
+
+                            case 'E':
+                                spots.Add((i, j), Spot.EastModifier);
+                                break;
+
+                            case 'N':
+                                spots.Add((i, j), Spot.NorthModifier);
+                                break;
+
+                            case 'W':
+                                spots.Add((i, j), Spot.WestModifier);
+                                break;
+
+                            case 'B':
+                                spots.Add((i, j), Spot.Beer);
+                                break;
+
+                        }
+                    }
+                }
+
+                map.Spots = spots;
+
+                return map;
             }
         }
 
@@ -268,6 +297,7 @@ namespace BenderRobot
             public Direction Direction { get; private set; }
             public Direction[] DirectionChangePriorities { get; set; }
             public bool BreakerMode { get; private set; }
+            public bool ArePrioritiesInverted { get; private set; }
 
             private int _currentDirectionIndex;
             private readonly Direction[] NormalPriorities = new Direction[] { Direction.South, Direction.East, Direction.North, Direction.West };
@@ -302,7 +332,8 @@ namespace BenderRobot
 
             public void ToggleDirectionPriorities()
             {
-                if (DirectionChangePriorities == NormalPriorities) DirectionChangePriorities = InvertedPriorities;
+                ArePrioritiesInverted = !ArePrioritiesInverted;
+                if (ArePrioritiesInverted) DirectionChangePriorities = InvertedPriorities;
                 else DirectionChangePriorities = NormalPriorities;
             }
 
@@ -320,6 +351,53 @@ namespace BenderRobot
             West,
         }
 
+        private class Snapshot
+        {
+            public (int, int) Position { get; set; }
+            public Direction Direction { get; set; }
+            public int NbObstacles { get; set; }
+            public bool BreakerMode { get; set; }
+            public bool ArePrioritiesInverted { get; set; }
+
+            public override bool Equals(object obj)
+            {
+                return GetHashCode() == ((Snapshot)obj).GetHashCode();
+            }
+
+            public override int GetHashCode()
+            {
+                int hashCode = 1000000 * Position.Item1 + 10000 * Position.Item2 + 100 * NbObstacles;
+                switch (Direction)
+                {
+                    case Direction.South:
+                        hashCode += 12;
+                        break;
+
+                    case Direction.East:
+                        hashCode += 8;
+                        break;
+
+                    case Direction.North:
+                        hashCode += 4;
+                        break;
+
+                    case Direction.West:
+                    default:
+                        break;
+
+                }
+
+                if (BreakerMode) hashCode += 2;
+                if (ArePrioritiesInverted) hashCode += 1;
+
+                return hashCode;
+            }
+        }
     }
 
+    public class BenderResult
+    {
+        public bool IsStuckInInfiniteLoop { get; set; }
+        public string[] Path { get; set; }
+    }
 }
