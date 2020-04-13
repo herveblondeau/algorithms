@@ -1,6 +1,7 @@
 ﻿using BenderRobot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TelephoneNumbers;
 
 namespace Algorithms
@@ -10,10 +11,17 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Conway sequence
-            ConwaySequence conwaySequence = new ConwaySequence();
-            var nthLine = conwaySequence.GetNthLine(1, 6);
-            Console.WriteLine(string.Join(" ", nthLine));
+            // Network cabling
+            long[] xPositions = new long[] { -5, -9, 3 };
+            long[] yPositions = new long[] { -3, 2, -4 };
+            NetworkCabling networkCabling = new NetworkCabling();
+            var length = networkCabling.GetMinimumCableLength(xPositions, yPositions);
+            Console.WriteLine(length);
+
+            //// Conway sequence
+            //ConwaySequence conwaySequence = new ConwaySequence();
+            //var nthLine = conwaySequence.GetNthLine(1, 6);
+            //Console.WriteLine(string.Join(" ", nthLine));
 
             //// Bender
             //string[] rows = new string[] {

@@ -13,7 +13,6 @@ namespace AlgorithmsTests
         [DataRow(new string[] { "after", "repots", "poowers", "powers", "these", "time", "know", "from", "could", "people" }, "tsropwe", "powers")]
         [DataRow(new string[] { "qzyoq", "azejuy", "kqjsdh", "aeiou", "qsjkdh" }, "qzaeiou", "aeiou")]
         [DataRow(new string[] { "arrest", "rarest", "raster", "raters", "sartre", "starer", "waster", "waters", "wrest", "wrase" }, "arwtsre", "waster")]
-        //[DataRow(new string[] , "", "")]
         public void FindBestWord_WhenCalled_PerformsCorrectly(string[] words, string letters, string expected)
         {
             // Arrange
