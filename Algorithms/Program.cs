@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenderRobot;
+using System;
 using System.Collections.Generic;
 using TelephoneNumbers;
 
@@ -9,9 +10,32 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Telephone numbers
-            TelephoneNumbersSolver telephoneNumbersSolver = new TelephoneNumbersSolver();
-            Console.WriteLine(telephoneNumbersSolver.GetNumberOfRequiredNodes(new string[] { "0467123456" }));
+            // Bender
+            string[] rows = new string[]
+            {
+                "######",
+                "#@E $#",
+                "# N  #",
+                "#X   #",
+                "######",
+            };
+            Bender bender = new Bender();
+            var directions = bender.Traverse(rows);
+            if (bender.IsStuckInInfiniteLoop())
+            {
+                Console.WriteLine("LOOP");
+            }
+            else
+            {
+                foreach (var direction in directions)
+                {
+                    Console.WriteLine(direction);
+                }
+            }
+
+            //// Telephone numbers
+            //TelephoneNumbersSolver telephoneNumbersSolver = new TelephoneNumbersSolver();
+            //Console.WriteLine(telephoneNumbersSolver.GetNumberOfRequiredNodes(new string[] { "0467123456" }));
 
             //// Speed calculator
             //SpeedCalculator speedCalculator = new SpeedCalculator();
