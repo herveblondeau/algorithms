@@ -10,52 +10,57 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Bender
-            string[] rows = new string[] {
-                "###############",
-                "#  #@#I  T$#  #",
-                "#  #    IB #  #",
-                "#  #     W #  #",
-                "#  #      ##  #",
-                "#  #B XBN# #  #",
-                "#  ##      #  #",
-                "#  #       #  #",
-                "#  #     W #  #",
-                "#  #      ##  #",
-                "#  #B XBN# #  #",
-                "#  ##      #  #",
-                "#  #       #  #",
-                "#  #     W #  #",
-                "#  #      ##  #",
-                "#  #B XBN# #  #",
-                "#  ##      #  #",
-                "#  #       #  #",
-                "#  #       #  #",
-                "#  #      ##  #",
-                "#  #  XBIT #  #",
-                "#  #########  #",
-                "#             #",
-                "# ##### ##### #",
-                "# #     #     #",
-                "# #     #  ## #",
-                "# #     #   # #",
-                "# ##### ##### #",
-                "#             #",
-                "###############",
-            };
-            Bender bender = new Bender();
-            var result = bender.Traverse(rows);
-            if (result.IsStuckInInfiniteLoop)
-            {
-                Console.WriteLine("LOOP");
-            }
-            else
-            {
-                foreach (var direction in result.Path)
-                {
-                    Console.WriteLine(direction);
-                }
-            }
+            // Conway sequence
+            ConwaySequence conwaySequence = new ConwaySequence();
+            var nthLine = conwaySequence.GetNthLine(1, 6);
+            Console.WriteLine(string.Join(" ", nthLine));
+
+            //// Bender
+            //string[] rows = new string[] {
+            //    "###############",
+            //    "#  #@#I  T$#  #",
+            //    "#  #    IB #  #",
+            //    "#  #     W #  #",
+            //    "#  #      ##  #",
+            //    "#  #B XBN# #  #",
+            //    "#  ##      #  #",
+            //    "#  #       #  #",
+            //    "#  #     W #  #",
+            //    "#  #      ##  #",
+            //    "#  #B XBN# #  #",
+            //    "#  ##      #  #",
+            //    "#  #       #  #",
+            //    "#  #     W #  #",
+            //    "#  #      ##  #",
+            //    "#  #B XBN# #  #",
+            //    "#  ##      #  #",
+            //    "#  #       #  #",
+            //    "#  #       #  #",
+            //    "#  #      ##  #",
+            //    "#  #  XBIT #  #",
+            //    "#  #########  #",
+            //    "#             #",
+            //    "# ##### ##### #",
+            //    "# #     #     #",
+            //    "# #     #  ## #",
+            //    "# #     #   # #",
+            //    "# ##### ##### #",
+            //    "#             #",
+            //    "###############",
+            //};
+            //Bender bender = new Bender();
+            //var result = bender.Traverse(rows);
+            //if (result.IsStuckInInfiniteLoop)
+            //{
+            //    Console.WriteLine("LOOP");
+            //}
+            //else
+            //{
+            //    foreach (var direction in result.Path)
+            //    {
+            //        Console.WriteLine(direction);
+            //    }
+            //}
 
             //// Telephone numbers
             //TelephoneNumbersSolver telephoneNumbersSolver = new TelephoneNumbersSolver();
