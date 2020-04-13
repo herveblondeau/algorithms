@@ -1,4 +1,5 @@
 ﻿using BenderRobot;
+using Codingame.TheGift;
 using IndianaJones;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,22 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // The last crusade
-            int[,] rooms = new int[2, 4]
-            {
-                { 4, 12, 11, 2 },
-                { 3, 10, 5, 3 },
-            };
-            TheLastCrusade theLastCrusade = new TheLastCrusade(rooms);
-            Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, "TOP"));
-            Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, "TOP"));
+            // The gift
+            TheGift theGift = new TheGift();
+            int[] budgets = new int[] { 100, 1, 60 };
+            var result = theGift.ComputeContributions(budgets, 100);
+            Console.WriteLine(result.IsSolvable);
+            Console.WriteLine(string.Join('-', result.Contributions));
+
+            //// The last crusade
+            //int[,] rooms = new int[2, 4]
+            //{
+            //    { 4, 12, 11, 2 },
+            //    { 3, 10, 5, 3 },
+            //};
+            //TheLastCrusade theLastCrusade = new TheLastCrusade(rooms);
+            //Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, "TOP"));
+            //Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, "TOP"));
 
             //// Network cabling
             //long[] xPositions = new long[] { -5, -9, 3 };

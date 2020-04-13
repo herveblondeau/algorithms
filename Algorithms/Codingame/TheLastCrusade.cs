@@ -1,4 +1,4 @@
-﻿// 
+﻿// https://www.codingame.com/training/medium/the-last-crusade-episode-1
 
 using System;
 using System.Collections.Generic;
