@@ -1,8 +1,10 @@
 ﻿using BenderRobot;
+using IndianaJones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using TelephoneNumbers;
+using static IndianaJones.TheLastCrusade;
 
 namespace Algorithms
 {
@@ -11,12 +13,22 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Network cabling
-            long[] xPositions = new long[] { -5, -9, 3 };
-            long[] yPositions = new long[] { -3, 2, -4 };
-            NetworkCabling networkCabling = new NetworkCabling();
-            var length = networkCabling.GetMinimumCableLength(xPositions, yPositions);
-            Console.WriteLine(length);
+            // The last crusade
+            IRoom[,] rooms = new IRoom[2, 4]
+            {
+                { ToRoom(4), ToRoom(12), ToRoom(11), ToRoom(2) },
+                { ToRoom(3), ToRoom(10), ToRoom(5), ToRoom(3) },
+            };
+            TheLastCrusade theLastCrusade = new TheLastCrusade(rooms);
+            Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, ToSide("top")));
+            Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, Side.Top));
+
+            //// Network cabling
+            //long[] xPositions = new long[] { -5, -9, 3 };
+            //long[] yPositions = new long[] { -3, 2, -4 };
+            //NetworkCabling networkCabling = new NetworkCabling();
+            //var length = networkCabling.GetMinimumCableLength(xPositions, yPositions);
+            //Console.WriteLine(length);
 
             //// Conway sequence
             //ConwaySequence conwaySequence = new ConwaySequence();
