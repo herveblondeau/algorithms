@@ -14,14 +14,14 @@ namespace Algorithms
         static void Main(string[] args)
         {
             // The last crusade
-            IRoom[,] rooms = new IRoom[2, 4]
+            int[,] rooms = new int[2, 4]
             {
-                { ToRoom(4), ToRoom(12), ToRoom(11), ToRoom(2) },
-                { ToRoom(3), ToRoom(10), ToRoom(5), ToRoom(3) },
+                { 4, 12, 11, 2 },
+                { 3, 10, 5, 3 },
             };
             TheLastCrusade theLastCrusade = new TheLastCrusade(rooms);
-            Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, ToSide("top")));
-            Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, Side.Top));
+            Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, "TOP"));
+            Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, "TOP"));
 
             //// Network cabling
             //long[] xPositions = new long[] { -5, -9, 3 };
