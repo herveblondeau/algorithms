@@ -1,11 +1,5 @@
-﻿using BenderRobot;
-using Codingame.TheGift;
-using IndianaJones;
+﻿using CodinGame.StockExchangeLosses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using TelephoneNumbers;
-using static IndianaJones.TheLastCrusade;
 
 namespace Algorithms
 {
@@ -14,12 +8,16 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // The gift
-            TheGift theGift = new TheGift();
-            int[] budgets = new int[] { 100, 1, 60 };
-            var result = theGift.ComputeContributions(budgets, 100);
-            Console.WriteLine(result.IsSolvable);
-            Console.WriteLine(string.Join('-', result.Contributions));
+            // Stock exchange losses
+            StockExchangeLosses stockExchangeLosses = new StockExchangeLosses();
+            Console.WriteLine(stockExchangeLosses.FindMaxPossibleLoss(new int[] { 5, 3, 4, 2, 3, 1 }));
+
+            //// The gift
+            //TheGift theGift = new TheGift();
+            //int[] budgets = new int[] { 100, 1, 60 };
+            //var result = theGift.ComputeContributions(budgets, 100);
+            //Console.WriteLine(result.IsSolvable);
+            //Console.WriteLine(string.Join('-', result.Contributions));
 
             //// The last crusade
             //int[,] rooms = new int[2, 4]
