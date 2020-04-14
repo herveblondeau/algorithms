@@ -1,7 +1,6 @@
 ﻿// 
 
 using System;
-using System.Collections.Generic;
 
 namespace TrafficLights
 {
@@ -15,11 +14,7 @@ namespace TrafficLights
                 bool crossesAllLights = true;
                 for (int j = 0; j < trafficLights.Length; j++)
                 {
-                    if (currentSpeed == 60 && !_canCross(currentSpeed, trafficLights[j].Distance, trafficLights[j].Duration))
-                    {
-
-                    }
-                    if (!_canCross(currentSpeed, trafficLights[j].Distance, trafficLights[j].Duration))
+                    if (!_canCross(currentSpeed, trafficLights[j]))
                     {
                         crossesAllLights = false;
                         break;
@@ -36,10 +31,10 @@ namespace TrafficLights
             return maxSpeed;
         }
 
-        private bool _canCross(int speed, int distance, int duration)
+        private bool _canCross(int speed, TrafficLight trafficLight)
         {
-            double timeToTrafficLight = distance * 3.6 / speed; // 3.6 for km/h to m/s conversion
-            double phase = timeToTrafficLight / duration;
+            double timeToTrafficLight = trafficLight.Distance * 3.6 / speed; // 3.6 for km/h to m/s conversion
+            double phase = timeToTrafficLight / trafficLight.Duration;
             return Math.Floor(phase) % 2 == 0;
         }
     }
