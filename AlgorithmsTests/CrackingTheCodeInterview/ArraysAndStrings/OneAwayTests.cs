@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CrackingTheCodeInterview.OneAway
+namespace CrackingTheCodeInterview.ArraysAndStrings.OneAway
 {
     [TestClass]
     public class OneAwayTests

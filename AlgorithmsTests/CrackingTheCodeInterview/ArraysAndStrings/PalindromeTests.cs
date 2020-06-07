@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CrackingTheCodeInterview.Palindrome
+namespace CrackingTheCodeInterview.ArraysAndStrings.Palindrome
 {
     [TestClass]
     public class PalindromeTests

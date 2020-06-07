@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CrackingTheCodeInterview.StringCompression
+namespace CrackingTheCodeInterview.ArraysAndStrings.StringCompression
 {
     [TestClass]
     public class StringCompressionTests
