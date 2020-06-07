@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace AlgorithmsTests
+namespace Codingame.NetworkCabling
 {
     [TestClass]
     public class NetworkCablingTests

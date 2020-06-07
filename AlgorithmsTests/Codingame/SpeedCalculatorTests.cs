@@ -1,8 +1,8 @@
+using Codingame.SpeedCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using TrafficLights;
 
-namespace AlgorithmsTests
+namespace Codingame.SpeedCalculator
 {
     [TestClass]
     public class SpeedCalculatorTests

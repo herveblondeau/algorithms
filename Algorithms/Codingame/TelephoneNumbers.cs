@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TelephoneNumbers
+namespace Codingame.TelephoneNumbersSolver
 {
     public class TelephoneNumbersSolver
     {

@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace Codingame.RobberyOptimisation
 {
     [TestClass]
     public class RobberyOptimisationTests

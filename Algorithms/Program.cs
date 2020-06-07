@@ -1,4 +1,4 @@
-﻿using CodinGame.StockExchangeLosses;
+﻿using Codingame.StockExchangeLosses;
 using System;
 
 namespace Algorithms

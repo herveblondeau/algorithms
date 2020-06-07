@@ -1,88 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// https://www.codingame.com/training/medium/winamax-battle
-public class War
+namespace Codingame.War
 {
-    // Returns a tuple:
-    // - winner: 0 if PAT, player number otherwise
-    // - number of rounds played
-    public (int, int) Play(Queue<int> p1Deck, Queue<int> p2Deck)
+    // https://www.codingame.com/training/medium/winamax-battle
+    public class War
     {
-        int nbRounds = 0;
-        bool isWar = false;
-
-        // Keep track of the cards at stake, dealt by each player during a fight (battle or war)
-        Queue<int> p1FightCards = new Queue<int>();
-        Queue<int> p2FightCards = new Queue<int>();
-
-        while (true)
+        // Returns a tuple:
+        // - winner: 0 if PAT, player number otherwise
+        // - number of rounds played
+        public (int, int) Play(Queue<int> p1Deck, Queue<int> p2Deck)
         {
-            // War
-            if (isWar)
+            int nbRounds = 0;
+            bool isWar = false;
+
+            // Keep track of the cards at stake, dealt by each player during a fight (battle or war)
+            Queue<int> p1FightCards = new Queue<int>();
+            Queue<int> p2FightCards = new Queue<int>();
+
+            while (true)
             {
-                // Run out of cards during a war => PAT
-                if (p1Deck.Count < 4 || p2Deck.Count < 4)
+                // War
+                if (isWar)
                 {
-                    return (0, nbRounds);
+                    // Run out of cards during a war => PAT
+                    if (p1Deck.Count < 4 || p2Deck.Count < 4)
+                    {
+                        return (0, nbRounds);
+                    }
+
+                    // Deal 3 cards into the war pile
+                    for (int i = 0; i < 3; i++)
+                    {
+                        p1FightCards.Enqueue(p1Deck.Dequeue());
+                        p2FightCards.Enqueue(p2Deck.Dequeue());
+                    }
+                }
+                // Battle
+                else
+                {
+                    // Run out of cards during a battle => other player's victory
+                    if (p1Deck.Count == 0)
+                    {
+                        return (2, nbRounds);
+                    }
+                    else if (p2Deck.Count == 0)
+                    {
+                        return (1, nbRounds);
+                    }
+
+                    // 
+                    nbRounds++;
                 }
 
-                // Deal 3 cards into the war pile
-                for (int i = 0; i < 3; i++)
+                // Compare each player's next card
+                int p1Card = p1Deck.Dequeue();
+                int p2Card = p2Deck.Dequeue();
+                p1FightCards.Enqueue(p1Card);
+                p2FightCards.Enqueue(p2Card);
+                if (p1Card > p2Card)
                 {
-                    p1FightCards.Enqueue(p1Deck.Dequeue());
-                    p2FightCards.Enqueue(p2Deck.Dequeue());
+                    isWar = false;
+                    p1Deck.Enqueue(p1FightCards);
+                    p1Deck.Enqueue(p2FightCards);
                 }
-            }
-            // Battle
-            else
-            {
-                // Run out of cards during a battle => other player's victory
-                if (p1Deck.Count == 0)
+                else if (p2Card > p1Card)
                 {
-                    return (2, nbRounds);
+                    isWar = false;
+                    p2Deck.Enqueue(p1FightCards);
+                    p2Deck.Enqueue(p2FightCards);
                 }
-                else if (p2Deck.Count == 0)
+                else
                 {
-                    return (1, nbRounds);
+                    isWar = true;
                 }
-
-                // 
-                nbRounds++;
-            }
-
-            // Compare each player's next card
-            int p1Card = p1Deck.Dequeue();
-            int p2Card = p2Deck.Dequeue();
-            p1FightCards.Enqueue(p1Card);
-            p2FightCards.Enqueue(p2Card);
-            if (p1Card > p2Card)
-            {
-                isWar = false;
-                p1Deck.Enqueue(p1FightCards);
-                p1Deck.Enqueue(p2FightCards);
-            }
-            else if (p2Card > p1Card)
-            {
-                isWar = false;
-                p2Deck.Enqueue(p1FightCards);
-                p2Deck.Enqueue(p2FightCards);
-            }
-            else
-            {
-                isWar = true;
             }
         }
     }
-}
 
-public static class QueueExtensions
-{
-    public static void Enqueue(this Queue<int> initial, Queue<int> extension)
+    public static class QueueExtensions
     {
-        while (extension.Count > 0)
+        public static void Enqueue(this Queue<int> initial, Queue<int> extension)
         {
-            initial.Enqueue(extension.Dequeue());
+            while (extension.Count > 0)
+            {
+                initial.Enqueue(extension.Dequeue());
+            }
         }
     }
 }

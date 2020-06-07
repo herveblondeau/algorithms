@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
-namespace AlgorithmsTests
+namespace Codingame.ConwaySequence
 {
     [TestClass]
     public class ConwaySequenceTests

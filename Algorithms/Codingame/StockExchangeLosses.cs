@@ -2,7 +2,7 @@
 
 using System;
 
-namespace CodinGame.StockExchangeLosses
+namespace Codingame.StockExchangeLosses
 {
     public class StockExchangeLosses
     {

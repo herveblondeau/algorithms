@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IndianaJones
+namespace Codingame.TheLastCrusade
 {
     public class TheLastCrusade
     {

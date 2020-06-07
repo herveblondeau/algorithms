@@ -1,7 +1,6 @@
-using BenderRobot;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace Codingame.Bender
 {
     [TestClass]
     public class BenderTests

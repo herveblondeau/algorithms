@@ -2,7 +2,7 @@ using Codingame.TheGift;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace AlgorithmsTests
+namespace Codingame.TheGift
 {
     [TestClass]
     public class TheGiftTests

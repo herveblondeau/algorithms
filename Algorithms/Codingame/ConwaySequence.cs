@@ -2,40 +2,44 @@
 
 using System.Collections.Generic;
 
-public class ConwaySequence
+namespace Codingame.ConwaySequence
 {
-
-    public List<int> GetNthLine(int number, int n)
+    public class ConwaySequence
     {
-        List<int> previousLine = new List<int> { number };
-        List<int> currentLine = new List<int>() { number };
 
-        int lastValue;
-        int lastQuantity;
-        while (n-->1)
+        public List<int> GetNthLine(int number, int n)
         {
-            currentLine = new List<int>();
+            List<int> previousLine = new List<int> { number };
+            List<int> currentLine = new List<int>() { number };
 
-            lastValue = previousLine[0];
-            lastQuantity = 0;
-            foreach (var value in previousLine)
+            int lastValue;
+            int lastQuantity;
+            while (n-- > 1)
             {
-                if (value == lastValue) lastQuantity++;
-                else
-                {
-                    currentLine.Add(lastQuantity);
-                    currentLine.Add(lastValue);
-                    lastValue = value;
-                    lastQuantity = 1;
-                }
-            }
-            currentLine.Add(lastQuantity);
-            currentLine.Add(lastValue);
+                currentLine = new List<int>();
 
-            previousLine = currentLine;
+                lastValue = previousLine[0];
+                lastQuantity = 0;
+                foreach (var value in previousLine)
+                {
+                    if (value == lastValue)
+                        lastQuantity++;
+                    else
+                    {
+                        currentLine.Add(lastQuantity);
+                        currentLine.Add(lastValue);
+                        lastValue = value;
+                        lastQuantity = 1;
+                    }
+                }
+                currentLine.Add(lastQuantity);
+                currentLine.Add(lastValue);
+
+                previousLine = currentLine;
+            }
+
+            return currentLine;
         }
 
-        return currentLine;
     }
-
 }

@@ -1,7 +1,6 @@
-using CodinGame.StockExchangeLosses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace Codingame.StockExchangeLosses
 {
     [TestClass]
     public class StockExchangeLossesTests

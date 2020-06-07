@@ -1,8 +1,7 @@
-using Algorithms.ByTheme;
-using BenderRobot;
+using Algorithms.CrackingTheCodeInterview;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace AlgorithmsTests.CrackingTheCodeInterview
 {
     [TestClass]
     public class OneAwayTests

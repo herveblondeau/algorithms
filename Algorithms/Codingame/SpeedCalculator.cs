@@ -2,7 +2,7 @@
 
 using System;
 
-namespace TrafficLights
+namespace Codingame.SpeedCalculator
 {
     public class SpeedCalculator
     {

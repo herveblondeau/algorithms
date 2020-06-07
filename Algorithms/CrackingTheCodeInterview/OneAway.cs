@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Algorithms.ByTheme
+namespace Algorithms.CrackingTheCodeInterview
 {
     public class OneAway
     {

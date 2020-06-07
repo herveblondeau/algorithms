@@ -2,73 +2,75 @@
 
 using System.Collections.Generic;
 
-public class Scrabble
+namespace Codingame.Scrabble
 {
-
-    public string FindBestWord(string[] words, string letters)
+    public class Scrabble
     {
-        string bestWord = string.Empty;
-        int bestScore = 0;
 
-        int currentScore;
-        for (int i = 0; i < words.Length; i++)
+        public string FindBestWord(string[] words, string letters)
         {
-            if (_isPlayable(words[i], letters))
+            string bestWord = string.Empty;
+            int bestScore = 0;
+
+            int currentScore;
+            for (int i = 0; i < words.Length; i++)
             {
-                currentScore = _getScore(words[i]);
-                if (currentScore > bestScore)
+                if (_isPlayable(words[i], letters))
                 {
-                    bestScore = currentScore;
-                    bestWord = words[i];
+                    currentScore = _getScore(words[i]);
+                    if (currentScore > bestScore)
+                    {
+                        bestScore = currentScore;
+                        bestWord = words[i];
+                    }
                 }
             }
+
+            return bestWord;
         }
 
-        return bestWord;
-    }
-
-    private bool _isPlayable(string word, string letters)
-    {
-        Dictionary<char, int> letterFrequencies = _getLetterFrequencies(letters);
-        foreach (char c in word)
+        private bool _isPlayable(string word, string letters)
         {
-            if (!letterFrequencies.ContainsKey(c) || letterFrequencies[c] == 0)
+            Dictionary<char, int> letterFrequencies = _getLetterFrequencies(letters);
+            foreach (char c in word)
             {
-                return false;
+                if (!letterFrequencies.ContainsKey(c) || letterFrequencies[c] == 0)
+                {
+                    return false;
+                }
+                letterFrequencies[c]--;
             }
-            letterFrequencies[c]--;
+            return true;
         }
-        return true;
-    }
 
-    private Dictionary<char, int> _getLetterFrequencies(string letters)
-    {
-        Dictionary<char, int> frequencies = new Dictionary<char, int>();
-        foreach (char c in letters)
+        private Dictionary<char, int> _getLetterFrequencies(string letters)
         {
-            if (frequencies.ContainsKey(c))
+            Dictionary<char, int> frequencies = new Dictionary<char, int>();
+            foreach (char c in letters)
             {
-                frequencies[c]++;
+                if (frequencies.ContainsKey(c))
+                {
+                    frequencies[c]++;
+                }
+                else
+                {
+                    frequencies.Add(c, 1);
+                }
             }
-            else
-            {
-                frequencies.Add(c, 1);
-            }
+            return frequencies;
         }
-        return frequencies;
-    }
 
-    private int _getScore(string word)
-    {
-        int score = 0;
-        foreach (char c in word)
+        private int _getScore(string word)
         {
-            score += _letterScores[c];
+            int score = 0;
+            foreach (char c in word)
+            {
+                score += _letterScores[c];
+            }
+            return score;
         }
-        return score;
-    }
 
-    private Dictionary<char, int> _letterScores = new Dictionary<char, int>
+        private Dictionary<char, int> _letterScores = new Dictionary<char, int>
     {
         { 'a', 1 },
         { 'b', 3 },
@@ -98,4 +100,5 @@ public class Scrabble
         { 'z', 10 },
     };
 
+    }
 }
