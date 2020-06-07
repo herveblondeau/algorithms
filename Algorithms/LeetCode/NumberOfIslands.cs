@@ -1,5 +1,5 @@
 ﻿// https://leetcode.com/problems/number-of-islands/
-namespace Algorithms.LeetCode
+namespace LeetCode.NumberOfIslands
 {
     public class NumberOfIslands
     {

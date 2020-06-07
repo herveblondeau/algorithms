@@ -1,7 +1,7 @@
 using Algorithms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace ByTheme.LongestCommonSubSequence
 {
     [TestClass]
     public class LongestCommonSubSequenceTests

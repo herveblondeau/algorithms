@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithms
+namespace ByTheme.LongestCommonSubSequence
 {
 
     // https://www.geeksforgeeks.org/longest-common-subsequence-dp-using-memoization/?ref=rp

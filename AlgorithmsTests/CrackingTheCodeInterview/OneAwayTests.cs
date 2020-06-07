@@ -1,7 +1,6 @@
-using Algorithms.CrackingTheCodeInterview;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests.CrackingTheCodeInterview
+namespace CrackingTheCodeInterview.OneAway
 {
     [TestClass]
     public class OneAwayTests

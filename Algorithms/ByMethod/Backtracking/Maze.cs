@@ -1,70 +1,73 @@
 ﻿using System;
 
-public class Maze
+namespace ByMethod.Backtracking
 {
-    private int _width { get; set; }
-    private int _height { get; set; }
-
-    public void Solve(int[,] maze)
+    public class Maze
     {
-        // Solve
-        _width = maze.GetLength(0);
-        _height = maze.GetLength(1);
-        int[,] solution = new int[_width, _height];
-        var isSolved = BacktrackingSolve(maze, 0, 0, solution);
+        private int _width { get; set; }
+        private int _height { get; set; }
 
-        // Output
-        if (isSolved)
+        public void Solve(int[,] maze)
         {
-            for (int i = 0; i < _width; i++)
+            // Solve
+            _width = maze.GetLength(0);
+            _height = maze.GetLength(1);
+            int[,] solution = new int[_width, _height];
+            var isSolved = BacktrackingSolve(maze, 0, 0, solution);
+
+            // Output
+            if (isSolved)
             {
-                for (int j = 0; j < _height; j++)
+                for (int i = 0; i < _width; i++)
                 {
-                    Console.Write(solution[i, j]);
+                    for (int j = 0; j < _height; j++)
+                    {
+                        Console.Write(solution[i, j]);
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Unsolvable");
             }
         }
-        else
-        {
-            Console.WriteLine("Unsolvable");
-        }
-    }
 
-    private bool BacktrackingSolve(int[,] maze, int currentX, int currentY, int[,] solution)
-    {
-        // Current position not playable => deadend
-        if (!IsPlayable(maze, currentX, currentY))
+        private bool BacktrackingSolve(int[,] maze, int currentX, int currentY, int[,] solution)
         {
+            // Current position not playable => deadend
+            if (!IsPlayable(maze, currentX, currentY))
+            {
+                return false;
+            }
+
+            // Mark current position as part of the solution
+            solution[currentX, currentY] = 1;
+
+            // Final position => maze solved
+            if ((currentX, currentY) == (_width - 1, _height - 1))
+            {
+                return true;
+            }
+
+            // Try next positions
+            if (BacktrackingSolve(maze, currentX + 1, currentY, solution))
+            {
+                return true;
+            }
+            if (BacktrackingSolve(maze, currentX, currentY + 1, solution))
+            {
+                return true;
+            }
+
+            // Revert current position
+            solution[currentX, currentY] = 0;
             return false;
         }
 
-        // Mark current position as part of the solution
-        solution[currentX, currentY] = 1;
-
-        // Final position => maze solved
-        if ((currentX, currentY) == (_width - 1, _height - 1))
+        private bool IsPlayable(int[,] maze, int currentX, int currentY)
         {
-            return true;
+            return currentX < _width && currentY < _height && maze[currentX, currentY] == 1;
         }
-
-        // Try next positions
-        if (BacktrackingSolve(maze, currentX + 1, currentY, solution))
-        {
-            return true;
-        }
-        if (BacktrackingSolve(maze, currentX, currentY + 1, solution))
-        {
-            return true;
-        }
-
-        // Revert current position
-        solution[currentX, currentY] = 0;
-        return false;
-    }
-
-    private bool IsPlayable(int[,] maze, int currentX, int currentY)
-    {
-        return currentX < _width && currentY < _height && maze[currentX, currentY] == 1;
     }
 }

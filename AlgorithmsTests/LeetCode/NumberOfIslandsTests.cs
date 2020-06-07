@@ -1,7 +1,6 @@
-using Algorithms.LeetCode;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AlgorithmsTests
+namespace LeetCode.NumberOfIslands
 {
     [TestClass]
     public class NumberOfIslandsTests
