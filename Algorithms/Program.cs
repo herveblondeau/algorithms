@@ -1,4 +1,5 @@
-﻿using Codingame.StockExchangeLosses;
+﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups;
+using Codingame.StockExchangeLosses;
 using System;
 
 namespace Algorithms
@@ -8,9 +9,60 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Stock exchange losses
-            StockExchangeLosses stockExchangeLosses = new StockExchangeLosses();
-            Console.WriteLine(stockExchangeLosses.FindMaxPossibleLoss(new int[] { 5, 3, 4, 2, 3, 1 }));
+            // Remove dups
+            // a) initial list
+            LinkedListNode start = new LinkedListNode("node 1");
+            LinkedListNode current = start;
+            LinkedListNode next;
+            for (int i = 2; i <= 10; i++)
+            {
+                next = new LinkedListNode($"node {i}");
+                current.Next = next;
+                current = next;
+            }
+            next = new LinkedListNode($"node 3");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 8");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 2");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 2");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 7");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 14");
+            current.Next = next;
+            current = next;
+            next = new LinkedListNode($"node 3");
+            current.Next = next;
+            current = next;
+
+            Console.WriteLine("Initial list");
+            current = start;
+            while (current != null)
+            {
+                Console.WriteLine(current.Value);
+                current = current.Next;
+            }
+            Console.WriteLine();
+            // b) list without duplicates
+            Console.WriteLine("List without duplicates");
+            RemoveDups.RemoveDuplicatesWithBuffer(start);
+            current = start;
+            while (current != null)
+            {
+                Console.WriteLine(current.Value);
+                current = current.Next;
+            }
+
+            //// Stock exchange losses
+            //StockExchangeLosses stockExchangeLosses = new StockExchangeLosses();
+            //Console.WriteLine(stockExchangeLosses.FindMaxPossibleLoss(new int[] { 5, 3, 4, 2, 3, 1 }));
 
             //// The gift
             //TheGift theGift = new TheGift();

@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Algorithms\Algorithms.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CrackingTheCodeInterview\LinkedLists\" />
+  </ItemGroup>
+
 </Project>
