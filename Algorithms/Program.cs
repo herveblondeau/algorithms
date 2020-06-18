@@ -52,7 +52,7 @@ namespace Algorithms
             Console.WriteLine();
             // b) list without duplicates
             Console.WriteLine("List without duplicates");
-            RemoveDups.RemoveDuplicatesWithBuffer(start);
+            RemoveDups.RemoveDuplicatesWithoutBuffer(start);
             current = start;
             while (current != null)
             {

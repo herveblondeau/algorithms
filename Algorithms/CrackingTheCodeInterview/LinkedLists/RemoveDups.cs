@@ -25,23 +25,27 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
             }
         }
 
-        // Second part of the problem: no extra space
+        // Second part of the problem: O(1) space
+        // TODO: improve with one less nested loop
         public static void RemoveDuplicatesWithoutBuffer(LinkedListNode start)
         {
-            // TODO: implement
-            //LinkedListNode current;
+            LinkedListNode current;
+            LinkedListNode lookup;
 
-            //HashSet<LinkedListNode> existingNodes = new HashSet<LinkedListNode>();
-            //current = start;
-            //while (current != null)
-            //{
-            //    existingNodes.Add(current);
-            //    while (current.Next != null && existingNodes.Contains(current.Next))
-            //    {
-            //        current.Next = current.Next.Next;
-            //    }
-            //    current = current.Next;
-            //}
+            current = start;
+            while (current != null)
+            {
+                lookup = current;
+                while (lookup != null)
+                {
+                    while (lookup.Next != null && current.Equals(lookup.Next))
+                    {
+                        lookup.Next = lookup.Next.Next;
+                    }
+                    lookup = lookup.Next;
+                }
+                current = current.Next;
+            }
         }
     }
 
