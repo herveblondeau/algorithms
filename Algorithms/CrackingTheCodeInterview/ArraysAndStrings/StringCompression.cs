@@ -6,9 +6,9 @@ using System.Text;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.StringCompression
 {
+    // Source: "Cracking the coding interview" book (1.6 - String compression)
     public class StringCompression
     {
-        // Source: "Cracking the coding interview" book (1.6 - String compression)
         public static string Compress(string input)
         {
             StringBuilder compressed = new StringBuilder();

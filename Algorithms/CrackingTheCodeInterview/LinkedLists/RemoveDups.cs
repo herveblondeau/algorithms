@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
 {
+    // Source: "Cracking the coding interview" book (2.1 - Remove dups)
     public class RemoveDups
     {
         // First part of the problem: 0(n) space
@@ -52,7 +53,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
         }
     }
 
-    // Extremely basic linked list implementation for the purpose of the problem
+    // Extremely basic singly linked list implementation for the purpose of the problem
     public class LinkedListNode
     {
         public string Value { get; set; }

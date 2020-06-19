@@ -5,9 +5,9 @@ using System.Text;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.OneAway
 {
+    // Source: "Cracking the coding interview" book (1.5 - One away)
     public class OneAway
     {
-        // Source: "Cracking the coding interview" book (1.5 - One away)
         public static bool AreZeroOrOneAway(string str1, string str2)
         {
             if (AreZeroOrOneCharacterReplacementAway(str1, str2))

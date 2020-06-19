@@ -5,9 +5,9 @@ using System.Text;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.Palindrome
 {
+    // Source: "Cracking the coding interview" book (1.4 - Palindrome permutation)
     public class Palindrome
     {
-        // Source: "Cracking the coding interview" book (1.4 - Palindrome permutation)
         // This is the most straightforward solution, there is a slightly more streamlined one in the book
         public static bool IsPalindromePermutation(string input)
         {
