@@ -36,13 +36,16 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
             while (current != null)
             {
                 lookup = current;
-                while (lookup != null)
+                while (lookup.Next != null)
                 {
-                    while (lookup.Next != null && current.Equals(lookup.Next))
+                    if (current.Equals(lookup.Next))
                     {
                         lookup.Next = lookup.Next.Next;
                     }
-                    lookup = lookup.Next;
+                    else
+                    {
+                        lookup = lookup.Next;
+                    }
                 }
                 current = current.Next;
             }
