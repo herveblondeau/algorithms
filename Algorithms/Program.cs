@@ -1,5 +1,4 @@
-﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups;
-using Codingame.StockExchangeLosses;
+﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.DeleteMiddleNode;
 using System;
 
 namespace Algorithms
@@ -9,38 +8,23 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Remove dups
-            // a) initial list
+            // Delete middle node
             LinkedListNode start = new LinkedListNode("node 1");
             LinkedListNode current = start;
+            LinkedListNode nodeToDelete = null;
             LinkedListNode next;
             for (int i = 2; i <= 10; i++)
             {
                 next = new LinkedListNode($"node {i}");
                 current.Next = next;
+
+                if (i == 6)
+                {
+                    nodeToDelete = next;
+                }
+
                 current = next;
             }
-            next = new LinkedListNode($"node 3");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 8");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 2");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 2");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 7");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 14");
-            current.Next = next;
-            current = next;
-            next = new LinkedListNode($"node 3");
-            current.Next = next;
-            current = next;
 
             Console.WriteLine("Initial list");
             current = start;
@@ -50,15 +34,68 @@ namespace Algorithms
                 current = current.Next;
             }
             Console.WriteLine();
-            // b) list without duplicates
-            Console.WriteLine("List without duplicates");
-            RemoveDups.RemoveDuplicatesWithoutBuffer(start);
+
+            DeleteMiddleNode.Delete(nodeToDelete);
+
+            Console.WriteLine("Updated list");
             current = start;
             while (current != null)
             {
                 Console.WriteLine(current.Value);
                 current = current.Next;
             }
+            Console.WriteLine();
+
+            //// Remove dups
+            //// a) initial list
+            //LinkedListNode start = new LinkedListNode("node 1");
+            //LinkedListNode current = start;
+            //LinkedListNode next;
+            //for (int i = 2; i <= 10; i++)
+            //{
+            //    next = new LinkedListNode($"node {i}");
+            //    current.Next = next;
+            //    current = next;
+            //}
+            //next = new LinkedListNode($"node 3");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 8");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 2");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 2");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 7");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 14");
+            //current.Next = next;
+            //current = next;
+            //next = new LinkedListNode($"node 3");
+            //current.Next = next;
+            //current = next;
+
+            //Console.WriteLine("Initial list");
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
+            //// b) list without duplicates
+            //Console.WriteLine("List without duplicates");
+            //RemoveDups.RemoveDuplicatesWithoutBuffer(start);
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
 
             //// Stock exchange losses
             //StockExchangeLosses stockExchangeLosses = new StockExchangeLosses();
