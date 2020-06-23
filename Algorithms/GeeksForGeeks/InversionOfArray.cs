@@ -12,13 +12,12 @@ namespace GeeksForGeeks.InversionOfArray
         public int GetInversionCount(int[] values)
         {
             int inversionCount = 0;
-            int position;
-            List<int> reverseOrderedValues = new List<int>();
+            List<int> reverseOrderedValues = new List<int>(); // keeps track of all values that have already been processed, keeping them in reverse order
 
             // For each element, do a 0(logn) search to find where it would fit in a reverse ordered list composed of the previous items: this is equivalent to counting how many previous items are greater
             foreach(int value in values)
             {
-                position = GetReverseOrderPosition(reverseOrderedValues, value);
+                int position = GetReverseOrderPosition(reverseOrderedValues, value);
                 reverseOrderedValues.Insert(position, value);
                 inversionCount += position;
             }
@@ -30,9 +29,9 @@ namespace GeeksForGeeks.InversionOfArray
             return GetReverseOrderPositionInRange(reverseOrderedValues, value, 0, Math.Max(reverseOrderedValues.Count - 1, 0));
         }
 
-        // TODO: streamline this algorithm (which is essentially a binary search)
         private int GetReverseOrderPositionInRange(List<int> reverseOrderedValues, int value, int start, int end)
         {
+            // Base cases
             if (reverseOrderedValues.Count == 0 && start == 0 && end == 0)
             {
                 return 0;
@@ -48,6 +47,7 @@ namespace GeeksForGeeks.InversionOfArray
                 return value >= reverseOrderedValues[start] ? start : start + 1;
             }
 
+            // Recursion
             int position = start + (end - start) / 2;
             if (value > reverseOrderedValues[position])
             {
@@ -63,23 +63,23 @@ namespace GeeksForGeeks.InversionOfArray
             }
         }
 
-        // O(n2) time, O(1) space
-        public int GetInversionCount1(int[] elements)
-        {
-            int inversionCount = 0;
+        //// O(n2) time, O(1) space
+        //public int GetInversionCount(int[] elements)
+        //{
+        //    int inversionCount = 0;
 
-            // Just count, for each element, the number of elements before it that are greater
-            for (int i = 0; i < elements.Length; i++)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    if (elements[i] < elements[j])
-                    {
-                        inversionCount++;
-                    }
-                }
-            }
-            return inversionCount;
-        }
+        //    // Just count, for each element, the number of elements before it that are greater
+        //    for (int i = 0; i < elements.Length; i++)
+        //    {
+        //        for (int j = 0; j < i; j++)
+        //        {
+        //            if (elements[i] < elements[j])
+        //            {
+        //                inversionCount++;
+        //            }
+        //        }
+        //    }
+        //    return inversionCount;
+        //}
     }
 }

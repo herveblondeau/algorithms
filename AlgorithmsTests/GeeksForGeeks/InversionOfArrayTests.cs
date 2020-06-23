@@ -26,6 +26,8 @@ namespace GeeksForGeeks.InversionOfArray
         [TestMethod]
         [DataRow(new int[] { 4, 1 }, 1)]
         [DataRow(new int[] { 2, 4, 1, 3, 5 }, 3)]
+        [DataRow(new int[] { 8, 4, 2, 1 }, 6)]
+        [DataRow(new int[] { 3, 1, 2 }, 2)]
         public void GetInversionCount_UnorderedList_PerformsCorrectly(int[] values, int expected)
         {
             // Arrange
