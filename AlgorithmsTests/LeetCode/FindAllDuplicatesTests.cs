@@ -10,7 +10,8 @@ namespace LeetCode.FindAllDuplicates
         [DataRow(new int[] { })]
         [DataRow(new int[] { 1 })]
         [DataRow(new int[] { 1, 2 })]
-        [DataRow(new int[] { 1, 2, 10, 53, 546 })]
+        [DataRow(new int[] { 4, 3, 5, 1, 2 })]
+        [DataRow(new int[] { 6, 8, 2, 3, 1, 5, 4, 7 })]
         public void FindAllDuplicates_NoDuplicate_ReturnsEmptyArray(int[] values)
         {
             // Arrange
