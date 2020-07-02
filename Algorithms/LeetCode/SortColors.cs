@@ -26,12 +26,12 @@ namespace LeetCode.SortColors
             while (i <= nextTwoPosition) // No need to go further than this limit, since the items behind have already been processed (they have been pushed to the right)
             {
                 // Narrow down the sides
-                while (values[nextZeroPosition] == 0 && nextZeroPosition < values.Length)
+                while (nextZeroPosition < values.Length && values[nextZeroPosition] == 0)
                     nextZeroPosition++;
                 if (nextZeroPosition == values.Length)
                     break;
 
-                while (values[nextTwoPosition] == 2 && nextTwoPosition >= 0)
+                while (nextTwoPosition >= 0 && values[nextTwoPosition] == 2)
                     nextTwoPosition--;
                 if (nextTwoPosition == -1)
                     break;
