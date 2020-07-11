@@ -1,4 +1,5 @@
-﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.DeleteMiddleNode;
+﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.Partition;
+using Codingame.GuessingDigits;
 using System;
 
 namespace Algorithms
@@ -8,24 +9,24 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // Delete middle node
-            LinkedListNode start = new LinkedListNode("node 1");
+            //// Guessing digits
+            //Console.WriteLine(GuessingDigits.GuessDigits(8, 9));
+
+            // Partition
+            LinkedListNode start = new LinkedListNode(3);
             LinkedListNode current = start;
-            LinkedListNode nodeToDelete = null;
-            LinkedListNode next;
-            for (int i = 2; i <= 10; i++)
-            {
-                next = new LinkedListNode($"node {i}");
-                current.Next = next;
-
-                if (i == 6)
-                {
-                    nodeToDelete = next;
-                }
-
-                current = next;
-            }
-
+            current.Next = new LinkedListNode(5);
+            current = current.Next;
+            current.Next = new LinkedListNode(8);
+            current = current.Next;
+            current.Next = new LinkedListNode(5);
+            current = current.Next;
+            current.Next = new LinkedListNode(10);
+            current = current.Next;
+            current.Next = new LinkedListNode(2);
+            current = current.Next;
+            current.Next = new LinkedListNode(1);
+            current = current.Next;
             Console.WriteLine("Initial list");
             current = start;
             while (current != null)
@@ -35,9 +36,8 @@ namespace Algorithms
             }
             Console.WriteLine();
 
-            DeleteMiddleNode.Delete(nodeToDelete);
-
-            Console.WriteLine("Updated list");
+            start = Partition.PartitionAroundThreshold(start, 5);
+            Console.WriteLine("After partitioning");
             current = start;
             while (current != null)
             {
@@ -45,6 +45,44 @@ namespace Algorithms
                 current = current.Next;
             }
             Console.WriteLine();
+
+            //// Delete middle node
+            //LinkedListNode start = new LinkedListNode("node 1");
+            //LinkedListNode current = start;
+            //LinkedListNode nodeToDelete = null;
+            //LinkedListNode next;
+            //for (int i = 2; i <= 10; i++)
+            //{
+            //    next = new LinkedListNode($"node {i}");
+            //    current.Next = next;
+
+            //    if (i == 6)
+            //    {
+            //        nodeToDelete = next;
+            //    }
+
+            //    current = next;
+            //}
+
+            //Console.WriteLine("Initial list");
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
+
+            //DeleteMiddleNode.Delete(nodeToDelete);
+
+            //Console.WriteLine("Updated list");
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
 
             //// Remove dups
             //// a) initial list
