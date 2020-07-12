@@ -37,8 +37,25 @@ namespace LeetCode.SortColors
         [DataRow(new int[] { 1, 0, 1 }, new int[] { 0, 1, 1 })]
         [DataRow(new int[] { 2, 2, 1, 1, 2 }, new int[] { 1, 1, 2, 2, 2 })]
         [DataRow(new int[] { 1, 0, 0, 0, 1, 0 }, new int[] { 0, 0, 0, 0, 1, 1 })]
-        [DataRow(new int[] { 0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 0, 2, 2 }, new int[] { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2 })]
         public void Sort_TwoColors_PerformsCorrectly(int[] values, int[] expected)
+        {
+            // Arrange
+
+            // Act
+            int[] actual = SortColors.Sort(values);
+
+            // Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [DataRow(new int[] { 0, 1, 2 }, new int[] { 0, 1, 2 })]
+        [DataRow(new int[] { 2, 1, 0 }, new int[] { 0, 1, 2 })]
+        [DataRow(new int[] { 1, 0, 2 }, new int[] { 0, 1, 2 })]
+        [DataRow(new int[] { 2, 1, 0, 2 }, new int[] { 0, 1, 2, 2 })]
+        [DataRow(new int[] { 1, 0, 2, 2, 1, 1, 0, 0, 2, 0 }, new int[] { 0, 0, 0, 0, 1, 1, 1, 2, 2, 2 })]
+        [DataRow(new int[] { 0, 0, 0, 2, 2, 1, 0, 0, 0, 1, 0, 2, 2 }, new int[] { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2 })]
+        public void Sort_ThreeColors_PerformsCorrectly(int[] values, int[] expected)
         {
             // Arrange
 
