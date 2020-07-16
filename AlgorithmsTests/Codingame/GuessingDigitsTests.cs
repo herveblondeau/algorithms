@@ -55,8 +55,8 @@ namespace Codingame.GuessingDigits
             // Assert
             Assert.AreEqual(expectedTurn, actual.Turn);
             Assert.AreEqual(expectedPlayer, actual.Player);
-            Assert.AreEqual(expectedLow, actual.Low);
-            Assert.AreEqual(expectedHigh, actual.High);
+            Assert.AreEqual(expectedLow, actual.Pair.Low);
+            Assert.AreEqual(expectedHigh, actual.Pair.High);
         }
 
         [TestMethod]

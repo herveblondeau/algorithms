@@ -24,121 +24,118 @@ namespace Codingame.GuessingDigits
          |         | => T1/P1  |           |           |           |           |           |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    2    | S=3  P=2  | S=4  P=4  |           |           |           |           |           |           |           |
-         |         | => T1/P1  | => T /P   |           |           |           |           |           |           |           |
+         |         | => T1/P1  | => T2/P1  |           |           |           |           |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    3    | S=4  P=3  | S=5  P=6  | S=6  P=9  |           |           |           |           |           |           |
-         |         | => T /P   | => T /P   | => T /P   |           |           |           |           |           |           |
+         |         | => T1/P2  | => T3/P1  | =>  X     |           |           |           |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    4    | S=5  P=4  | S=6  P=8  | S=7  P=12 | S=8  P=16 |           |           |           |           |           |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   |           |           |           |           |           |
+         |         | => T2/P2  | =>  X     | => T4/P1  | => T5/P1  |           |           |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    5    | S=6  P=5  | S=7  P=10 | S=8  P=15 | S=9  P=20 | S=10 P=25 |           |           |           |           |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   |           |           |           |           |
+         |         | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  |           |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    6    | S=7  P=6  | S=8  P=12 | S=9  P=18 | S=10 P=24 | S=11 P=30 | S=12 P=36 |           |           |           |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   |           |           |           |
+         |         | => T3/P2  | => T4/P2  | =>  X     | =>  X     | => T1/P2  | => T2/P1  |           |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    7    | S=8  P=7  | S=9  P=14 | S=10 P=21 | S=11 P=28 | S=12 P=35 | S=13 P=42 | S=14 P=49 |           |           |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   |           |           |
+         |         | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  |           |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    8    | S=9  P=8  | S=10 P=16 | S=11 P=24 | S=12 P=32 | S=13 P=40 | S=14 P=48 | S=15 P=56 | S=16 P=64 |           |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   |           |
+         |         | =>  X     | => T5/P2  | =>  X     | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P2  |           |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          |    9    | S=10 P=9  | S=11 P=18 | S=12 P=27 | S=13 P=36 | S=14 P=45 | S=15 P=54 | S=16 P=63 | S=17 P=72 | S=18 P=81 |
-         |         | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T /P   | => T1/P1  | => T1/P1  |
+         |         | =>  X     | =>  X     | => T1/P2  | => T2/P1  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P1  | => T1/P1  |
          |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
          */
         public Guess GuessDigits(int sum, int product)
         {
-            Dictionary<int, List<(int, int)>> pairsPerSum = new Dictionary<int, List<(int, int)>>();
-            Dictionary<int, List<(int, int)>> pairsPerProduct = new Dictionary<int, List<(int, int)>>();
-
+            // Pairs will be removed from these dictionaries as the games progresses
+            // They keep track of all the pairs associated to each sum and product
+            Dictionary<int, List<Pair>> pairsPerSum = new Dictionary<int, List<Pair>>();
+            Dictionary<int, List<Pair>> pairsPerProduct = new Dictionary<int, List<Pair>>();
             for (int i = 1; i <=9; i++)
             {
                 for (int j = i; j <= 9; j++)
                 {
                     if (pairsPerSum.ContainsKey(i + j))
                     {
-                        pairsPerSum[i + j].Add((i, j));
+                        pairsPerSum[i + j].Add(new Pair(i, j));
                     }
                     else
                     {
-                        pairsPerSum.Add(i + j, new List<(int, int)> { (i, j) });
+                        pairsPerSum.Add(i + j, new List<Pair> { new Pair(i, j) });
                     }
 
                     if (pairsPerProduct.ContainsKey(i * j))
                     {
-                        pairsPerProduct[i * j].Add((i, j));
+                        pairsPerProduct[i * j].Add(new Pair(i, j));
                     }
                     else
                     {
-                        pairsPerProduct.Add(i * j, new List<(int, int)> { (i, j) });
+                        pairsPerProduct.Add(i * j, new List<Pair> { new Pair(i, j) });
                     }
                 }
             }
 
             int turn = 1;
-            int player = 1;
-            int low = 0;
-            int high = 0;
+            int player;
+            Pair pair;
             while (true)
             {
                 // a) Player 1 (sum)
                 player = 1;
-                // - if unique pair for given sum => found solution
+                // If unique pair for given sum => found solution
                 if (pairsPerSum[sum].Count == 1)
                 {
-                    low = pairsPerSum[sum].Single().Item1;
-                    high = pairsPerSum[sum].Single().Item2;
+                    pair = pairsPerSum[sum].Single();
                     break;
                 }
 
-                // - find all pairs that have a unique sum...
-                //var pairsWithUniqueSum = pairsPerSum.Where(x => x.Value.Count == 1).SelectMany(x => new List<(int, int)>(x.Value));
-                var pairsWithUniqueSum = new List<(int, int)>();
+                // At this stage, player 1 couldn't find the solution, which means that there are at least two pairs matching the given sum
+                // So we find all pairs that are unique for their sum...
+                var pairsUniqueForTheirSum = new List<Pair>();
                 foreach (var s in pairsPerSum.Keys)
                 {
                     if (pairsPerSum[s].Count == 1)
                     {
-                        pairsWithUniqueSum.Add(pairsPerSum[s][0]);
+                        pairsUniqueForTheirSum.Add(pairsPerSum[s].Single());
                     }
                 }
 
-                // ...and remove them
-                foreach (var pair in pairsWithUniqueSum)
+                // ...and remove them since they cannot be the solution
+                foreach (var p in pairsUniqueForTheirSum)
                 {
-                    pairsPerProduct[pair.Item1 * pair.Item2].Remove(pair);
-                    pairsPerSum.Remove(pair.Item1 + pair.Item2);
+                    pairsPerProduct[p.Product].Remove(p);
+                    pairsPerSum.Remove(p.Sum);
                 }
 
                 // b) Player 2 (product)
+                // Same logic as a) but with the product
                 player = 2;
-                // - if unique pair for given product => found solution
                 if (pairsPerProduct[product].Count == 1)
                 {
-                    low = pairsPerProduct[product].Single().Item1;
-                    high = pairsPerProduct[product].Single().Item2;
+                    pair = pairsPerProduct[product].Single();
                     break;
                 }
 
-                // - find all pairs that have a unique product...
-                var pairsWithUniqueProduct = new List<(int, int)>();
-                foreach (var s in pairsPerProduct.Keys)
+                var pairsUniqueForTheirProduct = new List<Pair>();
+                foreach (var p in pairsPerProduct.Keys)
                 {
-                    if (pairsPerProduct[s].Count == 1)
+                    if (pairsPerProduct[p].Count == 1)
                     {
-                        pairsWithUniqueProduct.Add(pairsPerProduct[s][0]);
+                        pairsUniqueForTheirProduct.Add(pairsPerProduct[p].Single());
                     }
                 }
 
-                // ...and remove them
-                foreach (var pair in pairsWithUniqueProduct)
+                foreach (var p in pairsUniqueForTheirProduct)
                 {
-                    pairsPerSum[pair.Item1 + pair.Item2].Remove(pair);
-                    pairsPerProduct.Remove(pair.Item1 * pair.Item2);
+                    pairsPerSum[p.Sum].Remove(p);
+                    pairsPerProduct.Remove(p.Product);
                 }
 
-                if (pairsWithUniqueSum.Count == 0 && pairsWithUniqueProduct.Count == 0)
+                // Special case : if there is no pair we can remove this turn, the solution cannot be determined
+                if (pairsUniqueForTheirSum.Count == 0 && pairsUniqueForTheirProduct.Count == 0)
                 {
                     return null;
                 }
@@ -150,8 +147,7 @@ namespace Codingame.GuessingDigits
             {
                 Turn = turn,
                 Player = player,
-                Low = low,
-                High = high,
+                Pair = pair,
             };
         }
     }
@@ -164,11 +160,40 @@ namespace Codingame.GuessingDigits
         // Player number (1 or 2)
         public int Player { get; set; }
 
+        public Pair Pair { get; set; }
+    }
+
+    public class Pair
+    {
         // Lower number
         public int Low { get; set; }
 
         // Higher number
         public int High { get; set; }
 
+        public Pair(int low, int high)
+        {
+            Low = low;
+            High = high;
+        }
+
+        public int Sum => Low + High;
+        public int Product => Low * High;
+
+        public override string ToString()
+        {
+            return "(" + Low + ',' + High + ")";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Pair other = (Pair)obj;
+            return Low == other.Low && High == other.High;
+        }
+
+        public override int GetHashCode()
+        {
+            return Low * 10 + High;
+        }
     }
 }
