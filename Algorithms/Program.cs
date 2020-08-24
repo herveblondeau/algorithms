@@ -1,5 +1,4 @@
-﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.Partition;
-using Codingame.GuessingDigits;
+﻿using Algorithms.CrackingTheCodeInterview.LinkedLists.SumLists;
 using System;
 
 namespace Algorithms
@@ -9,42 +8,64 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
+            // Sum lists
+            LinkedListNode startNumber1 = new LinkedListNode(7);
+            LinkedListNode current = startNumber1;
+            current.Next = new LinkedListNode(1);
+            current = current.Next;
+            current.Next = new LinkedListNode(6);
+
+            LinkedListNode startNumber2 = new LinkedListNode(5);
+            current = startNumber2;
+            current.Next = new LinkedListNode(9);
+            current = current.Next;
+            current.Next = new LinkedListNode(2);
+
+            Console.WriteLine("Sum list");
+            current = SumLists.SumReverseOrderNumbers(startNumber1, startNumber2);
+            while (current != null)
+            {
+                Console.WriteLine(current.Value);
+                current = current.Next;
+            }
+            Console.WriteLine();
+
             //// Guessing digits
             //Console.WriteLine(GuessingDigits.GuessDigits(8, 9));
 
-            // Partition
-            LinkedListNode start = new LinkedListNode(3);
-            LinkedListNode current = start;
-            current.Next = new LinkedListNode(5);
-            current = current.Next;
-            current.Next = new LinkedListNode(8);
-            current = current.Next;
-            current.Next = new LinkedListNode(5);
-            current = current.Next;
-            current.Next = new LinkedListNode(10);
-            current = current.Next;
-            current.Next = new LinkedListNode(2);
-            current = current.Next;
-            current.Next = new LinkedListNode(1);
-            current = current.Next;
-            Console.WriteLine("Initial list");
-            current = start;
-            while (current != null)
-            {
-                Console.WriteLine(current.Value);
-                current = current.Next;
-            }
-            Console.WriteLine();
+            //// Partition
+            //LinkedListNode start = new LinkedListNode(3);
+            //LinkedListNode current = start;
+            //current.Next = new LinkedListNode(5);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(8);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(5);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(10);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(2);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(1);
+            //current = current.Next;
+            //Console.WriteLine("Initial list");
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
 
-            start = Partition.PartitionAroundThreshold(start, 5);
-            Console.WriteLine("After partitioning");
-            current = start;
-            while (current != null)
-            {
-                Console.WriteLine(current.Value);
-                current = current.Next;
-            }
-            Console.WriteLine();
+            //start = Partition.PartitionAroundThreshold(start, 5);
+            //Console.WriteLine("After partitioning");
+            //current = start;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
 
             //// Delete middle node
             //LinkedListNode start = new LinkedListNode("node 1");
