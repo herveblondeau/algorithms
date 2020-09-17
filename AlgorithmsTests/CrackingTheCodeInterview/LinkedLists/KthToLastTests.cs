@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Algorithms.CrackingTheCodeInterview.LinkedLists.KthToLast
+namespace CrackingTheCodeInterview.LinkedLists.KthToLast
 {
     [TestClass]
     public class KthToLastTests

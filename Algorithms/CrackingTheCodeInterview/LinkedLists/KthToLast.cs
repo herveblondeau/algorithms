@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Algorithms.CrackingTheCodeInterview.LinkedLists.KthToLast
+namespace CrackingTheCodeInterview.LinkedLists.KthToLast
 {
     // Source: "Cracking the coding interview" book (2.2 - Kth to last)
     public class KthToLast
