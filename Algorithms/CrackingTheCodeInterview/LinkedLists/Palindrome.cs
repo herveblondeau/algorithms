@@ -17,19 +17,10 @@ namespace CrackingTheCodeInterview.LinkedLists.Palindrome
             }
 
             // Build the reverse of the list
-            LinkedListNode initialCurrent = start;
-            LinkedListNode reverseCurrent = new LinkedListNode(start.Value);
-            while (initialCurrent.Next != null)
-            {
-                LinkedListNode reversePrevious = new LinkedListNode(initialCurrent.Next.Value);
-                reversePrevious.Next = reverseCurrent;
-
-                initialCurrent = initialCurrent.Next;
-                reverseCurrent = reversePrevious;
-            }
+            LinkedListNode reverseCurrent = GetReversedCopy(start);
 
             // Compare both lists
-            initialCurrent = start;
+            LinkedListNode initialCurrent = start;
             while (initialCurrent != null)
             {
                 if (initialCurrent.Value != reverseCurrent.Value)
@@ -42,6 +33,23 @@ namespace CrackingTheCodeInterview.LinkedLists.Palindrome
             }
 
             return true;
+        }
+
+        // Duplicate and reverse a linked list
+        private static LinkedListNode GetReversedCopy(LinkedListNode start)
+        {
+            LinkedListNode initialCurrent = start;
+            LinkedListNode reverseCurrent = new LinkedListNode(start.Value);
+            while (initialCurrent.Next != null)
+            {
+                LinkedListNode reversePrevious = new LinkedListNode(initialCurrent.Next.Value);
+                reversePrevious.Next = reverseCurrent;
+
+                initialCurrent = initialCurrent.Next;
+                reverseCurrent = reversePrevious;
+            }
+
+            return reverseCurrent;
         }
     }
 
