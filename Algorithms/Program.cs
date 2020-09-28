@@ -1,4 +1,4 @@
-﻿using CrackingTheCodeInterview.LinkedLists.Intersection;
+﻿using CrackingTheCodeInterview.LinkedLists.LoopDetection;
 using System;
 
 namespace Algorithms
@@ -8,62 +8,83 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            LinkedListNode current;
 
-            // Intersection
-            LinkedListNode start1 = new LinkedListNode(1);
-            current = start1;
+            // Loop detection
+            LinkedListNode current;
+            LinkedListNode start = new LinkedListNode(1);
+            current = start;
             current.Next = new LinkedListNode(2);
             current = current.Next;
+            LinkedListNode loopStart = current;
             current.Next = new LinkedListNode(3);
             current = current.Next;
             current.Next = new LinkedListNode(4);
             current = current.Next;
             current.Next = new LinkedListNode(5);
             current = current.Next;
-            LinkedListNode intersection = current;
             current.Next = new LinkedListNode(6);
             current = current.Next;
             current.Next = new LinkedListNode(7);
             current = current.Next;
+            current.Next = loopStart;
 
-            Console.WriteLine("List 1");
-            current = start1;
-            while (current != null)
-            {
-                Console.WriteLine(current.Value);
-                current = current.Next;
-            }
-            Console.WriteLine();
+            Console.WriteLine(LoopDetection.GetLoopStart(start));
 
-            LinkedListNode start2 = new LinkedListNode(99);
-            current = start2;
-            current.Next = new LinkedListNode(98);
-            current = current.Next;
-            current.Next = new LinkedListNode(97);
-            current = current.Next;
-            current.Next = new LinkedListNode(96);
-            current = current.Next;
-            current.Next = intersection;
+            //// Intersection
+            //LinkedListNode current;
+            //LinkedListNode start1 = new LinkedListNode(1);
+            //current = start1;
+            //current.Next = new LinkedListNode(2);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(3);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(4);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(5);
+            //current = current.Next;
+            //LinkedListNode intersection = current;
+            //current.Next = new LinkedListNode(6);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(7);
+            //current = current.Next;
 
-            Console.WriteLine("List 2");
-            current = start2;
-            while (current != null)
-            {
-                Console.WriteLine(current.Value);
-                current = current.Next;
-            }
-            Console.WriteLine();
+            //Console.WriteLine("List 1");
+            //current = start1;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
 
-            intersection = Intersection.GetIntersection(start1, start2);
-            if (intersection == null)
-            {
-                Console.WriteLine("No intersection");
-            }
-            else
-            {
-                Console.WriteLine("Intersection at " + intersection.Value);
-            }
+            //LinkedListNode start2 = new LinkedListNode(99);
+            //current = start2;
+            //current.Next = new LinkedListNode(98);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(97);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(96);
+            //current = current.Next;
+            //current.Next = intersection;
+
+            //Console.WriteLine("List 2");
+            //current = start2;
+            //while (current != null)
+            //{
+            //    Console.WriteLine(current.Value);
+            //    current = current.Next;
+            //}
+            //Console.WriteLine();
+
+            //intersection = Intersection.GetIntersection(start1, start2);
+            //if (intersection == null)
+            //{
+            //    Console.WriteLine("No intersection");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Intersection at " + intersection.Value);
+            //}
 
             //// Sum lists
             //LinkedListNode startNumber1 = new LinkedListNode(6);
