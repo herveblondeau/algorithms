@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CrackingTheCodeInterview.StacksAndQueues.StackMin
 {
-    // Source: "Cracking the coding interview" book (3.1 - Stack Min)
+    // Source: "Cracking the coding interview" book (3.2 - Stack Min)
     public class StackMin
     {
         // We use integers instead of a generic type as the focus of the problem is not on genericity
