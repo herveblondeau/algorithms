@@ -10,7 +10,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.QueueViaStacks
         [DataRow(new int[] { 1, 2, 3 }, 1)]
         [DataRow(new int[] { 3, 2, 1 }, 3)]
         [DataRow(new int[] { 2, 1, 3 }, 2)]
-        public void Dequeue_EnqueueThenPeek_PerformsCorrectly(int[] inputs, int expected)
+        public void Peek_EnqueueThenPeek_PerformsCorrectly(int[] inputs, int expected)
         {
             // Arrange
             QueueViaStacks queueViaStacks = new QueueViaStacks();

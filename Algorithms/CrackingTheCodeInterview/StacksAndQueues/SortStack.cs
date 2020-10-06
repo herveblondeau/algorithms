@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CrackingTheCodeInterview.StacksAndQueues.QueueViaStacks
+namespace CrackingTheCodeInterview.StacksAndQueues.SortStack
 {
-    // Source: "Cracking the coding interview" book (3.4 - Queue via stacks)
-    public class QueueViaStacks
+    // Source: "Cracking the coding interview" book (3.5 - Sort stack)
+    public class SortStack
     {
         // We use integers instead of a generic type as the focus of the problem is not on genericity
 
-        // Simulating a queue with a stack would imply adding elements at the bottom of the stack, which is impossible
-        // However, using a temporary stack, we can make sure the elements are always kept in the FIFO order
-        // When we want to enqueue a value, we:
-        // - pop all elements to a temporary stack, reversing their order
-        // - add the value to the actual stack, making it the bottom element
-        // - pop the temporary stack elements back to the actual stack
+        // This problem is very similar to 3.4 (Queue via stacks). The only difference is that we don't want new elements added at the bottom, but at a position based on their order
+        // So the algorithm is also almost the same. The only difference is when we pop all elements to a temporary stack, we push the new element not at the end but at its correct position
         private Stack<int> _values;
         private Stack<int> _temp;
 
-        public QueueViaStacks()
+        public SortStack()
         {
             _values = new Stack<int>();
             _temp = new Stack<int>();
@@ -28,14 +24,27 @@ namespace CrackingTheCodeInterview.StacksAndQueues.QueueViaStacks
         {
             // Pop all elements from the actual stack and push them to the temporary stack
             // This reverses their order
+            int current;
+            bool hasBeenInserted = false;
             while (_values.Count > 0)
             {
-                _temp.Push(_values.Pop());
+                current = _values.Pop();
+
+                // Insert the value at the correct position
+                if (value < current && !hasBeenInserted)
+                {
+                    _temp.Push(value);
+                    hasBeenInserted = true;
+                }
+
+                _temp.Push(current);
             }
 
-            // Push the new value to the actual stack
-            // The value therefore goes at the bottom
-            _values.Push(value); ;
+            // If there was no element to begin with, we insert the value as the only element
+            if (!hasBeenInserted)
+            {
+                _temp.Push(value);
+            }
 
             // Pop all elements from the actual stack and push them to the temporary stack
             // This places them in their initial order, on top of the new value
