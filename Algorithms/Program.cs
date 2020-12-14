@@ -1,4 +1,4 @@
-﻿using CrackingTheCodeInterview.LinkedLists.LoopDetection;
+﻿using CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced;
 using System;
 
 namespace Algorithms
@@ -8,27 +8,67 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
+            //// List of depths
+            //BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
 
-            // Loop detection
-            LinkedListNode current;
-            LinkedListNode start = new LinkedListNode(1);
-            current = start;
-            current.Next = new LinkedListNode(2);
-            current = current.Next;
-            LinkedListNode loopStart = current;
-            current.Next = new LinkedListNode(3);
-            current = current.Next;
-            current.Next = new LinkedListNode(4);
-            current = current.Next;
-            current.Next = new LinkedListNode(5);
-            current = current.Next;
-            current.Next = new LinkedListNode(6);
-            current = current.Next;
-            current.Next = new LinkedListNode(7);
-            current = current.Next;
-            current.Next = loopStart;
+            //BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
+            //BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            //root.LeftChild = node1;
+            //root.RightChild = node2;
 
-            Console.WriteLine(LoopDetection.GetLoopStart(start));
+            //BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
+            //BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
+            //BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
+            //BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            //node1.LeftChild = node3;
+            //node1.RightChild = node4;
+            //node2.LeftChild = node5;
+            //node2.RightChild = node6;
+
+            //BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
+            //BinaryTreeNode node8 = new BinaryTreeNode(8); // depth 3
+            //BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
+            //node3.LeftChild = node7;
+            //node3.RightChild = node8;
+            //node4.LeftChild = node9;
+
+            //LinkedListNode[] depthLists = ListOfDepths.GetDepthLists(root);
+
+            //for (int i = 0; i < depthLists.Length; i++)
+            //{
+            //    Console.Write("Depth " + i + ": ");
+            //    LinkedListNode current = depthLists[i];
+            //    while (current != null)
+            //    {
+            //        Console.Write(current.Value + " ");
+            //        current = current.Next;
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //// Minimal tree
+            //int[] elements = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //Node root = MinimalTree.GetMinimalBinarySearchTree(elements);
+
+            //// Loop detection
+            //LinkedListNode current;
+            //LinkedListNode start = new LinkedListNode(1);
+            //current = start;
+            //current.Next = new LinkedListNode(2);
+            //current = current.Next;
+            //LinkedListNode loopStart = current;
+            //current.Next = new LinkedListNode(3);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(4);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(5);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(6);
+            //current = current.Next;
+            //current.Next = new LinkedListNode(7);
+            //current = current.Next;
+            //current.Next = loopStart;
+            //Console.WriteLine(LoopDetection.GetLoopStart(start));
 
             //// Intersection
             //LinkedListNode current;
