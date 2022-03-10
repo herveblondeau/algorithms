@@ -1,7 +1,6 @@
 ﻿// https://www.codingame.com/training/hard/the-empire-enigma
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Codingame.TheEmpireEnigma
 {
