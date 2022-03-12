@@ -20,9 +20,10 @@ namespace Codingame.WaterJugRiddle
 
             int distance = 0;
             Position next;
-            // TODO: optimize to return as soon as a next position matches the requirement
-            while (!current.HasReached(goal))
+            while (true)
             {
+                distance++;
+
                 // Add all reachable positions that haven't already been visited to the queue
                 for (int i = 0; i < capacities.Length; i++)
                 {
@@ -30,7 +31,11 @@ namespace Codingame.WaterJugRiddle
                     next = current.Fill(i);
                     if (!IsVisited(next))
                     {
-                        _positionDistances.Add(next, distance + 1);
+                        if (next.HasReached(goal))
+                        {
+                            return distance;
+                        }
+                        _positionDistances.Add(next, distance);
                         _positionsToProcess.Enqueue(next);
                     }
 
@@ -38,11 +43,15 @@ namespace Codingame.WaterJugRiddle
                     next = current.Empty(i);
                     if (!IsVisited(next))
                     {
-                        _positionDistances.Add(next, distance + 1);
+                        if (next.HasReached(goal))
+                        {
+                            return distance;
+                        }
+                        _positionDistances.Add(next, distance);
                         _positionsToProcess.Enqueue(next);
                     }
 
-                    // Can transfer to another jar?
+                    // Pour into other jar
                     for (int j = 0; j < capacities.Length; j++)
                     {
                         if (j == i)
@@ -53,7 +62,11 @@ namespace Codingame.WaterJugRiddle
                         next = current.Pour(i, j);
                         if (!IsVisited(next))
                         {
-                            _positionDistances.Add(next, distance + 1);
+                            if (next.HasReached(goal))
+                            {
+                                return distance;
+                            }
+                            _positionDistances.Add(next, distance);
                             _positionsToProcess.Enqueue(next);
                         }
                     }
@@ -62,8 +75,6 @@ namespace Codingame.WaterJugRiddle
                 current = _positionsToProcess.Dequeue();
                 distance = _positionDistances[current];
             }
-
-            return distance;
         }
 
         private bool IsVisited(Position p)
