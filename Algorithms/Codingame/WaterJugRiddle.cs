@@ -8,22 +8,31 @@ namespace Codingame.WaterJugRiddle
     public class WaterJugRiddle
     {
 
-        Dictionary<Position, int> _positionDistances = new Dictionary<Position, int>();
-        Queue<Position> _positionsToProcess = new Queue<Position>();
+        private Dictionary<Position, int> _visited = new Dictionary<Position, int>();
+        private Queue<Position> _positionsToProcess = new Queue<Position>();
 
-        public int GetDistance(int[] capacities, int goal)
+        public int GetDistance(int[] capacities, int target)
         {
+            if (target == 0)
+            {
+                return 0;
+            }
+
             // Initial position
             int[] quantities = capacities.Select(c => 0).ToArray();
             Position current = new Position(capacities, quantities);
-            _positionDistances.Add(current, 0);
+            _visited.Add(current, 0);
 
+            // This is essentially a BFS algorithm
+            // On top of the Codingame requirements, it also handles impossible cases (for instance, trying to reach a quantity above the highest capacity)
             int distance = 0;
             Position next;
-            while (true)
+            while (current != null)
             {
                 distance++;
 
+                // For each jug, try all possible moves
+                // If a move leads to the target, immediately return the corresponding distance. Otherwise, add that position to the queue (BFS)
                 // Add all reachable positions that haven't already been visited to the queue
                 for (int i = 0; i < capacities.Length; i++)
                 {
@@ -31,11 +40,11 @@ namespace Codingame.WaterJugRiddle
                     next = current.Fill(i);
                     if (!IsVisited(next))
                     {
-                        if (next.HasReached(goal))
+                        if (next.Contains(target))
                         {
                             return distance;
                         }
-                        _positionDistances.Add(next, distance);
+                        _visited.Add(next, distance);
                         _positionsToProcess.Enqueue(next);
                     }
 
@@ -43,11 +52,11 @@ namespace Codingame.WaterJugRiddle
                     next = current.Empty(i);
                     if (!IsVisited(next))
                     {
-                        if (next.HasReached(goal))
+                        if (next.Contains(target))
                         {
                             return distance;
                         }
-                        _positionDistances.Add(next, distance);
+                        _visited.Add(next, distance);
                         _positionsToProcess.Enqueue(next);
                     }
 
@@ -62,26 +71,29 @@ namespace Codingame.WaterJugRiddle
                         next = current.Pour(i, j);
                         if (!IsVisited(next))
                         {
-                            if (next.HasReached(goal))
+                            if (next.Contains(target))
                             {
                                 return distance;
                             }
-                            _positionDistances.Add(next, distance);
+                            _visited.Add(next, distance);
                             _positionsToProcess.Enqueue(next);
                         }
                     }
                 }
 
-                current = _positionsToProcess.Dequeue();
-                distance = _positionDistances[current];
+                current = _positionsToProcess.Any() ? _positionsToProcess.Dequeue() : null;
+                distance = current != null ? _visited[current] : -1;
             }
+
+            return distance;
         }
 
         private bool IsVisited(Position p)
         {
-            return _positionDistances.ContainsKey(p);
+            return _visited.ContainsKey(p);
         }
 
+        // A Position object represents a complete state of the jugs and is immutable
         private class Position
         {
             public int[] Capacities{ get; set; }
@@ -95,6 +107,7 @@ namespace Codingame.WaterJugRiddle
                 quantities.CopyTo(Quantities, 0);
             }
 
+            // Returns the position after emptying a given jug
             public Position Empty(int n)
             {
                 Position p = new Position(Capacities, Quantities);
@@ -102,6 +115,7 @@ namespace Codingame.WaterJugRiddle
                 return p;
             }
 
+            // Returns the position after filling a given jug
             public Position Fill(int n)
             {
                 Position p = new Position(Capacities, Quantities);
@@ -109,6 +123,7 @@ namespace Codingame.WaterJugRiddle
                 return p;
             }
 
+            // Returns the position after pouring the contents of a given jug into another
             public Position Pour(int source, int target)
             {
                 Position p = new Position(Capacities, Quantities);
@@ -118,11 +133,13 @@ namespace Codingame.WaterJugRiddle
                 return p;
             }
 
-            public bool HasReached(int goal)
+            // Checks whether one of the jugs contains the given amount
+            public bool Contains(int goal)
             {
                 return Quantities.Contains(goal);
             }
 
+            // These two methods are implemented for position comparison purposes
             public override int GetHashCode()
             {
                 return string.Join('-', Quantities).GetHashCode();
