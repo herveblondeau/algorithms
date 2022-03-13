@@ -32,8 +32,7 @@ namespace Codingame.WaterJugRiddle
                 distance++;
 
                 // For each jug, try all possible moves
-                // If a move leads to the target, immediately return the corresponding distance. Otherwise, add that position to the queue (BFS)
-                // Add all reachable positions that haven't already been visited to the queue
+                // If a move leads to the target, immediately return the corresponding distance. Otherwise, add that position to the queue if it hasn't already been visited
                 for (int i = 0; i < capacities.Length; i++)
                 {
                     // Fill
