@@ -1,7 +1,4 @@
-﻿using Codingame.GuessingDigits;
-using Codingame.StockExchangeLosses;
-using Codingame.TheGift;
-using System;
+﻿using System;
 using System.Text;
 
 namespace Algorithms
