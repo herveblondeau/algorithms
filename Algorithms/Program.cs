@@ -1,5 +1,8 @@
-﻿using CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced;
+﻿using Codingame.GuessingDigits;
+using Codingame.StockExchangeLosses;
+using Codingame.TheGift;
 using System;
+using System.Text;
 
 namespace Algorithms
 {
@@ -149,7 +152,9 @@ namespace Algorithms
             //Console.WriteLine();
 
             //// Guessing digits
-            //Console.WriteLine(GuessingDigits.GuessDigits(8, 9));
+            //GuessingDigits guessingDigits = new GuessingDigits();
+            //var guess = guessingDigits.GuessDigits(8, 9);
+            //Console.WriteLine($"Guess: {guess.Pair.Low}/{guess.Pair.High}, by player {guess.Player} on turn {guess.Turn}");
 
             //// Partition
             //LinkedListNode start = new LinkedListNode(3);
@@ -478,7 +483,7 @@ namespace Algorithms
             //    {0, 1, 1, 1, 1, 1, 1, 0},
             //    {0, 0, 0, 0, 1, 0, 1, 1},
             //};
-            //MazeSolver mazeSolver = new MazeSolver();
+            //Maze mazeSolver = new Maze();
             //mazeSolver.Solve(maze);
 
             //// Knight's tour
@@ -533,6 +538,38 @@ namespace Algorithms
             //{
             //    Console.WriteLine("" + winner + " " + nbRounds);
             //}
+
+            //string[] picture = new string[9];
+            //picture[8] = "                   #         #                                     #####     ";
+            //picture[7] = "                  ###       ###                                    #####     ";
+            //picture[6] = "                  ###       ###                                    #####     ";
+            //picture[5] = "                  ###   #   ###                                    #####     ";
+            //picture[4] = "         ###      ### ##### ###                      #####        #######    ";
+            //picture[3] = "    ##  #####     #############                      #####       #########   ";
+            //picture[2] = " #####  #####     #############  ################    #####    ###############";
+            //picture[1] = " #####  #####     #############  ################    #####    ###############";
+            //picture[0] = " #####  #####     #############  ################    #####    ###############";
+            //HighestBuilding highestBuilding = new HighestBuilding();
+            //var highestBuildings = highestBuilding.GetHighestBuildings(picture);
+
+            //int index = 1;
+            //StringBuilder currentFloor = new StringBuilder();
+            //foreach (var building in highestBuildings)
+            //{
+            //    for (int i = building.Height; i > 0; i--)
+            //    {
+            //        for (int j = 0; j < building.Width; j++)
+            //        {
+            //            currentFloor.Append(building.Heights[j] >= i ? "#" : " ");
+            //        }
+            //        Console.WriteLine(currentFloor.ToString().TrimEnd());
+            //        currentFloor.Clear();
+            //    }
+
+            //    if (index < highestBuildings.Count) Console.WriteLine();
+            //    index++;
+            //}
+
         }
     }
 }
