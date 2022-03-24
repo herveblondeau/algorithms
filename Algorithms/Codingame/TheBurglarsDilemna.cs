@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace Codingame.TheBurglarsDilemna
 {
-    // TODO: better 0/9 adjacency handling
+    // TODO: better/more generic adjacency handling for edge cases (0 and 9)
+    // TODO: simplify strategies (use Command pattern instead or basic mappings)
     public class TheBurglarsDilemna
     {
         public string Solve(int length, List<Guess> guesses)
@@ -146,7 +147,6 @@ namespace Codingame.TheBurglarsDilemna
             void ProcessGuess(Guess guess, Workspace workspace);
         }
 
-        // TODO: simplify strategy (maybe use adapter instead?)
         private class ClickClackCluckStrategy : IStrategy
         {
             public void ProcessGuess(Guess guess, Workspace workspace)
