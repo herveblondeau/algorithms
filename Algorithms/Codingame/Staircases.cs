@@ -25,7 +25,7 @@ namespace Codingame.Staircases
             return nbStaircases;
         }
 
-        public long _getNumberOfStaircases(int first, int remaining)
+        private long _getNumberOfStaircases(int first, int remaining)
         {
             // Memoization result
             if (_visited.ContainsKey((first, remaining)))
