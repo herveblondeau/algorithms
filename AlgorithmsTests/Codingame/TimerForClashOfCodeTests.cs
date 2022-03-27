@@ -7,11 +7,12 @@ namespace Codingame.TimerForClashOfCode
     {
 
         [TestMethod]
-        [DataRow(new int[] { 13 }, 31)]
-        [DataRow(new int[] { 65, 72 }, 100)]
-        [DataRow(new int[] { 28, 130, 190, 249 }, 19)]
-        [DataRow(new int[] { 156 }, 0)]
-        [DataRow(new int[] { 24, 165, 229, 281 }, 0)]
+        [DataRow(new int[] { 287 }, 31)]
+        [DataRow(new int[] { 235, 228 }, 100)]
+        [DataRow(new int[] { 272, 170, 110, 51 }, 19)]
+        [DataRow(new int[] { 134 }, 0)]
+        [DataRow(new int[] { 276, 135, 71, 19 }, 0)]
+        [DataRow(new int[] { 250, 209, 164, 140, 116, 107, 103 }, 103)] // room filled
         public void GetStartTime_WhenCalled_PerformsCorrectly(int[] arrivalTimes, int expected)
         {
             // Arrange
