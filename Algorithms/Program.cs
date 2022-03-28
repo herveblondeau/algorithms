@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Codingame.HanoiTower;
+using Codingame.HungryDuck1;
+using Codingame.Staircases;
+using System;
 using System.Text;
 
 namespace Algorithms
@@ -567,6 +570,31 @@ namespace Algorithms
             //    index++;
             //}
 
+            //HungryDuck hungryDuck = new HungryDuck();
+            //int width = 3;
+            //int height = 3;
+            //int[][] foods = new int[height][];
+            //for (int i = 0; i < height; i++)
+            //{
+            //    foods[i] = new int[width];
+            //}
+            //foods[0][0] = 1;
+            //foods[0][1] = 2;
+            //foods[0][2] = 3;
+            //foods[1][0] = 4;
+            //foods[1][1] = 5;
+            //foods[1][2] = 6;
+            //foods[2][0] = 7;
+            //foods[2][1] = 8;
+            //foods[2][2] = 9;
+            //Console.WriteLine(hungryDuck.GetMaximumFoodAmount(foods));
+
+            HanoiTower hanoiTower = new HanoiTower();
+            var stacks = hanoiTower.GetPosition(10, 436);
+            foreach (var row in HanoiTower.Draw(stacks))
+            {
+                Console.WriteLine(row);
+            }
         }
     }
 }
