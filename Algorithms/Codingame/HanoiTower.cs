@@ -15,6 +15,16 @@ namespace Codingame.HanoiTower
 
         public int GetNumberOfMovesToSolve(int nbDisks)
         {
+            // The number of moves required for n disks is 2^n-1
+            // This can easily be demonstrated iteratively:
+            // - It is obviously true for n=1
+            // - Let's assume it is true for n. Let's now compute the number of moves required for n+1 disks.
+            // The n+1 disks pyramid is basically a large disk below a n disk pyramid.
+            // To solve it, we move:
+            // - the n disk pyramid to the center axis (2^n-1 moves)
+            // - then the largest disk to the right axis (1 move)
+            // - then the n disk pyramid to the right axis (2^n-1 moves)
+            // The total number of moves required for n+1 disks is therefore 2*(2^n-1)+1, i.e. 2^(n+1)-1
             return (int)Math.Pow(2, nbDisks) - 1;
         }
 
