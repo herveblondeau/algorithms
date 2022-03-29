@@ -9,105 +9,70 @@ namespace Codingame.TheGreatestNumber
     {
         public string GetGreatest(string input)
         {
-            var characters = _toDictionary(input);
+            StringBuilder builder = new StringBuilder();
+            var availableDigits = _toDictionary(input);
+            bool isNegative = availableDigits.ContainsKey('-');
+            bool isDecimal = availableDigits.ContainsKey('.');
+            bool containsZero = availableDigits.ContainsKey('0');
 
-            if (!characters.ContainsKey('-'))
+            // Build a string containing all digits in order
+            // - positive integer/decimal: from 9 to 0
+            // - negative integer: from 1 to 9
+            // - negative decimal: from 0 to 9
+            var digit = isNegative ? (isDecimal ? '0' : '1') : '9';
+            var endDigit = isNegative ? '9' + 1 : '0' - 1;
+            while (digit != endDigit)
             {
-                if (!characters.ContainsKey('.'))
+                while (availableDigits.ContainsKey(digit))
                 {
-                    return _getHighestPositiveInteger(characters);
+                    builder.Append(digit);
+                    _removeDigit(digit, availableDigits);
                 }
+                if (isNegative) digit++;
+                else digit--;
+            }
+            string orderedDigits = builder.ToString();
+
+            // No digits => return 0
+            if (string.IsNullOrEmpty(orderedDigits))
+            {
+                return "0";
+            }
+            // Only zeros => return 0
+            if (orderedDigits[0] == '0' && orderedDigits[orderedDigits.Length - 1] == '0')
+            {
+                return "0";
+            }
+
+            if (!isNegative)
+            {
+                // Positive integer
+                if (!isDecimal)
+                {
+                    return orderedDigits; // example: 6653211100 => 6653211100
+                }
+                // Positive decimal
                 else
                 {
-                    return _getHighestPositiveDecimal(characters);
+                    return containsZero
+                        ? orderedDigits.Substring(0, orderedDigits.Length - 1) // example: 6653211100 (=> 665321110.0) => 665321110
+                        : orderedDigits.Insert(orderedDigits.Length - 1, ".")  // example: 66532111 => 6653211.1
+                    ;
                 }
             }
             else
             {
-                if (!characters.ContainsKey('.'))
+                // Negative integer
+                if (!isDecimal)
                 {
-                    return _getHighestNegativeInteger(characters);
+                    return "-" + orderedDigits; // example: 11123566 => -11123566
                 }
+                // Negative decimal
                 else
                 {
-                    return _getHighestNegativeDecimal(characters);
+                    return "-" + orderedDigits.Insert(1, "."); // example: 0011123566 => -0.011123566
                 }
             }
-        }
-
-        private string _getHighestPositiveInteger(Dictionary<char, int> availableDigits)
-        {
-            StringBuilder builder = new StringBuilder();
-            var digit = '9';
-            while (digit >= '0')
-            {
-                while (availableDigits.ContainsKey(digit))
-                {
-                    builder.Append(digit);
-                    _removeDigit(digit, availableDigits);
-                }
-                digit--;
-            }
-
-            return builder.ToString();
-        }
-
-        private string _getHighestNegativeInteger(Dictionary<char, int> availableDigits)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.Append('-');
-
-            var digit = '1';
-            while (digit <= '9')
-            {
-                while (availableDigits.ContainsKey(digit))
-                {
-                    builder.Append(digit);
-                    _removeDigit(digit, availableDigits);
-                }
-                digit++;
-            }
-
-            return builder.ToString();
-        }
-
-        private string _getHighestPositiveDecimal(Dictionary<char, int> availableDigits)
-        {
-            StringBuilder builder = new StringBuilder();
-            var digit = '9';
-            bool containsZero = availableDigits.ContainsKey('0');
-            while (digit >= '0')
-            {
-                while (availableDigits.ContainsKey(digit))
-                {
-                    builder.Append(digit);
-                    _removeDigit(digit, availableDigits);
-                }
-                digit--;
-            }
-
-            var intermediate = builder.ToString();
-            return containsZero ? intermediate.Substring(0, intermediate.Length - 1) : intermediate.Insert(intermediate.Length - 1, ".");
-        }
-
-        private string _getHighestNegativeDecimal(Dictionary<char, int> availableDigits)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.Append('-');
-
-            var digit = '0';
-            while (digit <= '9')
-            {
-                while (availableDigits.ContainsKey(digit))
-                {
-                    builder.Append(digit);
-                    _removeDigit(digit, availableDigits);
-                }
-                digit++;
-            }
-
-            var intermediate = builder.ToString();
-            return intermediate.Insert(2, ".");
         }
 
         private Dictionary<char, int> _toDictionary(string text)
