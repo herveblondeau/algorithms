@@ -1,4 +1,5 @@
-﻿using Codingame.HanoiTower;
+﻿using Codingame.Hangman;
+using Codingame.HanoiTower;
 using Codingame.HungryDuck1;
 using Codingame.Staircases;
 using System;
@@ -589,12 +590,21 @@ namespace Algorithms
             //foods[2][2] = 9;
             //Console.WriteLine(hungryDuck.GetMaximumFoodAmount(foods));
 
-            HanoiTower hanoiTower = new HanoiTower();
-            var stacks = hanoiTower.GetPosition(10, 436);
-            foreach (var row in HanoiTower.Draw(stacks))
+            //HanoiTower hanoiTower = new HanoiTower();
+            //var stacks = hanoiTower.GetPosition(10, 436);
+            //foreach (var row in HanoiTower.Draw(stacks))
+            //{
+            //    Console.WriteLine(row);
+            //}
+            string s = "fdlkjfds";
+
+            Hangman hangman = new Hangman();
+            var result = hangman.Solve("hangman", new char[] { 'a', 'e', 's', 'm', 'g', 'n', 'h' });
+            foreach (var row in Hangman.Draw(result.NbFails))
             {
                 Console.WriteLine(row);
             }
+            Console.WriteLine(result.Word);
         }
     }
 }
