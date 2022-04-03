@@ -1,6 +1,8 @@
-﻿using Codingame.Hangman;
+﻿using Codingame.Candies;
+using Codingame.Hangman;
 using Codingame.HanoiTower;
 using Codingame.HungryDuck1;
+using Codingame.LongestPalindrome;
 using Codingame.Staircases;
 using System;
 using System.Text;
@@ -596,15 +598,23 @@ namespace Algorithms
             //{
             //    Console.WriteLine(row);
             //}
-            string s = "fdlkjfds";
 
-            Hangman hangman = new Hangman();
-            var result = hangman.Solve("hangman", new char[] { 'a', 'e', 's', 'm', 'g', 'n', 'h' });
-            foreach (var row in Hangman.Draw(result.NbFails))
-            {
-                Console.WriteLine(row);
-            }
-            Console.WriteLine(result.Word);
+            //Hangman hangman = new Hangman();
+            //var result = hangman.Solve("hangman", new char[] { 'a', 'e', 's', 'm', 'g', 'n', 'h' });
+            //foreach (var row in Hangman.Draw(result.NbFails))
+            //{
+            //    Console.WriteLine(row);
+            //}
+            //Console.WriteLine(result.Word);
+
+            //LongestPalindrome longestPalindrome = new LongestPalindrome();
+            //foreach (var palindrome in longestPalindrome.GetLongestPalindromes("ladamant"))
+            //{
+            //    Console.WriteLine(palindrome);
+            //}
+
+            Candies candies = new Candies();
+            var sequences = candies.GetSequences(5, 2);
         }
     }
 }
