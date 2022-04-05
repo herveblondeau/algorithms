@@ -88,5 +88,27 @@ namespace Codingame.UnfloodTheWorld
             Assert.AreEqual(1, actual);
         }
 
+        [TestMethod]
+        public void Test1()
+        {
+            // Arrange
+            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            int[,] map = new int[,]
+            {
+                { 3, 3, 3, 2, 2, 2 },
+                { 3, 2, 3, 2, 1, 2 },
+                { 3, 3, 3, 2, 2, 2 },
+                { 6, 6, 6, 4, 4, 4 },
+                { 6, 5, 6, 4, 3, 4 },
+                { 6, 6, 6, 4, 4, 4 },
+            };
+
+            // Act
+            var actual = unfloodTheWorld.GetNumberOfDrains(map);
+
+            // Assert
+            Assert.AreEqual(4, actual);
+        }
+
     }
 }

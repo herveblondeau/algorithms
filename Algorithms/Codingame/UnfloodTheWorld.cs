@@ -18,7 +18,7 @@ namespace Codingame.UnfloodTheWorld
                         continue;
                     }
 
-                    if (!_processArea(i, j, map, visited, map[i, j]))
+                    if (!_isAreaLowestInItsNeighborhood(i, j, map[i, j], map, visited))
                     {
                         continue;
                     }
@@ -30,34 +30,42 @@ namespace Codingame.UnfloodTheWorld
             return nbDrains;
         }
 
+        // Recursively visit all adjacent squares of the given starting position
+        // - if a square has the same height as the initial square (base height), it is marked as visited, so that the whole area of the same height is mapped
+        // - otherwise, the exploration stops but we compare the square height with the base height
         // Returns true if the area is the lowest in its neighborhood
-        private bool _processArea(int x, int y, int[,] map, bool[,] visited, int height)
+        private bool _isAreaLowestInItsNeighborhood(int x, int y, int baseHeight, int[,] map, bool[,] visited)
         {
-            if (x < 0 || x >= map.GetLength(0) || y < 0 || y >= map.GetLength(1) || (visited[x, y] && map[x, y] == height))
+            // Out of map
+            if (x < 0 || x >= map.GetLength(0) || y < 0 || y >= map.GetLength(1))
             {
                 return true;
             }
 
-            if (map[x, y] < height)
-            {
-                return false;
-            }
-            else if (map[x, y] == height)
-            {
-                visited[x, y] = true;
-            }
-            else
+            // Already visited
+            if ((visited[x, y] && map[x, y] == baseHeight))
             {
                 return true;
             }
 
-            // We need to store the results in variables, otherwise the first method returning false would prevent the other ones from being run
-            bool b1 = _processArea(x - 1, y, map, visited, height);
-            bool b2 = _processArea(x + 1, y, map, visited, height);
-            bool b3 = _processArea(x, y - 1, map, visited, height);
-            bool b4 = _processArea(x, y + 1, map, visited, height);
+            // Square of a different height
+            if (map[x, y] != baseHeight)
+            {
+                return map[x, y] > baseHeight;
+            }
 
-            return b1 && b2 && b3 && b4;
+            // At this point, we know we are on a square of the specified height that hasn't been visited yet
+            // Mark the current square as visited
+            visited[x, y] = true;
+
+            // Visit its neighbors
+            // We need to store the results in variables before making the final test with the && operator, otherwise the first method returning false would prevent the other neighbors from being visited
+            bool above = _isAreaLowestInItsNeighborhood(x - 1, y, baseHeight, map, visited);
+            bool below = _isAreaLowestInItsNeighborhood(x + 1, y, baseHeight, map, visited);
+            bool left  = _isAreaLowestInItsNeighborhood(x, y - 1, baseHeight, map, visited);
+            bool right = _isAreaLowestInItsNeighborhood(x, y + 1, baseHeight, map, visited);
+
+            return above && below && left && right;
 
         }
     }
