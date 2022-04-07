@@ -1,23 +1,30 @@
-﻿// 
+﻿// https://www.codingame.com/ide/puzzle/sliding-puzzle
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Codingame.SlidingPuzzle
 {
     public class SlidingPuzzle
     {
 
+        // The algorithm is basically a BFS
+        // The 'end' parameter allows this algorithm to be more generic than the Codingame requirements, as it will find the minimum number of moves required to go from 'start' to 'end', with 'end' being any position.
+        // Notes:
+        // - the dot from the Codingame problem must be supplied as a zero
+        // - for each array, the first coordinate is the row number (with the top row being 0) and the second coordinate is the column number (with the left column being 0)
         public int GetNumberOfMoves(int[,] start, int[,] end)
         {
 
             Position current;
-            Position next = new Position(start);
+            Position next;
             Position target = new Position(end);
             var toProcess = new Queue<Position>();
-            toProcess.Enqueue(next);
             var visited = new Dictionary<Position, int>();
-            visited.Add(next, 0);
 
+            next = new Position(start);
+            toProcess.Enqueue(next);
+            visited.Add(next, 0);
             int nbMoves = -1;
 
             while (toProcess.Count > 0)
@@ -25,11 +32,13 @@ namespace Codingame.SlidingPuzzle
                 current = toProcess.Dequeue();
                 nbMoves = visited[current];
 
+                // Exit condition
                 if (current.Equals(target))
                 {
                     break;
                 }
 
+                // Enqueue the immediately reachable positions (BFS)
                 next = current.SlideUp();
                 if (next != null && !visited.ContainsKey(next))
                 {
@@ -90,20 +99,10 @@ namespace Codingame.SlidingPuzzle
                 }
             }
 
+            // Returns a new position where the 0 has been exchanged with the piece above
             public Position SlideUp()
             {
-                if (_row == _height - 1) return null;
-
-                Position position = new Position(_board);
-                (position._board[_row, _column], position._board[_row + 1, _column]) = (position._board[_row + 1, _column], position._board[_row, _column]);
-                position._row++;
-
-                return position;
-            }
-
-            public Position SlideDown()
-            {
-                if (_row == 0) return null;
+                if (_row == 0) return null; // 0 already on top => cannot move
 
                 Position position = new Position(_board);
                 (position._board[_row, _column], position._board[_row - 1, _column]) = (position._board[_row - 1, _column], position._board[_row, _column]);
@@ -112,24 +111,38 @@ namespace Codingame.SlidingPuzzle
                 return position;
             }
 
-            public Position SlideLeft()
+            // Returns a new position where the 0 has been exchanged with the piece below
+            public Position SlideDown()
             {
-                if (_column == _width - 1) return null;
+                if (_row == _height - 1) return null; // 0 already at the bottom => cannot move
 
                 Position position = new Position(_board);
-                (position._board[_row, _column], position._board[_row, _column + 1]) = (position._board[_row, _column + 1], position._board[_row, _column]);
-                position._column++;
+                (position._board[_row, _column], position._board[_row + 1, _column]) = (position._board[_row + 1, _column], position._board[_row, _column]);
+                position._row++;
 
                 return position;
             }
 
-            public Position SlideRight()
+            // Returns a new position where the 0 has been exchanged with the piece on the left
+            public Position SlideLeft()
             {
-                if (_column == 0) return null;
+                if (_column == 0) return null; // 0 already on the left => cannot move
 
                 Position position = new Position(_board);
                 (position._board[_row, _column], position._board[_row, _column - 1]) = (position._board[_row, _column - 1], position._board[_row, _column]);
                 position._column--;
+
+                return position;
+            }
+
+            // Returns a new position where the 0 has been exchanged with the piece on the right
+            public Position SlideRight()
+            {
+                if (_column == _width - 1) return null; // 0 already on the right => cannot move
+
+                Position position = new Position(_board);
+                (position._board[_row, _column], position._board[_row, _column + 1]) = (position._board[_row, _column + 1], position._board[_row, _column]);
+                position._column++;
 
                 return position;
             }
@@ -143,7 +156,7 @@ namespace Codingame.SlidingPuzzle
             {
                 return GetHashCode() == ((Position)obj).GetHashCode();
             }
-        }
 
+        }
     }
 }
