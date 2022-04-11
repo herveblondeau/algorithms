@@ -1,57 +1,59 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ByTheme.Combinations
 {
     public class Combinations
     {
+        // Returns all the combinations of k elements in the supplied values
         public static IEnumerable<int[]> GetCombinations(int[] values, int k)
         {
             List<int[]> combinations = new List<int[]>();
 
-            int[] currentCombination = new int[k];
+            int[] currentIndexes = new int[k];
             for (int i = 0; i < k; i++)
             {
-                //currentCombination[i] = values[i];
-                currentCombination[i] = i;
+                currentIndexes[i] = i;
             }
-            combinations.Add(currentCombination);
+            combinations.Add(currentIndexes.Select(i => values[i]).ToArray());
 
-            currentCombination = _nextCombination(currentCombination, values);
-            while (currentCombination != null)
+            currentIndexes = _nextIndexes(currentIndexes, values);
+            while (currentIndexes != null)
             {
-                combinations.Add(currentCombination);
-                currentCombination = _nextCombination(currentCombination, values);
+                combinations.Add(currentIndexes.Select(i => values[i]).ToArray());
+                currentIndexes = _nextIndexes(currentIndexes, values);
             }
 
             return combinations;
         }
 
-        private static int[] _nextCombination(int[] currentCombination, int[] values)
+        // Find the next indexes
+        private static int[] _nextIndexes(int[] currentIndexes, int[] values)
         {
-            int[] nextCombination = new int[currentCombination.Length];
-            for (int i = 0; i < currentCombination.Length; i++)
+            int[] nextIndexes = new int[currentIndexes.Length];
+            for (int i = 0; i < currentIndexes.Length; i++)
             {
-                nextCombination[i] = currentCombination[i];
+                nextIndexes[i] = currentIndexes[i];
             }
 
             int n = values.Length - 1;
-            int k = nextCombination.Length - 1;
+            int k = nextIndexes.Length - 1;
 
             bool numberChanged = false;
             for (int i = k; !numberChanged && i > -1; i--)
             {
-                if (nextCombination[i] < n - (k - i))
+                if (nextIndexes[i] < n - (k - i))
                 {
-                    nextCombination[i]++;
+                    nextIndexes[i]++;
                     for (int j = i + 1; j <= k; j++)
                     {
-                        nextCombination[j] = nextCombination[j - 1] + 1;
+                        nextIndexes[j] = nextIndexes[j - 1] + 1;
                     }
                     numberChanged = true;
                 }
             }
 
-            return numberChanged ? nextCombination : null;
+            return numberChanged ? nextIndexes : null;
         }
     }
 }
