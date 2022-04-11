@@ -1,5 +1,6 @@
-﻿// https://www.codingame.com/training/medium/stock-exchange-losses
+﻿// 
 
+using ByTheme.Combinations;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,56 +16,54 @@ namespace Codingame.TwoPilesDifference
                 throw new ArgumentException("The list must contain an even number of values");
             }
 
-            HashSet<string> visited = new HashSet<string>();
-            int[] numbersToSquare = new int[values.Length / 2];
-            int[] numbersToMultiply = new int[values.Length / 2];
-            for (int i = 0; i < values.Length / 2; i++)
+            int difference = int.MaxValue;
+            foreach (var valuesToSquare in Combinations.GetCombinations(values, values.Length / 2))
             {
-                numbersToSquare[i] = values[i];
-            }
-            for (int i = 0; i < values.Length / 2; i++)
-            {
-                numbersToMultiply[i] = values[values.Length / 2 + i];
-            }
-
-            int difference = _computeDifference(numbersToSquare, numbersToMultiply);
-
-            while (_swap(numbersToSquare, numbersToMultiply, visited, difference))
-            {
-                difference = _computeDifference(numbersToSquare, numbersToMultiply);
+                int[] valuesToMultiply = _getValuesToMultiply(values, valuesToSquare);
+                difference = Math.Min(difference, _computeDifference(valuesToSquare, valuesToMultiply));
             }
 
             return difference;
         }
 
-        private bool _swap(int[] numbersToSquare, int[] numbersToMultiply, HashSet<string> visited, int difference)
+        private int[] _getValuesToMultiply(int[] values, int[] valuesToSquare)
         {
-            for (int i = 0; i < numbersToSquare.Length; i++)
+            var allValues = new Dictionary<int, int>();
+            for (int i = 0; i < values.Length; i++)
             {
-                for (int j = 0; j < numbersToMultiply.Length; j++)
+                if (allValues.ContainsKey(values[i]))
                 {
-                    (numbersToSquare[i], numbersToMultiply[j]) = (numbersToMultiply[j], numbersToSquare[i]);
-                    string currentDistribution = _toString(numbersToSquare, numbersToMultiply);
-                    if (visited.Contains(currentDistribution))
-                    {
-                        (numbersToSquare[i], numbersToMultiply[j]) = (numbersToMultiply[j], numbersToSquare[i]);
-                        continue;
-                    }
-
-                    int nextDifference = _computeDifference(numbersToSquare, numbersToMultiply);
-                    if (nextDifference < difference)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        (numbersToSquare[i], numbersToMultiply[j]) = (numbersToMultiply[j], numbersToSquare[i]);
-                    }
-                    visited.Add(currentDistribution);
+                    allValues[values[i]]++;
+                }
+                else
+                {
+                    allValues.Add(values[i], 1);
                 }
             }
 
-            return false;
+            foreach (var value in valuesToSquare)
+            {
+                if (allValues[value] > 1)
+                {
+                    allValues[value]--;
+                }
+                else
+                {
+                    allValues.Remove(value);
+                }
+            }
+
+            int[] valuesToMultiply = new int[valuesToSquare.Length];
+            int j = 0;
+            foreach (var value in allValues.Keys)
+            {
+                for (int i = 0; i < allValues[value]; i++)
+                {
+                    valuesToMultiply[j++] = value;
+                }
+            }
+
+            return valuesToMultiply;
         }
 
         private int _computeDifference(int[] numbersToSquare, int[] numbersToMultiply)
@@ -77,24 +76,6 @@ namespace Codingame.TwoPilesDifference
 
             return Math.Abs(sum * sum - product);
         }
-
-        private string _toString(int[] numbersToSquare, int[] numbersToMultiply)
-        {
-            StringBuilder result = new StringBuilder();
-
-            result.Append(numbersToSquare[0]);
-            for (int i = 1; i < numbersToSquare.Length; i++)
-            {
-                result.Append("-");
-                result.Append(numbersToSquare[i]);
-            }
-            for (int i = 0; i < numbersToMultiply.Length; i++)
-            {
-                result.Append("-");
-                result.Append(numbersToMultiply[i]);
-            }
-
-            return result.ToString();
-        }
     }
+
 }
