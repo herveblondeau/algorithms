@@ -1,10 +1,14 @@
-﻿using Codingame.Candies;
+﻿using ByTheme.Combinations;
+using Codingame.Candies;
 using Codingame.Hangman;
 using Codingame.HanoiTower;
 using Codingame.HungryDuck1;
 using Codingame.LongestPalindrome;
+using Codingame.SlidingPuzzle;
 using Codingame.Staircases;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Algorithms
@@ -613,8 +617,73 @@ namespace Algorithms
             //    Console.WriteLine(palindrome);
             //}
 
-            Candies candies = new Candies();
-            var sequences = candies.GetSequences(5, 2);
+            //Candies candies = new Candies();
+            //var sequences = candies.GetSequences(5, 2);
+
+            //int nbValues = 8;
+            //var values = new int[nbValues];
+            //for (int i = 0; i < nbValues; i++)
+            //{
+            //    values[i] = i;
+            //}
+            ////Console.WriteLine(_toString(values));
+
+            //int nbSelections = 4;
+            //var selections = new int[nbSelections];
+            //for (int i = 0; i < nbSelections; i++)
+            //{
+            //    selections[i] = i;
+            //}
+            ////Console.WriteLine(_toString(selections));
+
+            //for (int i = nbSelections - 1; i >= 0; i--)
+            //{
+            //    int startIndex = i == 0 ? 0 : selections[i - 1] + 1;
+            //    for (int j = startIndex; j < nbValues; j++)
+            //    {
+            //        int backup = selections[i];
+            //        selections[i] = j;
+            //        Console.WriteLine(_toString(selections));
+            //        selections[i] = backup;
+            //    }
+            //}
+
+            int n = 8;
+            int k = 4;
+            var values = new int[n];
+            values[0] = 10;
+            values[1] = 11;
+            values[2] = 12;
+            values[3] = 13;
+            values[4] = 14;
+            values[5] = 15;
+            values[6] = 16;
+            values[7] = 17;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    values[i] = i;
+            //}
+
+            var combinations = Combinations.GetCombinations(values, k);
+            foreach (var combination in combinations)
+            {
+                Console.WriteLine(_toString(combination));
+            }
+            Console.WriteLine($"{combinations.Count()} combinations found");
+
+        }
+
+        private static string _toString(int[] values)
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append(values[0]);
+            for (int i = 1; i < values.Length; i++)
+            {
+                result.Append(" ");
+                result.Append(values[i]);
+            }
+
+            return result.ToString();
         }
     }
 }
