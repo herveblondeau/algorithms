@@ -1,15 +1,6 @@
-﻿using ByTheme.Combinations;
-using Codingame.Candies;
-using Codingame.Hangman;
-using Codingame.HanoiTower;
-using Codingame.HungryDuck1;
-using Codingame.LongestPalindrome;
-using Codingame.SlidingPuzzle;
-using Codingame.Staircases;
+﻿using Codingame.Barnyard;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Algorithms
 {
@@ -648,42 +639,21 @@ namespace Algorithms
             //    }
             //}
 
-            int n = 8;
-            int k = 4;
-            var values = new int[n];
-            values[0] = 10;
-            values[1] = 11;
-            values[2] = 12;
-            values[3] = 13;
-            values[4] = 14;
-            values[5] = 15;
-            values[6] = 16;
-            values[7] = 17;
-            //for (int i = 0; i < n; i++)
-            //{
-            //    values[i] = i;
-            //}
-
-            var combinations = Combinations.GetCombinations(values, k);
-            foreach (var combination in combinations)
+            Barnyard barnyard = new Barnyard();
+            var species = new string[5] { "Cows", "Pegasi", "Demons", "Chickens", "Rabbits" };
+            var bodyParts = new Dictionary<string, int>()
             {
-                Console.WriteLine(_toString(combination));
-            }
-            Console.WriteLine($"{combinations.Count()} combinations found");
-
-        }
-
-        private static string _toString(int[] values)
-        {
-            StringBuilder result = new StringBuilder();
-            result.Append(values[0]);
-            for (int i = 1; i < values.Length; i++)
+                { "Eyes", 128 },
+                { "Heads", 61 },
+                { "Legs", 202 },
+                { "Wings", 72 },
+                { "Horns", 34 },
+            };
+            var nbPerSpecies = barnyard.GetSpeciesCounts(species, bodyParts);
+            foreach (var entry in nbPerSpecies)
             {
-                result.Append(" ");
-                result.Append(values[i]);
+                Console.WriteLine(entry.Key + " " + entry.Value);
             }
-
-            return result.ToString();
         }
     }
 }
