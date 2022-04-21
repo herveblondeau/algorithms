@@ -649,7 +649,7 @@ namespace Algorithms
                 { "Wings", 72 },
                 { "Horns", 34 },
             };
-            var nbPerSpecies = barnyard.GetSpeciesCounts(species, bodyParts);
+            var nbPerSpecies = barnyard.GetNbAnimalsPerSpecies(species, bodyParts);
             foreach (var entry in nbPerSpecies)
             {
                 Console.WriteLine(entry.Key + " " + entry.Value);
