@@ -1,4 +1,4 @@
-﻿// https://www.codingame.com/ide/puzzle/the-greatest-number
+﻿// https://www.codingame.com/training/hard/the-greatest-number
 
 using System.Collections.Generic;
 using System.Text;
