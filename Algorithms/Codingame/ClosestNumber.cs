@@ -1,8 +1,6 @@
 ﻿// https://www.codingame.com/training/hard/closest-number
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Codingame.ClosestNumber
@@ -11,6 +9,11 @@ namespace Codingame.ClosestNumber
     {
         public string GetClosestPermutation(string target, string source)
         {
+            if (source.Length <= 1)
+            {
+                return source;
+            }
+
             // Build a dictionary of the digits available for permutation
             Dictionary<int, int> availableDigits = new Dictionary<int, int>();
             for (int i = 0; i < source.Length; i++)

@@ -25,13 +25,13 @@ namespace Codingame.ClosestNumber
         }
 
         [TestMethod]
-        //[DataRow("94754", "38413", "84331")]
+        [DataRow("94754", "38413", "84331")]
         [DataRow("9", "7", "7")]
-        //[DataRow("1234", "5678", "5678")]
-        //[DataRow("5743211", "1111114", "4111111")]
-        //[DataRow("5743", "1111", "1111")]
-        //[DataRow("94545", "87645", "87654")]
-        //[DataRow("64545", "57645", "64557")]
+        [DataRow("1234", "5678", "5678")]
+        [DataRow("5743211", "1111114", "4111111")]
+        [DataRow("5743", "1111", "1111")]
+        [DataRow("94545", "87645", "87654")]
+        [DataRow("64545", "57645", "64557")]
         public void GetClosestPermutation_SameLengthNoZero_PerformsCorrectly(string target, string source, string expected)
         {
             // Arrange
