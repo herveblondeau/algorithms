@@ -1,10 +1,14 @@
-﻿using Codingame.Candies;
+﻿using ByTheme.Sorting;
+using ByTheme.Test;
+using Codingame.Candies;
 using Codingame.Hangman;
 using Codingame.HanoiTower;
 using Codingame.HungryDuck1;
 using Codingame.LongestPalindrome;
 using Codingame.Staircases;
+using Codingame.TheLuckyNumber;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Algorithms
@@ -613,8 +617,30 @@ namespace Algorithms
             //    Console.WriteLine(palindrome);
             //}
 
-            Candies candies = new Candies();
-            var sequences = candies.GetSequences(5, 2);
+            // Candies candies = new Candies();
+            // var sequences = candies.GetSequences(5, 2);
+
+            Sorting sorting = new();
+            int[] elements = [3, 5, 8, -1, 2, -6];
+            elements = sorting.QuickSort(elements);
+            Console.WriteLine(string.Join(" - ", elements));
+
+            // var luckyNumber = new TheLuckyNumber();
+            // Console.WriteLine(luckyNumber.Test(1, 10000));
+            // Console.WriteLine();
+            // Console.WriteLine(luckyNumber.Test(1, 10000));
+            // Console.WriteLine(luckyNumber.Test(10001, 20000));
+            // Console.WriteLine(luckyNumber.Test(20001, 30000));
+            // Console.WriteLine(luckyNumber.Test(30001, 40000));
+            // Console.WriteLine(luckyNumber.Test(40001, 50000));
+            // Console.WriteLine(luckyNumber.Test(50001, 60000));
+            // Console.WriteLine(luckyNumber.Test(60001, 70000));
+            // Console.WriteLine(luckyNumber.Test(70001, 80000));
+            // Console.WriteLine(luckyNumber.Test(80001, 90000));
+            // Console.WriteLine(luckyNumber.Test(90001, 100000));
+            // Console.WriteLine();
+            // Console.WriteLine(luckyNumber.Test(1, 50000));
+            // Console.WriteLine();
         }
     }
 }
