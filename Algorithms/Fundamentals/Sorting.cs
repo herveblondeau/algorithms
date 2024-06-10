@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace ByTheme.Sorting
+namespace Fundamentals.Sorting
 {
     public class Sorting
     {
