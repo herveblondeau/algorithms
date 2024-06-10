@@ -1,12 +1,14 @@
-﻿using ByTheme.Sorting;
-using ByTheme.Test;
+﻿using ByTheme.Test;
 using Codingame.Candies;
 using Codingame.Hangman;
 using Codingame.HanoiTower;
+using Codingame.HeartOfTheCity;
 using Codingame.HungryDuck1;
 using Codingame.LongestPalindrome;
 using Codingame.Staircases;
 using Codingame.TheLuckyNumber;
+using Fundamentals.BreadthFirstSearch;
+using Fundamentals.Sorting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -620,10 +622,32 @@ namespace Algorithms
             // Candies candies = new Candies();
             // var sequences = candies.GetSequences(5, 2);
 
-            Sorting sorting = new();
-            int[] elements = [3, 5, 8, -1, 2, -6];
-            elements = sorting.QuickSort(elements);
-            Console.WriteLine(string.Join(" - ", elements));
+            // Sorting sorting = new();
+            // int[] elements = [3, 5, 8, -1, 2, -6];
+            // Console.WriteLine(string.Join(" - ", sorting.QuickSort(elements)));
+
+            BreadthFirstSearch breadthFirstSearch= new();
+            Node<string> a = new("A");
+            Node<string> b = new("B");
+            Node<string> c = new("C");
+            Node<string> d = new("D");
+            Node<string> e = new("E");
+            Node<string> f = new("F");
+            Node<string> g = new("G");
+            Node<string> h = new("H");
+            Node<string> i = new("I");
+            a.AddNeighbors([b, c, d]);
+            b.AddNeighbor(e);
+            c.AddNeighbors([e, g]);
+            e.AddNeighbor(f);
+            h.AddNeighbor(i);
+            i.AddNeighbor(h);
+            Console.WriteLine($"Has path from a to f: {breadthFirstSearch.HasPath(a, f)}");
+            Console.WriteLine($"Has path from h to i: {breadthFirstSearch.HasPath(h, i)}");
+            Console.WriteLine($"Has path from a to h: {breadthFirstSearch.HasPath(a, h)}");
+
+            // HeartOfTheCity heartOfTheCity= new();
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(33));
 
             // var luckyNumber = new TheLuckyNumber();
             // Console.WriteLine(luckyNumber.Test(1, 10000));
