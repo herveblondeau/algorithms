@@ -6,14 +6,7 @@ namespace Fundamentals.BreadthFirstSearch;
 
 public class BreadthFirstSearch<T> where T : IEquatable<T>
 {
-    public Dictionary<T, List<T>> Graph = null!;
-
-    public BreadthFirstSearch(Dictionary<T, List<T>> graph)
-    {
-        Graph = graph;
-    }
-
-    public bool HasPath(T from, T to)
+    public bool HasPath(Dictionary<T, List<T>> graph, T from, T to)
     {
         HashSet<T> visited = new();
         Queue<T> queue = new();
@@ -26,9 +19,9 @@ public class BreadthFirstSearch<T> where T : IEquatable<T>
                 return true;
             }
 
-            if (Graph.ContainsKey(node))
+            if (graph.ContainsKey(node))
             {
-                foreach (var neighbor in Graph[node].Where(n => !visited.Contains(n)))
+                foreach (var neighbor in graph[node].Where(n => !visited.Contains(n)))
                 {
                     queue.Enqueue(neighbor);
                 }
@@ -39,10 +32,5 @@ public class BreadthFirstSearch<T> where T : IEquatable<T>
         }
 
         return false;
-    }
-
-    public List<T> GetShortestPath(T from, T to)
-    {
-        return new();
     }
 }
