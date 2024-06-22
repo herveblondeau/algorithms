@@ -5,6 +5,7 @@ using Codingame.HeartOfTheCity;
 using Codingame.HungryDuck1;
 using Codingame.LongestPalindrome;
 using Codingame.Staircases;
+using Codingame.TheLuckyNumber;
 using Fundamentals.BreadthFirstSearch;
 using Fundamentals.Sorting;
 using System;
@@ -644,10 +645,58 @@ namespace Algorithms
             // Console.WriteLine($"Has path from h to i: {breadthFirstSearch.HasPath(h, i)}");
             // Console.WriteLine($"Has path from a to h: {breadthFirstSearch.HasPath(a, h)}");
 
-            HeartOfTheCity heartOfTheCity= new();
-            Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(47));
+            // HeartOfTheCity heartOfTheCity= new();
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(1999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(2999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(3999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(4999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(5999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(6999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(7999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(8999999));
+            // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(9999999));
 
-            // var luckyNumber = new TheLuckyNumber();
+            var luckyNumber = new TheLuckyNumber();
+            // Console.WriteLine(luckyNumber.CountUpTo(9102654354));
+            long min = 1;
+            long max = 7328;
+            Console.WriteLine($"{min} to {max} -> {luckyNumber.Count(min, max)} lucky number(s)");
+            // Console.WriteLine($"Total: {count.Total}");
+            // Console.WriteLine($"Lucky: {count.LuckySix + count.LuckyEight}");
+            // Console.WriteLine($"Unlucky none: {count.UnluckyNone}");
+            // Console.WriteLine($"Unlucky two: {count.UnluckyTwo}");
+            // long min = 58;
+            // long max = 72;
+            // long nbLuckyMin = luckyNumber.GetNbLucky(min);
+            // long nbLuckyMax = luckyNumber.GetNbLucky(max);
+            // Console.WriteLine($"{min - 1} => {nbLuckyMin} lucky numbers");
+            // Console.WriteLine($"{max} => {nbLuckyMax} lucky numbers");
+            // Console.WriteLine($"{nbLuckyMax - nbLuckyMin} lucky numbers between");
+
+            // for (int i = 1; i <= 999; i++)
+            // {
+            //     Console.WriteLine($"{i}: {luckyNumber._isLucky(i)}");
+            // }
+            // for (int i = 1; i <= 19; i++)
+            // {
+            //     var count = luckyNumber.CountForNbDigits(i);
+            //     Console.WriteLine($"{i} digits:");
+            //     Console.WriteLine($"- total: {count.Total}");
+            //     Console.WriteLine($"- lucky: {count.Lucky}");
+            //     Console.WriteLine($"- unlucky none: {count.UnluckyNone}");
+            //     Console.WriteLine($"- unlucky two: {count.UnluckyTwo}");
+            // }
+            // Console.WriteLine();
+            // for (int i = 1; i <= 19; i++)
+            // {
+            //     var count = luckyNumber.CountToPowerOf10(i);
+            //     Console.WriteLine($"1 -> 10^{i}:");
+            //     Console.WriteLine($"- total: {count.Total}");
+            //     Console.WriteLine($"- lucky: {count.Lucky}");
+            //     Console.WriteLine($"- unlucky none: {count.UnluckyNone}");
+            //     Console.WriteLine($"- unlucky two: {count.UnluckyTwo}");
+            // }
             // Console.WriteLine(luckyNumber.Test(1, 10000));
             // Console.WriteLine();
             // Console.WriteLine(luckyNumber.Test(1, 10000));
