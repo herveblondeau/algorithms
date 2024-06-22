@@ -22,7 +22,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.AnimalShelter
         public void DequeueDog_WhenCalled_PerformsCorrectly(int nbDogs, int nbCats)
         {
             // Arrange
-            AnimalShelter animalShelter = new AnimalShelter();
+            AnimalShelter animalShelter = new();
             int currentId = 1;
             for (int i = 0; i < nbDogs; i++)
             {
@@ -62,7 +62,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.AnimalShelter
         public void DequeueCat_WhenCalled_PerformsCorrectly(int nbDogs, int nbCats)
         {
             // Arrange
-            AnimalShelter animalShelter = new AnimalShelter();
+            AnimalShelter animalShelter = new();
             int currentId = 0;
             for (int i = 0; i < nbDogs; i++)
             {
@@ -100,7 +100,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.AnimalShelter
         public void DequeueAny_WhenCalled_PerformsCorrectly(int initialId, int nbDogs, int nbCats)
         {
             // Arrange
-            AnimalShelter animalShelter = new AnimalShelter();
+            AnimalShelter animalShelter = new();
             int currentId = initialId;
             for (int i = 0; i < nbDogs; i++)
             {

@@ -79,7 +79,7 @@ namespace ByTheme.Trees
 
         public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T> node)
         {
-            List<BinaryTreeNode<T>> result = new List<BinaryTreeNode<T>>();
+            List<BinaryTreeNode<T>> result = new();
             if (node != null)
             {
                 result.Add(node);
@@ -91,7 +91,7 @@ namespace ByTheme.Trees
 
         public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T> node)
         {
-            List<BinaryTreeNode<T>> result = new List<BinaryTreeNode<T>>();
+            List<BinaryTreeNode<T>> result = new();
             if (node != null)
             {
                 result.AddRange(TraverseInOrder(node.LeftChild));
@@ -103,7 +103,7 @@ namespace ByTheme.Trees
 
         public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T> node)
         {
-            List<BinaryTreeNode<T>> result = new List<BinaryTreeNode<T>>();
+            List<BinaryTreeNode<T>> result = new();
             if (node != null)
             {
                 result.AddRange(TraversePostOrder(node.LeftChild));
@@ -115,8 +115,8 @@ namespace ByTheme.Trees
 
         public List<BinaryTreeNode<T>> TraverseBreadFirst(BinaryTreeNode<T> node)
         {
-            List<BinaryTreeNode<T>> result = new List<BinaryTreeNode<T>>();
-            Queue<BinaryTreeNode<T>> queue = new Queue<BinaryTreeNode<T>>();
+            List<BinaryTreeNode<T>> result = new();
+            Queue<BinaryTreeNode<T>> queue = new();
             while (node != null)
             {
                 result.Add(node);

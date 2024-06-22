@@ -12,7 +12,7 @@ namespace Codingame.TheLuckyNumber
         public void Count_WhenSameAndNotLucky_ReturnsZero(long number)
         {
             // Arrange
-            TheLuckyNumber TheLuckyNumber = new TheLuckyNumber();
+            TheLuckyNumber TheLuckyNumber = new();
 
             // Act
             var actual = TheLuckyNumber.Count(number, number);
@@ -30,7 +30,7 @@ namespace Codingame.TheLuckyNumber
         public void Count_WhenSameAndLucky_ReturnsOne(long number)
         {
             // Arrange
-            TheLuckyNumber TheLuckyNumber = new TheLuckyNumber();
+            TheLuckyNumber TheLuckyNumber = new();
 
             // Act
             var actual = TheLuckyNumber.Count(number, number);
@@ -50,7 +50,7 @@ namespace Codingame.TheLuckyNumber
         public void Count_WhenCalled_PerformsCorrectly(long min, long max, long expected)
         {
             // Arrange
-            TheLuckyNumber TheLuckyNumber = new TheLuckyNumber();
+            TheLuckyNumber TheLuckyNumber = new();
 
             // Act
             var actual = TheLuckyNumber.Count(min, max);

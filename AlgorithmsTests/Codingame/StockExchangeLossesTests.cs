@@ -12,7 +12,7 @@ namespace Codingame.StockExchangeLosses
         public void FindMaxPossibleLoss_WhenCalled_PerformsCorrectly(int[] values, int expected)
         {
             // Arrange
-            StockExchangeLosses stockExchangeLosses = new StockExchangeLosses();
+            StockExchangeLosses stockExchangeLosses = new();
 
             // Act
             var actual = stockExchangeLosses.FindMaxPossibleLoss(values);

@@ -9,7 +9,7 @@ namespace Codingame.TheGreatestNumber
     {
         public string GetGreatest(string input)
         {
-            StringBuilder builder = new StringBuilder();
+            StringBuilder builder = new();
             var availableDigits = _toDictionary(input);
             bool isNegative = availableDigits.ContainsKey('-');
             bool isDecimal = availableDigits.ContainsKey('.');
@@ -77,7 +77,7 @@ namespace Codingame.TheGreatestNumber
 
         private Dictionary<char, int> _toDictionary(string text)
         {
-            Dictionary<char, int> result = new Dictionary<char, int>();
+            Dictionary<char, int> result = new();
             for (int i = 0; i < text.Length; i++)
             {
                 char current = text[i];

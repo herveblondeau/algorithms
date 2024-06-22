@@ -11,8 +11,8 @@ namespace Codingame.TheBurglarsDilemna
         public void Test1()
         {
             // Arrange
-            TheBurglarsDilemna theBurglarsDilemna = new TheBurglarsDilemna();
-            List<Guess> guesses = new List<Guess>();
+            TheBurglarsDilemna theBurglarsDilemna = new();
+            List<Guess> guesses = new();
             guesses.Add(new Guess(1, 0, Sound.CLICK));
             guesses.Add(new Guess(2, 1, Sound.CLICK));
             guesses.Add(new Guess(3, 2, Sound.CLACK));
@@ -33,8 +33,8 @@ namespace Codingame.TheBurglarsDilemna
         public void Test2()
         {
             // Arrange
-            TheBurglarsDilemna theBurglarsDilemna = new TheBurglarsDilemna();
-            List<Guess> guesses = new List<Guess>();
+            TheBurglarsDilemna theBurglarsDilemna = new();
+            List<Guess> guesses = new();
             guesses.Add(new Guess(0, 0, Sound.CLUCK));
             guesses.Add(new Guess(4, 0, Sound.CLUCK));
             guesses.Add(new Guess(7, 0, Sound.CLUCK));
@@ -51,8 +51,8 @@ namespace Codingame.TheBurglarsDilemna
         public void Test3()
         {
             // Arrange
-            TheBurglarsDilemna theBurglarsDilemna = new TheBurglarsDilemna();
-            List<Guess> guesses = new List<Guess>();
+            TheBurglarsDilemna theBurglarsDilemna = new();
+            List<Guess> guesses = new();
             guesses.Add(new Guess(4, 0, Sound.CLUCK));
             guesses.Add(new Guess(6, 0, Sound.CLUCK));
             guesses.Add(new Guess(0, 0, Sound.CLACK));

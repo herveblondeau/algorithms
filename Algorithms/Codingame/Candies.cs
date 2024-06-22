@@ -9,7 +9,7 @@ namespace Codingame.Candies
     {
         public List<string> GetSequences(int nbCandies, int mouthSize)
         {
-            List<string> sequences = new List<string>();
+            List<string> sequences = new();
 
             _getSequences(sequences, string.Empty, nbCandies, mouthSize);
 

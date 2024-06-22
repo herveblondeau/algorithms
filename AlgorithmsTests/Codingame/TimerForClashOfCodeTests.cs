@@ -16,7 +16,7 @@ namespace Codingame.TimerForClashOfCode
         public void GetStartTime_WhenCalled_PerformsCorrectly(int[] arrivalTimes, int expected)
         {
             // Arrange
-            TimerForClashOfCode timerForClashOfCode = new TimerForClashOfCode();
+            TimerForClashOfCode timerForClashOfCode = new();
 
             // Act
             var actual = timerForClashOfCode.GetStartTime(arrivalTimes);

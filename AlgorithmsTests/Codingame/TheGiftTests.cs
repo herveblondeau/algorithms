@@ -14,7 +14,7 @@ namespace Codingame.TheGift
         public void ComputeContributions_Solvable_PerformsCorrectly(int[] budgets, int total, int[] expected)
         {
             // Arrange
-            TheGift theGift = new TheGift();
+            TheGift theGift = new();
 
             // Act
             var actual = theGift.ComputeContributions(budgets, total);
@@ -29,7 +29,7 @@ namespace Codingame.TheGift
         public void ComputeContributions_Unsolvable_PerformsCorrectly(int[] budgets, int total)
         {
             // Arrange
-            TheGift theGift = new TheGift();
+            TheGift theGift = new();
 
             // Act
             var actual = theGift.ComputeContributions(budgets, total);

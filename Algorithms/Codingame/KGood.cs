@@ -40,7 +40,7 @@ namespace Codingame.KGood
         // Gets the length of the longest KGood substring starting at the beginning of the given input
         private int _getLongestKStartLength(string input, int k)
         {
-            HashSet<char> letters = new HashSet<char>(); // keeps track of the "known" letters - we use a set for constant lookup time
+            HashSet<char> letters = new(); // keeps track of the "known" letters - we use a set for constant lookup time
 
             // Add every new character to the set unless it leads to the set containing more than K characters
             // When that happens, we have reached the maximum KGood substring

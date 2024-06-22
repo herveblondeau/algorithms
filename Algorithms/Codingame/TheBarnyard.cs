@@ -7,7 +7,7 @@ namespace Codingame.TheBarnyard;
 
 public class Barnyard
 {
-    private static readonly Dictionary<(string, string), int> _partCountsPerAnimal = new Dictionary<(string, string), int>
+    private static readonly Dictionary<(string, string), int> _partCountsPerAnimal = new()
     {
         { ("Rabbits", "Heads"),  1 },
         { ("Rabbits", "Eyes"),   2 },

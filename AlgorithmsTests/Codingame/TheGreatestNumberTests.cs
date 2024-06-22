@@ -13,7 +13,7 @@ namespace Codingame.TheGreatestNumber
         public void GetGreatest_PositiveInteger_PerformsCorrectly(string input, string expected)
         {
             // Arrange
-            TheGreatestNumber theGreatestNumber = new TheGreatestNumber();
+            TheGreatestNumber theGreatestNumber = new();
 
             // Act
             var actual = theGreatestNumber.GetGreatest(input);
@@ -29,7 +29,7 @@ namespace Codingame.TheGreatestNumber
         public void GetGreatest_NegativeInteger_PerformsCorrectly(string input, string expected)
         {
             // Arrange
-            TheGreatestNumber theGreatestNumber = new TheGreatestNumber();
+            TheGreatestNumber theGreatestNumber = new();
 
             // Act
             var actual = theGreatestNumber.GetGreatest(input);
@@ -48,7 +48,7 @@ namespace Codingame.TheGreatestNumber
         public void GetGreatest_PositiveDecimal_PerformsCorrectly(string input, string expected)
         {
             // Arrange
-            TheGreatestNumber theGreatestNumber = new TheGreatestNumber();
+            TheGreatestNumber theGreatestNumber = new();
 
             // Act
             var actual = theGreatestNumber.GetGreatest(input);
@@ -66,7 +66,7 @@ namespace Codingame.TheGreatestNumber
         public void GetGreatest_NegativeDecimal_PerformsCorrectly(string input, string expected)
         {
             // Arrange
-            TheGreatestNumber theGreatestNumber = new TheGreatestNumber();
+            TheGreatestNumber theGreatestNumber = new();
 
             // Act
             var actual = theGreatestNumber.GetGreatest(input);

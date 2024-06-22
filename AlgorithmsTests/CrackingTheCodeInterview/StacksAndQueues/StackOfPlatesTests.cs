@@ -84,7 +84,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.StackOfPlates
         public void Peek_PushesAndPops_PerformsCorrectly(int capacity, int[] inputs, int nbPops, int expected)
         {
             // Arrange
-            StackOfPlates stackOfPlates = new StackOfPlates(capacity);
+            StackOfPlates stackOfPlates = new(capacity);
             foreach (int n in inputs)
             {
                 stackOfPlates.Push(n);

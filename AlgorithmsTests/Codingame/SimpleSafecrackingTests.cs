@@ -13,7 +13,7 @@ namespace Codingame.SimpleSafecracking
         public void GetNthLine_WhenCalled_PerformsCorrectly(string encoded, long expected)
         {
             // Arrange
-            SimpleSafecracking simpleSafecracking = new SimpleSafecracking();
+            SimpleSafecracking simpleSafecracking = new();
 
             // Act
             var actual = simpleSafecracking.Decode(encoded);

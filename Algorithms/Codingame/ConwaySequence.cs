@@ -9,8 +9,8 @@ namespace Codingame.ConwaySequence
 
         public List<int> GetNthLine(int number, int n)
         {
-            List<int> previousLine = new List<int> { number };
-            List<int> currentLine = new List<int>() { number };
+            List<int> previousLine = new() { number };
+            List<int> currentLine = new() { number };
 
             int lastValue;
             int lastQuantity;

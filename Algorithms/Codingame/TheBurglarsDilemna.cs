@@ -12,7 +12,7 @@ namespace Codingame.TheBurglarsDilemna
         public string Solve(int length, List<Guess> guesses)
         {
             // Prepare strategies
-            List<IStrategy> strategies = new List<IStrategy>();
+            List<IStrategy> strategies = new();
             strategies.Add(new ClickClackCluckStrategy());
             strategies.Add(new ClickCluckClackStrategy());
             strategies.Add(new ClackClickCluckStrategy());
@@ -27,7 +27,7 @@ namespace Codingame.TheBurglarsDilemna
             foreach (var strategy in strategies)
             {
                 // Prepare workspace
-                Workspace workspace = new Workspace(length);
+                Workspace workspace = new(length);
 
                 // Process all guesses
                 foreach (var guess in guesses)

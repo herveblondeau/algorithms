@@ -15,7 +15,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_AlreadyAtEndFloor_ReturnsZero(int nbFloors, int current, int up, int down)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, current, current, up, down);
@@ -30,7 +30,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_GoingOnlyUp_PerformsCorrectly(int nbFloors, int start, int target, int up, int down, int expected)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
@@ -45,7 +45,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_GoingOnlyDown_PerformsCorrectly(int nbFloors, int start, int target, int up, int down, int expected)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
@@ -62,7 +62,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_GoingUpWithVariations_PerformsCorrectly(int nbFloors, int start, int target, int up, int down, int expected)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
@@ -79,7 +79,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_GoingDownWithVariations_PerformsCorrectly(int nbFloors, int start, int target, int up, int down, int expected)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
@@ -95,7 +95,7 @@ namespace Codingame.Elevator
         public void GetNumberOfPresses_ImpossibleCases_ReturnsMinusOne(int nbFloors, int start, int target, int up, int down)
         {
             // Arrange
-            Elevator elevator = new Elevator();
+            Elevator elevator = new();
 
             // Act
             var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);

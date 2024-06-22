@@ -10,7 +10,7 @@ namespace Codingame.HighestBuilding
 
         public List<Building> GetHighestBuildings(string[] picture)
         {
-            List<Building> highestBuildings = new List<Building>();
+            List<Building> highestBuildings = new();
             int i = 0;
             int highestHeight = 0;
 
@@ -35,7 +35,7 @@ namespace Codingame.HighestBuilding
                         highestBuildings.Add(building);
                         highestHeight = building.Height;
                     }
-                    // 
+                    //
                     else if (building.Height == highestHeight)
                     {
                         highestBuildings.Add(building);
@@ -52,7 +52,7 @@ namespace Codingame.HighestBuilding
         // This method starts from the ground floor at a given position, then builds the whole building
         private Building GetBuilding(string[] picture, int column)
         {
-            List<int> heights = new List<int>();
+            List<int> heights = new();
             int width = 0;
             int height = 0;
             int row = 0;

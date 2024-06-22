@@ -11,7 +11,7 @@ namespace LeetCode.FindAllDuplicates
         public static int[] FindAllDuplicates(int[] values)
         {
             // We use the given information that every element is strictly positive and lower than or equal to the array length
-            List<int> duplicates = new List<int>();
+            List<int> duplicates = new();
 
             for (int i = 0; i < values.Length; i++)
             {

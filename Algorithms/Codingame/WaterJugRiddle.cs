@@ -8,8 +8,8 @@ namespace Codingame.WaterJugRiddle
     public class WaterJugRiddle
     {
 
-        private Dictionary<Position, int> _visited = new Dictionary<Position, int>();
-        private Queue<Position> _positionsToProcess = new Queue<Position>();
+        private Dictionary<Position, int> _visited = new();
+        private Queue<Position> _positionsToProcess = new();
 
         public int GetDistance(int[] capacities, int target)
         {
@@ -20,7 +20,7 @@ namespace Codingame.WaterJugRiddle
 
             // Initial position
             int[] quantities = capacities.Select(c => 0).ToArray();
-            Position current = new Position(capacities, quantities);
+            Position current = new(capacities, quantities);
             _visited.Add(current, 0);
 
             // This is essentially a BFS algorithm
@@ -109,7 +109,7 @@ namespace Codingame.WaterJugRiddle
             // Returns the position after emptying a given jug
             public Position Empty(int n)
             {
-                Position p = new Position(Capacities, Quantities);
+                Position p = new(Capacities, Quantities);
                 p.Quantities[n] = 0;
                 return p;
             }
@@ -117,7 +117,7 @@ namespace Codingame.WaterJugRiddle
             // Returns the position after filling a given jug
             public Position Fill(int n)
             {
-                Position p = new Position(Capacities, Quantities);
+                Position p = new(Capacities, Quantities);
                 p.Quantities[n] = Capacities[n];
                 return p;
             }
@@ -125,7 +125,7 @@ namespace Codingame.WaterJugRiddle
             // Returns the position after pouring the contents of a given jug into another
             public Position Pour(int source, int target)
             {
-                Position p = new Position(Capacities, Quantities);
+                Position p = new(Capacities, Quantities);
                 int delta = Math.Min(Quantities[source], Capacities[target] - Quantities[target]);
                 p.Quantities[source] -= delta;
                 p.Quantities[target] += delta;

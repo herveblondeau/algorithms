@@ -11,7 +11,7 @@ namespace Codingame.Hangman
         public void Solve_GuessesWord_PerformsCorrectly(string word, char[] guesses, int expectedTurn)
         {
             // Arrange
-            Hangman hangman = new Hangman();
+            Hangman hangman = new();
 
             // Act
             var actual = hangman.Solve(word, guesses);

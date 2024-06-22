@@ -12,7 +12,7 @@ namespace Codingame.KGood
         public void GetLongestLength_WhenCalled_PerformsCorrectly(string input, int k, int expected)
         {
             // Arrange
-            KGood kGood = new KGood();
+            KGood kGood = new();
 
             // Act
             var actual = kGood.GetLongestKSubstringLength(input, k);

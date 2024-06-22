@@ -39,10 +39,10 @@ namespace CrackingTheCodeInterview.LinkedLists.Palindrome
         private static LinkedListNode GetReversedCopy(LinkedListNode start)
         {
             LinkedListNode initialCurrent = start;
-            LinkedListNode reverseCurrent = new LinkedListNode(start.Value);
+            LinkedListNode reverseCurrent = new(start.Value);
             while (initialCurrent.Next != null)
             {
-                LinkedListNode reversePrevious = new LinkedListNode(initialCurrent.Next.Value);
+                LinkedListNode reversePrevious = new(initialCurrent.Next.Value);
                 reversePrevious.Next = reverseCurrent;
 
                 initialCurrent = initialCurrent.Next;

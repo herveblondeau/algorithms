@@ -14,7 +14,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_OneNode_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);
+            BinaryTreeNode root = new(0);
 
             // Act
             bool actual = ValidateBst.IsBst(root);
@@ -29,8 +29,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_OneNodeWithLeftChild_ChecksValues(int parentValue, int childValue, bool expected)
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(parentValue);
-            BinaryTreeNode child = new BinaryTreeNode(childValue);
+            BinaryTreeNode root = new(parentValue);
+            BinaryTreeNode child = new(childValue);
             root.LeftChild = child;
 
             // Act
@@ -46,8 +46,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_OneNodeWithRightChild_ChecksValues(int parentValue, int childValue, bool expected)
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(parentValue);
-            BinaryTreeNode child = new BinaryTreeNode(childValue);
+            BinaryTreeNode root = new(parentValue);
+            BinaryTreeNode child = new(childValue);
             root.RightChild = child;
 
             // Act
@@ -67,9 +67,9 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_OneNodeWithTwoChildren_ChecksValues(int parentValue, int leftChildValue, int rightChildValue, bool expected)
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(parentValue);
-            BinaryTreeNode leftChild = new BinaryTreeNode(leftChildValue);
-            BinaryTreeNode rightChild = new BinaryTreeNode(rightChildValue);
+            BinaryTreeNode root = new(parentValue);
+            BinaryTreeNode leftChild = new(leftChildValue);
+            BinaryTreeNode rightChild = new(rightChildValue);
             root.LeftChild = leftChild;
             root.RightChild = rightChild;
 
@@ -97,14 +97,14 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_MediumTree1_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode node2 = new BinaryTreeNode(2);  // depth 0
+            BinaryTreeNode node2 = new(2);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node4 = new(4); // depth 1
             node2.LeftChild = node1;
             node2.RightChild = node4;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
             node1.RightChild = node3;
 
             // Act
@@ -127,17 +127,17 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_MediumTree2_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode node0 = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode node0 = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             node0.LeftChild = node1;
             node0.RightChild = node2;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.LeftChild = node3;
             node1.RightChild = node4;
             node2.LeftChild = node5;
@@ -163,17 +163,17 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_MediumTree3_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode node4 = new BinaryTreeNode(4);  // depth 0
+            BinaryTreeNode node4 = new(4);  // depth 0
 
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
+            BinaryTreeNode node6 = new(6); // depth 1
             node4.LeftChild = node2;
             node4.RightChild = node6;
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 2
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 2
+            BinaryTreeNode node1 = new(1); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node7 = new(7); // depth 2
             node2.LeftChild = node1;
             node2.RightChild = node3;
             node6.LeftChild = node5;
@@ -211,30 +211,30 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_ComplexTree1_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode node0 = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode node0 = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             node0.LeftChild = node1;
             node0.RightChild = node2;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.LeftChild = node3;
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
-            BinaryTreeNode node8 = new BinaryTreeNode(8); // depth 3
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node10 = new BinaryTreeNode(10); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 3
+            BinaryTreeNode node7 = new(7); // depth 3
+            BinaryTreeNode node8 = new(8); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node10 = new(10); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node12 = new(12); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node14 = new(14); // depth 3
             node3.LeftChild = node7;
             node3.RightChild = node8;
             node4.LeftChild = node9;
@@ -272,30 +272,30 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst
         public void IsBst_ComplexTree2_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode node8 = new BinaryTreeNode(8);  // depth 0
+            BinaryTreeNode node8 = new(8);  // depth 0
 
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 1
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 1
+            BinaryTreeNode node4 = new(4); // depth 1
+            BinaryTreeNode node12 = new(12); // depth 1
             node8.LeftChild = node4;
             node8.RightChild = node12;
 
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
-            BinaryTreeNode node10 = new BinaryTreeNode(10); // depth 2
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 2
+            BinaryTreeNode node2 = new(2); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
+            BinaryTreeNode node10 = new(10); // depth 2
+            BinaryTreeNode node14 = new(14); // depth 2
             node4.LeftChild = node2;
             node4.RightChild = node6;
             node12.LeftChild = node10;
             node12.RightChild = node14;
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 3
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 3
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 3
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node15 = new BinaryTreeNode(15); // depth 3
+            BinaryTreeNode node1 = new(1); // depth 3
+            BinaryTreeNode node3 = new(3); // depth 3
+            BinaryTreeNode node5 = new(5); // depth 3
+            BinaryTreeNode node7 = new(7); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node15 = new(15); // depth 3
             node2.LeftChild = node1;
             node2.RightChild = node3;
             node6.LeftChild = node5;

@@ -15,7 +15,7 @@ namespace Codingame.Staircases
         public void GetNumberOfStaircases_NotEnoughBricks_ReturnsZero(int bricks)
         {
             // Arrange
-            Staircases staircases = new Staircases();
+            Staircases staircases = new();
 
             // Act
             var actual = staircases.GetNumberOfStaircases(bricks);
@@ -33,7 +33,7 @@ namespace Codingame.Staircases
         public void GetNumberOfStaircases_WhenCalled_PerformsCorrectly(int bricks, int expected)
         {
             // Arrange
-            Staircases staircases = new Staircases();
+            Staircases staircases = new();
 
             // Act
             var actual = staircases.GetNumberOfStaircases(bricks);

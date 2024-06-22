@@ -45,7 +45,7 @@ namespace CrackingTheCodeInterview.LinkedLists.Palindrome
             if (values.Length == 0)
                 return null;
 
-            LinkedListNode start = new LinkedListNode(values[0]);
+            LinkedListNode start = new(values[0]);
             LinkedListNode current = start;
             int i = 1;
             while (i + 1 <= values.Length)

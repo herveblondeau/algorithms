@@ -15,7 +15,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
             }
 
             // This is basically a breadth-first search
-            Queue<Node> toVisit = new Queue<Node>();
+            Queue<Node> toVisit = new();
 
             Node current;
 

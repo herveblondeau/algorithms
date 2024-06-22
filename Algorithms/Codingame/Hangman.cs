@@ -11,7 +11,7 @@ namespace Codingame.Hangman
         {
             // Initialize
             var lower = word.ToLower();
-            HashSet<char> lettersToGuess = new HashSet<char>();
+            HashSet<char> lettersToGuess = new();
             foreach (var c in lower)
             {
                 if (c != ' ') lettersToGuess.Add(c); // whitespaces are not meant to be guessed
@@ -35,7 +35,7 @@ namespace Codingame.Hangman
             }
 
             // Build guessed word
-            StringBuilder result = new StringBuilder();
+            StringBuilder result = new();
             for (int i = 0; i < word.Length; i++)
             {
                 result.Append(lettersToGuess.Contains(lower[i]) ? '_' : word[i]);

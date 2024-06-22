@@ -15,8 +15,8 @@ namespace Codingame.War
             bool isWar = false;
 
             // Keep track of the cards at stake, dealt by each player during a fight (battle or war)
-            Queue<int> p1FightCards = new Queue<int>();
-            Queue<int> p2FightCards = new Queue<int>();
+            Queue<int> p1FightCards = new();
+            Queue<int> p2FightCards = new();
 
             while (true)
             {
@@ -49,7 +49,7 @@ namespace Codingame.War
                         return (1, nbRounds);
                     }
 
-                    // 
+                    //
                     nbRounds++;
                 }
 

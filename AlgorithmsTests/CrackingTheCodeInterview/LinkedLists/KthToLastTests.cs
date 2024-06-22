@@ -20,7 +20,7 @@ namespace CrackingTheCodeInterview.LinkedLists.KthToLast
         {
             // Arrange
             // List with 10 nodes from 1 to 10
-            LinkedListNode start = new LinkedListNode("node 1");
+            LinkedListNode start = new("node 1");
             LinkedListNode current = start;
             LinkedListNode next;
             for (int i = 2; i <= 10; i++)
@@ -47,7 +47,7 @@ namespace CrackingTheCodeInterview.LinkedLists.KthToLast
         {
             // Arrange
             // List with 10 nodes from 1 to 10
-            LinkedListNode start = new LinkedListNode("node 1");
+            LinkedListNode start = new("node 1");
             LinkedListNode current = start;
             LinkedListNode next;
             for (int i = 2; i <= 10; i++)
@@ -75,7 +75,7 @@ namespace CrackingTheCodeInterview.LinkedLists.KthToLast
         {
             // Arrange
             // List with 10 nodes from 1 to 10
-            LinkedListNode start = new LinkedListNode("node 1");
+            LinkedListNode start = new("node 1");
             LinkedListNode current = start;
             LinkedListNode next;
             for (int i = 2; i <= 10; i++)

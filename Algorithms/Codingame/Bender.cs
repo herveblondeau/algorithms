@@ -22,7 +22,7 @@ namespace Codingame.Bender
             _state = new State();
             _history = new HashSet<Snapshot>();
             _isStuckInInfiniteLoop = false;
-            List<Direction> _path = new List<Direction>();
+            List<Direction> _path = new();
 
             _state.SetPosition(_map.StartPosition);
             int n = 0;
@@ -106,7 +106,7 @@ namespace Codingame.Bender
 
         private void _saveSnapshot()
         {
-            Snapshot snapshot = new Snapshot
+            Snapshot snapshot = new()
             {
                 Position = _state.Position,
                 Direction = _state.Direction,
@@ -200,11 +200,11 @@ namespace Codingame.Bender
 
             public static Map Parse(string[] rows)
             {
-                Map map = new Map();
+                Map map = new();
                 int nbTeleporters = 0;
                 map.NbObstacles = 0;
 
-                Dictionary<(int, int), Spot> spots = new Dictionary<(int, int), Spot>();
+                Dictionary<(int, int), Spot> spots = new();
 
                 for (int i = 0; i < rows[0].Length; i++)
                 {

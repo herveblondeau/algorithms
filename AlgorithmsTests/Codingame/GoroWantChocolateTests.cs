@@ -14,7 +14,7 @@ namespace Codingame.GoroWantChocolate
         public void GetMinimalNumberOfSquares_WhenCalled_PerformsCorrectly(int width, int height, int expected)
         {
             // Arrange
-            GoroWantChocolate goroWantChocolate = new GoroWantChocolate();
+            GoroWantChocolate goroWantChocolate = new();
 
             // Act
             var actual = goroWantChocolate.GetMinimalNumberOfSquares(width, height);

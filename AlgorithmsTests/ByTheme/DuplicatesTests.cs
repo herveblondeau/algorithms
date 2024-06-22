@@ -16,7 +16,7 @@ namespace ByTheme.Duplicates
         public void FindFirstDuplicate_DuplicateInt_PerformsCorrectly(int[] elements, int expected)
         {
             // Arrange
-            Duplicates duplicates = new Duplicates();
+            Duplicates duplicates = new();
 
             // Act
             var actual = duplicates.FindFirstDuplicate(elements);
@@ -33,7 +33,7 @@ namespace ByTheme.Duplicates
         public void FindFirstDuplicate_NoDuplicateInt_ThrowsException(int[] elements)
         {
             // Arrange
-            Duplicates firstDuplicate = new Duplicates();
+            Duplicates firstDuplicate = new();
 
             // Act
             var actual = firstDuplicate.FindFirstDuplicate(elements);
@@ -50,7 +50,7 @@ namespace ByTheme.Duplicates
         public void FindFirstNonDuplicate_NonDuplicateInt_PerformsCorrectly(int[] elements, int expected)
         {
             // Arrange
-            Duplicates duplicates = new Duplicates();
+            Duplicates duplicates = new();
 
             // Act
             var actual = duplicates.FindFirstNonDuplicate(elements);
@@ -67,7 +67,7 @@ namespace ByTheme.Duplicates
         public void FindFirstNonDuplicate_NoNonDuplicateInt_ThrowsException(int[] elements)
         {
             // Arrange
-            Duplicates duplicates = new Duplicates();
+            Duplicates duplicates = new();
 
             // Act
             var actual = duplicates.FindFirstNonDuplicate(elements);

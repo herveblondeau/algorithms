@@ -12,7 +12,7 @@ public class TheBarnyardTests
     public void GetAnimalCounts_WhenCalled_PerformsCorrectly(string[] animals, Dictionary<string, int> bodyParts, Dictionary<string, int> expected)
     {
         // Arrange
-        Barnyard Barnyard = new Barnyard();
+        Barnyard Barnyard = new();
 
         // Act
         var actual = Barnyard.GetAnimalCounts(animals, bodyParts);

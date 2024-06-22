@@ -17,7 +17,7 @@ namespace Codingame.NetworkCabling
         public void GetMinimumCableLength_WhenCalled_PerformsCorrectly(long[] xPositions, long[] yPositions, long expected)
         {
             // Arrange
-            NetworkCabling networkCabling = new NetworkCabling();
+            NetworkCabling networkCabling = new();
 
             // Act
             var actual = networkCabling.GetMinimumCableLength(xPositions, yPositions);

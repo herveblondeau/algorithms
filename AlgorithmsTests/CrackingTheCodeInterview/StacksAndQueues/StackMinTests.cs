@@ -12,7 +12,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.StackMin
         public void Min_OnlyPushes_PerformsCorrectly(int[] inputs, int expected)
         {
             // Arrange
-            StackMin stackMin = new StackMin();
+            StackMin stackMin = new();
             foreach (int n in inputs)
             {
                 stackMin.Push(n);
@@ -37,7 +37,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.StackMin
         public void Min_PushesAndPops_PerformsCorrectly(int[] inputs, int nbPops, int expected)
         {
             // Arrange
-            StackMin stackMin = new StackMin();
+            StackMin stackMin = new();
             foreach (int n in inputs)
             {
                 stackMin.Push(n);

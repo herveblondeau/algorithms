@@ -7,8 +7,8 @@ namespace Codingame.ChessCavalry
 {
     public class ChessCavalry
     {
-        private Dictionary<(int, int), int> _visited = new Dictionary<(int, int), int>();
-        private Queue<(int, int)> _toProcess = new Queue<(int, int)>();
+        private Dictionary<(int, int), int> _visited = new();
+        private Queue<(int, int)> _toProcess = new();
         private static (int, int)[] _allowedMoves = new (int, int)[8]
         {
             (-1, 2),

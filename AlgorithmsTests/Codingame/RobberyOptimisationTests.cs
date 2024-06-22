@@ -18,7 +18,7 @@ namespace Codingame.RobberyOptimisation
         public void GetMaximumAmount_WhenCalled_PerformsCorrectly(long[] values, long expected)
         {
             // Arrange
-            RobberyOptimisation robberyOptimisation = new RobberyOptimisation();
+            RobberyOptimisation robberyOptimisation = new();
 
             // Act
             var actual = robberyOptimisation.GetMaximumAmount(values);

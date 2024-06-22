@@ -17,7 +17,7 @@ namespace LeetCode.NumberOfIslands
                 { 1,1,0,0,0 },
                 { 0,0,0,0,0 }
             };
-            NumberOfIslands numberOfIslandsSolver = new NumberOfIslands();
+            NumberOfIslands numberOfIslandsSolver = new();
 
             // Act
             var actual = numberOfIslandsSolver.CountIslands(spots);
@@ -37,7 +37,7 @@ namespace LeetCode.NumberOfIslands
                 { 0, 0, 1, 1, 0 },
                 { 0, 0, 0, 1, 1 }
             };
-            NumberOfIslands numberOfIslandsSolver = new NumberOfIslands();
+            NumberOfIslands numberOfIslandsSolver = new();
 
             // Act
             var actual = numberOfIslandsSolver.CountIslands(spots);
@@ -57,7 +57,7 @@ namespace LeetCode.NumberOfIslands
                 { 0, 0, 1, 0, 0 },
                 { 0, 0, 0, 1, 1 }
             };
-            NumberOfIslands numberOfIslandsSolver = new NumberOfIslands();
+            NumberOfIslands numberOfIslandsSolver = new();
 
             // Act
             var actual = numberOfIslandsSolver.CountIslands(spots);
@@ -83,7 +83,7 @@ namespace LeetCode.NumberOfIslands
                 { 0, 1, 1, 1, 1, 0, 0, 1, 1, 1 },
                 { 0, 0, 1, 0, 0, 0, 0, 0, 1, 1 },
             };
-            NumberOfIslands numberOfIslandsSolver = new NumberOfIslands();
+            NumberOfIslands numberOfIslandsSolver = new();
 
             // Act
             var actual = numberOfIslandsSolver.CountIslands(spots);

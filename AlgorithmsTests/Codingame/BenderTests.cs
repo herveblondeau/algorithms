@@ -11,7 +11,7 @@ namespace Codingame.Bender
         public void Traverse_NoInfiniteLoop_ReturnsPath(string[] rows, string[] expectedPath, string dummy)
         {
             // Arrange
-            Bender bender = new Bender();
+            Bender bender = new();
 
             // Act
             var result = bender.Traverse(rows);
@@ -26,7 +26,7 @@ namespace Codingame.Bender
         public void Traverse_InfiniteLoop_ReturnsLoop(string[] rows)
         {
             // Arrange
-            Bender bender = new Bender();
+            Bender bender = new();
 
             // Act
             var result = bender.Traverse(rows);

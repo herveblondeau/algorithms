@@ -18,7 +18,7 @@ public class HeartOfTheCityTests
     public void GetNumberOfVisibleBuildings_WhenCalled_PerformsCorrectly(long citySize, long expected)
     {
         // Arrange
-        HeartOfTheCity HeartOfTheCity = new HeartOfTheCity();
+        HeartOfTheCity HeartOfTheCity = new();
 
         // Act
         var actual = HeartOfTheCity.GetNumberOfVisibleBuildings(citySize);

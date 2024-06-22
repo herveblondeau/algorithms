@@ -11,7 +11,7 @@ namespace CrackingTheCodeInterview.ArraysAndStrings.StringCompression
     {
         public static string Compress(string input)
         {
-            StringBuilder compressed = new StringBuilder();
+            StringBuilder compressed = new();
             int length = 0;
             for (int i = 0; i < input.Length; i++)
             {

@@ -9,14 +9,14 @@ namespace Codingame.UnfoldingPaper
     {
         /*
          * Returns the number of parts after unfolding n times
-         * 
+         *
          * It would take too much space to actually draw and store the unfolded paper, then to compute the number of parts
          * Instead, we can notice that each part belongs to one of 15 types. Each type, when unfolded once, always results in the same output types
          * For instance, a top left corner, when unfolded once, ends up with a part in the center of the paper. The 15 types, with their results when unfolded, are listed below
          * To solve the problem, we proceed in two steps:
          * - first, we parse the initial folder paper representation, which allows us to store the number of parts of each type
          * - next, we unfold
-         * 
+         *
          */
         public int Unfold(string[] folded, int nbUnfoldings)
         {
@@ -48,7 +48,7 @@ namespace Codingame.UnfoldingPaper
         // The part type is determined based on which edges the part touches
         private Dictionary<PartType, int> _parse(char[,] paper)
         {
-            Dictionary<PartType, int> parsed = new Dictionary<PartType, int>();
+            Dictionary<PartType, int> parsed = new();
 
             var _width = paper.GetLength(0);
             var _height = paper.GetLength(1);
@@ -59,7 +59,7 @@ namespace Codingame.UnfoldingPaper
                 {
                     if (paper[i, j] == '#')
                     {
-                        Part part = new Part();
+                        Part part = new();
                         part.Parse(i, j, paper);
                         _add(parsed, part.Type, 1);
                     }
@@ -136,7 +136,7 @@ namespace Codingame.UnfoldingPaper
         /*
          * Performs one unfold
          * Here is the list of all part types and the resulting types after unfolding:
-         * 
+         *
          * TOP LEFT
          * The part touches the top and left borders
          *          ┌───┬───┐
@@ -149,7 +149,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle center
-         * 
+         *
          * TOP CENTER
          * The part only touches the top border
          *          ┌───┬───┐
@@ -162,7 +162,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle center x2
-         * 
+         *
          * TOP RIGHT
          * The part touches the top and right borders
          *          ┌───┬───┐
@@ -175,7 +175,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle left, middle right
-         * 
+         *
          * MIDDLE LEFT
          * The part only touches the left border
          *          ┌───┬───┐
@@ -188,7 +188,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle center x2
-         * 
+         *
          * MIDDLE CENTER
          * The part touches no border
          *          ┌───┬───┐
@@ -201,7 +201,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle center x4
-         * 
+         *
          * MIDDLE RIGHT
          * The part only touches the right border
          *          ┌───┬───┐
@@ -214,7 +214,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle left x2, middle right x2
-         * 
+         *
          * BOTTOM LEFT
          * The part touches the left and bottom borders
          *          ┌───┬───┐
@@ -227,7 +227,7 @@ namespace Codingame.UnfoldingPaper
          *          │  #│#  │
          *          └───┴───┘
          * when unfolded => top center, bottom center
-         * 
+         *
          * BOTTOM CENTER
          * The part only touches the bottom border
          *          ┌───┬───┐
@@ -240,7 +240,7 @@ namespace Codingame.UnfoldingPaper
          *          │ # │ # │
          *          └───┴───┘
          * when unfolded => top center x2, bottom center x2
-         * 
+         *
          * BOTTOM RIGHT
          * The part touches the right and bottom borders
          *          ┌───┬───┐
@@ -253,7 +253,7 @@ namespace Codingame.UnfoldingPaper
          *          │#  │  #│
          *          └───┴───┘
          * when unfolded => top left, top right, bottom left, bottom right
-         * 
+         *
          * TOP STRIPE
          * The part touches the left, top and right borders
          *          ┌───┬───┐
@@ -266,7 +266,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle stripe
-         * 
+         *
          * CENTER STRIPE
          * The part touches the left and right borders
          *          ┌───┬───┐
@@ -279,7 +279,7 @@ namespace Codingame.UnfoldingPaper
          *          │   │   │
          *          └───┴───┘
          * when unfolded => middle stripe x2
-         * 
+         *
          * BOTTOM STRIPE
          * The part touches the left, bottom and right borders
          *          ┌───┬───┐
@@ -292,7 +292,7 @@ namespace Codingame.UnfoldingPaper
          *          │###│###│
          *          └───┴───┘
          * when unfolded => top stripe, bottom stripe
-         * 
+         *
          * LEFT STRIPE
          * The part touches the top, left and bottom borders
          *          ┌───┬───┐
@@ -305,7 +305,7 @@ namespace Codingame.UnfoldingPaper
          *          │  #│#  │
          *          └───┴───┘
          * when unfolded => center stripe
-         * 
+         *
          * CENTER STRIPE
          * The part touches the top and bottom borders
          *          ┌───┬───┐
@@ -318,7 +318,7 @@ namespace Codingame.UnfoldingPaper
          *          │ # │ # │
          *          └───┴───┘
          * when unfolded => center stripe x2
-         * 
+         *
          * RIGHT STRIPE
          * The part touches the top, right and bottom borders
          *          ┌───┬───┐
@@ -331,7 +331,7 @@ namespace Codingame.UnfoldingPaper
          *          │#  │  #│
          *          └───┴───┘
          * when unfolded => left stripe, right stripe
-         * 
+         *
          * FULL
          * The part touches all four borders
          *          ┌───┬───┐
@@ -347,7 +347,7 @@ namespace Codingame.UnfoldingPaper
          */
         private Dictionary<PartType, int> _unfold(Dictionary<PartType, int> folded)
         {
-            Dictionary<PartType, int> unfolded = new Dictionary<PartType, int>();
+            Dictionary<PartType, int> unfolded = new();
             foreach (var part in folded)
             {
                 switch (part.Key)

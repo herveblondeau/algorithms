@@ -14,7 +14,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_OneNode_ReturnsNull()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);
+            BinaryTreeNode root = new(0);
 
             // Act
             BinaryTreeNode actual = Successor.Next(root);
@@ -27,8 +27,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_OneNodeWithLeftChild_PerformsCorrectly()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(2);
-            BinaryTreeNode child = new BinaryTreeNode(1);
+            BinaryTreeNode root = new(2);
+            BinaryTreeNode child = new(1);
             root.LeftChild = child;
             child.Parent = root;
 
@@ -41,8 +41,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_OneNodeWithRightChild_PerformsCorrectly()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(1);
-            BinaryTreeNode child = new BinaryTreeNode(2);
+            BinaryTreeNode root = new(1);
+            BinaryTreeNode child = new(2);
             root.RightChild = child;
             child.Parent = root;
 
@@ -55,9 +55,9 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_OneNodeWithTwoChildren_PerformsCorrectly()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(2);
-            BinaryTreeNode leftChild = new BinaryTreeNode(1);
-            BinaryTreeNode rightChild = new BinaryTreeNode(3);
+            BinaryTreeNode root = new(2);
+            BinaryTreeNode leftChild = new(1);
+            BinaryTreeNode rightChild = new(3);
             root.LeftChild = leftChild;
             root.RightChild = rightChild;
             leftChild.Parent = root;
@@ -86,19 +86,19 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_MediumTree_PerformsCorrectly()
         {
             // Arrange
-            BinaryTreeNode node4 = new BinaryTreeNode(4);  // depth 0
+            BinaryTreeNode node4 = new(4);  // depth 0
 
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
+            BinaryTreeNode node6 = new(6); // depth 1
             node4.LeftChild = node2;
             node4.RightChild = node6;
             node2.Parent = node4;
             node6.Parent = node4;
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 2
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 2
+            BinaryTreeNode node1 = new(1); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node7 = new(7); // depth 2
             node2.LeftChild = node1;
             node2.RightChild = node3;
             node1.Parent = node2;
@@ -143,19 +143,19 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
         public void Next_ComplexTree_PerformsCorrectly()
         {
             // Arrange
-            BinaryTreeNode node8 = new BinaryTreeNode(8);  // depth 0
+            BinaryTreeNode node8 = new(8);  // depth 0
 
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 1
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 1
+            BinaryTreeNode node4 = new(4); // depth 1
+            BinaryTreeNode node12 = new(12); // depth 1
             node8.LeftChild = node4;
             node8.RightChild = node12;
             node4.Parent = node8;
             node12.Parent = node8;
 
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
-            BinaryTreeNode node10 = new BinaryTreeNode(10); // depth 2
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 2
+            BinaryTreeNode node2 = new(2); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
+            BinaryTreeNode node10 = new(10); // depth 2
+            BinaryTreeNode node14 = new(14); // depth 2
             node4.LeftChild = node2;
             node4.RightChild = node6;
             node2.Parent = node4;
@@ -165,14 +165,14 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.Successor
             node10.Parent = node12;
             node14.Parent = node12;
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 3
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 3
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 3
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node15 = new BinaryTreeNode(15); // depth 3
+            BinaryTreeNode node1 = new(1); // depth 3
+            BinaryTreeNode node3 = new(3); // depth 3
+            BinaryTreeNode node5 = new(5); // depth 3
+            BinaryTreeNode node7 = new(7); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node15 = new(15); // depth 3
             node2.LeftChild = node1;
             node2.RightChild = node3;
             node1.Parent = node2;

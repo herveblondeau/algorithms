@@ -13,7 +13,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.QueueViaStacks
         public void Peek_EnqueueThenPeek_PerformsCorrectly(int[] inputs, int expected)
         {
             // Arrange
-            QueueViaStacks queueViaStacks = new QueueViaStacks();
+            QueueViaStacks queueViaStacks = new();
             foreach (int n in inputs)
             {
                 queueViaStacks.Enqueue(n);
@@ -37,7 +37,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.QueueViaStacks
         public void Dequeue_EnqueueThenDequeueSeveralTimes_PerformsCorrectly(int[] inputs, int nbDequeues, int expected)
         {
             // Arrange
-            QueueViaStacks queueViaStacks = new QueueViaStacks();
+            QueueViaStacks queueViaStacks = new();
             foreach (int n in inputs)
             {
                 queueViaStacks.Enqueue(n);

@@ -12,7 +12,7 @@ namespace Codingame.LevenshteinDistance
         public void GetDistance_IdenticalStrings_ReturnsZero(string source, string target)
         {
             // Arrange
-            LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+            LevenshteinDistance levenshteinDistance = new();
 
             // Act
             var actual = levenshteinDistance.GetDistance(source, target);
@@ -29,7 +29,7 @@ namespace Codingame.LevenshteinDistance
         public void GetDistance_SameLength_PerformsCorrectly(string source, string target, int expected)
         {
             // Arrange
-            LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+            LevenshteinDistance levenshteinDistance = new();
 
             // Act
             var actual = levenshteinDistance.GetDistance(source, target);
@@ -46,7 +46,7 @@ namespace Codingame.LevenshteinDistance
         public void GetDistance_DifferentLength_PerformsCorrectly(string source, string target, int expected)
         {
             // Arrange
-            LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+            LevenshteinDistance levenshteinDistance = new();
 
             // Act
             var actual = levenshteinDistance.GetDistance(source, target);

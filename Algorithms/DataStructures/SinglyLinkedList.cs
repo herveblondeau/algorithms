@@ -18,7 +18,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists
 
         public void InsertFirst(int value)
         {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(value);
+            SinglyLinkedListNode node = new(value);
             if (_isEmpty)
             {
                 First = node;
@@ -33,7 +33,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists
 
         public void InsertLast(int value)
         {
-            SinglyLinkedListNode node = new SinglyLinkedListNode(value);
+            SinglyLinkedListNode node = new(value);
             if (_isEmpty)
             {
                 First = node;
@@ -48,7 +48,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists
 
         public void InsertBefore(SinglyLinkedListNode node, int value)
         {
-            SinglyLinkedListNode newNode= new SinglyLinkedListNode(value);
+            SinglyLinkedListNode newNode= new(value);
             SinglyLinkedListNode current = First;
             while (current != null && current.Next != node)
             {
@@ -75,7 +75,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists
 
         public override string ToString()
         {
-            StringBuilder result = new StringBuilder();
+            StringBuilder result = new();
             SinglyLinkedListNode currentNode = First;
             while (currentNode != null)
             {

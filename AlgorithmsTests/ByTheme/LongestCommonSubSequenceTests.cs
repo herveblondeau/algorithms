@@ -13,7 +13,7 @@ namespace ByTheme.LongestCommonSubSequence
         public void Memoization_WhenCalled_PerformsCorrectly(string string1, string string2, string expected)
         {
             // Arrange
-            LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
+            LongestCommonSubSequence longestCommonSubSequenceSolver = new();
 
             // Act
             var actual = longestCommonSubSequenceSolver.Memoization(string1, string2);
@@ -28,7 +28,7 @@ namespace ByTheme.LongestCommonSubSequence
         public void Recursion_WhenCalled_PerformsCorrectly(string string1, string string2, string expected)
         {
             // Arrange
-            LongestCommonSubSequence longestCommonSubSequenceSolver = new LongestCommonSubSequence();
+            LongestCommonSubSequence longestCommonSubSequenceSolver = new();
 
             // Act
             var actual = longestCommonSubSequenceSolver.Recursion(string1, string2);

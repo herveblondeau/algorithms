@@ -14,7 +14,7 @@ namespace GeeksForGeeks.InversionOfArray
         public void GetInversionCount_OrderedList_Returns0(int[] values)
         {
             // Arrange
-            InversionOfArray inversionOfArraySolver = new InversionOfArray();
+            InversionOfArray inversionOfArraySolver = new();
 
             // Act
             var actual = inversionOfArraySolver.GetInversionCount(values);
@@ -31,7 +31,7 @@ namespace GeeksForGeeks.InversionOfArray
         public void GetInversionCount_UnorderedList_PerformsCorrectly(int[] values, int expected)
         {
             // Arrange
-            InversionOfArray inversionOfArraySolver = new InversionOfArray();
+            InversionOfArray inversionOfArraySolver = new();
 
             // Act
             var actual = inversionOfArraySolver.GetInversionCount(values);

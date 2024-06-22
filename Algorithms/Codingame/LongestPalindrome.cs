@@ -11,7 +11,7 @@ namespace Codingame.LongestPalindrome
         public List<string> GetLongestPalindromes(string input)
         {
             int longestLength = 0;
-            List<string> longestPalindromes = new List<string>();
+            List<string> longestPalindromes = new();
             // We look for a palindrome starting at every position
             for (int i = 0; i < input.Length; i++)
             {

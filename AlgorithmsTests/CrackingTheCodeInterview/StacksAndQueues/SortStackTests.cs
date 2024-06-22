@@ -13,7 +13,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.SortStack
         public void Peek_EnqueueThenPeek_PerformsCorrectly(int[] inputs, int expected)
         {
             // Arrange
-            SortStack sortStack = new SortStack();
+            SortStack sortStack = new();
             foreach (int n in inputs)
             {
                 sortStack.Enqueue(n);
@@ -37,7 +37,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.SortStack
         public void Dequeue_EnqueueThenDequeueSeveralTimes_PerformsCorrectly(int[] inputs, int nbDequeues, int expected)
         {
             // Arrange
-            SortStack sortStack = new SortStack();
+            SortStack sortStack = new();
             foreach (int n in inputs)
             {
                 sortStack.Enqueue(n);
@@ -64,7 +64,7 @@ namespace CrackingTheCodeInterview.StacksAndQueues.SortStack
         public void Dequeue_EnqueueWithDuplicatesThenDequeueSeveralTimes_PerformsCorrectly(int[] inputs, int nbDequeues, int expected)
         {
             // Arrange
-            SortStack sortStack = new SortStack();
+            SortStack sortStack = new();
             foreach (int n in inputs)
             {
                 sortStack.Enqueue(n);

@@ -13,7 +13,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
         {
             LinkedListNode current;
 
-            HashSet<LinkedListNode> existingNodes = new HashSet<LinkedListNode>();
+            HashSet<LinkedListNode> existingNodes = new();
             current = start;
             while (current != null)
             {

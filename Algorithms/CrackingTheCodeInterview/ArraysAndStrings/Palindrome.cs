@@ -11,7 +11,7 @@ namespace CrackingTheCodeInterview.ArraysAndStrings.Palindrome
         // This is the most straightforward solution, there is a slightly more streamlined one in the book
         public static bool IsPalindromePermutation(string input)
         {
-            Dictionary<char, int> nbOccurrencesPerCharacter = new Dictionary<char, int>();
+            Dictionary<char, int> nbOccurrencesPerCharacter = new();
             foreach (char c in input)
             {
                 if (char.IsWhiteSpace(c))

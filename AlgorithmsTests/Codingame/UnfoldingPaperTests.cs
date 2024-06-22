@@ -14,7 +14,7 @@ namespace Codingame.UnfoldingPaper
         public void Unfold_3x3FoldedPaper_PerformsCorrectly(int nbUnfoldings, int expected)
         {
             // Arrange
-            UnfoldingPaper unfoldingPaper = new UnfoldingPaper();
+            UnfoldingPaper unfoldingPaper = new();
             string[] folded = new string[]
             {
                 "###",
@@ -37,7 +37,7 @@ namespace Codingame.UnfoldingPaper
         public void Unfold_Full_AlwaysOne(int nbUnfoldings)
         {
             // Arrange
-            UnfoldingPaper unfoldingPaper = new UnfoldingPaper();
+            UnfoldingPaper unfoldingPaper = new();
             string[] folded = new string[]
             {
                 "###",

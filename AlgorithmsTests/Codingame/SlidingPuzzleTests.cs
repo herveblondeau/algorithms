@@ -11,7 +11,7 @@ namespace Codingame.SlidingPuzzle
         public void Test1()
         {
             // Arrange
-            SlidingPuzzle slidingPuzzle = new SlidingPuzzle();
+            SlidingPuzzle slidingPuzzle = new();
             int[,] start = new int[,]
             {
                 { 2, 3 },
@@ -34,7 +34,7 @@ namespace Codingame.SlidingPuzzle
         public void Test2()
         {
             // Arrange
-            SlidingPuzzle slidingPuzzle = new SlidingPuzzle();
+            SlidingPuzzle slidingPuzzle = new();
             int[,] start = new int[,]
             {
                 { 1, 2, 3, 4 },
@@ -57,7 +57,7 @@ namespace Codingame.SlidingPuzzle
         public void Test3()
         {
             // Arrange
-            SlidingPuzzle slidingPuzzle = new SlidingPuzzle();
+            SlidingPuzzle slidingPuzzle = new();
             int[,] start = new int[,]
             {
                 { 4, 1, 2 },

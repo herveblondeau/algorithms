@@ -14,7 +14,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNode_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
             // Act
             bool actual = CheckBalanced.IsBalanced(root);
@@ -27,8 +27,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithLeftChild_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
-            BinaryTreeNode child = new BinaryTreeNode(1);  // depth 1
+            BinaryTreeNode root = new(0);  // depth 0
+            BinaryTreeNode child = new(1);  // depth 1
             root.LeftChild = child;
 
             // Act
@@ -42,8 +42,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithRightChild_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
-            BinaryTreeNode child = new BinaryTreeNode(1);  // depth 1
+            BinaryTreeNode root = new(0);  // depth 0
+            BinaryTreeNode child = new(1);  // depth 1
             root.RightChild = child;
 
             // Act
@@ -57,9 +57,9 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithTwoChildren_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
-            BinaryTreeNode leftChild = new BinaryTreeNode(1);  // depth 1
-            BinaryTreeNode rightChild = new BinaryTreeNode(2);  // depth 1
+            BinaryTreeNode root = new(0);  // depth 0
+            BinaryTreeNode leftChild = new(1);  // depth 1
+            BinaryTreeNode rightChild = new(2);  // depth 1
             root.LeftChild = leftChild;
             root.RightChild = rightChild;
 
@@ -78,9 +78,9 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithOneChildAndOneGrandChild_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
-            BinaryTreeNode child = new BinaryTreeNode(1);  // depth 1
-            BinaryTreeNode grandChild = new BinaryTreeNode(2);  // depth 2
+            BinaryTreeNode root = new(0);  // depth 0
+            BinaryTreeNode child = new(1);  // depth 1
+            BinaryTreeNode grandChild = new(2);  // depth 2
             root.LeftChild = child;
             child.LeftChild = grandChild;
 
@@ -95,14 +95,14 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithLeftSubHeightOneAndRightSubHeightTwo_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode leftChild = new BinaryTreeNode(1);  // Left subtree
+            BinaryTreeNode leftChild = new(1);  // Left subtree
             root.LeftChild = leftChild;
 
-            BinaryTreeNode rightChild = new BinaryTreeNode(2);  // Right subtree
+            BinaryTreeNode rightChild = new(2);  // Right subtree
             root.RightChild = rightChild;
-            BinaryTreeNode rightGrandChild = new BinaryTreeNode(3);  // Right subtree
+            BinaryTreeNode rightGrandChild = new(3);  // Right subtree
             rightChild.RightChild = rightGrandChild;
 
             // Act
@@ -116,16 +116,16 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_OneNodeWithLeftSubHeightOneAndRightSubHeightThree_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode leftChild = new BinaryTreeNode(1);  // Left subtree
+            BinaryTreeNode leftChild = new(1);  // Left subtree
             root.LeftChild = leftChild;
 
-            BinaryTreeNode rightChild = new BinaryTreeNode(2);  // Right subtree
+            BinaryTreeNode rightChild = new(2);  // Right subtree
             root.RightChild = rightChild;
-            BinaryTreeNode rightGrandChild = new BinaryTreeNode(3);  // Right subtree
+            BinaryTreeNode rightGrandChild = new(3);  // Right subtree
             rightChild.RightChild = rightGrandChild;
-            BinaryTreeNode rightGrandGrandChild = new BinaryTreeNode(4);  // Right subtree
+            BinaryTreeNode rightGrandGrandChild = new(4);  // Right subtree
             rightGrandChild.RightChild = rightGrandGrandChild;
 
             // Act
@@ -160,30 +160,30 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_PerfectBinaryTree_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.LeftChild = node3;
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
-            BinaryTreeNode node8 = new BinaryTreeNode(8); // depth 3
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node10 = new BinaryTreeNode(10); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 3
+            BinaryTreeNode node7 = new(7); // depth 3
+            BinaryTreeNode node8 = new(8); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node10 = new(10); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node12 = new(12); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node14 = new(14); // depth 3
             node3.LeftChild = node7;
             node3.RightChild = node8;
             node4.LeftChild = node9;
@@ -221,29 +221,29 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_CompleteBinaryTree_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.LeftChild = node3;
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node7 = new BinaryTreeNode(7); // depth 3
-            BinaryTreeNode node8 = new BinaryTreeNode(8); // depth 3
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node10 = new BinaryTreeNode(10); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
+            BinaryTreeNode node7 = new(7); // depth 3
+            BinaryTreeNode node8 = new(8); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node10 = new(10); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node12 = new(12); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
             node3.LeftChild = node7;
             node3.RightChild = node8;
             node4.LeftChild = node9;
@@ -281,24 +281,24 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_FullOneHeightDifferenceBinaryTree_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node3 = new BinaryTreeNode(3); // depth 2
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node3 = new(3); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.LeftChild = node3;
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node12 = new(12); // depth 3
             node5.LeftChild = node11;
             node5.RightChild = node12;
 
@@ -330,20 +330,20 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_FullTwoHeightDifferenceBinaryTree_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node12 = new BinaryTreeNode(12); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node12 = new(12); // depth 3
             node5.LeftChild = node11;
             node5.RightChild = node12;
 
@@ -375,24 +375,24 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_RandomSameHeightBinaryTree_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node11 = new BinaryTreeNode(11); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node11 = new(11); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node14 = new(14); // depth 3
             node4.LeftChild = node9;
             node5.LeftChild = node11;
             node6.LeftChild = node13;
@@ -426,23 +426,23 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_RandomOneHeightDifferenceBinaryTree_ReturnsTrue()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node4 = new BinaryTreeNode(4); // depth 2
-            BinaryTreeNode node5 = new BinaryTreeNode(5); // depth 2
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node4 = new(4); // depth 2
+            BinaryTreeNode node5 = new(5); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node1.RightChild = node4;
             node2.LeftChild = node5;
             node2.RightChild = node6;
 
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node14 = new(14); // depth 3
             node4.LeftChild = node9;
             node6.LeftChild = node13;
             node6.RightChild = node14;
@@ -475,19 +475,19 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced
         public void IsBalanced_RandomTwoHeightDifferenceBinaryTree_ReturnsFalse()
         {
             // Arrange
-            BinaryTreeNode root = new BinaryTreeNode(0);  // depth 0
+            BinaryTreeNode root = new(0);  // depth 0
 
-            BinaryTreeNode node1 = new BinaryTreeNode(1); // depth 1
-            BinaryTreeNode node2 = new BinaryTreeNode(2); // depth 1
+            BinaryTreeNode node1 = new(1); // depth 1
+            BinaryTreeNode node2 = new(2); // depth 1
             root.LeftChild = node1;
             root.RightChild = node2;
 
-            BinaryTreeNode node6 = new BinaryTreeNode(6); // depth 2
+            BinaryTreeNode node6 = new(6); // depth 2
             node2.RightChild = node6;
 
-            BinaryTreeNode node9 = new BinaryTreeNode(9); // depth 3
-            BinaryTreeNode node13 = new BinaryTreeNode(13); // depth 3
-            BinaryTreeNode node14 = new BinaryTreeNode(14); // depth 3
+            BinaryTreeNode node9 = new(9); // depth 3
+            BinaryTreeNode node13 = new(13); // depth 3
+            BinaryTreeNode node14 = new(14); // depth 3
             node6.LeftChild = node13;
             node6.RightChild = node14;
 

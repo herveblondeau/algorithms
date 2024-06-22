@@ -13,7 +13,7 @@ namespace Codingame.ConwaySequence
         public void GetNthLine_WhenCalled_PerformsCorrectly(int number, int n, int[] expected)
         {
             // Arrange
-            ConwaySequence conwaySequence = new ConwaySequence();
+            ConwaySequence conwaySequence = new();
 
             // Act
             var actual = conwaySequence.GetNthLine(number, n);

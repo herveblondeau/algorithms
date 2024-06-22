@@ -14,7 +14,7 @@ namespace Codingame.TelephoneNumbersSolver
         public void GetNumberOfRequiredNodes_WhenCalled_PerformsCorrectly(string[] phoneNumbers, int expected)
         {
             // Arrange
-            TelephoneNumbersSolver telephoneNumbersSolver = new TelephoneNumbersSolver();
+            TelephoneNumbersSolver telephoneNumbersSolver = new();
 
             // Act
             var actual = telephoneNumbersSolver.GetNumberOfRequiredNodes(phoneNumbers);

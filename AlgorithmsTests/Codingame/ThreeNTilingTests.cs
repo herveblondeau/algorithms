@@ -24,7 +24,7 @@ namespace Codingame.ThreeNTiling
         public void GetNumberOfValidLayouts_Height1_PerformsCorrectly(int width, long expected)
         {
             // Arrange
-            ThreeNTiling threeNTiling = new ThreeNTiling();
+            ThreeNTiling threeNTiling = new();
 
             // Act
             var actual = threeNTiling.GetNumberOfValidLayouts(width, 1);
@@ -48,7 +48,7 @@ namespace Codingame.ThreeNTiling
         public void GetNumberOfValidLayouts_Height2_PerformsCorrectly(int width, long expected)
         {
             // Arrange
-            ThreeNTiling threeNTiling = new ThreeNTiling();
+            ThreeNTiling threeNTiling = new();
 
             // Act
             var actual = threeNTiling.GetNumberOfValidLayouts(width, 2);
@@ -68,7 +68,7 @@ namespace Codingame.ThreeNTiling
         public void GetNumberOfValidLayouts_Height3_PerformsCorrectly(int width, long expected)
         {
             // Arrange
-            ThreeNTiling threeNTiling = new ThreeNTiling();
+            ThreeNTiling threeNTiling = new();
 
             // Act
             var actual = threeNTiling.GetNumberOfValidLayouts(width, 3);

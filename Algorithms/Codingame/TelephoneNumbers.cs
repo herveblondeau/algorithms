@@ -9,8 +9,8 @@ namespace Codingame.TelephoneNumbersSolver
     {
         public int GetNumberOfRequiredNodes(string[] phoneNumbers)
         {
-            HashSet<string> nodes = new HashSet<string>();
-            StringBuilder currentNodePath = new StringBuilder();
+            HashSet<string> nodes = new();
+            StringBuilder currentNodePath = new();
 
             foreach (var number in phoneNumbers)
             {

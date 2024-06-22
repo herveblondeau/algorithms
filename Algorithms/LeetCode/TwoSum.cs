@@ -12,7 +12,7 @@ namespace LeetCode.TwoSum
             int index2 = -1;
 
             // We create a dictionary containing the numbers as keys and the positions at which they can be found as values
-            Dictionary<int, int> numberIndexes = new Dictionary<int, int>();
+            Dictionary<int, int> numberIndexes = new();
             for (int i = 0; i < numbers.Length; i++)
             {
                 // Upsert the index

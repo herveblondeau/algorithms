@@ -12,7 +12,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
         public void AreConnected_SameNode_ReturnsTrue()
         {
             // Arrange
-            Node start = new Node(18);
+            Node start = new(18);
 
             // Act
             bool actual = RouteBetweenNodes.AreConnected(start, start);
@@ -25,8 +25,8 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
         public void AreConnected_DirectNeighbors_ReturnsTrue()
         {
             // Arrange
-            Node start = new Node(18);
-            Node end = new Node(19);
+            Node start = new(18);
+            Node end = new(19);
             start.ConnectTo(end);
 
             // Act
@@ -46,15 +46,15 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
         public void AreConnected_NLevelsApart_ReturnsTrue(int n)
         {
             // Arrange
-            Node start = new Node(1);
+            Node start = new(1);
             Node previous = start;
             for (int i = 0; i < n; i++)
             {
-                Node current = new Node(i);
+                Node current = new(i);
                 previous.ConnectTo(current);
                 previous = current;
             }
-            Node end = new Node(n);
+            Node end = new(n);
             previous.ConnectTo(end);
 
             // Act
@@ -74,11 +74,11 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
         {
             // Arrange
             int tempNodeIndex = n + 100;
-            Node start = new Node(1);
+            Node start = new(1);
             Node previous = start;
             for (int i = 0; i < n; i++)
             {
-                Node current = new Node(i);
+                Node current = new(i);
                 previous.ConnectTo(current);
 
                 // Add 10 dead end nodes
@@ -89,7 +89,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
 
                 previous = current;
             }
-            Node end = new Node(n);
+            Node end = new(n);
             previous.ConnectTo(end);
 
             // Act
@@ -108,15 +108,15 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes
         public void AreConnected_Unconnected_ReturnsFalse(int n)
         {
             // Arrange
-            Node start = new Node(1);
+            Node start = new(1);
             Node previous = start;
             for (int i = 0; i < n; i++)
             {
-                Node current = new Node(i);
+                Node current = new(i);
                 previous.ConnectTo(current);
                 previous = current;
             }
-            Node end = new Node(n);
+            Node end = new(n);
 
             // Act
             bool actual = RouteBetweenNodes.AreConnected(start, end);

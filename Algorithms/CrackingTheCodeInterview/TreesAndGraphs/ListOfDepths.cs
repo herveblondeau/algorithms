@@ -29,7 +29,7 @@ namespace CrackingTheCodeInterview.TreesAndGraphs.ListOfDepths
             // Create new list for current depth...
             if (_firsts.Count == depth)
             {
-                LinkedListNode next = new LinkedListNode(node.Value);
+                LinkedListNode next = new(node.Value);
                 _firsts.Add(next);
                 _lasts.Add(next);
             }

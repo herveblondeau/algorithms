@@ -18,7 +18,7 @@ namespace Codingame.SlidingPuzzle
 
             Position current;
             Position next;
-            Position target = new Position(end);
+            Position target = new(end);
             var toProcess = new Queue<Position>();
             var visited = new Dictionary<Position, int>();
 
@@ -104,7 +104,7 @@ namespace Codingame.SlidingPuzzle
             {
                 if (_row == 0) return null; // 0 already on top => cannot move
 
-                Position position = new Position(_board);
+                Position position = new(_board);
                 (position._board[_row, _column], position._board[_row - 1, _column]) = (position._board[_row - 1, _column], position._board[_row, _column]);
                 position._row--;
 
@@ -116,7 +116,7 @@ namespace Codingame.SlidingPuzzle
             {
                 if (_row == _height - 1) return null; // 0 already at the bottom => cannot move
 
-                Position position = new Position(_board);
+                Position position = new(_board);
                 (position._board[_row, _column], position._board[_row + 1, _column]) = (position._board[_row + 1, _column], position._board[_row, _column]);
                 position._row++;
 
@@ -128,7 +128,7 @@ namespace Codingame.SlidingPuzzle
             {
                 if (_column == 0) return null; // 0 already on the left => cannot move
 
-                Position position = new Position(_board);
+                Position position = new(_board);
                 (position._board[_row, _column], position._board[_row, _column - 1]) = (position._board[_row, _column - 1], position._board[_row, _column]);
                 position._column--;
 
@@ -140,7 +140,7 @@ namespace Codingame.SlidingPuzzle
             {
                 if (_column == _width - 1) return null; // 0 already on the right => cannot move
 
-                Position position = new Position(_board);
+                Position position = new(_board);
                 (position._board[_row, _column], position._board[_row, _column + 1]) = (position._board[_row, _column + 1], position._board[_row, _column]);
                 position._column++;
 

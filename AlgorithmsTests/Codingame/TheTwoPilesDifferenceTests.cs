@@ -12,7 +12,7 @@ public class TheTwoPilesDifferenceTests
     public void FindMinDifference_WhenCalled_PerformsCorrectly(int[] input, int expected)
     {
         // Arrange
-        TheTwoPilesDifference TheTwoPilesDifference = new TheTwoPilesDifference();
+        TheTwoPilesDifference TheTwoPilesDifference = new();
 
         // Act
         var actual = TheTwoPilesDifference.FindMinDifference(input);

@@ -17,7 +17,7 @@ namespace Codingame.WaterJugRiddle
         public void GetDistance_GoalMatchingACapacity_ReturnsOne(int[] capacities, int goal)
         {
             // Arrange
-            WaterJugRiddle waterJugRiddle = new WaterJugRiddle();
+            WaterJugRiddle waterJugRiddle = new();
 
             // Act
             var actual = waterJugRiddle.GetDistance(capacities, goal);
@@ -34,7 +34,7 @@ namespace Codingame.WaterJugRiddle
         public void GetDistance_GoalMatchingDifferenceBetweenTwoCapacities_ReturnsTwo(int[] capacities, int goal)
         {
             // Arrange
-            WaterJugRiddle waterJugRiddle = new WaterJugRiddle();
+            WaterJugRiddle waterJugRiddle = new();
 
             // Act
             var actual = waterJugRiddle.GetDistance(capacities, goal);
@@ -43,7 +43,7 @@ namespace Codingame.WaterJugRiddle
             Assert.AreEqual(2, actual);
         }
 
-        // 
+        //
         [TestMethod]
         [DataRow(new int[] { 7, 9 }, 4, 6)]
         [DataRow(new int[] { 3, 5 }, 4, 6)]
@@ -52,7 +52,7 @@ namespace Codingame.WaterJugRiddle
         public void GetDistance_VariousCases_PerformsCorrectly(int[] capacities, int goal, int expected)
         {
             // Arrange
-            WaterJugRiddle waterJugRiddle = new WaterJugRiddle();
+            WaterJugRiddle waterJugRiddle = new();
 
             // Act
             var actual = waterJugRiddle.GetDistance(capacities, goal);
@@ -61,7 +61,7 @@ namespace Codingame.WaterJugRiddle
             Assert.AreEqual(expected, actual);
         }
 
-        // 
+        //
         [TestMethod]
         [DataRow(new int[] { 7, 9, 4 }, 4, 1)]
         [DataRow(new int[] { 7, 9, 5 }, 4, 2)]
@@ -70,7 +70,7 @@ namespace Codingame.WaterJugRiddle
         public void GetDistance_MultipleSolutions_ReturnsTheShortestOne(int[] capacities, int goal, int expected)
         {
             // Arrange
-            WaterJugRiddle waterJugRiddle = new WaterJugRiddle();
+            WaterJugRiddle waterJugRiddle = new();
 
             // Act
             var actual = waterJugRiddle.GetDistance(capacities, goal);
@@ -84,7 +84,7 @@ namespace Codingame.WaterJugRiddle
         public void GetDistance_ImpossibleCases_ReturnsMinusOne(int[] capacities, int goal)
         {
             // Arrange
-            WaterJugRiddle waterJugRiddle = new WaterJugRiddle();
+            WaterJugRiddle waterJugRiddle = new();
 
             // Act
             var actual = waterJugRiddle.GetDistance(capacities, goal);

@@ -47,7 +47,7 @@ namespace Codingame.GuessingDigits
         public void Guess_SolvableCases_PerformsCorrectly(int sum, int product, int expectedTurn, int expectedPlayer, int expectedLow, int expectedHigh)
         {
             // Arrange
-            GuessingDigits guessingDigits = new GuessingDigits();
+            GuessingDigits guessingDigits = new();
 
             // Act
             Guess actual = guessingDigits.GuessDigits(sum, product);
@@ -71,7 +71,7 @@ namespace Codingame.GuessingDigits
         public void Guess_UnsolvableCases_ReturnsNull(int sum, int product)
         {
             // Arrange
-            GuessingDigits guessingDigits = new GuessingDigits();
+            GuessingDigits guessingDigits = new();
 
             // Act
             Guess actual = guessingDigits.GuessDigits(sum, product);

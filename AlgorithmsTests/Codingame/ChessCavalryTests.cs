@@ -12,7 +12,7 @@ namespace Codingame.ChessCavalry
         public void GetDistance_AlreadyAtTarget_ReturnsZero(int width, int height, int startX, int startY, (int, int)[] obstacles)
         {
             // Arrange
-            ChessCavalry chessCavalry = new ChessCavalry();
+            ChessCavalry chessCavalry = new();
 
             // Act
             var actual = chessCavalry.GetDistance(width, height, (startX, startY), (startX, startY), obstacles);
@@ -32,7 +32,7 @@ namespace Codingame.ChessCavalry
         public void GetDistance_NoObstacle_PerformsCorrectly(int width, int height, (int,int) start, (int, int) target, int expected)
         {
             // Arrange
-            ChessCavalry chessCavalry = new ChessCavalry();
+            ChessCavalry chessCavalry = new();
 
             // Act
             var actual = chessCavalry.GetDistance(width, height, start, target, []);
@@ -53,7 +53,7 @@ namespace Codingame.ChessCavalry
         public void GetDistance_WithObstacles_PerformsCorrectly(int width, int height, (int, int) start, (int, int) target, (int, int)[] obstacles, int expected)
         {
             // Arrange
-            ChessCavalry chessCavalry = new ChessCavalry();
+            ChessCavalry chessCavalry = new();
 
             // Act
             var actual = chessCavalry.GetDistance(width, height, start, target, obstacles);

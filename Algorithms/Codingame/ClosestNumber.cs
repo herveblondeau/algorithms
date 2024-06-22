@@ -15,7 +15,7 @@ namespace Codingame.ClosestNumber
             }
 
             // Build a dictionary of the digits available for permutation
-            Dictionary<int, int> availableDigits = new Dictionary<int, int>();
+            Dictionary<int, int> availableDigits = new();
             for (int i = 0; i < source.Length; i++)
             {
                 int d = _parse(source[i]);
@@ -30,7 +30,7 @@ namespace Codingame.ClosestNumber
                 }
             }
 
-            StringBuilder permutation = new StringBuilder();
+            StringBuilder permutation = new();
             int index = 0;
             int digit = -1;
 

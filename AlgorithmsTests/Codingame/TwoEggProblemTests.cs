@@ -13,7 +13,7 @@ namespace Codingame.TwoEggProblem
         public void GetMinimumDrops_WhenCalled_PerformsCorrectly(int floors, int expected)
         {
             // Arrange
-            TwoEggProblem twoEggProblem = new TwoEggProblem();
+            TwoEggProblem twoEggProblem = new();
 
             // Act
             var actual = twoEggProblem.GetMinimumDrops(floors);

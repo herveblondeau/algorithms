@@ -45,7 +45,7 @@ namespace Codingame.Scrabble
 
         private Dictionary<char, int> _getLetterFrequencies(string letters)
         {
-            Dictionary<char, int> frequencies = new Dictionary<char, int>();
+            Dictionary<char, int> frequencies = new();
             foreach (char c in letters)
             {
                 if (frequencies.ContainsKey(c))
@@ -70,8 +70,8 @@ namespace Codingame.Scrabble
             return score;
         }
 
-        private Dictionary<char, int> _letterScores = new Dictionary<char, int>
-    {
+        private Dictionary<char, int> _letterScores = new()
+        {
         { 'a', 1 },
         { 'b', 3 },
         { 'c', 3 },

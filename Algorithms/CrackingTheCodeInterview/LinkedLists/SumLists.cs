@@ -48,7 +48,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.SumLists
             if (number == 0)
                 return null;
 
-            LinkedListNode start = new LinkedListNode(number % 10);
+            LinkedListNode start = new(number % 10);
             number = number / 10;
 
             LinkedListNode current = start;
@@ -98,7 +98,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.SumLists
             // Example with 3628
             int tenPowered = Convert.ToInt32(Math.Pow(10, number.ToString().Length - 1)); // -> 10^3, i.e. 1000
             int digit = number / tenPowered; // ->3628 / 1000, i.e. 3
-            LinkedListNode start = new LinkedListNode(digit);
+            LinkedListNode start = new(digit);
             LinkedListNode current = start;
             do
             {

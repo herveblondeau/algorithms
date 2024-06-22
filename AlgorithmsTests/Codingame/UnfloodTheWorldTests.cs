@@ -11,7 +11,7 @@ namespace Codingame.UnfloodTheWorld
         public void Wall1()
         {
             // Arrange
-            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            UnfloodTheWorld unfloodTheWorld = new();
             int[,] map = new int[,]
             {
                 { 1, 1, 9, 1, 1 },
@@ -30,7 +30,7 @@ namespace Codingame.UnfloodTheWorld
         public void Wall2()
         {
             // Arrange
-            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            UnfloodTheWorld unfloodTheWorld = new();
             int[,] map = new int[,]
             {
                 { 2, 2, 9, 1, 1 },
@@ -49,7 +49,7 @@ namespace Codingame.UnfloodTheWorld
         public void Hill()
         {
             // Arrange
-            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            UnfloodTheWorld unfloodTheWorld = new();
             int[,] map = new int[,]
             {
                 { 1, 1, 1, 1, 1, 1, 1 },
@@ -70,7 +70,7 @@ namespace Codingame.UnfloodTheWorld
         public void Plateaus()
         {
             // Arrange
-            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            UnfloodTheWorld unfloodTheWorld = new();
             int[,] map = new int[,]
             {
                 { 1, 1, 2, 2, 3, 3 },
@@ -92,7 +92,7 @@ namespace Codingame.UnfloodTheWorld
         public void Test1()
         {
             // Arrange
-            UnfloodTheWorld unfloodTheWorld = new UnfloodTheWorld();
+            UnfloodTheWorld unfloodTheWorld = new();
             int[,] map = new int[,]
             {
                 { 3, 3, 3, 2, 2, 2 },

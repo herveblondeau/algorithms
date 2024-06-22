@@ -52,8 +52,8 @@ namespace Codingame.GuessingDigits
         {
             // Pairs will be removed from these dictionaries as the games progresses
             // They keep track of all the pairs associated to each sum and product
-            Dictionary<int, List<Pair>> pairsPerSum = new Dictionary<int, List<Pair>>();
-            Dictionary<int, List<Pair>> pairsPerProduct = new Dictionary<int, List<Pair>>();
+            Dictionary<int, List<Pair>> pairsPerSum = new();
+            Dictionary<int, List<Pair>> pairsPerProduct = new();
             for (int i = 1; i <=9; i++)
             {
                 for (int j = i; j <= 9; j++)
@@ -64,7 +64,7 @@ namespace Codingame.GuessingDigits
                     }
                     else
                     {
-                        pairsPerSum.Add(i + j, new List<Pair> { new Pair(i, j) });
+                        pairsPerSum.Add(i + j, new List<Pair> { new(i, j) });
                     }
 
                     if (pairsPerProduct.ContainsKey(i * j))
@@ -73,7 +73,7 @@ namespace Codingame.GuessingDigits
                     }
                     else
                     {
-                        pairsPerProduct.Add(i * j, new List<Pair> { new Pair(i, j) });
+                        pairsPerProduct.Add(i * j, new List<Pair> { new(i, j) });
                     }
                 }
             }

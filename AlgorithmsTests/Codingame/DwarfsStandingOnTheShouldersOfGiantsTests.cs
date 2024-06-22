@@ -16,7 +16,7 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
                 { 1, [2, 3] },
                 { 3, [4] }
             };
-            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
+            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new();
 
             // Act
             var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);
@@ -36,7 +36,7 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
                 { 3, [4] },
                 { 10, [1, 3, 11] }
             };
-            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
+            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new();
 
             // Act
             var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);
@@ -56,7 +56,7 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
                 { 6, [4] },
                 { 8, [9] }
             };
-            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
+            DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new();
 
             // Act
             var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);

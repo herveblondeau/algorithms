@@ -6,7 +6,7 @@ namespace ByTheme.Duplicates
     {
         public T FindFirstDuplicate<T>(T[] elements)
         {
-            HashSet<T> visited = new HashSet<T>();
+            HashSet<T> visited = new();
 
             for (int i = 0; i < elements.Length; i++)
             {
@@ -23,7 +23,7 @@ namespace ByTheme.Duplicates
 
         public T FindFirstNonDuplicate<T>(T[] elements)
         {
-            Dictionary<T, int> nbOccurrences = new Dictionary<T, int>();
+            Dictionary<T, int> nbOccurrences = new();
 
             for (int i = 0; i < elements.Length; i++)
             {

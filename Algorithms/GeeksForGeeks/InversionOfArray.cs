@@ -12,7 +12,7 @@ namespace GeeksForGeeks.InversionOfArray
         public int GetInversionCount(int[] values)
         {
             int inversionCount = 0;
-            List<int> reverseOrderedValues = new List<int>(); // keeps track of all values that have already been processed, keeping them in reverse order
+            List<int> reverseOrderedValues = new(); // keeps track of all values that have already been processed, keeping them in reverse order
 
             // For each element, do a 0(logn) search to find where it would fit in a reverse ordered list composed of the previous items: this is equivalent to counting how many previous items are greater
             foreach(int value in values)

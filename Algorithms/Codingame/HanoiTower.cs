@@ -145,7 +145,7 @@ namespace Codingame.HanoiTower
 
         private static string _drawEmptyAxis(int axisWidth)
         {
-            StringBuilder row = new StringBuilder();
+            StringBuilder row = new();
             for (int i = 0; i < axisWidth; i++)
             {
                 row.Append(i == axisWidth / 2 ? '|' : ' ');
@@ -156,7 +156,7 @@ namespace Codingame.HanoiTower
 
         private static string _drawDisk(int diskRadius, int axisWidth)
         {
-            StringBuilder row = new StringBuilder();
+            StringBuilder row = new();
             int axisCenter = axisWidth / 2;
             for (int i = 0; i < axisWidth; i++)
             {

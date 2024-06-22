@@ -16,7 +16,7 @@ namespace Codingame.Scrabble
         public void FindBestWord_WhenCalled_PerformsCorrectly(string[] words, string letters, string expected)
         {
             // Arrange
-            Scrabble scrabbleSolver = new Scrabble();
+            Scrabble scrabbleSolver = new();
 
             // Act
             var actual = scrabbleSolver.FindBestWord(words, letters);

@@ -15,7 +15,7 @@ namespace Codingame.ClosestNumber
         public void GetClosestPermutation_SameSourceAndTarget_ReturnsTarget(string target)
         {
             // Arrange
-            ClosestNumber closestNumber = new ClosestNumber();
+            ClosestNumber closestNumber = new();
 
             // Act
             var actual = closestNumber.GetClosestPermutation(target, target);
@@ -35,7 +35,7 @@ namespace Codingame.ClosestNumber
         public void GetClosestPermutation_SameLengthNoZero_PerformsCorrectly(string target, string source, string expected)
         {
             // Arrange
-            ClosestNumber closestNumber = new ClosestNumber();
+            ClosestNumber closestNumber = new();
 
             // Act
             var actual = closestNumber.GetClosestPermutation(target, source);
@@ -49,7 +49,7 @@ namespace Codingame.ClosestNumber
         public void GetMinimumDrops_WhenCalled_PerformsCorrectly(string target, string source, string expected)
         {
             // Arrange
-            ClosestNumber closestNumber = new ClosestNumber();
+            ClosestNumber closestNumber = new();
 
             // Act
             var actual = closestNumber.GetClosestPermutation(target, source);

@@ -10,7 +10,7 @@ namespace Codingame.LongestPalindrome
         public void GetLongestPalindrome_OneResult_PerformsCorrectly(string input, string expected)
         {
             // Arrange
-            LongestPalindrome longestPalindrome = new LongestPalindrome();
+            LongestPalindrome longestPalindrome = new();
 
             // Act
             var actual = longestPalindrome.GetLongestPalindromes(input);

@@ -10,7 +10,7 @@ namespace CrackingTheCodeInterview.ArraysAndStrings.IsUnique
     {
         public static bool HasAllUniqueChars(string input)
         {
-            HashSet<char> alreadySeenChars = new HashSet<char>();
+            HashSet<char> alreadySeenChars = new();
 
             foreach (char c in input)
             {
