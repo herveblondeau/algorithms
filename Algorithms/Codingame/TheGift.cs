@@ -1,8 +1,6 @@
 ﻿// https://www.codingame.com/training/medium/the-gift
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Codingame.TheGift
 {
@@ -18,9 +16,13 @@ namespace Codingame.TheGift
             for (int i = 0; i < budgets.Length; i++)
             {
                 if (budgets[i] >= remainingAmount / nbRemainingContributors)
+                {
                     contributions[i] = remainingAmount / nbRemainingContributors;
+                }
                 else
+                {
                     contributions[i] = budgets[i];
+                }
 
                 remainingAmount -= contributions[i];
                 nbRemainingContributors--;
@@ -37,6 +39,6 @@ namespace Codingame.TheGift
     public class Result
     {
         public bool IsSolvable { get; set; }
-        public int[] Contributions { get; set; }
+        public int[] Contributions { get; set; } = null!;
     }
 }

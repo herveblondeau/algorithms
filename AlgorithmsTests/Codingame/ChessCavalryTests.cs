@@ -1,6 +1,4 @@
-using Codingame.SpeedCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 
 namespace Codingame.ChessCavalry
@@ -37,7 +35,7 @@ namespace Codingame.ChessCavalry
             ChessCavalry chessCavalry = new ChessCavalry();
 
             // Act
-            var actual = chessCavalry.GetDistance(width, height, (start), (target), new (int, int)[0]);
+            var actual = chessCavalry.GetDistance(width, height, start, target, []);
 
             // Assert
             Assert.AreEqual(expected, actual);

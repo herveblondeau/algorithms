@@ -1,4 +1,3 @@
-using Codingame.DwarfsStandingOnTheShouldersOfGiants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -12,9 +11,11 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
         public void GetLongestInfluenceChain_SimpleExample_PerformsCorrectly()
         {
             // Arrange
-            Dictionary<int, List<int>> relations = new Dictionary<int, List<int>>();
-            relations.Add(1, new List<int> { 2, 3 });
-            relations.Add(3, new List<int> { 4 });
+            Dictionary<int, List<int>> relations = new()
+            {
+                { 1, [2, 3] },
+                { 3, [4] }
+            };
             DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
 
             // Act
@@ -28,11 +29,13 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
         public void GetLongestInfluenceChain_CompleteExample_PerformsCorrectly()
         {
             // Arrange
-            Dictionary<int, List<int>> relations = new Dictionary<int, List<int>>();
-            relations.Add(1, new List<int> { 2, 3 });
-            relations.Add(2, new List<int> { 4, 5 });
-            relations.Add(3, new List<int> { 4 });
-            relations.Add(10, new List<int> { 1, 3, 11 });
+            Dictionary<int, List<int>> relations = new()
+            {
+                { 1, [2, 3] },
+                { 2, [4, 5] },
+                { 3, [4] },
+                { 10, [1, 3, 11] }
+            };
             DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
 
             // Act
@@ -46,11 +49,13 @@ namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
         public void GetLongestInfluenceChain_SeveralMentors_PerformsCorrectly()
         {
             // Arrange
-            Dictionary<int, List<int>> relations = new Dictionary<int, List<int>>();
-            relations.Add(1, new List<int> { 2 });
-            relations.Add(2, new List<int> { 3 });
-            relations.Add(6, new List<int> { 4 });
-            relations.Add(8, new List<int> { 9 });
+            Dictionary<int, List<int>> relations = new()
+            {
+                { 1, [2] },
+                { 2, [3] },
+                { 6, [4] },
+                { 8, [9] }
+            };
             DwarfsStandingOnTheShouldersOfGiants dwarfsStandingOnTheShouldersOfGiants = new DwarfsStandingOnTheShouldersOfGiants();
 
             // Act
