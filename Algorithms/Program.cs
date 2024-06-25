@@ -1,4 +1,5 @@
-﻿using Codingame.Candies;
+﻿using Codingame.Asteroids;
+using Codingame.Candies;
 using Codingame.DiceProbabilityCalculator;
 using Codingame.Hangman;
 using Codingame.HanoiTower;
@@ -675,90 +676,66 @@ namespace Algorithms
             // Console.WriteLine($"{max} => {nbLuckyMax} lucky numbers");
             // Console.WriteLine($"{nbLuckyMax - nbLuckyMin} lucky numbers between");
 
-            DiceProbabilityCalculator diceProbabilityCalculator = new();
-            string input = "(2>5)+2*(5>2)+4*(10>5)";
-            // string input = "d9-2*d4";
-            // string input = "12-d2*d6";
-            var tokens = diceProbabilityCalculator.Tokenize(input);
-            foreach (var t in tokens)
+            // DiceProbabilityCalculator diceProbabilityCalculator = new();
+            // string input = "(2>5)+2*(5>2)+4*(10>5)";
+            // // string input = "d9-2*d4";
+            // // string input = "12-d2*d6";
+            // var probabilities = diceProbabilityCalculator.ComputeProbabilities(input);
+            // foreach (var k in probabilities.Keys.Order())
+            // {
+            //     Console.WriteLine($"{k}: {Math.Round(probabilities[k] * 100, 2)}");
+            // }
+
+            Asteroids asteroids = new();
+            // char[][] state1 = [
+            //     ['A', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            // ];
+            // char[][] state2 = [
+            //     ['.', 'A', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.'],
+            // ];
+            // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+
+            // char[][] state1 = [
+            //     ['.', '.', 'H', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['E', '.', '.', '.', 'G', '.'],
+            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['.', '.', 'F', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.', '.'],
+            // ];
+            // char[][] state2 = [
+            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['.', '.', 'H', '.', '.', '.'],
+            //     ['.', 'E', '.', 'G', '.', '.'],
+            //     ['.', '.', 'F', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['.', '.', '.', '.', '.', '.'],
+            // ];
+            // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+
+            char[][] state1 = [
+                ['A', '.', '.'],
+                ['B', '.', '.'],
+                ['C', '.', '.'],
+            ];
+            char[][] state2 = [
+                ['B', 'A', '.'],
+                ['.', '.', '.'],
+                ['.', '.', 'C'],
+            ];
+            var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+            foreach (var row in state3)
             {
-                Console.WriteLine(t);
+                Console.WriteLine(string.Join("", row));
             }
-            Console.WriteLine();
-
-            var sorted = diceProbabilityCalculator.Sort(tokens);
-            foreach (var t in sorted)
-            {
-                Console.WriteLine(t);
-            }
-            Console.WriteLine();
-
-            var result = diceProbabilityCalculator.Process(sorted);
-            Console.WriteLine(result);
-            foreach (var k in result.Distribution.Keys)
-            {
-                Console.WriteLine($"{k}: {result.Distribution[k]}");
-            }
-            Console.WriteLine();
-
-            var probabilities = result.GetProbabilities();
-            foreach (var k in probabilities.Keys.Order())
-            {
-                Console.WriteLine($"{k}: {Math.Round(probabilities[k] * 100, 2)}");
-            }
-
-            // Dictionary<int, double> operand1 = new()
-            // {
-            //     { 1, 0.25 },
-            //     { 2, 0.25 },
-            //     { 3, 0.25 },
-            //     { 4, 0.25 },
-            // };
-            // Dictionary<int, double> operand2 = new()
-            // {
-            //     { 1, 0.5 },
-            //     { 2, 0.5 },
-            // };
-
-            // PlusOperator plusOperator = new();
-            // var result = plusOperator.Apply(operand1, operand2);
-            // foreach (var n in result.Keys)
-            // {
-            //     Console.WriteLine($"{n}: {result[n]}");
-            // }
-            // Console.WriteLine();
-
-            // MinusOperator minusOperator = new();
-            // result = minusOperator.Apply(operand1, operand2);
-            // foreach (var n in result.Keys)
-            // {
-            //     Console.WriteLine($"{n}: {result[n]}");
-            // }
-            // Console.WriteLine();
-
-            // MultiplyOperator multiplyOperator = new();
-            // result = multiplyOperator.Apply(operand1, operand2);
-            // foreach (var n in result.Keys)
-            // {
-            //     Console.WriteLine($"{n}: {result[n]}");
-            // }
-            // Console.WriteLine();
-
-            // GreaterThanOperator greaterThanOperator = new();
-            // result = greaterThanOperator.Apply(operand1, operand2);
-            // foreach (var n in result.Keys)
-            // {
-            //     Console.WriteLine($"{n}: {result[n]}");
-            // }
-            // Console.WriteLine();
-
-            // LessThanOperator lessThanOperator = new();
-            // result = lessThanOperator.Apply(operand1, operand2);
-            // foreach (var n in result.Keys)
-            // {
-            //     Console.WriteLine($"{n}: {result[n]}");
-            // }
-            // Console.WriteLine();
         }
     }
 }
