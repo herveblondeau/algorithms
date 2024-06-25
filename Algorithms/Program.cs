@@ -1,4 +1,5 @@
 ﻿using Codingame.Candies;
+using Codingame.DiceProbabilityCalculator;
 using Codingame.Hangman;
 using Codingame.HanoiTower;
 using Codingame.HeartOfTheCity;
@@ -10,6 +11,7 @@ using Fundamentals.BreadthFirstSearch;
 using Fundamentals.Sorting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Algorithms
@@ -657,11 +659,10 @@ namespace Algorithms
             // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(8999999));
             // Console.WriteLine(heartOfTheCity.GetNumberOfVisibleBuildings(9999999));
 
-            var luckyNumber = new TheLuckyNumber();
-            // Console.WriteLine(luckyNumber.CountUpTo(9102654354));
-            long min = 1;
-            long max = 7328;
-            Console.WriteLine($"{min} to {max} -> {luckyNumber.Count(min, max)} lucky number(s)");
+            // var luckyNumber = new TheLuckyNumber();
+            // long min = 1;
+            // long max = 7328;
+            // Console.WriteLine($"{min} to {max} -> {luckyNumber.Count(min, max)} lucky number(s)");
             // Console.WriteLine($"Total: {count.Total}");
             // Console.WriteLine($"Lucky: {count.LuckySix + count.LuckyEight}");
             // Console.WriteLine($"Unlucky none: {count.UnluckyNone}");
@@ -674,43 +675,89 @@ namespace Algorithms
             // Console.WriteLine($"{max} => {nbLuckyMax} lucky numbers");
             // Console.WriteLine($"{nbLuckyMax - nbLuckyMin} lucky numbers between");
 
-            // for (int i = 1; i <= 999; i++)
+            DiceProbabilityCalculator diceProbabilityCalculator = new();
+            string input = "(2>5)+2*(5>2)+4*(10>5)";
+            // string input = "d9-2*d4";
+            // string input = "12-d2*d6";
+            var tokens = diceProbabilityCalculator.Tokenize(input);
+            foreach (var t in tokens)
+            {
+                Console.WriteLine(t);
+            }
+            Console.WriteLine();
+
+            var sorted = diceProbabilityCalculator.Sort(tokens);
+            foreach (var t in sorted)
+            {
+                Console.WriteLine(t);
+            }
+            Console.WriteLine();
+
+            var result = diceProbabilityCalculator.Process(sorted);
+            Console.WriteLine(result);
+            foreach (var k in result.Distribution.Keys)
+            {
+                Console.WriteLine($"{k}: {result.Distribution[k]}");
+            }
+            Console.WriteLine();
+
+            var probabilities = result.GetProbabilities();
+            foreach (var k in probabilities.Keys.Order())
+            {
+                Console.WriteLine($"{k}: {Math.Round(probabilities[k] * 100, 2)}");
+            }
+
+            // Dictionary<int, double> operand1 = new()
             // {
-            //     Console.WriteLine($"{i}: {luckyNumber._isLucky(i)}");
-            // }
-            // for (int i = 1; i <= 19; i++)
+            //     { 1, 0.25 },
+            //     { 2, 0.25 },
+            //     { 3, 0.25 },
+            //     { 4, 0.25 },
+            // };
+            // Dictionary<int, double> operand2 = new()
             // {
-            //     var count = luckyNumber.CountForNbDigits(i);
-            //     Console.WriteLine($"{i} digits:");
-            //     Console.WriteLine($"- total: {count.Total}");
-            //     Console.WriteLine($"- lucky: {count.Lucky}");
-            //     Console.WriteLine($"- unlucky none: {count.UnluckyNone}");
-            //     Console.WriteLine($"- unlucky two: {count.UnluckyTwo}");
+            //     { 1, 0.5 },
+            //     { 2, 0.5 },
+            // };
+
+            // PlusOperator plusOperator = new();
+            // var result = plusOperator.Apply(operand1, operand2);
+            // foreach (var n in result.Keys)
+            // {
+            //     Console.WriteLine($"{n}: {result[n]}");
             // }
             // Console.WriteLine();
-            // for (int i = 1; i <= 19; i++)
+
+            // MinusOperator minusOperator = new();
+            // result = minusOperator.Apply(operand1, operand2);
+            // foreach (var n in result.Keys)
             // {
-            //     var count = luckyNumber.CountToPowerOf10(i);
-            //     Console.WriteLine($"1 -> 10^{i}:");
-            //     Console.WriteLine($"- total: {count.Total}");
-            //     Console.WriteLine($"- lucky: {count.Lucky}");
-            //     Console.WriteLine($"- unlucky none: {count.UnluckyNone}");
-            //     Console.WriteLine($"- unlucky two: {count.UnluckyTwo}");
+            //     Console.WriteLine($"{n}: {result[n]}");
             // }
-            // Console.WriteLine(luckyNumber.Test(1, 10000));
             // Console.WriteLine();
-            // Console.WriteLine(luckyNumber.Test(1, 10000));
-            // Console.WriteLine(luckyNumber.Test(10001, 20000));
-            // Console.WriteLine(luckyNumber.Test(20001, 30000));
-            // Console.WriteLine(luckyNumber.Test(30001, 40000));
-            // Console.WriteLine(luckyNumber.Test(40001, 50000));
-            // Console.WriteLine(luckyNumber.Test(50001, 60000));
-            // Console.WriteLine(luckyNumber.Test(60001, 70000));
-            // Console.WriteLine(luckyNumber.Test(70001, 80000));
-            // Console.WriteLine(luckyNumber.Test(80001, 90000));
-            // Console.WriteLine(luckyNumber.Test(90001, 100000));
+
+            // MultiplyOperator multiplyOperator = new();
+            // result = multiplyOperator.Apply(operand1, operand2);
+            // foreach (var n in result.Keys)
+            // {
+            //     Console.WriteLine($"{n}: {result[n]}");
+            // }
             // Console.WriteLine();
-            // Console.WriteLine(luckyNumber.Test(1, 50000));
+
+            // GreaterThanOperator greaterThanOperator = new();
+            // result = greaterThanOperator.Apply(operand1, operand2);
+            // foreach (var n in result.Keys)
+            // {
+            //     Console.WriteLine($"{n}: {result[n]}");
+            // }
+            // Console.WriteLine();
+
+            // LessThanOperator lessThanOperator = new();
+            // result = lessThanOperator.Apply(operand1, operand2);
+            // foreach (var n in result.Keys)
+            // {
+            //     Console.WriteLine($"{n}: {result[n]}");
+            // }
             // Console.WriteLine();
         }
     }
