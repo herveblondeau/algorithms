@@ -1,4 +1,5 @@
-﻿using Codingame.Asteroids;
+﻿using Codingame.AlternativeVote;
+using Codingame.Asteroids;
 using Codingame.Candies;
 using Codingame.DiceProbabilityCalculator;
 using Codingame.Hangman;
@@ -15,6 +16,7 @@ using Fundamentals.Sorting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 
 namespace Algorithms
@@ -743,8 +745,29 @@ namespace Algorithms
             // // Console.WriteLine(orderOfOopserations.ComputeExpression("6+-3*5"));
             // Console.WriteLine(orderOfOopserations.ComputeExpression("-3+6"));
 
-            LargestNumber largestNumber = new();
-            Console.WriteLine(largestNumber.GetLargest(72659, 5));
+            // LargestNumber largestNumber = new();
+            // Console.WriteLine(largestNumber.GetLargest(72659, 5));
+
+            AlternativeVote alternativeVote = new();
+            var candidateNames = new List<string> { "Thierry", "Peter", "Sandra", "Catherine", "Aude" };
+            var preferences = new List<List<int>>
+            {
+                new List<int> { 1, 5, 2, 4, 3 },
+                new List<int> { 5, 3, 2, 4, 1 },
+                new List<int> { 5, 3, 1, 2, 4 },
+                new List<int> { 4, 5, 3, 1, 2 },
+                new List<int> { 4, 3, 5, 1, 2 },
+                new List<int> { 2, 3, 5, 1, 4 },
+                new List<int> { 5, 3, 2, 1, 4 },
+                new List<int> { 2, 3, 5, 1, 4 },
+                new List<int> { 5, 3, 2, 1, 4 },
+                new List<int> { 5, 1, 3, 2, 4 },
+            };
+            var eliminations = alternativeVote.GetEliminations(candidateNames, preferences);
+            foreach (var e in eliminations)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
