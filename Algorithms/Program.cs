@@ -6,6 +6,7 @@ using Codingame.HanoiTower;
 using Codingame.HeartOfTheCity;
 using Codingame.HungryDuck1;
 using Codingame.LongestPalindrome;
+using Codingame.OrderOfOopserations;
 using Codingame.Staircases;
 using Codingame.TheLuckyNumber;
 using Fundamentals.BreadthFirstSearch;
@@ -686,56 +687,60 @@ namespace Algorithms
             //     Console.WriteLine($"{k}: {Math.Round(probabilities[k] * 100, 2)}");
             // }
 
-            Asteroids asteroids = new();
-            // char[][] state1 = [
-            //     ['A', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            // ];
-            // char[][] state2 = [
-            //     ['.', 'A', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.'],
-            // ];
-            // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+            // Asteroids asteroids = new();
+            // // char[][] state1 = [
+            // //     ['A', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // // ];
+            // // char[][] state2 = [
+            // //     ['.', 'A', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.'],
+            // // ];
+            // // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+
+            // // char[][] state1 = [
+            // //     ['.', '.', 'H', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // //     ['E', '.', '.', '.', 'G', '.'],
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // //     ['.', '.', 'F', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // // ];
+            // // char[][] state2 = [
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // //     ['.', '.', 'H', '.', '.', '.'],
+            // //     ['.', 'E', '.', 'G', '.', '.'],
+            // //     ['.', '.', 'F', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // //     ['.', '.', '.', '.', '.', '.'],
+            // // ];
+            // // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
 
             // char[][] state1 = [
-            //     ['.', '.', 'H', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.', '.'],
-            //     ['E', '.', '.', '.', 'G', '.'],
-            //     ['.', '.', '.', '.', '.', '.'],
-            //     ['.', '.', 'F', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['A', '.', '.'],
+            //     ['B', '.', '.'],
+            //     ['C', '.', '.'],
             // ];
             // char[][] state2 = [
-            //     ['.', '.', '.', '.', '.', '.'],
-            //     ['.', '.', 'H', '.', '.', '.'],
-            //     ['.', 'E', '.', 'G', '.', '.'],
-            //     ['.', '.', 'F', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.', '.'],
-            //     ['.', '.', '.', '.', '.', '.'],
+            //     ['B', 'A', '.'],
+            //     ['.', '.', '.'],
+            //     ['.', '.', 'C'],
             // ];
             // var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
+            // foreach (var row in state3)
+            // {
+            //     Console.WriteLine(string.Join("", row));
+            // }
 
-            char[][] state1 = [
-                ['A', '.', '.'],
-                ['B', '.', '.'],
-                ['C', '.', '.'],
-            ];
-            char[][] state2 = [
-                ['B', 'A', '.'],
-                ['.', '.', '.'],
-                ['.', '.', 'C'],
-            ];
-            var state3 = asteroids.GetState3(1, state1, 2, state2, 3);
-            foreach (var row in state3)
-            {
-                Console.WriteLine(string.Join("", row));
-            }
+            OrderOfOopserations orderOfOopserations = new();
+            // Console.WriteLine(orderOfOopserations.ComputeExpression("6+-3*5"));
+            Console.WriteLine(orderOfOopserations.ComputeExpression("-3+6"));
         }
     }
 }

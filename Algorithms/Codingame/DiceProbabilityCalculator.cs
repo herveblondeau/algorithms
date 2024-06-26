@@ -89,7 +89,7 @@ public class DiceProbabilityCalculator
                     break;
 
                 case TokenType.Operator:
-                    while (operators.TryPeek(out t) && ((t.Type == TokenType.Operator && ((Operator)t).Precedence > ((Operator)token).Precedence) || t.Type == TokenType.RightParenthesis))
+                    while (operators.TryPeek(out t) && ((t.Type == TokenType.Operator && ((Operator)t).Precedence >= ((Operator)token).Precedence) || t.Type == TokenType.RightParenthesis))
                     {
                         output.Enqueue(operators.Pop());
                     }
