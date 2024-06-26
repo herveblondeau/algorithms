@@ -5,6 +5,7 @@ using Codingame.Hangman;
 using Codingame.HanoiTower;
 using Codingame.HeartOfTheCity;
 using Codingame.HungryDuck1;
+using Codingame.LargestNumber;
 using Codingame.LongestPalindrome;
 using Codingame.OrderOfOopserations;
 using Codingame.Staircases;
@@ -738,9 +739,12 @@ namespace Algorithms
             //     Console.WriteLine(string.Join("", row));
             // }
 
-            OrderOfOopserations orderOfOopserations = new();
-            // Console.WriteLine(orderOfOopserations.ComputeExpression("6+-3*5"));
-            Console.WriteLine(orderOfOopserations.ComputeExpression("-3+6"));
+            // OrderOfOopserations orderOfOopserations = new();
+            // // Console.WriteLine(orderOfOopserations.ComputeExpression("6+-3*5"));
+            // Console.WriteLine(orderOfOopserations.ComputeExpression("-3+6"));
+
+            LargestNumber largestNumber = new();
+            Console.WriteLine(largestNumber.GetLargest(72659, 5));
         }
     }
 }
