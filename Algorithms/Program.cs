@@ -311,9 +311,9 @@ namespace Algorithms
             //    { 4, 12, 11, 2 },
             //    { 3, 10, 5, 3 },
             //};
-            //TheLastCrusade theLastCrusade = new TheLastCrusade(rooms);
-            //Console.WriteLine(theLastCrusade.FindNextRoom(1, 0, "TOP"));
-            //Console.WriteLine(theLastCrusade.FindNextRoom(1, 1, "TOP"));
+            //TheFall1 theFall1 = new TheFall1(rooms);
+            //Console.WriteLine(theFall1.FindNextRoom(1, 0, "TOP"));
+            //Console.WriteLine(theFall1.FindNextRoom(1, 1, "TOP"));
 
             //// Network cabling
             //long[] xPositions = new long[] { -5, -9, 3 };
@@ -327,7 +327,7 @@ namespace Algorithms
             //var nthLine = conwaySequence.GetNthLine(1, 6);
             //Console.WriteLine(string.Join(" ", nthLine));
 
-            //// Bender
+            //// Blunder
             //string[] rows = new string[] {
             //    "###############",
             //    "#  #@#I  T$#  #",
@@ -360,8 +360,8 @@ namespace Algorithms
             //    "#             #",
             //    "###############",
             //};
-            //Bender bender = new Bender();
-            //var result = bender.Traverse(rows);
+            //Blunder blunder = new Blunder();
+            //var result = blunder.Traverse(rows);
             //if (result.IsStuckInInfiniteLoop)
             //{
             //    Console.WriteLine("LOOP");
@@ -403,33 +403,33 @@ namespace Algorithms
             //GoroWantChocolate goroWantChocolateSolver = new GoroWantChocolate();
             //Console.WriteLine(goroWantChocolateSolver.GetMinimalNumberOfSquares(5, 3));
 
-            //// Skynet revolution
-            //SkynetGraph skynetGraph = new SkynetGraph();
-            //skynetGraph.AddLink(11, 6);
-            //skynetGraph.AddLink(0, 9);
-            //skynetGraph.AddLink(1, 2);
-            //skynetGraph.AddLink(0, 1);
-            //skynetGraph.AddLink(10, 1);
-            //skynetGraph.AddLink(11, 5);
-            //skynetGraph.AddLink(2, 3);
-            //skynetGraph.AddLink(4, 5);
-            //skynetGraph.AddLink(8, 9);
-            //skynetGraph.AddLink(6, 7);
-            //skynetGraph.AddLink(7, 8);
-            //skynetGraph.AddLink(0, 6);
-            //skynetGraph.AddLink(3, 4);
-            //skynetGraph.AddLink(0, 2);
-            //skynetGraph.AddLink(11, 7);
-            //skynetGraph.AddLink(0, 8);
-            //skynetGraph.AddLink(0, 4);
-            //skynetGraph.AddLink(9, 10);
-            //skynetGraph.AddLink(0, 5);
-            //skynetGraph.AddLink(0, 7);
-            //skynetGraph.AddLink(0, 3);
-            //skynetGraph.AddLink(0, 10);
-            //skynetGraph.AddLink(5, 6);
-            //skynetGraph.SetGateway(0);
-            //(int source, int target) = skynetGraph.FindLinkToCut(11);
+            //// Death first search
+            //DeathFirstSearch deathFirstSearch = new DeathFirstSearch();
+            //deathFirstSearch.AddLink(11, 6);
+            //deathFirstSearch.AddLink(0, 9);
+            //deathFirstSearch.AddLink(1, 2);
+            //deathFirstSearch.AddLink(0, 1);
+            //deathFirstSearch.AddLink(10, 1);
+            //deathFirstSearch.AddLink(11, 5);
+            //deathFirstSearch.AddLink(2, 3);
+            //deathFirstSearch.AddLink(4, 5);
+            //deathFirstSearch.AddLink(8, 9);
+            //deathFirstSearch.AddLink(6, 7);
+            //deathFirstSearch.AddLink(7, 8);
+            //deathFirstSearch.AddLink(0, 6);
+            //deathFirstSearch.AddLink(3, 4);
+            //deathFirstSearch.AddLink(0, 2);
+            //deathFirstSearch.AddLink(11, 7);
+            //deathFirstSearch.AddLink(0, 8);
+            //deathFirstSearch.AddLink(0, 4);
+            //deathFirstSearch.AddLink(9, 10);
+            //deathFirstSearch.AddLink(0, 5);
+            //deathFirstSearch.AddLink(0, 7);
+            //deathFirstSearch.AddLink(0, 3);
+            //deathFirstSearch.AddLink(0, 10);
+            //deathFirstSearch.AddLink(5, 6);
+            //deathFirstSearch.SetGateway(0);
+            //(int source, int target) = deathFirstSearch.FindLinkToCut(11);
             //Console.WriteLine(source + " " + target);
 
             //// Binary search tree

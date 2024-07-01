@@ -1,6 +1,4 @@
-using Codingame.SpeedCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace Codingame.WaterJugRiddle
 {

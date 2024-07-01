@@ -1,12 +1,11 @@
-﻿// https://www.codingame.com/training/medium/bender-episode-1
+﻿// https://www.codingame.com/training/medium/blunder-episode-1
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Codingame.Bender
+namespace Codingame.Blunder
 {
-    public class Bender
+    public class Blunder
     {
         // Environment
         private Map _map { get; set; }
@@ -16,7 +15,7 @@ namespace Codingame.Bender
         private HashSet<Snapshot> _history { get; set; }
         private bool _isStuckInInfiniteLoop { get; set; }
 
-        public BenderResult Traverse(string[] rows)
+        public BlunderResult Traverse(string[] rows)
         {
             _map = Map.Parse(rows);
             _state = new State();
@@ -33,7 +32,7 @@ namespace Codingame.Bender
                 _path.Add(_move());
             }
 
-            return new BenderResult
+            return new BlunderResult
             {
                 IsStuckInInfiniteLoop = _isStuckInInfiniteLoop,
                 Path = _path.Select(d => d.ToString().ToUpper()).ToArray(),
@@ -395,7 +394,7 @@ namespace Codingame.Bender
         }
     }
 
-    public class BenderResult
+    public class BlunderResult
     {
         public bool IsStuckInInfiniteLoop { get; set; }
         public string[] Path { get; set; }

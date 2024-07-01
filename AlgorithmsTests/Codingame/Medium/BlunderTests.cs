@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Bender
+namespace Codingame.Blunder
 {
     [TestClass]
-    public class BenderTests
+    public class BlunderTests
     {
         [TestMethod]
         [DataRow(new string[] { "######", "#@E $#", "# N  #", "#X   #", "######" }, new string[] { "SOUTH", "EAST", "NORTH", "EAST", "EAST" }, "")]
@@ -11,10 +11,10 @@ namespace Codingame.Bender
         public void Traverse_NoInfiniteLoop_ReturnsPath(string[] rows, string[] expectedPath, string dummy)
         {
             // Arrange
-            Bender bender = new();
+            Blunder blunder = new();
 
             // Act
-            var result = bender.Traverse(rows);
+            var result = blunder.Traverse(rows);
 
             // Assert
             Assert.IsFalse(result.IsStuckInInfiniteLoop);
@@ -26,10 +26,10 @@ namespace Codingame.Bender
         public void Traverse_InfiniteLoop_ReturnsLoop(string[] rows)
         {
             // Arrange
-            Bender bender = new();
+            Blunder blunder = new();
 
             // Act
-            var result = bender.Traverse(rows);
+            var result = blunder.Traverse(rows);
 
             // Assert
             Assert.IsTrue(result.IsStuckInInfiniteLoop);

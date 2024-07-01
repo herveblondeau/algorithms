@@ -1,15 +1,12 @@
-﻿// https://www.codingame.com/training/medium/the-last-crusade-episode-1
+﻿// https://www.codingame.com/training/medium/the-fall-episode-1
 
-using System;
-using System.Collections.Generic;
-
-namespace Codingame.TheLastCrusade
+namespace Codingame.TheFall1
 {
-    public class TheLastCrusade
+    public class TheFall1
     {
         private int[,] _rooms { get; set; }
 
-        public TheLastCrusade(int[,] rooms)
+        public TheFall1(int[,] rooms)
         {
             _rooms = rooms;
         }

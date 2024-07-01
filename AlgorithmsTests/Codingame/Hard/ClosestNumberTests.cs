@@ -1,6 +1,4 @@
-using Codingame.Staircases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace Codingame.ClosestNumber
 {

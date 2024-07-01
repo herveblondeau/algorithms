@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Codingame.SkynetGraph
+namespace Codingame.DeathFirstSearch
 {
-    // https://www.codingame.com/training/medium/skynet-revolution-episode-1
-    public class SkynetGraph
+    // https://www.codingame.com/training/medium/death-first-search-episode-1
+    public class DeathFirstSearch
     {
         private HashSet<int> _gateways { get; set; }
         private Dictionary<int, HashSet<int>> _links { get; set; }
 
-        public SkynetGraph()
+        public DeathFirstSearch()
         {
             _links = new Dictionary<int, HashSet<int>>();
             _gateways = new HashSet<int>();
