@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.ClosestNumber
+namespace Codingame.Hard.ClosestNumber
 {
     [TestClass]
     public class ClosestNumberTests

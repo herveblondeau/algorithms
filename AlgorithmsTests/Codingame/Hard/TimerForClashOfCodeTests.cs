@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.TimerForClashOfCode
+namespace Codingame.Hard.TimerForClashOfCode
 {
     [TestClass]
     public class TimerForClashOfCodeTests

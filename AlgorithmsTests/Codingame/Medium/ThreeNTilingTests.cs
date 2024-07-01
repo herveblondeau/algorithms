@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.ThreeNTiling
+namespace Codingame.Medium.ThreeNTiling
 {
     [TestClass]
     public class ThreeNTilingTests

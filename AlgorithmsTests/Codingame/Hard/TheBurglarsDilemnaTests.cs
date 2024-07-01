@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.TheBurglarsDilemna
+namespace Codingame.Hard.TheBurglarsDilemna
 {
     [TestClass]
     public class TheBurglarsDilemnaTests

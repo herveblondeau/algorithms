@@ -1,8 +1,8 @@
-using Codingame.Staircases;
+using Codingame.Hard.Staircases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.AlternativeVote
+namespace Codingame.Hard.AlternativeVote
 {
     [TestClass]
     public class AlternativeVoteTests

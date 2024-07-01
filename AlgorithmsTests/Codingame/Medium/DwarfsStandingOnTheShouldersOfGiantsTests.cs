@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.DwarfsStandingOnTheShouldersOfGiants
+namespace Codingame.Medium.DwarfsStandingOnTheShouldersOfGiants
 {
     [TestClass]
     public class DwarfsStandingOnTheShouldersOfGiantsTests

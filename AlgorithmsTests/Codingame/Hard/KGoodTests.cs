@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.KGood
+namespace Codingame.Hard.KGood
 {
     [TestClass]
     public class KGoodTests

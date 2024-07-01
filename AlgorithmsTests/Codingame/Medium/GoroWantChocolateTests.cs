@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.GoroWantChocolate
+namespace Codingame.Medium.GoroWantChocolate
 {
     [TestClass]
     public class GoroWantChocolateTests

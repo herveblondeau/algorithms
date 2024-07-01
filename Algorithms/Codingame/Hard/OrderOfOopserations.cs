@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Codingame.OrderOfOopserations;
+namespace Codingame.Hard.OrderOfOopserations;
 
 // This puzzle is very similar to Dice Probability Calculator and has a similar implementation
 // Some nuances:

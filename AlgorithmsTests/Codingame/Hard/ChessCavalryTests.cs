@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.ChessCavalry
+namespace Codingame.Hard.ChessCavalry
 {
     [TestClass]
     public class ChessCavalryTests

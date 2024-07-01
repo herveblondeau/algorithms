@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.SimpleSafecracking
+namespace Codingame.Hard.SimpleSafecracking
 {
     [TestClass]
     public class SimpleSafecrackingTests

@@ -1,7 +1,7 @@
-using Codingame.LevenshteinDistance;
+using Codingame.Hard.LevenshteinDistance;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.LevenshteinDistance
+namespace Codingame.Hard.LevenshteinDistance
 {
     [TestClass]
     public class LevenshteinDistanceTests

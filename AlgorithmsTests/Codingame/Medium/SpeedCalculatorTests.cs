@@ -1,8 +1,8 @@
-using Codingame.SpeedCalculator;
+using Codingame.Medium.SpeedCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.SpeedCalculator
+namespace Codingame.Medium.SpeedCalculator
 {
     [TestClass]
     public class SpeedCalculatorTests

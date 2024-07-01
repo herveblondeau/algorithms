@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Scrabble
+namespace Codingame.Medium.Scrabble
 {
     [TestClass]
     public class ScrabbleTests

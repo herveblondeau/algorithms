@@ -1,8 +1,8 @@
-using Codingame.Staircases;
+using Codingame.Hard.Staircases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.TwoEggProblem
+namespace Codingame.Hard.TwoEggProblem
 {
     [TestClass]
     public class TwoEggProblemTests

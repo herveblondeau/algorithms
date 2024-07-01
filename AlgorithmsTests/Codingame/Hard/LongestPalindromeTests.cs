@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.LongestPalindrome
+namespace Codingame.Hard.LongestPalindrome
 {
     [TestClass]
     public class LongestPalindromeTests

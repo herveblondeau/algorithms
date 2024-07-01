@@ -1,4 +1,4 @@
-﻿using Codingame.TheGift;
+﻿using Codingame.Medium.TheGift;
 using System;
 using System.Collections.Generic;
 using System.Linq;

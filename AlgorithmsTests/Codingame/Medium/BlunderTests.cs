@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Blunder
+namespace Codingame.Medium.Blunder
 {
     [TestClass]
     public class BlunderTests

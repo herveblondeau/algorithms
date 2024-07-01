@@ -2,44 +2,43 @@
 
 using System.Collections.Generic;
 
-namespace Codingame.ConwaySequence
+namespace Codingame.Medium.ConwaySequence;
+
+public class ConwaySequence
 {
-    public class ConwaySequence
+
+    public List<int> GetNthLine(int number, int n)
     {
+        List<int> previousLine = new() { number };
+        List<int> currentLine = new() { number };
 
-        public List<int> GetNthLine(int number, int n)
+        int lastValue;
+        int lastQuantity;
+        while (n-- > 1)
         {
-            List<int> previousLine = new() { number };
-            List<int> currentLine = new() { number };
+            currentLine = new List<int>();
 
-            int lastValue;
-            int lastQuantity;
-            while (n-- > 1)
+            lastValue = previousLine[0];
+            lastQuantity = 0;
+            foreach (var value in previousLine)
             {
-                currentLine = new List<int>();
-
-                lastValue = previousLine[0];
-                lastQuantity = 0;
-                foreach (var value in previousLine)
+                if (value == lastValue)
+                    lastQuantity++;
+                else
                 {
-                    if (value == lastValue)
-                        lastQuantity++;
-                    else
-                    {
-                        currentLine.Add(lastQuantity);
-                        currentLine.Add(lastValue);
-                        lastValue = value;
-                        lastQuantity = 1;
-                    }
+                    currentLine.Add(lastQuantity);
+                    currentLine.Add(lastValue);
+                    lastValue = value;
+                    lastQuantity = 1;
                 }
-                currentLine.Add(lastQuantity);
-                currentLine.Add(lastValue);
-
-                previousLine = currentLine;
             }
+            currentLine.Add(lastQuantity);
+            currentLine.Add(lastValue);
 
-            return currentLine;
+            previousLine = currentLine;
         }
 
+        return currentLine;
     }
+
 }

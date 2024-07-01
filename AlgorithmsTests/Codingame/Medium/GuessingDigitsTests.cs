@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.GuessingDigits
+namespace Codingame.Medium.GuessingDigits
 {
     [TestClass]
     public class GuessingDigitsTests

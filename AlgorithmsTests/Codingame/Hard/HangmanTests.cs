@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Hangman
+namespace Codingame.Hard.Hangman
 {
     [TestClass]
     public class HangmanTests

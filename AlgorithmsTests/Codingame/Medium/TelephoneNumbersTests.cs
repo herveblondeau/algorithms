@@ -1,7 +1,7 @@
-using Codingame.TelephoneNumbersSolver;
+using Codingame.Medium.TelephoneNumbersSolver;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.TelephoneNumbersSolver
+namespace Codingame.Medium.TelephoneNumbersSolver
 {
     [TestClass]
     public class TelephoneNumbersTests

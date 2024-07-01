@@ -1,8 +1,8 @@
-using Codingame.Staircases;
+using Codingame.Hard.Staircases;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.Staircases
+namespace Codingame.Hard.Staircases
 {
     [TestClass]
     public class StaircasesTests

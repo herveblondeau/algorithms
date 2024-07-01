@@ -1,8 +1,6 @@
-using Codingame.TheGift;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
-namespace Codingame.TheGift
+namespace Codingame.Medium.TheGift
 {
     [TestClass]
     public class TheGiftTests

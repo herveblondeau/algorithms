@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.OrderOfOopserations
+namespace Codingame.Hard.OrderOfOopserations
 {
     [TestClass]
     public class OrderOfOopserationsTests
@@ -19,10 +19,10 @@ namespace Codingame.OrderOfOopserations
         public void ComputeExpression_Miscellaneous_PerformsCorrectly(string input, int expected)
         {
             // Arrange
-            OrderOfOopserations OrderOfOopserations = new();
+            OrderOfOopserations orderOfOopserations = new();
 
             // Act
-            var actual = OrderOfOopserations.ComputeExpression(input);
+            var actual = orderOfOopserations.ComputeExpression(input);
 
             // Assert
             Assert.AreEqual(expected, actual);

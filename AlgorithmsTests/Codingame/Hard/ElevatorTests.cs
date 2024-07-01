@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Elevator
+namespace Codingame.Hard.Elevator
 {
     [TestClass]
     public class ElevatorTests

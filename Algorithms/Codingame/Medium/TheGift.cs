@@ -2,43 +2,42 @@
 
 using System;
 
-namespace Codingame.TheGift
+namespace Codingame.Medium.TheGift;
+
+public class TheGift
 {
-    public class TheGift
+    public Result ComputeContributions(int[] budgets, int total)
     {
-        public Result ComputeContributions(int[] budgets, int total)
+        Array.Sort(budgets);
+        int[] contributions = new int[budgets.Length];
+
+        int remainingAmount = total;
+        int nbRemainingContributors = budgets.Length;
+        for (int i = 0; i < budgets.Length; i++)
         {
-            Array.Sort(budgets);
-            int[] contributions = new int[budgets.Length];
-
-            int remainingAmount = total;
-            int nbRemainingContributors = budgets.Length;
-            for (int i = 0; i < budgets.Length; i++)
+            if (budgets[i] >= remainingAmount / nbRemainingContributors)
             {
-                if (budgets[i] >= remainingAmount / nbRemainingContributors)
-                {
-                    contributions[i] = remainingAmount / nbRemainingContributors;
-                }
-                else
-                {
-                    contributions[i] = budgets[i];
-                }
-
-                remainingAmount -= contributions[i];
-                nbRemainingContributors--;
+                contributions[i] = remainingAmount / nbRemainingContributors;
+            }
+            else
+            {
+                contributions[i] = budgets[i];
             }
 
-            return new Result
-            {
-                IsSolvable = remainingAmount == 0,
-                Contributions = contributions,
-            };
+            remainingAmount -= contributions[i];
+            nbRemainingContributors--;
         }
-    }
 
-    public class Result
-    {
-        public bool IsSolvable { get; set; }
-        public int[] Contributions { get; set; } = null!;
+        return new Result
+        {
+            IsSolvable = remainingAmount == 0,
+            Contributions = contributions,
+        };
     }
+}
+
+public class Result
+{
+    public bool IsSolvable { get; set; }
+    public int[] Contributions { get; set; } = null!;
 }

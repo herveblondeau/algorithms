@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.ConwaySequence
+namespace Codingame.Medium.ConwaySequence
 {
     [TestClass]
     public class ConwaySequenceTests

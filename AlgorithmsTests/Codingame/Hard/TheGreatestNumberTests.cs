@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.TheGreatestNumber
+namespace Codingame.Hard.TheGreatestNumber
 {
     [TestClass]
     public class TheGreatestNumberTests

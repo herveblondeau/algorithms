@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.StockExchangeLosses
+namespace Codingame.Medium.StockExchangeLosses
 {
     [TestClass]
     public class StockExchangeLossesTests
