@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.UnfoldingPaper
+namespace Codingame.Expert.UnfoldingPaper
 {
     [TestClass]
     public class UnfoldingPaperTests

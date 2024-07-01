@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.UnfloodTheWorld
+namespace Codingame.Expert.UnfloodTheWorld
 {
     [TestClass]
     public class UnfloodTheWorldTests

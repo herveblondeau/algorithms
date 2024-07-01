@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.HeartOfTheCity;
+namespace Codingame.Expert.HeartOfTheCity;
 
 [TestClass]
 public class HeartOfTheCityTests

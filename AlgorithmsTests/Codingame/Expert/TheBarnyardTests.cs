@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.TheBarnyard;
+namespace Codingame.Expert.TheBarnyard;
 
 [TestClass]
 public class TheBarnyardTests

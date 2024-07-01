@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.WaterJugRiddle
+namespace Codingame.Expert.WaterJugRiddle
 {
     [TestClass]
     public class WaterJugRiddleTests

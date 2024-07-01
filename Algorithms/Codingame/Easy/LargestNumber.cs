@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Codingame.LargestNumber
+namespace Codingame.Easy.LargestNumber
 {
     public class LargestNumber
     {

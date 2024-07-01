@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Codingame.HeartOfTheCity;
+namespace Codingame.Expert.HeartOfTheCity;
 
 public class HeartOfTheCity
 {

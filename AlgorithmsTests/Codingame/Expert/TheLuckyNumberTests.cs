@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.TheLuckyNumber
+namespace Codingame.Expert.TheLuckyNumber
 {
     [TestClass]
     public class TheLuckyNumberTests

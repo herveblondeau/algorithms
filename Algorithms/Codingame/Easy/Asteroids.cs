@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Codingame.Asteroids
+namespace Codingame.Easy.Asteroids
 {
     public class Asteroids
     {

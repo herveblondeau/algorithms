@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Codingame.SlidingPuzzle
+namespace Codingame.Expert.SlidingPuzzle
 {
     [TestClass]
     public class SlidingPuzzleTests

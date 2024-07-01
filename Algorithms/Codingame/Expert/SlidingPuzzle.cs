@@ -1,9 +1,8 @@
-﻿// https://www.codingame.com/ide/puzzle/sliding-puzzle
+﻿// https://www.codingame.com/training/expert/sliding-puzzle
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Codingame.SlidingPuzzle
+namespace Codingame.Expert.SlidingPuzzle
 {
     public class SlidingPuzzle
     {
