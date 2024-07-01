@@ -1,89 +1,85 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace CrackingTheCodeInterview.ArraysAndStrings.OneAway
+namespace CrackingTheCodeInterview.ArraysAndStrings.OneAway;
+
+// Source: "Cracking the coding interview" book (1.5 - One away)
+public class OneAway
 {
-    // Source: "Cracking the coding interview" book (1.5 - One away)
-    public class OneAway
+    public static bool AreZeroOrOneAway(string str1, string str2)
     {
-        public static bool AreZeroOrOneAway(string str1, string str2)
+        if (AreZeroOrOneCharacterReplacementAway(str1, str2))
         {
-            if (AreZeroOrOneCharacterReplacementAway(str1, str2))
-            {
-                return true;
-            }
-            else if (AreZeroOrOneCharacterShiftAway(str1, str2))
-            {
-                return true;
-            }
-            else if (AreZeroOrOneCharacterShiftAway(str2, str1))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        // This method must only be called if the string have the same length
-        private static bool AreZeroOrOneCharacterReplacementAway(string str1, string str2)
-        {
-            if (str1.Length != str2.Length)
-            {
-                return false;
-            }
-
-            bool hasADifferentCharacter = false;
-            for (int i = 0; i < str1.Length; i++)
-            {
-                if (str1[i] != str2[i])
-                {
-                    if (hasADifferentCharacter)
-                    {
-                        return false;
-                    }
-
-                    hasADifferentCharacter = true;
-                }
-            }
-
             return true;
         }
-
-        private static bool AreZeroOrOneCharacterShiftAway(string str1, string str2)
+        else if (AreZeroOrOneCharacterShiftAway(str1, str2))
         {
-            if (Math.Abs(str1.Length - str2.Length) != 1)
-            {
-                return false;
-            }
+            return true;
+        }
+        else if (AreZeroOrOneCharacterShiftAway(str2, str1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-            string shortStr = str1.Length < str2.Length ? str1 : str2;
-            string longStr = str1.Length < str2.Length ? str2 : str1;
+    // This method must only be called if the string have the same length
+    private static bool AreZeroOrOneCharacterReplacementAway(string str1, string str2)
+    {
+        if (str1.Length != str2.Length)
+        {
+            return false;
+        }
 
-            bool hasADifferentCharacter = false;
-            int shortStrIndex = 0;
-            int longStrIndex = 0;
-            while (shortStrIndex < shortStr.Length)
+        bool hasADifferentCharacter = false;
+        for (int i = 0; i < str1.Length; i++)
+        {
+            if (str1[i] != str2[i])
             {
-                if (shortStr[shortStrIndex] != longStr[longStrIndex])
+                if (hasADifferentCharacter)
                 {
-                    if (hasADifferentCharacter)
-                    {
-                        return false;
-                    }
-
-                    hasADifferentCharacter = true;
-                    longStrIndex++;
+                    return false;
                 }
 
-                shortStrIndex++;
+                hasADifferentCharacter = true;
+            }
+        }
+
+        return true;
+    }
+
+    private static bool AreZeroOrOneCharacterShiftAway(string str1, string str2)
+    {
+        if (Math.Abs(str1.Length - str2.Length) != 1)
+        {
+            return false;
+        }
+
+        string shortStr = str1.Length < str2.Length ? str1 : str2;
+        string longStr = str1.Length < str2.Length ? str2 : str1;
+
+        bool hasADifferentCharacter = false;
+        int shortStrIndex = 0;
+        int longStrIndex = 0;
+        while (shortStrIndex < shortStr.Length)
+        {
+            if (shortStr[shortStrIndex] != longStr[longStrIndex])
+            {
+                if (hasADifferentCharacter)
+                {
+                    return false;
+                }
+
+                hasADifferentCharacter = true;
                 longStrIndex++;
             }
 
-            return true;
+            shortStrIndex++;
+            longStrIndex++;
         }
+
+        return true;
     }
 }

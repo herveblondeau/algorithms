@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace CrackingTheCodeInterview.ArraysAndStrings.IsUnique
+namespace CrackingTheCodeInterview.ArraysAndStrings.IsUnique;
+
+// Source: "Cracking the coding interview" book (1.1 - Is unique)
+public class IsUnique
 {
-    // Source: "Cracking the coding interview" book (1.1 - Is unique)
-    public class IsUnique
+    public static bool HasAllUniqueChars(string input)
     {
-        public static bool HasAllUniqueChars(string input)
+        HashSet<char> alreadySeenChars = new();
+
+        foreach (char c in input)
         {
-            HashSet<char> alreadySeenChars = new();
-
-            foreach (char c in input)
+            if (alreadySeenChars.Contains(c))
             {
-                if (alreadySeenChars.Contains(c))
-                {
-                    return false;
-                }
-                alreadySeenChars.Add(c);
+                return false;
             }
-
-            return true;
+            alreadySeenChars.Add(c);
         }
+
+        return true;
     }
 }

@@ -9,7 +9,7 @@ namespace Codingame.Hard.TheBurglarsDilemna;
 // TODO: simplify strategies (use Command pattern instead or basic mappings)
 public class TheBurglarsDilemna
 {
-    public string Solve(int length, List<Guess> guesses)
+    public string? Solve(int length, List<Guess> guesses)
     {
         // Prepare strategies
         List<IStrategy> strategies =
@@ -22,7 +22,7 @@ public class TheBurglarsDilemna
             new CluckClickClackStrategy(),
         ];
 
-        string result = null; // stores the only allowed combination across all strategies
+        string? result = null; // stores the only allowed combination across all strategies
         string current; // stores the current combination
 
         // For each strategy,
@@ -123,7 +123,7 @@ public class TheBurglarsDilemna
             if (digit == 9) _possibilities[position].Remove(0);
         }
 
-        public string GetCombination()
+        public string? GetCombination()
         {
             int[] combination = new int[Length];
             for (int i = 0; i < Length; i++)
@@ -294,8 +294,13 @@ public class Guess
         return Position * 10 + Digit; // we don't need to take the sound into account as it is consistent for give position and digit
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return GetHashCode() == ((Guess)obj).GetHashCode();
     }
 }
