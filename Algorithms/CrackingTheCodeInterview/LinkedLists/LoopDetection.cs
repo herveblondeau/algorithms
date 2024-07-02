@@ -10,13 +10,13 @@ public class LoopDetection
         // We go through the elements, modifying each one to point to itself
         // As soon as we reach an element that points to itself, it means we have come back to a loop start
         LinkedListNode? current = start;
-        if (current == null)
+        if (current is null)
         {
             return null;
         }
 
         LinkedListNode temp;
-        while (current != null && current != current.Next)
+        while (current is not null && current != current.Next)
         {
             temp = current;
             current = current.Next;

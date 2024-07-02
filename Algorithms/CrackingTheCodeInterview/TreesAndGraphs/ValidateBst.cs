@@ -10,17 +10,17 @@ public class ValidateBst
 
     private static bool _IsBst(BinaryTreeNode node, int lowerLimit, int upperLimit)
     {
-        if (node == null)
+        if (node is null)
         {
             return true;
         }
 
         // These are the basic BST rules: a node value must be contained between its left and right child values
-        if (node.LeftChild != null && node.Value <= node.LeftChild.Value)
+        if (node.LeftChild is not null && node.Value <= node.LeftChild.Value)
         {
             return false;
         }
-        if (node.RightChild != null && node.Value >= node.RightChild.Value)
+        if (node.RightChild is not null && node.Value >= node.RightChild.Value)
         {
             return false;
         }

@@ -39,28 +39,28 @@ public class SlidingPuzzle
 
             // Enqueue the immediately reachable positions (BFS)
             next = current.SlideUp();
-            if (next != null && !visited.ContainsKey(next))
+            if (next is not null && !visited.ContainsKey(next))
             {
                 toProcess.Enqueue(next);
                 visited.Add(next, nbMoves + 1);
             }
 
             next = current.SlideDown();
-            if (next != null && !visited.ContainsKey(next))
+            if (next is not null && !visited.ContainsKey(next))
             {
                 toProcess.Enqueue(next);
                 visited.Add(next, nbMoves + 1);
             }
 
             next = current.SlideLeft();
-            if (next != null && !visited.ContainsKey(next))
+            if (next is not null && !visited.ContainsKey(next))
             {
                 toProcess.Enqueue(next);
                 visited.Add(next, nbMoves + 1);
             }
 
             next = current.SlideRight();
-            if (next != null && !visited.ContainsKey(next))
+            if (next is not null && !visited.ContainsKey(next))
             {
                 toProcess.Enqueue(next);
                 visited.Add(next, nbMoves + 1);

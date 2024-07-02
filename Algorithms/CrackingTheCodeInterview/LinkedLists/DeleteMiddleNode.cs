@@ -1,6 +1,7 @@
-﻿namespace Algorithms.CrackingTheCodeInterview.LinkedLists.DeleteMiddleNode;
+﻿// Source: "Cracking the coding interview" book (2.3 - Delete middle node)
 
-// Source: "Cracking the coding interview" book (2.3 - Delete middle node)
+namespace Algorithms.CrackingTheCodeInterview.LinkedLists.DeleteMiddleNode;
+
 public class DeleteMiddleNode
 {
     public static void Delete(LinkedListNode node)
@@ -17,7 +18,7 @@ public class DeleteMiddleNode
 public class LinkedListNode
 {
     public string Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(string value)
     {
@@ -29,8 +30,13 @@ public class LinkedListNode
         return Value;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

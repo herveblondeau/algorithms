@@ -10,7 +10,7 @@ public class BinarySearchTree<T> where T : IComparable
     public BinaryTreeNode<T>? Find(T value)
     {
         BinaryTreeNode<T>? currentNode = Root;
-        while (currentNode != null)
+        while (currentNode is not null)
         {
             if (value.Equals(currentNode.Value)) return currentNode;
 
@@ -29,7 +29,7 @@ public class BinarySearchTree<T> where T : IComparable
 
     public void Insert(T value)
     {
-        if (Root == null)
+        if (Root is null)
         {
             Root = new BinaryTreeNode<T>
             {
@@ -47,7 +47,7 @@ public class BinarySearchTree<T> where T : IComparable
 
             if (value.CompareTo(currentNode.Value) < 0)
             {
-                if (currentNode.LeftChild == null)
+                if (currentNode.LeftChild is null)
                 {
                     currentNode.LeftChild = new BinaryTreeNode<T>
                     {
@@ -61,7 +61,7 @@ public class BinarySearchTree<T> where T : IComparable
             }
             else
             {
-                if (currentNode.RightChild == null)
+                if (currentNode.RightChild is null)
                 {
                     currentNode.RightChild = new BinaryTreeNode<T>
                     {
@@ -79,7 +79,7 @@ public class BinarySearchTree<T> where T : IComparable
     public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
-        if (node != null)
+        if (node is not null)
         {
             result.Add(node);
             result.AddRange(TraversePreOrder(node.LeftChild));
@@ -91,7 +91,7 @@ public class BinarySearchTree<T> where T : IComparable
     public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
-        if (node != null)
+        if (node is not null)
         {
             result.AddRange(TraverseInOrder(node.LeftChild));
             result.Add(node);
@@ -103,7 +103,7 @@ public class BinarySearchTree<T> where T : IComparable
     public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
-        if (node != null)
+        if (node is not null)
         {
             result.AddRange(TraversePostOrder(node.LeftChild));
             result.AddRange(TraversePostOrder(node.RightChild));
@@ -116,7 +116,7 @@ public class BinarySearchTree<T> where T : IComparable
     {
         List<BinaryTreeNode<T>?> result = new();
         Queue<BinaryTreeNode<T>?> queue = new();
-        while (node != null)
+        while (node is not null)
         {
             result.Add(node);
             queue.Enqueue(node.LeftChild);

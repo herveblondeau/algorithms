@@ -6,7 +6,7 @@ namespace Codingame.Hard.Staircases;
 
 public class Staircases
 {
-    private Dictionary<(int, int), long> _visited;
+    private Dictionary<(int, int), long> _visited = null!;
 
     public long GetNumberOfStaircases(int bricks)
     {

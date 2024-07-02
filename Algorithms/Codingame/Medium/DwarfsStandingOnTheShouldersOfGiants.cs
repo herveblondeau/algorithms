@@ -7,7 +7,7 @@ namespace Codingame.Medium.DwarfsStandingOnTheShouldersOfGiants;
 
 public class DwarfsStandingOnTheShouldersOfGiants
 {
-    private Dictionary<int, int> _longestInfluences { get; set; }
+    private Dictionary<int, int> _longestInfluences { get; set; } = null!;
 
     public int GetLongestInfluence(Dictionary<int, List<int>> relations)
     {

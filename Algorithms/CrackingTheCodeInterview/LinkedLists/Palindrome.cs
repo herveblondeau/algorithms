@@ -6,7 +6,7 @@ public class Palindrome
     public static bool IsPalindrome(LinkedListNode start)
     {
         // This can be debated but we consider an empty list to not be a palindrome
-        if (start == null)
+        if (start is null)
         {
             return false;
         }
@@ -16,7 +16,7 @@ public class Palindrome
 
         // Compare both lists
         LinkedListNode initialCurrent = start;
-        while (initialCurrent != null)
+        while (initialCurrent is not null)
         {
             if (initialCurrent.Value != reverseCurrent.Value)
             {
@@ -35,7 +35,7 @@ public class Palindrome
     {
         LinkedListNode initialCurrent = start;
         LinkedListNode reverseCurrent = new(start.Value);
-        while (initialCurrent.Next != null)
+        while (initialCurrent.Next is not null)
         {
             LinkedListNode reversePrevious = new(initialCurrent.Next.Value);
             reversePrevious.Next = reverseCurrent;

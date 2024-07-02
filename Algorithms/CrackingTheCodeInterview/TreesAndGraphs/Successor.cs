@@ -8,7 +8,7 @@ public class Successor
         // We don't check the left child since it can never be a successor in an in order traversal
 
         // If there is right child, the next node is the leftmost descendant in the right descendant hierarchy
-        if (node.RightChild != null)
+        if (node.RightChild is not null)
         {
             return LeftMostDescendant(node.RightChild);
         }
@@ -20,11 +20,11 @@ public class Successor
 
     private static BinaryTreeNode LeftMostDescendant(BinaryTreeNode node)
     {
-        if (node.LeftChild != null)
+        if (node.LeftChild is not null)
         {
             return LeftMostDescendant(node.LeftChild);
         }
-        if (node.RightChild != null)
+        if (node.RightChild is not null)
         {
             return LeftMostDescendant(node.RightChild);
         }
@@ -34,7 +34,7 @@ public class Successor
 
     private static BinaryTreeNode FirstRightAscendant(BinaryTreeNode node)
     {
-        if (node == null || node.Parent == null)
+        if (node is null || node.Parent is null)
         {
             return null;
         }

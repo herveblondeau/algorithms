@@ -39,10 +39,10 @@ public class TheBurglarsDilemna
 
             // Get the combination
             current = workspace.GetCombination();
-            if (current != null && current != result)
+            if (current is not null && current != result)
             {
                 // There can only be one combination across all strategies
-                if (result != null)
+                if (result is not null)
                 {
                     return null;
                 }

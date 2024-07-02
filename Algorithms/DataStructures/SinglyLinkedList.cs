@@ -48,12 +48,12 @@ public class SinglyLinkedList
     {
         SinglyLinkedListNode newNode= new(value);
         SinglyLinkedListNode current = First;
-        while (current != null && current.Next != node)
+        while (current is not null && current.Next != node)
         {
             current = current.Next;
         }
 
-        if (current == null)
+        if (current is null)
         {
             throw new ArgumentOutOfRangeException("Node not found");
         }
@@ -75,7 +75,7 @@ public class SinglyLinkedList
     {
         StringBuilder result = new();
         SinglyLinkedListNode currentNode = First;
-        while (currentNode != null)
+        while (currentNode is not null)
         {
             result.Append(currentNode.Value);
             result.Append(" ");
@@ -84,7 +84,7 @@ public class SinglyLinkedList
         return result.ToString();
     }
 
-    private bool _isEmpty => First == null;
+    private bool _isEmpty => First is null;
 }
 
 public class SinglyLinkedListNode
@@ -99,13 +99,13 @@ public class SinglyLinkedListNode
 
     public bool HasNext()
     {
-        return Next != null;
+        return Next is not null;
     }
 
     public void SetNext(SinglyLinkedListNode node)
     {
 
-        if (Next == null)
+        if (Next is null)
         {
             Next = node;
         }

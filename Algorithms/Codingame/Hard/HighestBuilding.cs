@@ -21,7 +21,7 @@ public class HighestBuilding
         {
             Building? building = GetBuilding(picture, i);
             // No building here, just move one spot to the right
-            if (building == null)
+            if (building is null)
             {
                 i++;
             }

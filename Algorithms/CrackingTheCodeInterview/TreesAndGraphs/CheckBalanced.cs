@@ -17,8 +17,8 @@ public class CheckBalanced
     /// <returns>-1 if unbalanced, node height otherwise</returns>
     private static int GetHeight(BinaryTreeNode node)
     {
-        int leftHeight = node.LeftChild != null ? GetHeight(node.LeftChild) : 0;
-        int rightHeight = node.RightChild != null ? GetHeight(node.RightChild) : 0;
+        int leftHeight = node.LeftChild is not null ? GetHeight(node.LeftChild) : 0;
+        int rightHeight = node.RightChild is not null ? GetHeight(node.RightChild) : 0;
 
         // Unbalanced left or right subtree => unbalanced node
         if (leftHeight == -1 || rightHeight == -1)

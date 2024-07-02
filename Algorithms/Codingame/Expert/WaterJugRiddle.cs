@@ -27,7 +27,7 @@ public class WaterJugRiddle
         // On top of the Codingame requirements, it also handles impossible cases (for instance, trying to reach a quantity above the highest capacity)
         int distance = 0;
         Position next;
-        while (current != null)
+        while (current is not null)
         {
             distance++;
 
@@ -81,7 +81,7 @@ public class WaterJugRiddle
             }
 
             current = _positionsToProcess.Any() ? _positionsToProcess.Dequeue() : null;
-            distance = current != null ? _visited[current] : -1;
+            distance = current is not null ? _visited[current] : -1;
         }
 
         return distance;

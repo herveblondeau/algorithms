@@ -17,7 +17,7 @@ public class Intersection
         // Go through the lists once to determine their respective lengths and end nodes
         int length1 = 0;
         current = start1;
-        while (current != null)
+        while (current is not null)
         {
             length1++;
             current1 = current;
@@ -26,7 +26,7 @@ public class Intersection
 
         int length2 = 0;
         current = start2;
-        while (current != null)
+        while (current is not null)
         {
             length2++;
             current2 = current;

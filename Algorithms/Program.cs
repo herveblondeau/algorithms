@@ -56,7 +56,7 @@ namespace Algorithms
             //{
             //    Console.Write("Depth " + i + ": ");
             //    LinkedListNode current = depthLists[i];
-            //    while (current != null)
+            //    while (current is not null)
             //    {
             //        Console.Write(current.Value + " ");
             //        current = current.Next;
@@ -108,7 +108,7 @@ namespace Algorithms
 
             // Console.WriteLine("List 1");
             // current = start1;
-            // while (current != null)
+            // while (current is not null)
             // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -127,7 +127,7 @@ namespace Algorithms
 
             // Console.WriteLine("List 2");
             // current = start2;
-            // while (current != null)
+            // while (current is not null)
             // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -135,7 +135,7 @@ namespace Algorithms
             // Console.WriteLine();
 
             // intersectionNode = intersection.GetIntersection(start1, start2);
-            // if (intersectionNode == null)
+            // if (intersectionNode is null)
             // {
             //    Console.WriteLine("No intersection");
             // }
@@ -159,7 +159,7 @@ namespace Algorithms
 
             //Console.WriteLine("Sum list");
             //current = SumLists.SumForwardOrderNumbers(startNumber1, startNumber2);
-            //while (current != null)
+            //while (current is not null)
             //{
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -188,7 +188,7 @@ namespace Algorithms
             // current = current.Next;
             // Console.WriteLine("Initial list");
             // current = start;
-            // while (current != null)
+            // while (current is not null)
             // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -201,7 +201,7 @@ namespace Algorithms
             // start = partition.PartitionAroundThreshold(start, threshold);
             // Console.WriteLine("After partitioning");
             // current = start;
-            // while (current != null)
+            // while (current is not null)
             // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -228,7 +228,7 @@ namespace Algorithms
 
             //Console.WriteLine("Initial list");
             //current = start;
-            //while (current != null)
+            //while (current is not null)
             //{
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -239,7 +239,7 @@ namespace Algorithms
 
             //Console.WriteLine("Updated list");
             //current = start;
-            //while (current != null)
+            //while (current is not null)
             //{
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -281,7 +281,7 @@ namespace Algorithms
 
             //Console.WriteLine("Initial list");
             //current = start;
-            //while (current != null)
+            //while (current is not null)
             //{
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -291,7 +291,7 @@ namespace Algorithms
             //Console.WriteLine("List without duplicates");
             //RemoveDups.RemoveDuplicatesWithoutBuffer(start);
             //current = start;
-            //while (current != null)
+            //while (current is not null)
             //{
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
@@ -456,7 +456,7 @@ namespace Algorithms
             // Console.WriteLine("  BF: " + string.Join('-', tree.TraverseBreadFirst(tree.Root).Select(n => n.Value)));
             // for (int i = 1; i <= 15; i++)
             // {
-            //    Console.WriteLine("Find " + i + ": " + (tree.Find(i) == null ? "not found" : "found!"));
+            //    Console.WriteLine("Find " + i + ": " + (tree.Find(i) is null ? "not found" : "found!"));
             // }
 
             //// Longest common subsequence
@@ -471,7 +471,7 @@ namespace Algorithms
             //// Water jug
             //WaterJug waterJugSolver = new WaterJug();
             //var path = waterJugSolver.Solve(7, 5, 2);
-            //if (path == null)
+            //if (path is null)
             //{
             //    Console.WriteLine("No solution");
             //}

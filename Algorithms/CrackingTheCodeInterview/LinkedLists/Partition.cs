@@ -15,11 +15,11 @@ public class Partition
         LinkedListNode? firstLower = null; // stores the very first element of the "lower" list so that it can be returned
         LinkedListNode? firstHigher = null; // stores the first element of the "higher" list
 
-        while (current != null)
+        while (current is not null)
         {
             if (current.Value < threshold)
             {
-                if (lower == null)
+                if (lower is null)
                 {
                     firstLower = current;
                 }
@@ -31,7 +31,7 @@ public class Partition
             }
             else
             {
-                if (higher == null)
+                if (higher is null)
                 {
                     firstHigher = current;
                 }

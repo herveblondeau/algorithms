@@ -39,11 +39,11 @@ public class ListOfDepths
         }
 
         // Process children
-        if (node.LeftChild != null)
+        if (node.LeftChild is not null)
         {
             ProcessNode(node.LeftChild, depth + 1);
         }
-        if (node.RightChild != null)
+        if (node.RightChild is not null)
         {
             ProcessNode(node.RightChild, depth + 1);
         }

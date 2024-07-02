@@ -1,10 +1,11 @@
-﻿namespace CrackingTheCodeInterview.LinkedLists.KthToLast;
+﻿// Source: "Cracking the coding interview" book (2.2 - Kth to last)
 
-// Source: "Cracking the coding interview" book (2.2 - Kth to last)
+namespace CrackingTheCodeInterview.LinkedLists.KthToLast;
+
 public class KthToLast
 {
     // O(n) time, O(1) space
-    public static LinkedListNode GetKthToLast(LinkedListNode start, int k)
+    public static LinkedListNode? GetKthToLast(LinkedListNode start, int k)
     {
         if (k < 0)
         {
@@ -14,25 +15,25 @@ public class KthToLast
         // We use two pointers, where the second pointer will simply be trailing the first one by k nodes
 
         // Move the first pointer by k nodes
-        LinkedListNode current = start;
+        LinkedListNode? current = start;
         int counter = 1;
-        while (counter < k && current != null)
+        while (counter < k && current is not null)
         {
             current = current.Next;
             counter++;
         }
 
         // Return null if there are less than k nodes
-        if (current == null)
+        if (current is null)
         {
             return null;
         }
 
         // Move both pointers together. When the first one reaches the end, the second one will be k nodes behind
-        LinkedListNode kthToLast = start;
-        while (current.Next != null)
+        LinkedListNode? kthToLast = start;
+        while (current.Next is not null)
         {
-            kthToLast = kthToLast.Next;
+            kthToLast = kthToLast.Next!;
             current = current.Next;
         }
 
@@ -44,7 +45,7 @@ public class KthToLast
 public class LinkedListNode
 {
     public string Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(string value)
     {
@@ -56,8 +57,13 @@ public class LinkedListNode
         return Value;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

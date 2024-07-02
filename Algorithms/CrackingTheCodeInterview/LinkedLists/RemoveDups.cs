@@ -12,10 +12,10 @@ public class RemoveDups
 
         HashSet<LinkedListNode> existingNodes = new();
         current = start;
-        while (current != null)
+        while (current is not null)
         {
             existingNodes.Add(current);
-            while (current.Next != null && existingNodes.Contains(current.Next))
+            while (current.Next is not null && existingNodes.Contains(current.Next))
             {
                 current.Next = current.Next.Next;
             }
@@ -31,10 +31,10 @@ public class RemoveDups
         LinkedListNode lookup;
 
         current = start;
-        while (current != null)
+        while (current is not null)
         {
             lookup = current;
-            while (lookup.Next != null)
+            while (lookup.Next is not null)
             {
                 if (current.Equals(lookup.Next))
                 {

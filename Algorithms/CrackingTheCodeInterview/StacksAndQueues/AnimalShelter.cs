@@ -34,8 +34,8 @@ public class AnimalShelter
         Animal oldestDog = _dogs.Peek();
         Animal oldestCat = _cats.Peek();
 
-        if (oldestDog == null) return oldestCat;
-        if (oldestCat == null) return oldestDog;
+        if (oldestDog is null) return oldestCat;
+        if (oldestCat is null) return oldestDog;
 
         return (oldestDog.ArrivalDate < oldestCat.ArrivalDate) ? (Animal)_dogs.Dequeue() : _cats.Dequeue();
     }

@@ -31,7 +31,7 @@ public class SumLists
         int power = 0;
         int number = 0;
         LinkedListNode current = start;
-        while (current != null)
+        while (current is not null)
         {
             number += current.Value * (int)Math.Pow(10, power);
             power++;
@@ -62,13 +62,13 @@ public class SumLists
 
     private static int _forwardToInt(LinkedListNode start)
     {
-        if (start == null)
+        if (start is null)
             return -1;
 
         // Loop a first time to get the list length
         int length = 0;
         LinkedListNode current = start;
-        while (current != null)
+        while (current is not null)
         {
             length++;
             current = current.Next;
@@ -78,7 +78,7 @@ public class SumLists
         int number = 0;
         int power = length - 1;
         current = start;
-        while (current != null)
+        while (current is not null)
         {
             number += current.Value * (int)Math.Pow(10, power);
             power--;
