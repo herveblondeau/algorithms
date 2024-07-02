@@ -1,137 +1,135 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace ByTheme.Trees
+namespace ByTheme.Trees;
+
+public class BinarySearchTree<T> where T : IComparable
 {
-    public class BinarySearchTree<T> where T : IComparable
+    public BinaryTreeNode<T> Root { get; set; }
+
+    public BinaryTreeNode<T> Find(T value)
     {
-        public BinaryTreeNode<T> Root { get; set; }
-
-        public BinaryTreeNode<T> Find(T value)
+        BinaryTreeNode<T> currentNode = Root;
+        while (currentNode != null)
         {
-            BinaryTreeNode<T> currentNode = Root;
-            while (currentNode != null)
+            if (value.Equals(currentNode.Value)) return currentNode;
+
+            if (value.CompareTo(currentNode.Value) < 0)
             {
-                if (value.Equals(currentNode.Value)) return currentNode;
-
-                if (value.CompareTo(currentNode.Value) < 0)
-                {
-                    currentNode = currentNode.LeftChild;
-                }
-                else
-                {
-                    currentNode = currentNode.RightChild;
-                }
+                currentNode = currentNode.LeftChild;
             }
-
-            return null;
+            else
+            {
+                currentNode = currentNode.RightChild;
+            }
         }
 
-        public void Insert(T value)
+        return null;
+    }
+
+    public void Insert(T value)
+    {
+        if (Root == null)
         {
-            if (Root == null)
+            Root = new BinaryTreeNode<T>
             {
-                Root = new BinaryTreeNode<T>
-                {
-                    LeftChild = null,
-                    RightChild = null,
-                    Value = value,
-                };
-                return;
-            }
+                LeftChild = null,
+                RightChild = null,
+                Value = value,
+            };
+            return;
+        }
 
-            BinaryTreeNode<T> currentNode = Root;
-            while (true)
+        BinaryTreeNode<T> currentNode = Root;
+        while (true)
+        {
+            if (value.Equals(currentNode.Value)) return;
+
+            if (value.CompareTo(currentNode.Value) < 0)
             {
-                if (value.Equals(currentNode.Value)) return;
-
-                if (value.CompareTo(currentNode.Value) < 0)
+                if (currentNode.LeftChild == null)
                 {
-                    if (currentNode.LeftChild == null)
+                    currentNode.LeftChild = new BinaryTreeNode<T>
                     {
-                        currentNode.LeftChild = new BinaryTreeNode<T>
-                        {
-                            LeftChild = null,
-                            RightChild = null,
-                            Value = value,
-                        };
-                        return;
-                    }
-                    currentNode = currentNode.LeftChild;
+                        LeftChild = null,
+                        RightChild = null,
+                        Value = value,
+                    };
+                    return;
                 }
-                else
+                currentNode = currentNode.LeftChild;
+            }
+            else
+            {
+                if (currentNode.RightChild == null)
                 {
-                    if (currentNode.RightChild == null)
+                    currentNode.RightChild = new BinaryTreeNode<T>
                     {
-                        currentNode.RightChild = new BinaryTreeNode<T>
-                        {
-                            LeftChild = null,
-                            RightChild = null,
-                            Value = value,
-                        };
-                        return;
-                    }
-                    currentNode = currentNode.RightChild;
+                        LeftChild = null,
+                        RightChild = null,
+                        Value = value,
+                    };
+                    return;
                 }
+                currentNode = currentNode.RightChild;
             }
-        }
-
-        public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T> node)
-        {
-            List<BinaryTreeNode<T>> result = new();
-            if (node != null)
-            {
-                result.Add(node);
-                result.AddRange(TraversePreOrder(node.LeftChild));
-                result.AddRange(TraversePreOrder(node.RightChild));
-            }
-            return result;
-        }
-
-        public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T> node)
-        {
-            List<BinaryTreeNode<T>> result = new();
-            if (node != null)
-            {
-                result.AddRange(TraverseInOrder(node.LeftChild));
-                result.Add(node);
-                result.AddRange(TraverseInOrder(node.RightChild));
-            }
-            return result;
-        }
-
-        public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T> node)
-        {
-            List<BinaryTreeNode<T>> result = new();
-            if (node != null)
-            {
-                result.AddRange(TraversePostOrder(node.LeftChild));
-                result.AddRange(TraversePostOrder(node.RightChild));
-                result.Add(node);
-            }
-            return result;
-        }
-
-        public List<BinaryTreeNode<T>> TraverseBreadFirst(BinaryTreeNode<T> node)
-        {
-            List<BinaryTreeNode<T>> result = new();
-            Queue<BinaryTreeNode<T>> queue = new();
-            while (node != null)
-            {
-                result.Add(node);
-                queue.Enqueue(node.LeftChild);
-                queue.Enqueue(node.RightChild);
-                node = queue.Dequeue();
-            }
-            return result;
         }
     }
 
-    public class BinaryTreeNode<T>
+    public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T> node)
     {
-        public T Value { get; internal set; }
-        public BinaryTreeNode<T> LeftChild { get; internal set; }
-        public BinaryTreeNode<T> RightChild { get; internal set; }
+        List<BinaryTreeNode<T>> result = new();
+        if (node != null)
+        {
+            result.Add(node);
+            result.AddRange(TraversePreOrder(node.LeftChild));
+            result.AddRange(TraversePreOrder(node.RightChild));
+        }
+        return result;
     }
+
+    public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T> node)
+    {
+        List<BinaryTreeNode<T>> result = new();
+        if (node != null)
+        {
+            result.AddRange(TraverseInOrder(node.LeftChild));
+            result.Add(node);
+            result.AddRange(TraverseInOrder(node.RightChild));
+        }
+        return result;
+    }
+
+    public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T> node)
+    {
+        List<BinaryTreeNode<T>> result = new();
+        if (node != null)
+        {
+            result.AddRange(TraversePostOrder(node.LeftChild));
+            result.AddRange(TraversePostOrder(node.RightChild));
+            result.Add(node);
+        }
+        return result;
+    }
+
+    public List<BinaryTreeNode<T>> TraverseBreadFirst(BinaryTreeNode<T> node)
+    {
+        List<BinaryTreeNode<T>> result = new();
+        Queue<BinaryTreeNode<T>> queue = new();
+        while (node != null)
+        {
+            result.Add(node);
+            queue.Enqueue(node.LeftChild);
+            queue.Enqueue(node.RightChild);
+            node = queue.Dequeue();
+        }
+        return result;
+    }
+}
+
+public class BinaryTreeNode<T>
+{
+    public T Value { get; internal set; }
+    public BinaryTreeNode<T> LeftChild { get; internal set; }
+    public BinaryTreeNode<T> RightChild { get; internal set; }
 }

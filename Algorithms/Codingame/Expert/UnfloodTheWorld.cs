@@ -1,4 +1,4 @@
-﻿//
+﻿// https://www.codingame.com/training/expert/unflood-the-world
 
 namespace Codingame.Expert.UnfloodTheWorld;
 

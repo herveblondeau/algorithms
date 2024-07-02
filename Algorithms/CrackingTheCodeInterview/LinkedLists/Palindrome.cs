@@ -1,83 +1,76 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace CrackingTheCodeInterview.LinkedLists.Palindrome;
 
-namespace CrackingTheCodeInterview.LinkedLists.Palindrome
+// Source: "Cracking the coding interview" book (2.6 - Palindrome)
+public class Palindrome
 {
-    // Source: "Cracking the coding interview" book (2.6 - Palindrome)
-    public class Palindrome
+    public static bool IsPalindrome(LinkedListNode start)
     {
-        public static bool IsPalindrome(LinkedListNode start)
+        // This can be debated but we consider an empty list to not be a palindrome
+        if (start == null)
         {
-            // This can be debated but we consider an empty list to not be a palindrome
-            if (start == null)
+            return false;
+        }
+
+        // Build the reverse of the list
+        LinkedListNode reverseCurrent = GetReversedCopy(start);
+
+        // Compare both lists
+        LinkedListNode initialCurrent = start;
+        while (initialCurrent != null)
+        {
+            if (initialCurrent.Value != reverseCurrent.Value)
             {
                 return false;
             }
 
-            // Build the reverse of the list
-            LinkedListNode reverseCurrent = GetReversedCopy(start);
-
-            // Compare both lists
-            LinkedListNode initialCurrent = start;
-            while (initialCurrent != null)
-            {
-                if (initialCurrent.Value != reverseCurrent.Value)
-                {
-                    return false;
-                }
-
-                initialCurrent = initialCurrent.Next;
-                reverseCurrent = reverseCurrent.Next;
-            }
-
-            return true;
+            initialCurrent = initialCurrent.Next;
+            reverseCurrent = reverseCurrent.Next;
         }
 
-        // Duplicate and reverse a linked list
-        private static LinkedListNode GetReversedCopy(LinkedListNode start)
-        {
-            LinkedListNode initialCurrent = start;
-            LinkedListNode reverseCurrent = new(start.Value);
-            while (initialCurrent.Next != null)
-            {
-                LinkedListNode reversePrevious = new(initialCurrent.Next.Value);
-                reversePrevious.Next = reverseCurrent;
-
-                initialCurrent = initialCurrent.Next;
-                reverseCurrent = reversePrevious;
-            }
-
-            return reverseCurrent;
-        }
+        return true;
     }
 
-    // Extremely basic singly linked list implementation for the purpose of the problem
-    public class LinkedListNode
+    // Duplicate and reverse a linked list
+    private static LinkedListNode GetReversedCopy(LinkedListNode start)
     {
-        public int Value { get; set; }
-        public LinkedListNode Next { get; set; }
-
-        public LinkedListNode(int value)
+        LinkedListNode initialCurrent = start;
+        LinkedListNode reverseCurrent = new(start.Value);
+        while (initialCurrent.Next != null)
         {
-            Value = value;
+            LinkedListNode reversePrevious = new(initialCurrent.Next.Value);
+            reversePrevious.Next = reverseCurrent;
+
+            initialCurrent = initialCurrent.Next;
+            reverseCurrent = reversePrevious;
         }
 
-        public override string ToString()
-        {
-            return Value.ToString();
-        }
+        return reverseCurrent;
+    }
+}
 
-        public override bool Equals(object obj)
-        {
-            return Value == ((LinkedListNode)obj).Value;
-        }
+// Extremely basic singly linked list implementation for the purpose of the problem
+public class LinkedListNode
+{
+    public int Value { get; set; }
+    public LinkedListNode Next { get; set; }
 
-        public override int GetHashCode()
-        {
-            return Value;
-        }
+    public LinkedListNode(int value)
+    {
+        Value = value;
     }
 
+    public override string ToString()
+    {
+        return Value.ToString();
+    }
+
+    public override bool Equals(object obj)
+    {
+        return Value == ((LinkedListNode)obj).Value;
+    }
+
+    public override int GetHashCode()
+    {
+        return Value;
+    }
 }

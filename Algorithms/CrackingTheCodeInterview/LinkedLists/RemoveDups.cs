@@ -1,83 +1,78 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups
+namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups;
+
+// Source: "Cracking the coding interview" book (2.1 - Remove dups)
+public class RemoveDups
 {
-    // Source: "Cracking the coding interview" book (2.1 - Remove dups)
-    public class RemoveDups
+    // First part of the problem: 0(n) space
+    public static void RemoveDuplicatesWithBuffer(LinkedListNode start)
     {
-        // First part of the problem: 0(n) space
-        public static void RemoveDuplicatesWithBuffer(LinkedListNode start)
+        LinkedListNode current;
+
+        HashSet<LinkedListNode> existingNodes = new();
+        current = start;
+        while (current != null)
         {
-            LinkedListNode current;
-
-            HashSet<LinkedListNode> existingNodes = new();
-            current = start;
-            while (current != null)
+            existingNodes.Add(current);
+            while (current.Next != null && existingNodes.Contains(current.Next))
             {
-                existingNodes.Add(current);
-                while (current.Next != null && existingNodes.Contains(current.Next))
-                {
-                    current.Next = current.Next.Next;
-                }
-                current = current.Next;
+                current.Next = current.Next.Next;
             }
-        }
-
-        // Second part of the problem: O(1) space
-        // TODO: improve with one less nested loop
-        public static void RemoveDuplicatesWithoutBuffer(LinkedListNode start)
-        {
-            LinkedListNode current;
-            LinkedListNode lookup;
-
-            current = start;
-            while (current != null)
-            {
-                lookup = current;
-                while (lookup.Next != null)
-                {
-                    if (current.Equals(lookup.Next))
-                    {
-                        lookup.Next = lookup.Next.Next;
-                    }
-                    else
-                    {
-                        lookup = lookup.Next;
-                    }
-                }
-                current = current.Next;
-            }
+            current = current.Next;
         }
     }
 
-    // Extremely basic singly linked list implementation for the purpose of the problem
-    public class LinkedListNode
+    // Second part of the problem: O(1) space
+    // TODO: improve with one less nested loop
+    public static void RemoveDuplicatesWithoutBuffer(LinkedListNode start)
     {
-        public string Value { get; set; }
-        public LinkedListNode Next { get; set; }
+        LinkedListNode current;
+        LinkedListNode lookup;
 
-        public LinkedListNode(string value)
+        current = start;
+        while (current != null)
         {
-            Value = value;
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return Value == ((LinkedListNode)obj).Value;
-        }
-
-        public override int GetHashCode()
-        {
-            return Value.GetHashCode();
+            lookup = current;
+            while (lookup.Next != null)
+            {
+                if (current.Equals(lookup.Next))
+                {
+                    lookup.Next = lookup.Next.Next;
+                }
+                else
+                {
+                    lookup = lookup.Next;
+                }
+            }
+            current = current.Next;
         }
     }
+}
 
+// Extremely basic singly linked list implementation for the purpose of the problem
+public class LinkedListNode
+{
+    public string Value { get; set; }
+    public LinkedListNode Next { get; set; }
+
+    public LinkedListNode(string value)
+    {
+        Value = value;
+    }
+
+    public override string ToString()
+    {
+        return Value;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return Value == ((LinkedListNode)obj).Value;
+    }
+
+    public override int GetHashCode()
+    {
+        return Value.GetHashCode();
+    }
 }

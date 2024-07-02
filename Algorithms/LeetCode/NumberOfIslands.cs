@@ -1,47 +1,47 @@
 ﻿// https://leetcode.com/problems/number-of-islands/
-namespace LeetCode.NumberOfIslands
+
+namespace LeetCode.NumberOfIslands;
+
+public class NumberOfIslands
 {
-    public class NumberOfIslands
+    private int _width;
+    private int _height;
+
+    public int CountIslands(int[,] lands)
     {
-        private int _width;
-        private int _height;
+        _width = lands.GetLength(0);
+        _height = lands.GetLength(1);
 
-        public int CountIslands(int[,] lands)
+        int nbIslands = 0;
+
+        for (int i = 0; i < _width; i++)
         {
-            _width = lands.GetLength(0);
-            _height = lands.GetLength(1);
-
-            int nbIslands = 0;
-
-            for (int i = 0; i < _width; i++)
+            for (int j = 0; j < _height; j++)
             {
-                for (int j = 0; j < _height; j++)
+                if (lands[i, j] == 1)
                 {
-                    if (lands[i, j] == 1)
-                    {
-                        _processLand(i, j, lands);
-                        nbIslands++;
-                    }
+                    _processLand(i, j, lands);
+                    nbIslands++;
                 }
             }
-
-            return nbIslands;
         }
 
-        private void _processLand(int x, int y, int[,] lands)
+        return nbIslands;
+    }
+
+    private void _processLand(int x, int y, int[,] lands)
+    {
+        if (x < 0 || x >= _width || y < 0 || y >= _height || lands[x, y] == 0)
         {
-            if (x < 0 || x >= _width || y < 0 || y >= _height || lands[x, y] == 0)
-            {
-                return;
-            }
-
-            lands[x, y] = 0;
-
-            _processLand(x - 1, y, lands);
-            _processLand(x + 1, y, lands);
-            _processLand(x, y - 1, lands);
-            _processLand(x, y + 1, lands);
-
+            return;
         }
+
+        lands[x, y] = 0;
+
+        _processLand(x - 1, y, lands);
+        _processLand(x + 1, y, lands);
+        _processLand(x, y - 1, lands);
+        _processLand(x, y + 1, lands);
+
     }
 }

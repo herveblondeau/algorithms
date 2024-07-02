@@ -1,4 +1,4 @@
-﻿// https://www.codingame.com/ide/puzzle/elevator
+﻿// https://www.codingame.com/training/hard/elevator
 
 namespace Codingame.Hard.Elevator;
 

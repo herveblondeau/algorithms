@@ -1,8 +1,10 @@
-﻿using System;
+﻿// https://www.codingame.com/training/expert/the-lucky-number
+
+using System;
 using System.Collections.Generic;
-// https://www.codingame.com/training/expert/the-lucky-number
 
 namespace Codingame.Expert.TheLuckyNumber;
+
 public class TheLuckyNumber
 {
     /// <summary>

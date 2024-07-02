@@ -1,51 +1,50 @@
 ﻿using System.Collections.Generic;
 
-namespace ByTheme.Duplicates
+namespace ByTheme.Duplicates;
+
+public class Duplicates
 {
-    public class Duplicates
+    public T FindFirstDuplicate<T>(T[] elements)
     {
-        public T FindFirstDuplicate<T>(T[] elements)
+        HashSet<T> visited = new();
+
+        for (int i = 0; i < elements.Length; i++)
         {
-            HashSet<T> visited = new();
-
-            for (int i = 0; i < elements.Length; i++)
+            if (visited.Contains(elements[i]))
             {
-                if (visited.Contains(elements[i]))
-                {
-                    return elements[i];
-                }
-
-                visited.Add(elements[i]);
+                return elements[i];
             }
 
-            throw new KeyNotFoundException();
+            visited.Add(elements[i]);
         }
 
-        public T FindFirstNonDuplicate<T>(T[] elements)
+        throw new KeyNotFoundException();
+    }
+
+    public T FindFirstNonDuplicate<T>(T[] elements)
+    {
+        Dictionary<T, int> nbOccurrences = new();
+
+        for (int i = 0; i < elements.Length; i++)
         {
-            Dictionary<T, int> nbOccurrences = new();
-
-            for (int i = 0; i < elements.Length; i++)
+            if (nbOccurrences.ContainsKey(elements[i]))
             {
-                if (nbOccurrences.ContainsKey(elements[i]))
-                {
-                    nbOccurrences[elements[i]]++;
-                }
-                else
-                {
-                    nbOccurrences.Add(elements[i], 1);
-                }
+                nbOccurrences[elements[i]]++;
             }
-
-            for (int i = 0; i < elements.Length; i++)
+            else
             {
-                if (nbOccurrences[elements[i]] == 1)
-                {
-                    return elements[i];
-                }
+                nbOccurrences.Add(elements[i], 1);
             }
-
-            throw new KeyNotFoundException();
         }
+
+        for (int i = 0; i < elements.Length; i++)
+        {
+            if (nbOccurrences[elements[i]] == 1)
+            {
+                return elements[i];
+            }
+        }
+
+        throw new KeyNotFoundException();
     }
 }
