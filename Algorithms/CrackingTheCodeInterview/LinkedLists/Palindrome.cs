@@ -52,7 +52,7 @@ public class Palindrome
 public class LinkedListNode
 {
     public int Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(int value)
     {
@@ -64,8 +64,13 @@ public class LinkedListNode
         return Value.ToString();
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

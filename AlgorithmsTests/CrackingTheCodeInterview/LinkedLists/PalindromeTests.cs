@@ -14,7 +14,7 @@ public class PalindromeTests
     public void IsPalindrome_IsPalindrome_ReturnsTrue(int[] values)
     {
         // Arrange
-        var list = _toList(values);
+        var list = _toList(values)!;
 
         // Act
         bool actual = Palindrome.IsPalindrome(list);
@@ -31,7 +31,7 @@ public class PalindromeTests
     public void IsPalindrome_IsNotPalindrome_ReturnsFalse(int[] values)
     {
         // Arrange
-        var list = _toList(values);
+        var list = _toList(values)!;
 
         // Act
         bool actual = Palindrome.IsPalindrome(list);
@@ -40,7 +40,7 @@ public class PalindromeTests
         Assert.IsFalse(actual);
     }
 
-    private static LinkedListNode _toList(int[] values)
+    private static LinkedListNode? _toList(int[] values)
     {
         if (values.Length == 0)
             return null;

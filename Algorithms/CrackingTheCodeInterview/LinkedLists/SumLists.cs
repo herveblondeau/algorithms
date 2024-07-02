@@ -7,7 +7,7 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists.SumLists;
 public class SumLists
 {
     // Base problem
-    public static LinkedListNode SumReverseOrderNumbers(LinkedListNode number1Start, LinkedListNode number2Start)
+    public static LinkedListNode? SumReverseOrderNumbers(LinkedListNode number1Start, LinkedListNode number2Start)
     {
         int number1 = _reverseToInt(number1Start);
         int number2 = _reverseToInt(number2Start);
@@ -17,7 +17,7 @@ public class SumLists
     }
 
     // Follow up
-    public static LinkedListNode SumForwardOrderNumbers(LinkedListNode number1Start, LinkedListNode number2Start)
+    public static LinkedListNode? SumForwardOrderNumbers(LinkedListNode number1Start, LinkedListNode number2Start)
     {
         int number1 = _forwardToInt(number1Start);
         int number2 = _forwardToInt(number2Start);
@@ -30,7 +30,7 @@ public class SumLists
     {
         int power = 0;
         int number = 0;
-        LinkedListNode current = start;
+        LinkedListNode? current = start;
         while (current is not null)
         {
             number += current.Value * (int)Math.Pow(10, power);
@@ -41,7 +41,7 @@ public class SumLists
         return number;
     }
 
-    private static LinkedListNode _toReverse(int number)
+    private static LinkedListNode? _toReverse(int number)
     {
         if (number == 0)
             return null;
@@ -67,7 +67,7 @@ public class SumLists
 
         // Loop a first time to get the list length
         int length = 0;
-        LinkedListNode current = start;
+        LinkedListNode? current = start;
         while (current is not null)
         {
             length++;
@@ -88,7 +88,7 @@ public class SumLists
         return number;
     }
 
-    private static LinkedListNode _toForward(int number)
+    private static LinkedListNode? _toForward(int number)
     {
         if (number == 0)
             return null;
@@ -116,7 +116,7 @@ public class SumLists
 public class LinkedListNode
 {
     public int Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(int value)
     {
@@ -128,8 +128,13 @@ public class LinkedListNode
         return Value.ToString();
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

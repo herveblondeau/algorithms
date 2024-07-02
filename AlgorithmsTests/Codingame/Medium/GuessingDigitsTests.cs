@@ -49,7 +49,7 @@ public class GuessingDigitsTests
         GuessingDigits guessingDigits = new();
 
         // Act
-        Guess actual = guessingDigits.GuessDigits(sum, product);
+        Guess? actual = guessingDigits.GuessDigits(sum, product)!;
 
         // Assert
         Assert.AreEqual(expectedTurn, actual.Turn);
@@ -73,7 +73,7 @@ public class GuessingDigitsTests
         GuessingDigits guessingDigits = new();
 
         // Act
-        Guess actual = guessingDigits.GuessDigits(sum, product);
+        Guess? actual = guessingDigits.GuessDigits(sum, product);
 
         // Assert
         Assert.IsNull(actual);

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿// Source: "Cracking the coding interview" book (4.1 - Route between nodes)
+
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes;
 
-// Source: "Cracking the coding interview" book (4.1 - Route between nodes)
 public class RouteBetweenNodes
 {
     public static bool AreConnected(Node start, Node end)
@@ -38,11 +39,6 @@ public class RouteBetweenNodes
 }
 
 // Basic graph/node implementation for the purpose of the problem
-public class Graph
-{
-    public Node[] Nodes { get; set; }
-}
-
 public class Node
 {
     public int Id { get; private set; }

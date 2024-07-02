@@ -1,9 +1,10 @@
-﻿namespace CrackingTheCodeInterview.TreesAndGraphs.Successor;
+﻿// Source: "Cracking the coding interview" book (4.6 - Successor)
 
-// Source: "Cracking the coding interview" book (4.6 - Successor)
+namespace CrackingTheCodeInterview.TreesAndGraphs.Successor;
+
 public class Successor
 {
-    public static BinaryTreeNode Next(BinaryTreeNode node)
+    public static BinaryTreeNode? Next(BinaryTreeNode node)
     {
         // We don't check the left child since it can never be a successor in an in order traversal
 
@@ -32,7 +33,7 @@ public class Successor
         return node;
     }
 
-    private static BinaryTreeNode FirstRightAscendant(BinaryTreeNode node)
+    private static BinaryTreeNode? FirstRightAscendant(BinaryTreeNode node)
     {
         if (node is null || node.Parent is null)
         {
@@ -53,11 +54,11 @@ public class BinaryTreeNode
 {
     public int Value { get; private set; }
 
-    public BinaryTreeNode Parent { get; set; }
+    public BinaryTreeNode? Parent { get; set; }
 
-    public BinaryTreeNode LeftChild { get; set; }
+    public BinaryTreeNode? LeftChild { get; set; }
 
-    public BinaryTreeNode RightChild { get; set; }
+    public BinaryTreeNode? RightChild { get; set; }
 
     public bool IsVisited { get; set; }
 

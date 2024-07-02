@@ -11,8 +11,8 @@ namespace Algorithms.CrackingTheCodeInterview.LinkedLists;
 
 public class SinglyLinkedList
 {
-    public SinglyLinkedListNode First { get; private set; }
-    public SinglyLinkedListNode Last { get; private set; }
+    public SinglyLinkedListNode? First { get; private set; }
+    public SinglyLinkedListNode? Last { get; private set; }
 
     public void InsertFirst(int value)
     {
@@ -47,7 +47,7 @@ public class SinglyLinkedList
     public void InsertBefore(SinglyLinkedListNode node, int value)
     {
         SinglyLinkedListNode newNode= new(value);
-        SinglyLinkedListNode current = First;
+        SinglyLinkedListNode? current = First;
         while (current is not null && current.Next != node)
         {
             current = current.Next;
@@ -74,7 +74,7 @@ public class SinglyLinkedList
     public override string ToString()
     {
         StringBuilder result = new();
-        SinglyLinkedListNode currentNode = First;
+        SinglyLinkedListNode? currentNode = First;
         while (currentNode is not null)
         {
             result.Append(currentNode.Value);
@@ -90,7 +90,7 @@ public class SinglyLinkedList
 public class SinglyLinkedListNode
 {
     public int Value { get; private set; }
-    public SinglyLinkedListNode Next { get; internal set; }
+    public SinglyLinkedListNode? Next { get; internal set; }
 
     public SinglyLinkedListNode(int value)
     {
@@ -117,8 +117,13 @@ public class SinglyLinkedListNode
         }
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((SinglyLinkedListNode)obj).Value;
     }
 
