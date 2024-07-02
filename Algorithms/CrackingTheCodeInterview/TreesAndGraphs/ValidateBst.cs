@@ -1,6 +1,7 @@
-﻿namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst;
+﻿// Source: "Cracking the coding interview" book (4.5 - Validate BST)
 
-// Source: "Cracking the coding interview" book (4.5 - Validate BST)
+namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst;
+
 public class ValidateBst
 {
     public static bool IsBst(BinaryTreeNode root)
@@ -8,7 +9,7 @@ public class ValidateBst
         return _IsBst(root, int.MinValue, int.MaxValue);
     }
 
-    private static bool _IsBst(BinaryTreeNode node, int lowerLimit, int upperLimit)
+    private static bool _IsBst(BinaryTreeNode? node, int lowerLimit, int upperLimit)
     {
         if (node is null)
         {
@@ -48,9 +49,9 @@ public class BinaryTreeNode
 {
     public int Value { get; private set; }
 
-    public BinaryTreeNode LeftChild { get; set; }
+    public BinaryTreeNode? LeftChild { get; set; }
 
-    public BinaryTreeNode RightChild { get; set; }
+    public BinaryTreeNode? RightChild { get; set; }
 
     public bool IsVisited { get; set; }
 

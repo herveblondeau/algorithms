@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text;
 
+namespace Algorithms.CrackingTheCodeInterview.LinkedLists;
+
 // TODO
 // - implement Delete()
 // - test all methods
 // - implement doubly linked list
 // - move all classes to the data structures solution
-
-namespace Algorithms.CrackingTheCodeInterview.LinkedLists;
 
 public class SinglyLinkedList
 {
@@ -39,13 +39,18 @@ public class SinglyLinkedList
         }
         else
         {
-            Last.Next = node;
+            Last!.Next = node;
             Last = node;
         }
     }
 
     public void InsertBefore(SinglyLinkedListNode node, int value)
     {
+        if (_isEmpty)
+        {
+            return;
+        }
+
         SinglyLinkedListNode newNode= new(value);
         SinglyLinkedListNode? current = First;
         while (current is not null && current.Next != node)
@@ -63,11 +68,21 @@ public class SinglyLinkedList
 
     public void InsertAfter(SinglyLinkedListNode node, int value)
     {
+        if (_isEmpty)
+        {
+            return;
+        }
+
         node.SetNext(new SinglyLinkedListNode(value));
     }
 
     public void Delete(SinglyLinkedListNode node)
     {
+        if (_isEmpty)
+        {
+            return;
+        }
+
         // TODO: implement
     }
 

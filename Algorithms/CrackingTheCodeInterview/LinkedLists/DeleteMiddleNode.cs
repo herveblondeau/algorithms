@@ -8,7 +8,12 @@ public class DeleteMiddleNode
     {
         // Since we deal with a singly linked list, we cannot just go backwards and connect node n-1 to node n+1
         // The only option we have is to replace node n's data with node n+1's, and then connect node n to node n+2
-        // Note: this will throw an exception if we are trying to delete the last node, but it cannot be addressed with the given constraints
+        //  We also cannot delete the final node
+        if (node.Next is null)
+        {
+            return;
+        }
+
         node.Value = node.Next.Value;
         node.Next = node.Next.Next;
     }

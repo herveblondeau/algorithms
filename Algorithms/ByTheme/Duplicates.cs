@@ -21,7 +21,7 @@ public class Duplicates
         throw new KeyNotFoundException();
     }
 
-    public T FindFirstNonDuplicate<T>(T[] elements)
+    public T FindFirstNonDuplicate<T>(T[] elements) where T : notnull
     {
         Dictionary<T, int> nbOccurrences = new();
 

@@ -58,8 +58,13 @@ public class Node
         Neighbors.Add(node);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Id == ((Node)obj).Id;
     }
 

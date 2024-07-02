@@ -1,8 +1,9 @@
-﻿using System;
+﻿// Source: "Cracking the coding interview" book (4.4 - Check balanced)
+
+using System;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced;
 
-// Source: "Cracking the coding interview" book (4.4 - Check balanced)
 public class CheckBalanced
 {
     public static bool IsBalanced(BinaryTreeNode root)
@@ -51,9 +52,9 @@ public class BinaryTreeNode
 {
     public int Value { get; private set; }
 
-    public BinaryTreeNode LeftChild { get; set; }
+    public BinaryTreeNode? LeftChild { get; set; }
 
-    public BinaryTreeNode RightChild { get; set; }
+    public BinaryTreeNode? RightChild { get; set; }
 
     public bool IsVisited { get; set; }
 

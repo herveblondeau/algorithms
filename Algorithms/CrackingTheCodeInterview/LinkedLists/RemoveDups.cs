@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// Source: "Cracking the coding interview" book (2.1 - Remove dups)
+
+using System.Collections.Generic;
 
 namespace Algorithms.CrackingTheCodeInterview.LinkedLists.RemoveDups;
 
-// Source: "Cracking the coding interview" book (2.1 - Remove dups)
 public class RemoveDups
 {
     // First part of the problem: 0(n) space
     public static void RemoveDuplicatesWithBuffer(LinkedListNode start)
     {
-        LinkedListNode current;
+        LinkedListNode? current;
 
         HashSet<LinkedListNode> existingNodes = new();
         current = start;
@@ -27,7 +28,7 @@ public class RemoveDups
     // TODO: improve with one less nested loop
     public static void RemoveDuplicatesWithoutBuffer(LinkedListNode start)
     {
-        LinkedListNode current;
+        LinkedListNode? current;
         LinkedListNode lookup;
 
         current = start;
@@ -54,7 +55,7 @@ public class RemoveDups
 public class LinkedListNode
 {
     public string Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(string value)
     {
@@ -66,8 +67,13 @@ public class LinkedListNode
         return Value;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

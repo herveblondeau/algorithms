@@ -1,18 +1,19 @@
-﻿using System;
+﻿// https://www.geeksforgeeks.org/water-jug-problem-using-memoization/?ref=rp
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ByMethod.Backtracking;
 
-// https://www.geeksforgeeks.org/water-jug-problem-using-memoization/?ref=rp
 public class WaterJug
 {
-    private List<(int, int)> _solution;
+    private List<(int, int)> _solution = null!;
     private int _leftCapacity;
     private int _rightCapacity;
     private int _target;
 
-    public List<(int, int)> Solve(int leftCapacity, int rightCapacity, int target)
+    public List<(int, int)>? Solve(int leftCapacity, int rightCapacity, int target)
     {
         _solution = new List<(int, int)>();
         _leftCapacity = leftCapacity;

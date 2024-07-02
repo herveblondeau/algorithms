@@ -36,7 +36,7 @@ public class ListOfDepths
         else
         {
             _lasts[depth].Next = new LinkedListNode(node.Value);
-            _lasts[depth] = _lasts[depth].Next;
+            _lasts[depth] = _lasts[depth].Next!;
         }
 
         // Process children
