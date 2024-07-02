@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.SlidingPuzzle;
@@ -26,6 +27,7 @@ public class SlidingPuzzleTests
         var actual = slidingPuzzle.GetNumberOfMoves(start, end);
 
         // Assert
+        actual.Should().Be(4);
         Assert.AreEqual(4, actual);
     }
 
@@ -49,7 +51,7 @@ public class SlidingPuzzleTests
         var actual = slidingPuzzle.GetNumberOfMoves(start, end);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     [TestMethod]
@@ -74,7 +76,7 @@ public class SlidingPuzzleTests
         var actual = slidingPuzzle.GetNumberOfMoves(start, end);
 
         // Assert
-        Assert.AreEqual(7, actual);
+        actual.Should().Be(7);
     }
 
 }

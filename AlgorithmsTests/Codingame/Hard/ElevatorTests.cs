@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.Elevator;
@@ -19,7 +20,7 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, current, current, up, down);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     [TestMethod]
@@ -34,7 +35,7 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -49,7 +50,7 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -66,7 +67,7 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -83,7 +84,7 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -99,6 +100,6 @@ public class ElevatorTests
         var actual = elevator.GetNumberOfPresses(nbFloors, start, target, up, down);
 
         // Assert
-        Assert.AreEqual(-1, actual);
+        actual.Should().Be(-1);
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.TelephoneNumbersSolver;
@@ -19,6 +20,6 @@ public class TelephoneNumbersTests
         var actual = telephoneNumbersSolver.GetNumberOfRequiredNodes(phoneNumbers);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

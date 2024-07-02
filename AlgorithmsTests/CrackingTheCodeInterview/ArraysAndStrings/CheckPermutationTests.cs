@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.CheckPermutation;
@@ -16,7 +17,7 @@ public class CheckPermutationTests
         bool actual = CheckPermutation.ArePermutations(str1, str2);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     [TestMethod]
@@ -31,7 +32,7 @@ public class CheckPermutationTests
         bool actual = CheckPermutation.ArePermutations(str1, str2);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -46,6 +47,6 @@ public class CheckPermutationTests
         bool actual = CheckPermutation.ArePermutations(str1, str2);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 }

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Diagnostics;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.SudokuSolver;
@@ -17,7 +19,7 @@ public class SudokuSolverTests
         var result = sudokuSolver.Solve(grid);
 
         // Assert
-        CollectionAssert.AreEqual(expected, result);
+        result.Should().BeEquivalentTo(expected);
     }
 
     public static IEnumerable<object[]> Solve_HasSolution_ReturnsSolution_Data()
@@ -117,7 +119,7 @@ public class SudokuSolverTests
         var result = sudokuSolver.Solve(grid);
 
         // Assert
-        Assert.IsNull(result);
+        result.Should().BeNull();
     }
 
     public static IEnumerable<object[]> Solve_NoSolution_ReturnsNull_Data()

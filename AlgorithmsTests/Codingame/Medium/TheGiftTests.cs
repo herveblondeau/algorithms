@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.TheGift;
@@ -18,8 +19,8 @@ public class TheGiftTests
         var actual = theGift.ComputeContributions(budgets, total);
 
         // Assert
-        Assert.IsTrue(actual.IsSolvable);
-        CollectionAssert.AreEqual(expected, actual.Contributions);
+        actual.IsSolvable.Should().BeTrue();
+        actual.Contributions.Should().Equal(expected);
     }
 
     [TestMethod]
@@ -33,7 +34,7 @@ public class TheGiftTests
         var actual = theGift.ComputeContributions(budgets, total);
 
         // Assert
-        Assert.IsFalse(actual.IsSolvable);
+        actual.IsSolvable.Should().BeFalse();
     }
 
 }

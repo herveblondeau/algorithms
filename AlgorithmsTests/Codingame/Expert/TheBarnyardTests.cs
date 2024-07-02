@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.TheBarnyard;
@@ -18,7 +19,7 @@ public class TheBarnyardTests
         var actual = Barnyard.GetAnimalCounts(animals, bodyParts);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 
     private static IEnumerable<object[]> GetAnimalCounts_WhenCalled_PerformsCorrectly_Data()

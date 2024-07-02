@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.StacksAndQueues.StackMin;
@@ -22,7 +23,7 @@ public class StackMinTests
         int actual = stackMin.Min();
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -51,7 +52,7 @@ public class StackMinTests
         int actual = stackMin.Min();
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
 }

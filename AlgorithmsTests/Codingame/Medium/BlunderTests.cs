@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.Blunder1;
@@ -17,8 +18,8 @@ public class BlunderTests
         var result = blunder.Traverse(rows);
 
         // Assert
-        Assert.IsFalse(result.IsStuckInInfiniteLoop);
-        CollectionAssert.AreEqual(expectedPath, result.Path);
+        result.IsStuckInInfiniteLoop.Should().BeFalse();
+        result.Path.Should().Equal(expectedPath);
     }
 
     [TestMethod]
@@ -32,6 +33,6 @@ public class BlunderTests
         var result = blunder.Traverse(rows);
 
         // Assert
-        Assert.IsTrue(result.IsStuckInInfiniteLoop);
+        result.IsStuckInInfiniteLoop.Should().BeTrue();
     }
 }

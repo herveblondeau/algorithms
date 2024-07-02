@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.TheGreatestNumber;
@@ -19,7 +20,7 @@ public class TheGreatestNumberTests
         var actual = theGreatestNumber.GetGreatest(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -35,7 +36,7 @@ public class TheGreatestNumberTests
         var actual = theGreatestNumber.GetGreatest(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -54,7 +55,7 @@ public class TheGreatestNumberTests
         var actual = theGreatestNumber.GetGreatest(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -72,6 +73,6 @@ public class TheGreatestNumberTests
         var actual = theGreatestNumber.GetGreatest(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.RobberyOptimisation;
@@ -24,6 +25,6 @@ public class RobberyOptimisationTests
         var actual = robberyOptimisation.GetMaximumAmount(values);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

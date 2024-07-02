@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.OrderOfOopserations;
@@ -25,6 +26,6 @@ public class OrderOfOopserationsTests
         var actual = orderOfOopserations.ComputeExpression(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

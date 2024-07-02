@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.WaterJugRiddle;
@@ -21,7 +22,7 @@ public class WaterJugRiddleTests
         var actual = waterJugRiddle.GetDistance(capacities, goal);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     // Cases where we just need to fill a jug then pour it into another one
@@ -38,7 +39,7 @@ public class WaterJugRiddleTests
         var actual = waterJugRiddle.GetDistance(capacities, goal);
 
         // Assert
-        Assert.AreEqual(2, actual);
+        actual.Should().Be(2);
     }
 
     //
@@ -56,7 +57,7 @@ public class WaterJugRiddleTests
         var actual = waterJugRiddle.GetDistance(capacities, goal);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     //
@@ -74,7 +75,7 @@ public class WaterJugRiddleTests
         var actual = waterJugRiddle.GetDistance(capacities, goal);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -88,6 +89,6 @@ public class WaterJugRiddleTests
         var actual = waterJugRiddle.GetDistance(capacities, goal);
 
         // Assert
-        Assert.AreEqual(-1, actual);
+        actual.Should().Be(-1);
     }
 }

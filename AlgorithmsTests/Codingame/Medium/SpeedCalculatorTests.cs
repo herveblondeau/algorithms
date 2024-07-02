@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.SpeedCalculator;
@@ -24,7 +25,7 @@ public class SpeedCalculatorTests
         });
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -139,6 +140,6 @@ public class SpeedCalculatorTests
         });
 
         // Assert
-        Assert.AreEqual(60, actual);
+        actual.Should().Be(60);
     }
 }

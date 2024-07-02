@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.IsUnique;
@@ -15,7 +16,7 @@ public class IsUniqueTests
         bool actual = IsUnique.HasAllUniqueChars(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -31,7 +32,7 @@ public class IsUniqueTests
         bool actual = IsUnique.HasAllUniqueChars(input);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -48,6 +49,6 @@ public class IsUniqueTests
         bool actual = IsUnique.HasAllUniqueChars(input);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 }

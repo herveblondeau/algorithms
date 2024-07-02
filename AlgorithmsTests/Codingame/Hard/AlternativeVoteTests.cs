@@ -1,4 +1,5 @@
 using Codingame.Hard.Staircases;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ public class AlternativeVoteTests
         var actual = alternativeVote.GetEliminations(candidateNames, preferences);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 
     public static IEnumerable<object[]> GetEliminations_Miscellaneous_PerformsCorrecly_Data()

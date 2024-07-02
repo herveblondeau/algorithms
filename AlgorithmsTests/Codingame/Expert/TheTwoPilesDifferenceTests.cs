@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.TheTwoPilesDifference;
@@ -18,7 +19,7 @@ public class TheTwoPilesDifferenceTests
         var actual = TheTwoPilesDifference.FindMinDifference(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     private static IEnumerable<object[]> FindMinDifference_WhenCalled_PerformsCorrectly_Data()

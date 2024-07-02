@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.SimpleSafecracking;
@@ -19,6 +20,6 @@ public class SimpleSafecrackingTests
         var actual = simpleSafecracking.Decode(encoded);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

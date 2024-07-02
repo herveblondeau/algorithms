@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.TwoEggProblem;
@@ -17,7 +18,7 @@ public class TwoEggProblemTests
         var actual = twoEggProblem.GetMinimumDrops(floors);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
 }

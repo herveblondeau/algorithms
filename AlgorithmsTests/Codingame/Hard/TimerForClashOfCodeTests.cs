@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.TimerForClashOfCode;
@@ -22,7 +23,7 @@ public class TimerForClashOfCodeTests
         var actual = timerForClashOfCode.GetStartTime(arrivalTimes);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
 }

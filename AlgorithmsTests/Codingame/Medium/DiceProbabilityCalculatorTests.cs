@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ public class DiceProbabilityCalculatorTests
         }
 
         // Assert
-        CollectionAssert.AreEquivalent(expected, actual);
+        actual.Should().BeEquivalentTo(expected);
     }
 
     private static IEnumerable<object[]> ComputeProbabilities_Miscellaneous_PerformsCorrectly_Data()

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.Scrabble;
@@ -22,6 +23,6 @@ public class ScrabbleTests
         var actual = scrabbleSolver.FindBestWord(words, letters);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

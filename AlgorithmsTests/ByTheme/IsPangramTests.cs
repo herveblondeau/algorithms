@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ByTheme.IsPangram;
@@ -24,6 +25,6 @@ public class IsPangramTests
         var actual = isPangram.Check(text);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

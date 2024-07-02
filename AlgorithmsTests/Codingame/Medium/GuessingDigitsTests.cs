@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.GuessingDigits;
@@ -52,10 +53,10 @@ public class GuessingDigitsTests
         Guess? actual = guessingDigits.GuessDigits(sum, product)!;
 
         // Assert
-        Assert.AreEqual(expectedTurn, actual.Turn);
-        Assert.AreEqual(expectedPlayer, actual.Player);
-        Assert.AreEqual(expectedLow, actual.Pair.Low);
-        Assert.AreEqual(expectedHigh, actual.Pair.High);
+        actual.Turn.Should().Be(expectedTurn);
+        actual.Player.Should().Be(expectedPlayer);
+        actual.Pair.Low.Should().Be(expectedLow);
+        actual.Pair.High.Should().Be(expectedHigh);
     }
 
     [TestMethod]
@@ -76,6 +77,6 @@ public class GuessingDigitsTests
         Guess? actual = guessingDigits.GuessDigits(sum, product);
 
         // Assert
-        Assert.IsNull(actual);
+        actual.Should().BeNull();
     }
 }

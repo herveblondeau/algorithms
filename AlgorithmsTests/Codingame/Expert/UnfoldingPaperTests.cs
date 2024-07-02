@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.UnfoldingPaper;
@@ -25,7 +26,7 @@ public class UnfoldingPaperTests
         var actual = unfoldingPaper.Unfold(folded, nbUnfoldings);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -48,6 +49,6 @@ public class UnfoldingPaperTests
         var actual = unfoldingPaper.Unfold(folded, nbUnfoldings);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 }

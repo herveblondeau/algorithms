@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -22,7 +23,7 @@ public class DuplicatesTests
         var actual = duplicates.FindFirstDuplicate(elements);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -36,7 +37,7 @@ public class DuplicatesTests
         Duplicates firstDuplicate = new();
 
         // Act
-        var actual = firstDuplicate.FindFirstDuplicate(elements);
+        firstDuplicate.FindFirstDuplicate(elements);
     }
 
     [TestMethod]
@@ -56,7 +57,7 @@ public class DuplicatesTests
         var actual = duplicates.FindFirstNonDuplicate(elements);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -70,6 +71,6 @@ public class DuplicatesTests
         Duplicates duplicates = new();
 
         // Act
-        var actual = duplicates.FindFirstNonDuplicate(elements);
+        duplicates.FindFirstNonDuplicate(elements);
     }
 }

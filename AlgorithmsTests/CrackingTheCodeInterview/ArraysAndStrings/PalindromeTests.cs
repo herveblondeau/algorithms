@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.Palindrome;
@@ -30,7 +31,7 @@ public class PalindromeTests
         bool actual = palindrome.IsPalindromePermutation(input);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -49,6 +50,6 @@ public class PalindromeTests
         bool actual = palindrome.IsPalindromePermutation(input);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 }

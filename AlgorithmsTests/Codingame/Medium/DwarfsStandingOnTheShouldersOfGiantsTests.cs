@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -22,7 +23,7 @@ public class DwarfsStandingOnTheShouldersOfGiantsTests
         var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);
 
         // Assert
-        Assert.AreEqual(3, actual);
+        actual.Should().Be(3);
     }
 
     [TestMethod]
@@ -42,7 +43,7 @@ public class DwarfsStandingOnTheShouldersOfGiantsTests
         var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);
 
         // Assert
-        Assert.AreEqual(4, actual);
+        actual.Should().Be(4);
     }
 
     [TestMethod]
@@ -62,6 +63,6 @@ public class DwarfsStandingOnTheShouldersOfGiantsTests
         var actual = dwarfsStandingOnTheShouldersOfGiants.GetLongestInfluence(relations);
 
         // Assert
-        Assert.AreEqual(3, actual);
+        actual.Should().Be(3);
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.StringCompression;
@@ -17,7 +18,7 @@ public class StringCompressionTests
         string actual = StringCompression.Compress(input);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -30,7 +31,7 @@ public class StringCompressionTests
         string actual = StringCompression.Compress(input);
 
         // Assert
-        Assert.AreEqual(input, actual);
+        actual.Should().Be(input);
     }
 
     [TestMethod]
@@ -47,6 +48,6 @@ public class StringCompressionTests
         string actual = StringCompression.Compress(input);
 
         // Assert
-        Assert.AreEqual(input, actual);
+        actual.Should().Be(input);
     }
 }

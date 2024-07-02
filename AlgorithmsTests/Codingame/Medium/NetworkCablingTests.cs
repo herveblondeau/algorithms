@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.NetworkCabling;
@@ -22,6 +23,6 @@ public class NetworkCablingTests
         var actual = networkCabling.GetMinimumCableLength(xPositions, yPositions);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

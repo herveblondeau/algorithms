@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.LinkedLists.KthToLast;
@@ -34,7 +35,7 @@ public class KthToLastTests
         LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
-        Assert.AreEqual(expected, result.Value);
+        result.Value.Should().Be(expected);
     }
 
     [TestMethod]
@@ -61,7 +62,7 @@ public class KthToLastTests
         LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
-        Assert.IsNull(result);
+        result.Should().BeNull();
     }
 
     [TestMethod]
@@ -89,6 +90,6 @@ public class KthToLastTests
         LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
-        Assert.IsNull(result);
+        result.Should().BeNull();
     }
 }

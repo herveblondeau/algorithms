@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.OneAway;
@@ -17,7 +18,7 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(input, input);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -37,7 +38,7 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(str1, str2);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -59,7 +60,7 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(str1, str2);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     [TestMethod]
@@ -78,7 +79,7 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(str1, str2);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -96,7 +97,7 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(str1, str2);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     [TestMethod]
@@ -111,6 +112,6 @@ public class OneAwayTests
         bool actual = OneAway.AreZeroOrOneAway(str1, str2);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 }

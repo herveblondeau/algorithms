@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.LinkedLists.Palindrome;
@@ -21,7 +22,7 @@ public class PalindromeTests
         bool actual = palindrome.IsPalindrome(list);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -39,7 +40,7 @@ public class PalindromeTests
         bool actual = palindrome.IsPalindrome(list);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     private static LinkedListNode? _toList(int[] values)

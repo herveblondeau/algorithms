@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ public class ChessCavalryTests
         var actual = chessCavalry.GetDistance(width, height, (startX, startY), (startX, startY), obstacles);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     private static IEnumerable<object[]> GetDistance_AlreadyAtTarget_ReturnsZero_Data()
@@ -38,7 +39,7 @@ public class ChessCavalryTests
         var actual = chessCavalry.GetDistance(width, height, start, target, []);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     private static IEnumerable<object[]> GetDistance_NoObstacle_PerformsCorrectly_Data()
@@ -59,7 +60,7 @@ public class ChessCavalryTests
         var actual = chessCavalry.GetDistance(width, height, start, target, obstacles);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     private static IEnumerable<object[]> GetDistance_WithObstacles_PerformsCorrectly_Data()

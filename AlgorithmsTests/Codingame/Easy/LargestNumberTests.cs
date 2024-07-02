@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Easy.LargestNumber;
@@ -21,6 +22,6 @@ public class LargestNumberTests
         var actual = largestNumber.GetLargest(number, divisor);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

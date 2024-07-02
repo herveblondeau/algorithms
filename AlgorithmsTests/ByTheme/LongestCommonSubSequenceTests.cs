@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ByTheme.LongestCommonSubSequence;
@@ -18,7 +19,7 @@ public class LongestCommonSubSequenceTests
         var actual = longestCommonSubSequenceSolver.Memoization(string1, string2);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -33,6 +34,6 @@ public class LongestCommonSubSequenceTests
         var actual = longestCommonSubSequenceSolver.Recursion(string1, string2);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

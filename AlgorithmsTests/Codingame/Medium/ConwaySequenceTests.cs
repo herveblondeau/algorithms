@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.ConwaySequence;
@@ -19,6 +20,6 @@ public class ConwaySequenceTests
         var actual = conwaySequence.GetNthLine(number, n);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.UnfloodTheWorld;
@@ -22,7 +23,7 @@ public class UnfloodTheWorldTests
         var actual = unfloodTheWorld.GetNumberOfDrains(map);
 
         // Assert
-        Assert.AreEqual(2, actual);
+        actual.Should().Be(2);
     }
 
     [TestMethod]
@@ -41,7 +42,7 @@ public class UnfloodTheWorldTests
         var actual = unfloodTheWorld.GetNumberOfDrains(map);
 
         // Assert
-        Assert.AreEqual(2, actual);
+        actual.Should().Be(2);
     }
 
     [TestMethod]
@@ -62,7 +63,7 @@ public class UnfloodTheWorldTests
         var actual = unfloodTheWorld.GetNumberOfDrains(map);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     [TestMethod]
@@ -84,7 +85,7 @@ public class UnfloodTheWorldTests
         var actual = unfloodTheWorld.GetNumberOfDrains(map);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     [TestMethod]
@@ -106,7 +107,7 @@ public class UnfloodTheWorldTests
         var actual = unfloodTheWorld.GetNumberOfDrains(map);
 
         // Assert
-        Assert.AreEqual(4, actual);
+        actual.Should().Be(4);
     }
 
 }

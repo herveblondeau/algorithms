@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.Staircases;
@@ -19,7 +20,7 @@ public class StaircasesTests
         var actual = staircases.GetNumberOfStaircases(bricks);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     [TestMethod]
@@ -37,7 +38,7 @@ public class StaircasesTests
         var actual = staircases.GetNumberOfStaircases(bricks);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
 }

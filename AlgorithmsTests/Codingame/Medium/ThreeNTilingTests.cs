@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.ThreeNTiling;
@@ -30,7 +31,7 @@ public class ThreeNTilingTests
         var actual = threeNTiling.GetNumberOfValidLayouts(width, 1);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -54,7 +55,7 @@ public class ThreeNTilingTests
         var actual = threeNTiling.GetNumberOfValidLayouts(width, 2);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -74,6 +75,6 @@ public class ThreeNTilingTests
         var actual = threeNTiling.GetNumberOfValidLayouts(width, 3);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.ClosestNumber;
@@ -19,7 +20,7 @@ public class ClosestNumberTests
         var actual = closestNumber.GetClosestPermutation(target, target);
 
         // Assert
-        Assert.AreEqual(target, actual);
+        actual.Should().Be(target);
     }
 
     [TestMethod]
@@ -39,7 +40,7 @@ public class ClosestNumberTests
         var actual = closestNumber.GetClosestPermutation(target, source);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -53,7 +54,7 @@ public class ClosestNumberTests
         var actual = closestNumber.GetClosestPermutation(target, source);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
 }

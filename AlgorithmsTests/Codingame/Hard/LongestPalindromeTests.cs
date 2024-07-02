@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.LongestPalindrome;
@@ -16,6 +17,6 @@ public class LongestPalindromeTests
         var actual = longestPalindrome.GetLongestPalindromes(input);
 
         // Assert
-        Assert.AreEqual(expected, actual[0]);
+        actual[0].Should().Be(expected);
     }
 }

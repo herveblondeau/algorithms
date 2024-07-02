@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.KGood;
@@ -18,6 +19,6 @@ public class KGoodTests
         var actual = kGood.GetLongestKSubstringLength(input, k);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

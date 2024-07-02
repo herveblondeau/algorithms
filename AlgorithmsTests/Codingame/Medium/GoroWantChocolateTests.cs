@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.GoroWantChocolate;
@@ -20,6 +21,6 @@ public class GoroWantChocolateTests
         var actual = goroWantChocolate.GetMinimalNumberOfSquares(width, height);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

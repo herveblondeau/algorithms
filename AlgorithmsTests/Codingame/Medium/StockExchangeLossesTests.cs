@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.StockExchangeLosses;
@@ -18,6 +19,6 @@ public class StockExchangeLossesTests
         var actual = stockExchangeLosses.FindMaxPossibleLoss(values);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

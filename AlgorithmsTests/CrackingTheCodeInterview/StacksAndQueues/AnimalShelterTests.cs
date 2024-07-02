@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.StacksAndQueues.AnimalShelter;
@@ -42,7 +43,7 @@ public class AnimalShelterTests
         int actualId = animalShelter.DequeueDog().Id;
 
         // Assert
-        Assert.AreEqual(1, actualId);
+        actualId.Should().Be(1);
     }
 
     [TestMethod]
@@ -83,7 +84,7 @@ public class AnimalShelterTests
         int actualId = animalShelter.DequeueCat().Id;
 
         // Assert
-        Assert.AreEqual(expectedId, actualId);
+        actualId.Should().Be(expectedId);
     }
 
     [TestMethod]
@@ -120,7 +121,7 @@ public class AnimalShelterTests
         int actualId = animalShelter.DequeueAny().Id;
 
         // Assert
-        Assert.AreEqual(initialId, actualId);
+        actualId.Should().Be(initialId);
     }
 
 }

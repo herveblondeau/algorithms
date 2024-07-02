@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Easy.Asteroids;
@@ -37,7 +38,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -71,7 +72,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -105,7 +106,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -139,7 +140,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -176,7 +177,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -213,7 +214,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -247,7 +248,7 @@ public class AsteroidsTests
             ['.', '.', '.', 'D', '.'],
             ['.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -284,7 +285,7 @@ public class AsteroidsTests
             ['.', '.', '.', '.', '.', '.'],
             ['.', '.', '.', '.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
+        actual.Should().BeEquivalentTo(expected);
     }
 
     [TestMethod]
@@ -312,21 +313,6 @@ public class AsteroidsTests
             ['.', '.', '.'],
             ['.', '.', '.'],
         ];
-        Assert.IsTrue(AreEqual(expected, actual));
-    }
-
-    private bool AreEqual(char[][] a, char[][] b)
-    {
-        for (int i = 0; i < a.Length; i++)
-        {
-            for (int j = 0; j < a[0].Length; j++)
-            {
-                if (a[i][j] != b[i][j])
-                {
-                    return false;
-                }
-            }
-        }
-        return true;
+        actual.Should().BeEquivalentTo(expected);
     }
 }

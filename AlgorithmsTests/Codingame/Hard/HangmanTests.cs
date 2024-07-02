@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.Hangman;
@@ -17,7 +18,7 @@ public class HangmanTests
         var actual = hangman.Solve(word, guesses);
 
         // Assert
-        Assert.AreEqual(expectedTurn, actual.NbFails);
-        Assert.AreEqual(word, actual.Word);
+        actual.NbFails.Should().Be(expectedTurn);
+        actual.Word.Should().Be(word);
     }
 }

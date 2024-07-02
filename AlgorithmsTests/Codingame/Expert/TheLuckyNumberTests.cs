@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Expert.TheLuckyNumber;
@@ -18,7 +19,7 @@ public class TheLuckyNumberTests
         var actual = TheLuckyNumber.Count(number, number);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     [TestMethod]
@@ -36,7 +37,7 @@ public class TheLuckyNumberTests
         var actual = TheLuckyNumber.Count(number, number);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     [TestMethod]
@@ -56,6 +57,6 @@ public class TheLuckyNumberTests
         var actual = TheLuckyNumber.Count(min, max);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

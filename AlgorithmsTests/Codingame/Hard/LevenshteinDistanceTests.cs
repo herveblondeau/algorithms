@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Hard.LevenshteinDistance;
@@ -17,7 +18,7 @@ public class LevenshteinDistanceTests
         var actual = levenshteinDistance.GetDistance(source, target);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     [TestMethod]
@@ -34,14 +35,14 @@ public class LevenshteinDistanceTests
         var actual = levenshteinDistance.GetDistance(source, target);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
     [DataRow("text", "tests", 2)]
     [DataRow("text", "tints", 3)]
-    //[DataRow("triumph", "attempted", 6)]
-    //[DataRow("The carrots are cooked", "The parrots are not here", 7)]
+    [DataRow("triumph", "attempted", 7)]
+    [DataRow("The carrots are cooked", "The parrots are not here", 7)]
     public void GetDistance_DifferentLength_PerformsCorrectly(string source, string target, int expected)
     {
         // Arrange
@@ -51,6 +52,6 @@ public class LevenshteinDistanceTests
         var actual = levenshteinDistance.GetDistance(source, target);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }
