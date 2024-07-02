@@ -1,22 +1,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Hard.LongestPalindrome
+namespace Codingame.Hard.LongestPalindrome;
+
+[TestClass]
+public class LongestPalindromeTests
 {
-    [TestClass]
-    public class LongestPalindromeTests
+    [TestMethod]
+    [DataRow("madam", "madam")]
+    public void GetLongestPalindrome_OneResult_PerformsCorrectly(string input, string expected)
     {
-        [TestMethod]
-        [DataRow("madam", "madam")]
-        public void GetLongestPalindrome_OneResult_PerformsCorrectly(string input, string expected)
-        {
-            // Arrange
-            LongestPalindrome longestPalindrome = new();
+        // Arrange
+        LongestPalindrome longestPalindrome = new();
 
-            // Act
-            var actual = longestPalindrome.GetLongestPalindromes(input);
+        // Act
+        var actual = longestPalindrome.GetLongestPalindromes(input);
 
-            // Assert
-            Assert.AreEqual(expected, actual[0]);
-        }
+        // Assert
+        Assert.AreEqual(expected, actual[0]);
     }
 }
