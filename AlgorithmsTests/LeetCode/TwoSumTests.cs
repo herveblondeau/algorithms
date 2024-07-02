@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode.TwoSum;
@@ -18,6 +19,6 @@ public class TwoSumTests
         int[] actual = TwoSum.Find(numbers, target);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 }

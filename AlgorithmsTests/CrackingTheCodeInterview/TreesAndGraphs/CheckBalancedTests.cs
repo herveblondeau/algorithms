@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.CheckBalanced;
@@ -18,7 +19,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -33,7 +34,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -48,7 +49,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -65,7 +66,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     #endregion
@@ -86,7 +87,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -107,7 +108,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -130,7 +131,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     #endregion
@@ -195,7 +196,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     /*
@@ -254,7 +255,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     /*
@@ -304,7 +305,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     /*
@@ -349,7 +350,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     /*
@@ -400,7 +401,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     /*
@@ -449,7 +450,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     /*
@@ -493,7 +494,7 @@ public class CheckBalancedTests
         bool actual = CheckBalanced.IsBalanced(root);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     #endregion

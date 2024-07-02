@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.RouteBetweenNodes;
@@ -16,7 +17,7 @@ public class RouteBetweenNodesTests
         bool actual = RouteBetweenNodes.AreConnected(start, start);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -31,7 +32,7 @@ public class RouteBetweenNodesTests
         bool actual = RouteBetweenNodes.AreConnected(start, end);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -59,7 +60,7 @@ public class RouteBetweenNodesTests
         bool actual = RouteBetweenNodes.AreConnected(start, end);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -94,7 +95,7 @@ public class RouteBetweenNodesTests
         bool actual = RouteBetweenNodes.AreConnected(start, end);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -120,7 +121,7 @@ public class RouteBetweenNodesTests
         bool actual = RouteBetweenNodes.AreConnected(start, end);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
 }

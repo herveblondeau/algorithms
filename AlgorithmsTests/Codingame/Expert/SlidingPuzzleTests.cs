@@ -28,7 +28,6 @@ public class SlidingPuzzleTests
 
         // Assert
         actual.Should().Be(4);
-        Assert.AreEqual(4, actual);
     }
 
     [TestMethod]
