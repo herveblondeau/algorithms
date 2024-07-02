@@ -1,14 +1,15 @@
-﻿namespace CrackingTheCodeInterview.LinkedLists.LoopDetection;
+﻿// Source: "Cracking the coding interview" book (2.8 - Loop Detection)
 
-// Source: "Cracking the coding interview" book (2.8 - Loop Detection)
+namespace CrackingTheCodeInterview.LinkedLists.LoopDetection;
+
 public class LoopDetection
 {
-    public static LinkedListNode GetLoopStart(LinkedListNode start)
+    public static LinkedListNode? GetLoopStart(LinkedListNode start)
     {
         // This algorithm is simple, taks O(n) time and O(1) space, but it modifies the list
         // We go through the elements, modifying each one to point to itself
         // As soon as we reach an element that points to itself, it means we have come back to a loop start
-        LinkedListNode current = start;
+        LinkedListNode? current = start;
         if (current == null)
         {
             return null;
@@ -31,7 +32,7 @@ public class LoopDetection
 public class LinkedListNode
 {
     public int Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(int value)
     {
@@ -43,8 +44,13 @@ public class LinkedListNode
         return Value.ToString();
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

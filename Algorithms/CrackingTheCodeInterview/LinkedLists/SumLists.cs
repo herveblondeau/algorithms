@@ -1,8 +1,9 @@
-﻿using System;
+﻿// Source: "Cracking the coding interview" book (2.5 - Sum Lists)
+
+using System;
 
 namespace Algorithms.CrackingTheCodeInterview.LinkedLists.SumLists;
 
-// Source: "Cracking the coding interview" book (2.5 - Sum Lists)
 public class SumLists
 {
     // Base problem

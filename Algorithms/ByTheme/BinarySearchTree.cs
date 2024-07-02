@@ -5,11 +5,11 @@ namespace ByTheme.Trees;
 
 public class BinarySearchTree<T> where T : IComparable
 {
-    public BinaryTreeNode<T> Root { get; set; }
+    public BinaryTreeNode<T>? Root { get; set; }
 
-    public BinaryTreeNode<T> Find(T value)
+    public BinaryTreeNode<T>? Find(T value)
     {
-        BinaryTreeNode<T> currentNode = Root;
+        BinaryTreeNode<T>? currentNode = Root;
         while (currentNode != null)
         {
             if (value.Equals(currentNode.Value)) return currentNode;
@@ -76,7 +76,7 @@ public class BinarySearchTree<T> where T : IComparable
         }
     }
 
-    public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T> node)
+    public List<BinaryTreeNode<T>> TraversePreOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
         if (node != null)
@@ -88,7 +88,7 @@ public class BinarySearchTree<T> where T : IComparable
         return result;
     }
 
-    public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T> node)
+    public List<BinaryTreeNode<T>> TraverseInOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
         if (node != null)
@@ -100,7 +100,7 @@ public class BinarySearchTree<T> where T : IComparable
         return result;
     }
 
-    public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T> node)
+    public List<BinaryTreeNode<T>> TraversePostOrder(BinaryTreeNode<T>? node)
     {
         List<BinaryTreeNode<T>> result = new();
         if (node != null)
@@ -112,10 +112,10 @@ public class BinarySearchTree<T> where T : IComparable
         return result;
     }
 
-    public List<BinaryTreeNode<T>> TraverseBreadFirst(BinaryTreeNode<T> node)
+    public List<BinaryTreeNode<T>?> TraverseBreadFirst(BinaryTreeNode<T>? node)
     {
-        List<BinaryTreeNode<T>> result = new();
-        Queue<BinaryTreeNode<T>> queue = new();
+        List<BinaryTreeNode<T>?> result = new();
+        Queue<BinaryTreeNode<T>?> queue = new();
         while (node != null)
         {
             result.Add(node);
@@ -129,7 +129,7 @@ public class BinarySearchTree<T> where T : IComparable
 
 public class BinaryTreeNode<T>
 {
-    public T Value { get; internal set; }
-    public BinaryTreeNode<T> LeftChild { get; internal set; }
-    public BinaryTreeNode<T> RightChild { get; internal set; }
+    public T? Value { get; internal set; }
+    public BinaryTreeNode<T>? LeftChild { get; internal set; }
+    public BinaryTreeNode<T>? RightChild { get; internal set; }
 }
