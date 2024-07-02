@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.ValidateBst;
@@ -18,7 +19,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(root);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     [TestMethod]
@@ -35,7 +36,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(root);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -52,7 +53,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(root);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [TestMethod]
@@ -75,7 +76,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(root);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 
     #endregion
@@ -109,7 +110,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(node2);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     /*
@@ -145,7 +146,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(node0);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     /*
@@ -181,7 +182,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(node4);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     #endregion
@@ -246,7 +247,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(node0);
 
         // Assert
-        Assert.IsFalse(actual);
+        actual.Should().BeFalse();
     }
 
     /*
@@ -307,7 +308,7 @@ public class ValidateBstTests
         bool actual = ValidateBst.IsBst(node8);
 
         // Assert
-        Assert.IsTrue(actual);
+        actual.Should().BeTrue();
     }
 
     #endregion

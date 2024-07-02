@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GeeksForGeeks.InversionOfArray;
@@ -20,7 +21,7 @@ public class InversionOfArrayTests
         var actual = inversionOfArraySolver.GetInversionCount(values);
 
         // Assert
-        Assert.AreEqual(0, actual);
+        actual.Should().Be(0);
     }
 
     [TestMethod]
@@ -37,6 +38,6 @@ public class InversionOfArrayTests
         var actual = inversionOfArraySolver.GetInversionCount(values);
 
         // Assert
-        Assert.AreEqual(expected, actual);
+        actual.Should().Be(expected);
     }
 }

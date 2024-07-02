@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -20,7 +21,7 @@ public class ArrayDuplicatesTests
         int[] actual = ArrayDuplicates.FindAllDuplicates(values);
 
         // Assert
-        Assert.AreEqual(0, actual.Length);
+        actual.Should().HaveCount(0);
     }
 
     [TestMethod]
@@ -37,7 +38,7 @@ public class ArrayDuplicatesTests
         // Assert
         Array.Sort(expected);
         Array.Sort(actual);
-        Assert.AreEqual(expected.Length, actual.Length);
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().HaveSameCount(expected);
+        actual.Should().BeEquivalentTo(expected);
     }
 }

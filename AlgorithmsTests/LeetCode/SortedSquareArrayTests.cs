@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode.SortedSquareArray;
@@ -16,6 +17,6 @@ public class SortedSquareArrayTests
         int[] actual = SortedSquareArray.SortSquares(numbers);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 }

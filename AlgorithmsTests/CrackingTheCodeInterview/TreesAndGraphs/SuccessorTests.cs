@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.Successor;
@@ -18,7 +19,7 @@ public class SuccessorTests
         BinaryTreeNode? actual = Successor.Next(root);
 
         // Assert
-        Assert.IsNull(actual);
+        actual.Should().BeNull();
     }
 
     [TestMethod]
@@ -31,8 +32,8 @@ public class SuccessorTests
         child.Parent = root;
 
         // Act-Assert
-        Assert.IsNull(Successor.Next(root));
-        Assert.AreEqual(root, Successor.Next(child));
+        Successor.Next(root).Should().BeNull();
+        Successor.Next(child).Should().Be(root);
     }
 
     [TestMethod]
@@ -45,8 +46,8 @@ public class SuccessorTests
         child.Parent = root;
 
         // Act-Assert
-        Assert.AreEqual(child, Successor.Next(root));
-        Assert.IsNull(Successor.Next(child));
+        Successor.Next(root).Should().Be(child);
+        Successor.Next(child).Should().BeNull();
     }
 
     [TestMethod]
@@ -62,9 +63,9 @@ public class SuccessorTests
         rightChild.Parent = root;
 
         // Act-Assert
-        Assert.AreEqual(root, Successor.Next(leftChild));
-        Assert.AreEqual(rightChild, Successor.Next(root));
-        Assert.IsNull(Successor.Next(rightChild));
+        Successor.Next(leftChild).Should().Be(root);
+        Successor.Next(root).Should().Be(rightChild);
+        Successor.Next(rightChild).Should().BeNull();
     }
 
     #endregion
@@ -107,13 +108,13 @@ public class SuccessorTests
         node7.Parent = node6;
 
         // Act-Assert
-        Assert.AreEqual(node2, Successor.Next(node1));
-        Assert.AreEqual(node3, Successor.Next(node2));
-        Assert.AreEqual(node4, Successor.Next(node3));
-        Assert.AreEqual(node5, Successor.Next(node4));
-        Assert.AreEqual(node6, Successor.Next(node5));
-        Assert.AreEqual(node7, Successor.Next(node6));
-        Assert.IsNull(Successor.Next(node7));
+        Successor.Next(node1).Should().Be(node2);
+        Successor.Next(node2).Should().Be(node3);
+        Successor.Next(node3).Should().Be(node4);
+        Successor.Next(node4).Should().Be(node5);
+        Successor.Next(node5).Should().Be(node6);
+        Successor.Next(node6).Should().Be(node7);
+        Successor.Next(node7).Should().BeNull();
     }
 
     #endregion
@@ -189,21 +190,21 @@ public class SuccessorTests
         node15.Parent = node14;
 
         // Act-Assert
-        Assert.AreEqual(node2, Successor.Next(node1));
-        Assert.AreEqual(node3, Successor.Next(node2));
-        Assert.AreEqual(node4, Successor.Next(node3));
-        Assert.AreEqual(node5, Successor.Next(node4));
-        Assert.AreEqual(node6, Successor.Next(node5));
-        Assert.AreEqual(node7, Successor.Next(node6));
-        Assert.AreEqual(node8, Successor.Next(node7));
-        Assert.AreEqual(node9, Successor.Next(node8));
-        Assert.AreEqual(node10, Successor.Next(node9));
-        Assert.AreEqual(node11, Successor.Next(node10));
-        Assert.AreEqual(node12, Successor.Next(node11));
-        Assert.AreEqual(node13, Successor.Next(node12));
-        Assert.AreEqual(node14, Successor.Next(node13));
-        Assert.AreEqual(node15, Successor.Next(node14));
-        Assert.IsNull(Successor.Next(node15));
+        Successor.Next(node1).Should().Be(node2);
+        Successor.Next(node2).Should().Be(node3);
+        Successor.Next(node3).Should().Be(node4);
+        Successor.Next(node4).Should().Be(node5);
+        Successor.Next(node5).Should().Be(node6);
+        Successor.Next(node6).Should().Be(node7);
+        Successor.Next(node7).Should().Be(node8);
+        Successor.Next(node8).Should().Be(node9);
+        Successor.Next(node9).Should().Be(node10);
+        Successor.Next(node10).Should().Be(node11);
+        Successor.Next(node11).Should().Be(node12);
+        Successor.Next(node12).Should().Be(node13);
+        Successor.Next(node13).Should().Be(node14);
+        Successor.Next(node14).Should().Be(node15);
+        Successor.Next(node15).Should().BeNull();
     }
 
     #endregion

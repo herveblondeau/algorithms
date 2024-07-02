@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode.NumberOfIslands;
@@ -23,7 +24,7 @@ public class NumberOfIslandsTests
         var actual = numberOfIslandsSolver.CountIslands(spots);
 
         // Assert
-        Assert.AreEqual(1, actual);
+        actual.Should().Be(1);
     }
 
     [TestMethod]
@@ -43,7 +44,7 @@ public class NumberOfIslandsTests
         var actual = numberOfIslandsSolver.CountIslands(spots);
 
         // Assert
-        Assert.AreEqual(2, actual);
+        actual.Should().Be(2);
     }
 
     [TestMethod]
@@ -63,7 +64,7 @@ public class NumberOfIslandsTests
         var actual = numberOfIslandsSolver.CountIslands(spots);
 
         // Assert
-        Assert.AreEqual(3, actual);
+        actual.Should().Be(3);
     }
 
     [TestMethod]
@@ -89,6 +90,6 @@ public class NumberOfIslandsTests
         var actual = numberOfIslandsSolver.CountIslands(spots);
 
         // Assert
-        Assert.AreEqual(11, actual);
+        actual.Should().Be(11);
     }
 }

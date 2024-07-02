@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode.SortColors;
@@ -26,7 +27,7 @@ public class SortColorsTests
         int[] actual = SortColors.Sort(values);
 
         // Assert
-        CollectionAssert.AreEqual(values, actual);
+        actual.Should().Equal(values);
     }
 
     [TestMethod]
@@ -44,7 +45,7 @@ public class SortColorsTests
         int[] actual = SortColors.Sort(values);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 
     [TestMethod]
@@ -62,6 +63,6 @@ public class SortColorsTests
         int[] actual = SortColors.Sort(values);
 
         // Assert
-        CollectionAssert.AreEqual(expected, actual);
+        actual.Should().Equal(expected);
     }
 }
