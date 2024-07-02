@@ -23,7 +23,7 @@ public class TheBurglarsDilemna
         ];
 
         string? result = null; // stores the only allowed combination across all strategies
-        string current; // stores the current combination
+        string? current; // stores the current combination
 
         // For each strategy,
         foreach (var strategy in strategies)

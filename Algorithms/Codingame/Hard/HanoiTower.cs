@@ -9,7 +9,7 @@ namespace Codingame.Hard.HanoiTower;
 
 public class HanoiTower
 {
-    private Stack<int>[] _stacks;
+    private Stack<int>[] _stacks = null!;
     private int _nbDisks;
     private int _smallestDiskPosition = 0;
 

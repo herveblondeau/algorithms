@@ -1,4 +1,5 @@
 ﻿// https://www.codingame.com/training/medium/robbery-optimisation
+
 using System;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace Codingame.Medium.RobberyOptimisation;
 
 public class RobberyOptimisation
 {
-    private Dictionary<int, long> _maxAmountFromIndex;
+    private Dictionary<int, long> _maxAmountFromIndex = null!;
 
     public long GetMaximumAmount(long[] values)
     {

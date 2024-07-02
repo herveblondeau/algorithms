@@ -6,7 +6,7 @@ namespace Codingame.Medium.GoroWantChocolate;
 
 public class GoroWantChocolate
 {
-    private Dictionary<(int, int), int> _minimalNbSquares;
+    private Dictionary<(int, int), int> _minimalNbSquares = null!;
 
     public int GetMinimalNumberOfSquares(int width, int height)
     {

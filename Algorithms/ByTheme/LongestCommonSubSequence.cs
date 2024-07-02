@@ -31,7 +31,7 @@ public class LongestCommonSubSequence
         return _Memoization(string1, string2);
     }
 
-    private Dictionary<(string, string), string> _memoizationResults;
+    private Dictionary<(string, string), string> _memoizationResults = null!;
     private string _Memoization(string string1, string string2)
     {
         if (string.IsNullOrEmpty(string1) || string.IsNullOrEmpty(string2))

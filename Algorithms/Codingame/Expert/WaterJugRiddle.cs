@@ -20,7 +20,7 @@ public class WaterJugRiddle
 
         // Initial position
         int[] quantities = capacities.Select(c => 0).ToArray();
-        Position current = new(capacities, quantities);
+        Position? current = new(capacities, quantities);
         _visited.Add(current, 0);
 
         // This is essentially a BFS algorithm
@@ -144,8 +144,13 @@ public class WaterJugRiddle
             return string.Join('-', Quantities).GetHashCode();
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
+            if (obj is null)
+            {
+                return false;
+            }
+
             return GetHashCode() == ((Position)obj).GetHashCode();
         }
     }

@@ -47,7 +47,7 @@ public class GuessingDigits
      |         | =>  X     | =>  X     | => T1/P2  | => T2/P1  | => T1/P2  | => T1/P2  | => T1/P2  | => T1/P1  | => T1/P1  |
      |---------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
      */
-    public Guess GuessDigits(int sum, int product)
+    public Guess? GuessDigits(int sum, int product)
     {
         // Pairs will be removed from these dictionaries as the games progresses
         // They keep track of all the pairs associated to each sum and product
@@ -159,7 +159,7 @@ public class Guess
     // Player number (1 or 2)
     public int Player { get; set; }
 
-    public Pair Pair { get; set; }
+    public Pair Pair { get; set; } = null!;
 }
 
 public class Pair
@@ -184,8 +184,13 @@ public class Pair
         return "(" + Low + ',' + High + ")";
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         Pair other = (Pair)obj;
         return Low == other.Low && High == other.High;
     }

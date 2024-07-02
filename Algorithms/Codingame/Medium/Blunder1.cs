@@ -8,11 +8,11 @@ namespace Codingame.Medium.Blunder1;
 public class Blunder1
 {
     // Environment
-    private Map _map { get; set; }
+    private Map _map { get; set; } = null!;
 
     // State
-    private State _state { get; set; }
-    private HashSet<Snapshot> _history { get; set; }
+    private State _state { get; set; } = null!;
+    private HashSet<Snapshot> _history { get; set; } = null!;
     private bool _isStuckInInfiniteLoop { get; set; }
 
     public BlunderResult Traverse(string[] rows)
@@ -24,7 +24,6 @@ public class Blunder1
         List<Direction> _path = new();
 
         _state.SetPosition(_map.StartPosition);
-        int n = 0;
         while (_canMove())
         {
             _updateState();
@@ -181,7 +180,7 @@ public class Blunder1
 
     private class Map
     {
-        public Dictionary<(int, int), Spot> Spots { get; private set; }
+        public Dictionary<(int, int), Spot> Spots { get; private set; } = null!;
         public (int, int) StartPosition { get; private set; }
         public (int, int) SuicideBoothPosition { get; private set; }
         public (int, int) Teleporter1Position { get; private set; }
@@ -358,8 +357,13 @@ public class Blunder1
         public bool BreakerMode { get; set; }
         public bool ArePrioritiesInverted { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
+            if (obj is null)
+            {
+                return false;
+            }
+
             return GetHashCode() == ((Snapshot)obj).GetHashCode();
         }
 
@@ -397,5 +401,5 @@ public class Blunder1
 public class BlunderResult
 {
     public bool IsStuckInInfiniteLoop { get; set; }
-    public string[] Path { get; set; }
+    public string[] Path { get; set; } = null!;
 }

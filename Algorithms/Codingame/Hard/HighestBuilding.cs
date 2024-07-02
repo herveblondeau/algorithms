@@ -19,7 +19,7 @@ public class HighestBuilding
         // We build the list of highest buildings as we go
         while (i < picture[0].Length)
         {
-            Building building = GetBuilding(picture, i);
+            Building? building = GetBuilding(picture, i);
             // No building here, just move one spot to the right
             if (building == null)
             {
@@ -50,7 +50,7 @@ public class HighestBuilding
     }
 
     // This method starts from the ground floor at a given position, then builds the whole building
-    private Building GetBuilding(string[] picture, int column)
+    private Building? GetBuilding(string[] picture, int column)
     {
         List<int> heights = new();
         int width = 0;

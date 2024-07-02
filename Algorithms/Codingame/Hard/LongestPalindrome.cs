@@ -17,7 +17,7 @@ public class LongestPalindrome
             // Each position can actually be a character (odd-length palindromes such as ABCBA) or be between two characters (even-length palindromes such as ABCCBA)
             for (int j = 0; j <= 1; j++)
             {
-                string longestPalindrome = _getLongestPalindrome(input, i, i + j);
+                string? longestPalindrome = _getLongestPalindrome(input, i, i + j);
 
                 if (longestPalindrome?.Length > longestLength)
                 {
@@ -35,7 +35,7 @@ public class LongestPalindrome
     }
 
     // Look for a palindrome by starting at the given extremities and trying to expand towards the sides
-    private string _getLongestPalindrome(string input, int start, int end)
+    private string? _getLongestPalindrome(string input, int start, int end)
     {
         if (start <= 0 || end >= input.Length || input[start] != input[end])
         {

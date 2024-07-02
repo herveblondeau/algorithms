@@ -33,7 +33,7 @@ public class Fibonacci
     }
 
     // Dynamic programming - Memoization
-    private static long[] _memoizationResults;
+    private static long[] _memoizationResults = null!;
     public static long Memoization(long n)
     {
         _memoizationResults = new long[n];

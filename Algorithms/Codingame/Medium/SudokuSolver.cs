@@ -12,7 +12,6 @@ public class SudokuSolver
     {
         bool isSolved = false;
 
-        // Solve
         _size = board.GetLength(0);
         for (int n = 1; n <= _size; n++)
         {
@@ -23,15 +22,7 @@ public class SudokuSolver
             }
         }
 
-        // Output
-        if (isSolved)
-        {
-            return board;
-        }
-        else
-        {
-            return null;
-        }
+        return isSolved ? board : null;
     }
 
     private bool BacktrackingSolve(int[,] board, int number)

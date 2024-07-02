@@ -89,60 +89,60 @@ namespace Algorithms
             //Console.WriteLine(LoopDetection.GetLoopStart(start));
 
             //// Intersection
-            //LinkedListNode current;
-            //LinkedListNode start1 = new LinkedListNode(1);
-            //current = start1;
-            //current.Next = new LinkedListNode(2);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(3);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(4);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(5);
-            //current = current.Next;
-            //LinkedListNode intersection = current;
-            //current.Next = new LinkedListNode(6);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(7);
-            //current = current.Next;
+            // var intersection = new Intersection();
+            // LinkedListNode? current;
+            // LinkedListNode start1 = new LinkedListNode(1);
+            // current = start1;
+            // current.Next = new LinkedListNode(2);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(3);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(4);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(5);
+            // current = current.Next;
+            // LinkedListNode? intersectionNode = current;
+            // current.Next = new LinkedListNode(6);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(7);
 
-            //Console.WriteLine("List 1");
-            //current = start1;
-            //while (current != null)
-            //{
+            // Console.WriteLine("List 1");
+            // current = start1;
+            // while (current != null)
+            // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
-            //}
-            //Console.WriteLine();
+            // }
+            // Console.WriteLine();
 
-            //LinkedListNode start2 = new LinkedListNode(99);
-            //current = start2;
-            //current.Next = new LinkedListNode(98);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(97);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(96);
-            //current = current.Next;
-            //current.Next = intersection;
+            // LinkedListNode start2 = new LinkedListNode(99);
+            // current = start2;
+            // current.Next = new LinkedListNode(98);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(97);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(96);
+            // current = current.Next;
+            // current.Next = intersectionNode;
 
-            //Console.WriteLine("List 2");
-            //current = start2;
-            //while (current != null)
-            //{
+            // Console.WriteLine("List 2");
+            // current = start2;
+            // while (current != null)
+            // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
-            //}
-            //Console.WriteLine();
+            // }
+            // Console.WriteLine();
 
-            //intersection = Intersection.GetIntersection(start1, start2);
-            //if (intersection == null)
-            //{
+            // intersectionNode = intersection.GetIntersection(start1, start2);
+            // if (intersectionNode == null)
+            // {
             //    Console.WriteLine("No intersection");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Intersection at " + intersection.Value);
-            //}
+            // }
+            // else
+            // {
+            //    Console.WriteLine("Intersection at " + intersectionNode.Value);
+            // }
 
             //// Sum lists
             //LinkedListNode startNumber1 = new LinkedListNode(6);
@@ -172,38 +172,41 @@ namespace Algorithms
             //Console.WriteLine($"Guess: {guess.Pair.Low}/{guess.Pair.High}, by player {guess.Player} on turn {guess.Turn}");
 
             //// Partition
-            //LinkedListNode start = new LinkedListNode(3);
-            //LinkedListNode current = start;
-            //current.Next = new LinkedListNode(5);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(8);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(5);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(10);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(2);
-            //current = current.Next;
-            //current.Next = new LinkedListNode(1);
-            //current = current.Next;
-            //Console.WriteLine("Initial list");
-            //current = start;
-            //while (current != null)
-            //{
+            // LinkedListNode? start = new LinkedListNode(3);
+            // LinkedListNode? current = start;
+            // current.Next = new LinkedListNode(5);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(8);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(5);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(10);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(2);
+            // current = current.Next;
+            // current.Next = new LinkedListNode(1);
+            // current = current.Next;
+            // Console.WriteLine("Initial list");
+            // current = start;
+            // while (current != null)
+            // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
-            //}
-            //Console.WriteLine();
+            // }
+            // Console.WriteLine();
 
-            //start = Partition.PartitionAroundThreshold(start, 5);
-            //Console.WriteLine("After partitioning");
-            //current = start;
-            //while (current != null)
-            //{
+            // Partition partition = new();
+            // int threshold = 5;
+            // Console.WriteLine($"Threshold: {threshold}");
+            // start = partition.PartitionAroundThreshold(start, threshold);
+            // Console.WriteLine("After partitioning");
+            // current = start;
+            // while (current != null)
+            // {
             //    Console.WriteLine(current.Value);
             //    current = current.Next;
-            //}
-            //Console.WriteLine();
+            // }
+            // Console.WriteLine();
 
             //// Delete middle node
             //LinkedListNode start = new LinkedListNode("node 1");

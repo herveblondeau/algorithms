@@ -1,14 +1,18 @@
-﻿namespace CrackingTheCodeInterview.LinkedLists.Intersection;
+﻿namespace Algorithms.CrackingTheCodeInterview.LinkedLists.Intersection;
 
 // Source: "Cracking the coding interview" book (2.7 - Intersection)
 public class Intersection
 {
-    public static LinkedListNode GetIntersection(LinkedListNode start1, LinkedListNode start2)
+    public LinkedListNode? GetIntersection(LinkedListNode start1, LinkedListNode start2)
     {
+        if (start1 is null || start2 is null)
+        {
+            return null;
+        }
 
-        LinkedListNode current = null;
-        LinkedListNode current1 = null;
-        LinkedListNode current2 = null;
+        LinkedListNode? current;
+        LinkedListNode current1 = null!;
+        LinkedListNode current2 = null!;
 
         // Go through the lists once to determine their respective lengths and end nodes
         int length1 = 0;
@@ -43,20 +47,20 @@ public class Intersection
         {
             for (int i = length1; i < length2; i++)
             {
-                current1 = current1.Next;
+                current1 = current1.Next!;
             }
         }
         else if (length2 < length1)
         {
             for (int i = length2; i < length1; i++)
             {
-                current2 = current2.Next;
+                current2 = current2.Next!;
             }
         }
         while (current1 != current2)
         {
-            current1 = current1.Next;
-            current2 = current2.Next;
+            current1 = current1.Next!;
+            current2 = current2.Next!;
         }
 
         return current1;
@@ -68,7 +72,7 @@ public class Intersection
 public class LinkedListNode
 {
     public int Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(int value)
     {
@@ -80,8 +84,13 @@ public class LinkedListNode
         return Value.ToString();
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 
