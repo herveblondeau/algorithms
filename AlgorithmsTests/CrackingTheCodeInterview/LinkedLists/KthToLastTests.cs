@@ -31,7 +31,7 @@ public class KthToLastTests
         }
 
         // Act
-        LinkedListNode result = KthToLast.GetKthToLast(start, k);
+        LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
         Assert.AreEqual(expected, result.Value);
@@ -58,7 +58,7 @@ public class KthToLastTests
         }
 
         // Act
-        LinkedListNode result = KthToLast.GetKthToLast(start, k);
+        LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
         Assert.IsNull(result);
@@ -86,7 +86,7 @@ public class KthToLastTests
         }
 
         // Act
-        LinkedListNode result = KthToLast.GetKthToLast(start, k);
+        LinkedListNode? result = KthToLast.GetKthToLast(start, k)!;
 
         // Assert
         Assert.IsNull(result);

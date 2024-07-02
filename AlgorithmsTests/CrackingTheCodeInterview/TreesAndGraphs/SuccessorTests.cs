@@ -15,7 +15,7 @@ public class SuccessorTests
         BinaryTreeNode root = new(0);
 
         // Act
-        BinaryTreeNode actual = Successor.Next(root);
+        BinaryTreeNode? actual = Successor.Next(root);
 
         // Assert
         Assert.IsNull(actual);

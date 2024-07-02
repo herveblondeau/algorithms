@@ -1,8 +1,9 @@
-﻿using System.Linq;
+﻿// Source: "Cracking the coding interview" book (4.2 - Minimal tree)
+
+using System.Linq;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.MinimalTree;
 
-// Source: "Cracking the coding interview" book (4.2 - Minimal tree)
 public class MinimalTree
 {
     /// <summary>
@@ -50,9 +51,9 @@ public class Node
 {
     public int Value { get; private set; }
 
-    public Node LeftChild { get; set; }
+    public Node? LeftChild { get; set; }
 
-    public Node RightChild { get; set; }
+    public Node? RightChild { get; set; }
 
     public Node(int value)
     {

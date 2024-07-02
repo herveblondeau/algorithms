@@ -15,9 +15,10 @@ public class PalindromeTests
     {
         // Arrange
         var list = _toList(values)!;
+        var palindrome = new Palindrome();
 
         // Act
-        bool actual = Palindrome.IsPalindrome(list);
+        bool actual = palindrome.IsPalindrome(list);
 
         // Assert
         Assert.IsTrue(actual);
@@ -32,9 +33,10 @@ public class PalindromeTests
     {
         // Arrange
         var list = _toList(values)!;
+        var palindrome = new Palindrome();
 
         // Act
-        bool actual = Palindrome.IsPalindrome(list);
+        bool actual = palindrome.IsPalindrome(list);
 
         // Assert
         Assert.IsFalse(actual);

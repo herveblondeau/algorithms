@@ -24,9 +24,10 @@ public class PalindromeTests
     public void IsPalindromePermutation_IsPermutation_ReturnsTrue(string input)
     {
         // Arrange
+        var palindrome = new Palindrome();
 
         // Act
-        bool actual = Palindrome.IsPalindromePermutation(input);
+        bool actual = palindrome.IsPalindromePermutation(input);
 
         // Assert
         Assert.IsTrue(actual);
@@ -42,9 +43,10 @@ public class PalindromeTests
     public void IsPalindromePermutation_IsNotPermutation_ReturnsFalse(string input)
     {
         // Arrange
+        var palindrome = new Palindrome();
 
         // Act
-        bool actual = Palindrome.IsPalindromePermutation(input);
+        bool actual = palindrome.IsPalindromePermutation(input);
 
         // Assert
         Assert.IsFalse(actual);

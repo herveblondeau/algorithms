@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿// Source: "Cracking the coding interview" book (4.3 - List of depths)
+
+using System.Collections.Generic;
 
 namespace CrackingTheCodeInterview.TreesAndGraphs.ListOfDepths;
 
-// Source: "Cracking the coding interview" book (4.3 - List of depths)
 public class ListOfDepths
 {
-    private static List<LinkedListNode> _firsts; // keeps track of the first element of each linked list - this is what the conversion will return
-    private static List<LinkedListNode> _lasts; // keeps track of the last element of each linked list - this is where we append new elements
+    private List<LinkedListNode> _firsts = null!; // keeps track of the first element of each linked list - this is what the conversion will return
+    private List<LinkedListNode> _lasts = null!; // keeps track of the last element of each linked list - this is where we append new elements
 
-    public static LinkedListNode[] GetDepthLists(BinaryTreeNode root)
+    public LinkedListNode[] GetDepthLists(BinaryTreeNode root)
     {
         _firsts = new List<LinkedListNode>();
         _lasts = new List<LinkedListNode>();
@@ -18,7 +19,7 @@ public class ListOfDepths
         return _firsts.ToArray();
     }
 
-    private static void ProcessNode(BinaryTreeNode node, int depth)
+    private void ProcessNode(BinaryTreeNode node, int depth)
     {
         // We use pre order traversal. In theory, any type of traversal would do but, with our implementation,
         // processing the node before its children is necessary to ensure that the working lists always contain enough depths
@@ -55,9 +56,9 @@ public class BinaryTreeNode
 {
     public int Value { get; private set; }
 
-    public BinaryTreeNode LeftChild { get; set; }
+    public BinaryTreeNode? LeftChild { get; set; }
 
-    public BinaryTreeNode RightChild { get; set; }
+    public BinaryTreeNode? RightChild { get; set; }
 
     public BinaryTreeNode(int value)
     {
@@ -69,7 +70,7 @@ public class BinaryTreeNode
 public class LinkedListNode
 {
     public int Value { get; set; }
-    public LinkedListNode Next { get; set; }
+    public LinkedListNode? Next { get; set; }
 
     public LinkedListNode(int value)
     {
@@ -81,8 +82,13 @@ public class LinkedListNode
         return Value.ToString();
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
+        if (obj is null)
+        {
+            return false;
+        }
+
         return Value == ((LinkedListNode)obj).Value;
     }
 

@@ -1,14 +1,15 @@
-﻿using System;
+﻿// Source: "Cracking the coding interview" book (1.4 - Palindrome permutation)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CrackingTheCodeInterview.ArraysAndStrings.Palindrome;
 
-// Source: "Cracking the coding interview" book (1.4 - Palindrome permutation)
 public class Palindrome
 {
     // This is the most straightforward solution, there is a slightly more streamlined one in the book
-    public static bool IsPalindromePermutation(string input)
+    public bool IsPalindromePermutation(string input)
     {
         Dictionary<char, int> nbOccurrencesPerCharacter = new();
         foreach (char c in input)
