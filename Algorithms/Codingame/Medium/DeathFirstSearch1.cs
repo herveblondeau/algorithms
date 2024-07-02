@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿// https://www.codingame.com/training/medium/death-first-search-episode-1
+
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Codingame.Medium.DeathFirstSearch1;
 
-// https://www.codingame.com/training/medium/death-first-search-episode-1
 public class DeathFirstSearch1
 {
     private HashSet<int> _gateways { get; set; }
