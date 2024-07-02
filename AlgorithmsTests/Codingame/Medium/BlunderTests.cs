@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Codingame.Medium.Blunder;
+namespace Codingame.Medium.Blunder1;
 
 [TestClass]
 public class BlunderTests
@@ -11,7 +11,7 @@ public class BlunderTests
     public void Traverse_NoInfiniteLoop_ReturnsPath(string[] rows, string[] expectedPath, string dummy)
     {
         // Arrange
-        Blunder blunder = new();
+        Blunder1 blunder = new();
 
         // Act
         var result = blunder.Traverse(rows);
@@ -26,7 +26,7 @@ public class BlunderTests
     public void Traverse_InfiniteLoop_ReturnsLoop(string[] rows)
     {
         // Arrange
-        Blunder blunder = new();
+        Blunder1 blunder = new();
 
         // Act
         var result = blunder.Traverse(rows);

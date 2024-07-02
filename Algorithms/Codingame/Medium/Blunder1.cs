@@ -3,9 +3,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Codingame.Medium.Blunder;
+namespace Codingame.Medium.Blunder1;
 
-public class Blunder
+public class Blunder1
 {
     // Environment
     private Map _map { get; set; }

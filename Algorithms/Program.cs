@@ -327,7 +327,7 @@ namespace Algorithms
             //var nthLine = conwaySequence.GetNthLine(1, 6);
             //Console.WriteLine(string.Join(" ", nthLine));
 
-            //// Blunder
+            //// Blunder1
             //string[] rows = new string[] {
             //    "###############",
             //    "#  #@#I  T$#  #",
@@ -360,8 +360,8 @@ namespace Algorithms
             //    "#             #",
             //    "###############",
             //};
-            //Blunder blunder = new Blunder();
-            //var result = blunder.Traverse(rows);
+            //Blunder1 blunder1 = new Blunder1();
+            //var result = blunder1.Traverse(rows);
             //if (result.IsStuckInInfiniteLoop)
             //{
             //    Console.WriteLine("LOOP");
@@ -404,32 +404,32 @@ namespace Algorithms
             //Console.WriteLine(goroWantChocolateSolver.GetMinimalNumberOfSquares(5, 3));
 
             //// Death first search
-            //DeathFirstSearch deathFirstSearch = new DeathFirstSearch();
-            //deathFirstSearch.AddLink(11, 6);
-            //deathFirstSearch.AddLink(0, 9);
-            //deathFirstSearch.AddLink(1, 2);
-            //deathFirstSearch.AddLink(0, 1);
-            //deathFirstSearch.AddLink(10, 1);
-            //deathFirstSearch.AddLink(11, 5);
-            //deathFirstSearch.AddLink(2, 3);
-            //deathFirstSearch.AddLink(4, 5);
-            //deathFirstSearch.AddLink(8, 9);
-            //deathFirstSearch.AddLink(6, 7);
-            //deathFirstSearch.AddLink(7, 8);
-            //deathFirstSearch.AddLink(0, 6);
-            //deathFirstSearch.AddLink(3, 4);
-            //deathFirstSearch.AddLink(0, 2);
-            //deathFirstSearch.AddLink(11, 7);
-            //deathFirstSearch.AddLink(0, 8);
-            //deathFirstSearch.AddLink(0, 4);
-            //deathFirstSearch.AddLink(9, 10);
-            //deathFirstSearch.AddLink(0, 5);
-            //deathFirstSearch.AddLink(0, 7);
-            //deathFirstSearch.AddLink(0, 3);
-            //deathFirstSearch.AddLink(0, 10);
-            //deathFirstSearch.AddLink(5, 6);
-            //deathFirstSearch.SetGateway(0);
-            //(int source, int target) = deathFirstSearch.FindLinkToCut(11);
+            //DeathFirstSearch1 deathFirstSearch1 = new DeathFirstSearch();
+            //deathFirstSearch1.AddLink(11, 6);
+            //deathFirstSearch1.AddLink(0, 9);
+            //deathFirstSearch1.AddLink(1, 2);
+            //deathFirstSearch1.AddLink(0, 1);
+            //deathFirstSearch1.AddLink(10, 1);
+            //deathFirstSearch1.AddLink(11, 5);
+            //deathFirstSearch1.AddLink(2, 3);
+            //deathFirstSearch1.AddLink(4, 5);
+            //deathFirstSearch1.AddLink(8, 9);
+            //deathFirstSearch1.AddLink(6, 7);
+            //deathFirstSearch1.AddLink(7, 8);
+            //deathFirstSearch1.AddLink(0, 6);
+            //deathFirstSearch1.AddLink(3, 4);
+            //deathFirstSearch1.AddLink(0, 2);
+            //deathFirstSearch1.AddLink(11, 7);
+            //deathFirstSearch1.AddLink(0, 8);
+            //deathFirstSearch1.AddLink(0, 4);
+            //deathFirstSearch1.AddLink(9, 10);
+            //deathFirstSearch1.AddLink(0, 5);
+            //deathFirstSearch1.AddLink(0, 7);
+            //deathFirstSearch1.AddLink(0, 3);
+            //deathFirstSearch1.AddLink(0, 10);
+            //deathFirstSearch1.AddLink(5, 6);
+            //deathFirstSearch1.SetGateway(0);
+            //(int source, int target) = deathFirstSearch1.FindLinkToCut(11);
             //Console.WriteLine(source + " " + target);
 
             //// Binary search tree

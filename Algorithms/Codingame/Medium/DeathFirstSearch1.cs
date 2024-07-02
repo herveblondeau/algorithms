@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Codingame.Medium.DeathFirstSearch;
+namespace Codingame.Medium.DeathFirstSearch1;
 
 // https://www.codingame.com/training/medium/death-first-search-episode-1
-public class DeathFirstSearch
+public class DeathFirstSearch1
 {
     private HashSet<int> _gateways { get; set; }
     private Dictionary<int, HashSet<int>> _links { get; set; }
 
-    public DeathFirstSearch()
+    public DeathFirstSearch1()
     {
         _links = new Dictionary<int, HashSet<int>>();
         _gateways = new HashSet<int>();
