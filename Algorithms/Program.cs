@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using Codingame.Hard.ClosestNumber;
+using Codingame.Medium.ShadowsOfTheKnight1;
 
 namespace Algorithms
 {
@@ -751,26 +753,42 @@ namespace Algorithms
             // LargestNumber largestNumber = new();
             // Console.WriteLine(largestNumber.GetLargest(72659, 5));
 
-            AlternativeVote alternativeVote = new();
-            var candidateNames = new List<string> { "Thierry", "Peter", "Sandra", "Catherine", "Aude" };
-            var preferences = new List<List<int>>
+            // AlternativeVote alternativeVote = new();
+            // var candidateNames = new List<string> { "Thierry", "Peter", "Sandra", "Catherine", "Aude" };
+            // var preferences = new List<List<int>>
+            // {
+            //     new List<int> { 1, 5, 2, 4, 3 },
+            //     new List<int> { 5, 3, 2, 4, 1 },
+            //     new List<int> { 5, 3, 1, 2, 4 },
+            //     new List<int> { 4, 5, 3, 1, 2 },
+            //     new List<int> { 4, 3, 5, 1, 2 },
+            //     new List<int> { 2, 3, 5, 1, 4 },
+            //     new List<int> { 5, 3, 2, 1, 4 },
+            //     new List<int> { 2, 3, 5, 1, 4 },
+            //     new List<int> { 5, 3, 2, 1, 4 },
+            //     new List<int> { 5, 1, 3, 2, 4 },
+            // };
+            // var eliminations = alternativeVote.GetEliminations(candidateNames, preferences);
+            // foreach (var e in eliminations)
+            // {
+            //     Console.WriteLine(e);
+            // }
+
+            ShadowsOfTheKnight1 shadowsOfTheKnight = new();
+            // var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new ConsoleInput());
+            var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new AutomatedInput(3, 7));
+            Console.WriteLine("Bomb defused! Moves:");
+            foreach (var move in moves)
             {
-                new List<int> { 1, 5, 2, 4, 3 },
-                new List<int> { 5, 3, 2, 4, 1 },
-                new List<int> { 5, 3, 1, 2, 4 },
-                new List<int> { 4, 5, 3, 1, 2 },
-                new List<int> { 4, 3, 5, 1, 2 },
-                new List<int> { 2, 3, 5, 1, 4 },
-                new List<int> { 5, 3, 2, 1, 4 },
-                new List<int> { 2, 3, 5, 1, 4 },
-                new List<int> { 5, 3, 2, 1, 4 },
-                new List<int> { 5, 1, 3, 2, 4 },
-            };
-            var eliminations = alternativeVote.GetEliminations(candidateNames, preferences);
-            foreach (var e in eliminations)
-            {
-                Console.WriteLine(e);
+                Console.WriteLine(move);
             }
+
+            // ClosestNumber closestNumber = new();
+            // string target = "590";
+            // string source = "506";
+            // Console.WriteLine($"Target: {target}");
+            // Console.WriteLine($"Source: {source}");
+            // Console.WriteLine($"=> Closest: {closestNumber.GetClosestPermutation(target, source)}");
         }
     }
 }
