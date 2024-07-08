@@ -1,0 +1,27 @@
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Codingame.Easy.EncryptionDecryptionOfEnigmaMachine;
+
+[TestClass]
+public class EncryptionDecryptionOfEnigmaMachineTests
+{
+    [TestMethod]
+    [DataRow("ENCODE", "AAA", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 4, "KQF")]
+    [DataRow("ENCODE", "WEATHERREPORTWINDYTODAY", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 7, "ALWAURKQEQQWLRAWZHUYKVN")]
+    [DataRow("DECODE", "PQSACVVTOISXFXCIAMQEM", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 9, "EVERYONEISWELCOMEHERE")]
+    [DataRow("ENCODE", "EVERYONEISWELCOMEHERE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 9, "PQSACVVTOISXFXCIAMQEM")]
+    [DataRow("ENCODE", "EVERYONEISWELCOMEHEREEVERYONEISWELCOMEHERE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 9, "PQSACVVTOISXFXCIAMQEMDZIXFJJSTQIENEFQXVZYV")]
+    [DataRow("DECODE", "XPCXAUPHYQALKJMGKRWPGYHFTKRFFFNOUTZCABUAEHQLGXREZ", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 5, "THEQUICKBROWNFOXJUMPSOVERALAZYSPHINXOFBLACKQUARTZ")]
+    public void GetNbSquares_SquareWithNoMeasurement_ReturnsOne(string operation, string message, string rotor1, string rotor2, string rotor3, int startingShift, string expected)
+    {
+        // Arrange
+        EncryptionDecryptionOfEnigmaMachine encryptionDecryptionOfEnigmaMachine = new();
+
+        // Act
+        var result = encryptionDecryptionOfEnigmaMachine.Transform(operation, message, [rotor1, rotor2, rotor3], startingShift);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+}
