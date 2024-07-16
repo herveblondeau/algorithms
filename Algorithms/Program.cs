@@ -20,6 +20,7 @@ using System.Net.Mail;
 using System.Text;
 using Codingame.Hard.ClosestNumber;
 using Codingame.Medium.ShadowsOfTheKnight1;
+using Codingame.Easy.MimeType;
 
 namespace Algorithms
 {
@@ -774,13 +775,32 @@ namespace Algorithms
             //     Console.WriteLine(e);
             // }
 
-            ShadowsOfTheKnight1 shadowsOfTheKnight = new();
-            // var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new ConsoleInput());
-            var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new AutomatedInput(3, 7));
-            Console.WriteLine("Bomb defused! Moves:");
-            foreach (var move in moves)
+            // ShadowsOfTheKnight1 shadowsOfTheKnight = new();
+            // // var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new ConsoleInput());
+            // var moves = shadowsOfTheKnight.GetMoves(4, 8, 2, 3, 40, new AutomatedInput(3, 7));
+            // Console.WriteLine("Bomb defused! Moves:");
+            // foreach (var move in moves)
+            // {
+            //     Console.WriteLine(move);
+            // }
+
+            MimeType mimeType = new();
+            var descriptions = new Dictionary<string, string>()
             {
-                Console.WriteLine(move);
+                { "html", "text/html" },
+                { "png", "image/png" },
+                { "gif", "image/gif" },
+            };
+            var filenames = new List<string>()
+            {
+                "animated.gif",
+                "portrait.png",
+                "index.html",
+            };
+            var mimeTypes = mimeType.GetMimeTypes(descriptions, filenames);
+            foreach (var m in mimeTypes)
+            {
+                Console.WriteLine(m);
             }
 
             // ClosestNumber closestNumber = new();

@@ -15,7 +15,7 @@ public class TheLuckyNumber
     /// <returns>The number of lucky values between <paramref name="min"/> and <paramref name="max"/></returns>
     public long Count(long min, long max)
     {
-        return Count(max) - Count(min-1);
+        return Count(max) - Count(min - 1);
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class TheLuckyNumber
     public long Count(long n)
     {
         /*
-            Iteratively checking whether each number between 0 and 1 is lucky would be easy, but way too slow for large numbers
+            Iteratively checking whether each number is lucky would be easy, but way too slow for large numbers
             Our approach instead counts the lucky numbers for "blocks of powers of 10" using simple mathematical formulas, then add up the results.
 
             For example, with 7328, we "simply" count the number of lucky numbers in the following blocks, and sum the results:
@@ -229,10 +229,10 @@ public class TheLuckyNumber
 
     private class DetailedCount
     {
-        public long LuckySix { get; set;}
-        public long LuckyEight { get; set;}
-        public long UnluckyNone { get; set;}
-        public long UnluckyTwo { get; set;}
+        public long LuckySix { get; set; }
+        public long LuckyEight { get; set; }
+        public long UnluckyNone { get; set; }
+        public long UnluckyTwo { get; set; }
 
         public DetailedCount Add(DetailedCount other)
         {
