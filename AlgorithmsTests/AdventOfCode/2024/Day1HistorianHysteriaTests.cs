@@ -7,6 +7,8 @@ namespace Algorithms.AdventOfCode._2024;
 [TestClass]
 public class Day1HistorianHysteriaTests
 {
+    #region Part 1
+
     [TestMethod]
     [DynamicData(nameof(CalculateDistance_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
     public void CalculateDistance_SimpleCases_PerformsCorrectly(List<int> list1, List<int> list2, int expected)
@@ -74,6 +76,10 @@ public class Day1HistorianHysteriaTests
         // Assert
         actual.Should().Be(1834060);
     }
+
+    #endregion
+
+    #region Part 2
 
     [TestMethod]
     [DynamicData(nameof(CalculateSimilarity_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
@@ -163,4 +169,6 @@ public class Day1HistorianHysteriaTests
         // Assert
         actual.Should().Be(21607792);
     }
+
+    #endregion
 }
