@@ -25,7 +25,7 @@ public class Day3MullItOverTests
     }
 
     [TestMethod]
-    public void CalculateMulSum_SampleCase_PerformsCorrectly()
+    public void CalculateMulSum_Sample_PerformsCorrectly()
     {
         // Arrange
         Day3MullItOver day3MullItOver = new();
@@ -38,7 +38,7 @@ public class Day3MullItOverTests
     }
 
     [TestMethod]
-    public void CalculateMulSum_TestCase_PerformsCorrectly()
+    public void CalculateMulSum_Test_PerformsCorrectly()
     {
         // Arrange
         Day3MullItOver day3MullItOver = new();
@@ -50,6 +50,50 @@ public class Day3MullItOverTests
         actual.Should().Be(164730528);
     }
 
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    [DataRow("mul(3,7)", 21)]
+    [DataRow("mul(3,7)don\'t()mul(5,4)", 21)]
+    public void CalculateMulSumWithDosAndDonts_SimpleCases_PerformsCorrectly(string input, int expected)
+    {
+        // Arrange
+        Day3MullItOver day3MullItOver = new();
+
+        // Act
+        var actual = day3MullItOver.CalculateMulSumWithDosAndDonts(input);
+
+        // Assert
+        actual.Should().Be(expected);
+    }
+
+    [TestMethod]
+    public void CalculateMulSumWithDosAndDonts_Sample_PerformsCorrectly()
+    {
+        // Arrange
+        Day3MullItOver day3MullItOver = new();
+
+        // Act
+        var actual = day3MullItOver.CalculateMulSumWithDosAndDonts("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))");
+
+        // Assert
+        actual.Should().Be(48);
+    }
+
+    [TestMethod]
+    public void CalculateMulSumWithDosAndDonts_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day3MullItOver day3MullItOver = new();
+
+        // Act
+        var actual = day3MullItOver.CalculateMulSumWithDosAndDonts(_getTestInput());
+
+        // Assert
+        actual.Should().Be(70478672);
+    }
     #endregion
 
     private string _getTestInput()
