@@ -30,7 +30,7 @@ public class Day2RedNosedReportsTests
         {
             new List<List<int>>
             {
-                new List<int> { 1 },
+                new List<int> { 1 }, // OK
             },
             1
         };
@@ -39,10 +39,22 @@ public class Day2RedNosedReportsTests
         {
             new List<List<int>>
             {
-                new List<int> { 1 },
-                new List<int> { 1 },
+                new List<int> { 1 }, // OK
+                new List<int> { 1 }, // OK
             },
             2
+        };
+
+        yield return new object[]
+        {
+            new List<List<int>>
+            {
+                new List<int> { 1, 4 }, // OK
+                new List<int> { 1, 5 }, // KO
+                new List<int> { 1, 5, 6 }, // KO
+                new List<int> { 1, 5, 9 }, // KO
+            },
+            1
         };
     }
 
@@ -53,12 +65,12 @@ public class Day2RedNosedReportsTests
         Day2RedNosedReports day2RedNosedReports = new();
         List<List<int>> reports =
         [
-            [7, 6, 4, 2, 1],
-            [1, 2, 7, 8, 9],
-            [9, 7, 6, 2, 1],
-            [1, 3, 2, 4, 5],
-            [8, 6, 4, 4, 1],
-            [1, 3, 6, 7, 9],
+            [7, 6, 4, 2, 1], // OK
+            [1, 2, 7, 8, 9], // KO
+            [9, 7, 6, 2, 1], // KO
+            [1, 3, 2, 4, 5], // KO
+            [8, 6, 4, 4, 1], // KO
+            [1, 3, 6, 7, 9], // OK
         ];
 
         // Act
@@ -73,8 +85,155 @@ public class Day2RedNosedReportsTests
     {
         // Arrange
         Day2RedNosedReports day2RedNosedReports = new();
+        List<List<int>> reports = _getTestInput();
+
+        // Act
+        var actual = day2RedNosedReports.CalculateNbSafeReports(reports);
+
+        // Assert
+        actual.Should().Be(282);
+    }
+
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    [DynamicData(nameof(CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    public void CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly(List<List<int>> reports, int expected)
+    {
+        // Arrange
+        Day2RedNosedReports day2RedNosedReports = new();
+
+        // Act
+        var actual = day2RedNosedReports.CalculateNbPseudoSafeReports(reports);
+
+        // Assert
+        actual.Should().Be(expected);
+    }
+
+    public static IEnumerable<object[]> CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly_data()
+    {
+        yield return new object[]
+        {
+            new List<List<int>>
+            {
+                new List<int> { 1 }, // OK
+            },
+            1
+        };
+
+        yield return new object[]
+        {
+            new List<List<int>>
+            {
+                new List<int> { 1 }, // OK
+                new List<int> { 1 }, // OK
+            },
+            2
+        };
+
+        yield return new object[]
+        {
+            new List<List<int>>
+            {
+                new List<int> { 1, 4 }, // OK
+                new List<int> { 1, 5 }, // OK
+                new List<int> { 1, 5, 6 }, // OK
+                new List<int> { 1, 5, 9 }, // KO
+            },
+            3
+        };
+    }
+
+    [TestMethod]
+    [DynamicData(nameof(CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    public void CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly(List<List<int>> reports, int expected)
+    {
+        // Arrange
+        Day2RedNosedReports day2RedNosedReports = new();
+
+        // Act
+        var actual = day2RedNosedReports.CalculateNbPseudoSafeReports(reports);
+
+        // Assert
+        actual.Should().Be(expected);
+    }
+
+    public static IEnumerable<object[]> CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly_data()
+    {
+        yield return new object[]
+        {
+            new List<List<int>>
+            {
+                new List<int> { 10, 12, 13, 15, 19},
+                new List<int> { 10, 5, 8, 7, 6},
+                new List<int> { 18, 20, 23, 25, 28, 29, 34},
+                new List<int> { 28, 25, 26, 25, 24},
+                new List<int> { 29, 26, 25, 23, 16},
+                new List<int> { 30, 32, 35, 37, 39, 42, 46, 45},
+                new List<int> { 32, 29, 26, 22, 23},
+                new List<int> { 33, 31, 29, 27, 24, 21, 15},
+                new List<int> { 33, 32, 29, 27, 22},
+                new List<int> { 4, 5, 7, 10, 13, 14, 20},
+                new List<int> { 44, 48, 45, 46, 49, 51},
+                new List<int> { 57, 54, 55, 57, 59, 61},
+                new List<int> { 60, 58, 55, 54, 53, 52, 49, 45},
+                new List<int> { 66, 68, 70, 72, 78},
+                new List<int> { 75, 77, 79, 84, 81},
+                new List<int> { 75, 78, 75, 73, 70},
+                new List<int> { 80, 77, 74, 72, 68},
+                new List<int> { 80, 82, 85, 86, 87, 90, 94},
+                new List<int> { 85, 86, 85, 82, 79},
+                new List<int> { 88, 86, 88, 90, 91, 94},
+                new List<int> { 91, 94, 93, 92, 90},
+                new List<int> { 97, 94, 92, 90, 88, 87, 83},
+            },
+            22
+        };
+    }
+
+    [TestMethod]
+    public void CalculateNbPseudoSafeReports_Sample_PerformsCorrectly()
+    {
+        // Arrange
+        Day2RedNosedReports day2RedNosedReports = new();
         List<List<int>> reports =
         [
+            [7, 6, 4, 2, 1], // OK
+            [1, 2, 7, 8, 9], // KO
+            [9, 7, 6, 2, 1], // KO
+            [1, 3, 2, 4, 5], // OK
+            [8, 6, 4, 4, 1], // OK
+            [1, 3, 6, 7, 9], // OK
+        ];
+
+        // Act
+        var actual = day2RedNosedReports.CalculateNbPseudoSafeReports(reports);
+
+        // Assert
+        actual.Should().Be(4);
+    }
+
+    [TestMethod]
+    public void CalculateNbPseudoSafeReports_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day2RedNosedReports day2RedNosedReports = new();
+        List<List<int>> reports = _getTestInput();
+
+        // Act
+        var actual = day2RedNosedReports.CalculateNbPseudoSafeReports(reports);
+
+        // Assert
+        actual.Should().Be(349);
+    }
+
+    #endregion
+
+    private List<List<int>> _getTestInput()
+    {
+        return [
             [42, 44, 47, 49, 51, 52, 54, 52],
             [24, 27, 30, 31, 32, 35, 36, 36],
             [80, 82, 85, 86, 87, 90, 94],
@@ -1076,13 +1235,5 @@ public class Day2RedNosedReportsTests
             [24, 22, 21, 19, 16, 15, 13, 12],
             [61, 64, 66, 69, 71, 72, 75, 77],
         ];
-
-        // Act
-        var actual = day2RedNosedReports.CalculateNbSafeReports(reports);
-
-        // Assert
-        actual.Should().Be(282);
     }
-
-    #endregion
 }
