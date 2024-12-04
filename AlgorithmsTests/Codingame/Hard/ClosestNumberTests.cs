@@ -45,7 +45,7 @@ public class ClosestNumberTests
 
     [TestMethod]
     [DataRow("94754", "3841", "8431")]
-    public void GetMinimumDrops_WhenCalled_PerformsCorrectly(string target, string source, string expected)
+    public void GetClosestPermutation_WhenCalled_PerformsCorrectly(string target, string source, string expected)
     {
         // Arrange
         ClosestNumber closestNumber = new();
@@ -58,7 +58,7 @@ public class ClosestNumberTests
     }
 
     [TestMethod]
-    public void GetMinimumDrops_CodingameLongestCommonPrefixIsNotAlwaysRight_Returns605()
+    public void GetClosestPermutation_LongestCommonPrefixIsNotAlwaysRight_Returns605()
     {
         // Arrange
         ClosestNumber closestNumber = new();
@@ -71,7 +71,7 @@ public class ClosestNumberTests
     }
 
     [TestMethod]
-    public void GetMinimumDrops_CodingameTwoOptimalPermutations_Returns95()
+    public void GetClosestPermutation_TwoOptimalPermutations_Returns59()
     {
         // Arrange
         ClosestNumber closestNumber = new();
@@ -84,7 +84,7 @@ public class ClosestNumberTests
     }
 
     [TestMethod]
-    public void GetMinimumDrops_CodingameMoreDigitsWithZero_Returns7400()
+    public void GetClosestPermutation_MoreDigitsWithZero_Returns7400()
     {
         // Arrange
         ClosestNumber closestNumber = new();
@@ -98,7 +98,7 @@ public class ClosestNumberTests
 
     [TestMethod]
     [DataRow("7326581367582145004806383665233945377507377600408046588615944865665876581942889334261190569828488903", "3206728551185670554010350791869507515399395992812150593418419992328800823624820469621655802304007277", "7326581367582145004806383665233945377507377600408046588599999999999888555555422222222211111111000000")]
-    public void GetMinimumDrops_CodingameLargeNumbers_PerformsCorrectly(string target, string source, string expected)
+    public void GetClosestPermutation_LargeNumbers_PerformsCorrectly(string target, string source, string expected)
     {
         // Arrange
         ClosestNumber closestNumber = new();

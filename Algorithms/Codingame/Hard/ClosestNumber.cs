@@ -53,7 +53,7 @@ public class ClosestNumber
         bool? searchHigher = null;
         if (index < target.Length - 1)
         {
-            digit = (FindClosestDigit(_parse(target[index]), _parse(target[index + 1]), availableDigits));
+            digit = FindClosestDigit(_parse(target[index]), _parse(target[index + 1]), availableDigits);
             permutation.Append(digit);
             _removeDigit(digit, availableDigits);
             searchHigher = digit < _parse(target[index]);
