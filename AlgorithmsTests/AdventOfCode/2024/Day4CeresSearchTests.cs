@@ -52,46 +52,44 @@ public class Day4CeresSearchTests
 
     #region Part 2
 
-    // [TestMethod]
-    // [DataRow("mul(3,7)", 21)]
-    // [DataRow("mul(3,7)don\'t()mul(5,4)", 21)]
-    // public void CountXmasWithDosAndDonts_SimpleCases_PerformsCorrectly(string[] rows, int expected)
-    // {
-    //     // Arrange
-    //     Day4CeresSearch day4CeresSearch = new();
+    [TestMethod]
+    public void CountCrossmas_Sample_PerformsCorrectly()
+    {
+        // Arrange
+        Day4CeresSearch day4CeresSearch = new();
+        string[] rows =
+        [
+            "MMMSXXMASM",
+            "MSAMXMSMSA",
+            "AMXSXMAAMM",
+            "MSAMASMSMX",
+            "XMASAMXAMM",
+            "XXAMMXXAMA",
+            "SMSMSASXSS",
+            "SAXAMASAAA",
+            "MAMMMXMMMM",
+            "MXMXAXMASX",
+        ];
 
-    //     // Act
-    //     var actual = day4CeresSearch.CountXmasWithDosAndDonts(rows);
+        // Act
+        var actual = day4CeresSearch.CountCrossmas(rows);
 
-    //     // Assert
-    //     actual.Should().Be(expected);
-    // }
+        // Assert
+        actual.Should().Be(9);
+    }
 
-    // [TestMethod]
-    // public void CountXmasWithDosAndDonts_Sample_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day4CeresSearch day4CeresSearch = new();
+    [TestMethod]
+    public void CountCrossmas_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day4CeresSearch day4CeresSearch = new();
 
-    //     // Act
-    //     var actual = day4CeresSearch.CountXmasWithDosAndDonts("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))");
+        // Act
+        var actual = day4CeresSearch.CountCrossmas(_getTestInput());
 
-    //     // Assert
-    //     actual.Should().Be(48);
-    // }
-
-    // [TestMethod]
-    // public void CountXmasWithDosAndDonts_Test_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day4CeresSearch day4CeresSearch = new();
-
-    //     // Act
-    //     var actual = day4CeresSearch.CountXmasWithDosAndDonts(_getTestInput());
-
-    //     // Assert
-    //     actual.Should().Be(70478672);
-    // }
+        // Assert
+        actual.Should().Be(1923);
+    }
 
     #endregion
 

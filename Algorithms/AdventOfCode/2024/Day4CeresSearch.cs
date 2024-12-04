@@ -2,8 +2,6 @@ namespace Algorithms.AdventOfCode._2024;
 
 public class Day4CeresSearch
 {
-    private const int _xmasLength = 4;
-
     public int CountXmas(string[] rows)
     {
         int width = rows.Length;
@@ -14,15 +12,16 @@ public class Day4CeresSearch
         {
             for (int x = 0; x < width; x++)
             {
-                nbXmas += _countXmaxFromPosition(rows, x, y);
+                nbXmas += _countXmasFromPosition(rows, x, y);
             }
         }
 
         return nbXmas;
     }
 
-    private int _countXmaxFromPosition(string[] rows, int x, int y)
+    private int _countXmasFromPosition(string[] rows, int x, int y)
     {
+        const int _xmasLength = 4;
         int width = rows.Length;
         int height = rows[0].Length;
         int nbXmas = 0;
@@ -97,6 +96,63 @@ public class Day4CeresSearch
             {
                 nbXmas++;
             }
+        }
+
+        return nbXmas;
+    }
+    public int CountCrossmas(string[] rows)
+    {
+        int width = rows.Length;
+        int height = rows[0].Length;
+
+        int nbXmas = 0;
+        for (int y = 1; y < height - 1; y++)
+        {
+            for (int x = 1; x < width - 1; x++)
+            {
+                nbXmas += _countCrossmasFromPosition(rows, x, y);
+            }
+        }
+
+        return nbXmas;
+    }
+
+    private int _countCrossmasFromPosition(string[] rows, int x, int y)
+    {
+        if (rows[y][x] != 'A')
+        {
+            return 0;
+        }
+
+        int nbXmas = 0;
+
+        // M S
+        //  A
+        // M S
+        if (rows[y-1][x-1] == 'M' && rows[y+1][x+1] == 'S' && rows[y+1][x-1] == 'M' && rows[y-1][x+1] == 'S')
+        {
+            nbXmas++;
+        }
+        // S M
+        //  A
+        // S M
+        else if (rows[y-1][x-1] == 'S' && rows[y+1][x+1] == 'M' && rows[y+1][x-1] == 'S' && rows[y-1][x+1] == 'M')
+        {
+            nbXmas++;
+        }
+        // M M
+        //  A
+        // S S
+        else if (rows[y-1][x-1] == 'M' && rows[y+1][x+1] == 'S' && rows[y+1][x-1] == 'S' && rows[y-1][x+1] == 'M')
+        {
+            nbXmas++;
+        }
+        // S S
+        //  A
+        // M M
+        else if (rows[y-1][x-1] == 'S' && rows[y+1][x+1] == 'M' && rows[y+1][x-1] == 'M' && rows[y-1][x+1] == 'S')
+        {
+            nbXmas++;
         }
 
         return nbXmas;
