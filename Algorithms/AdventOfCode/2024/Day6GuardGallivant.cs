@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithms.AdventOfCode._2024;
 
 public class Day6GuardGallivant
 {
+    #region Part 1
+
     public int CalculateNbPositionsBeforeExiting(string[] map)
     {
         (int row, int column, char direction) = _findGuard(map);
@@ -35,6 +38,80 @@ public class Day6GuardGallivant
         }
     }
 
+    #endregion
+
+    #region Part 2
+
+    public int CalculateNbObstructions(string[] map)
+    {
+        // Find all visited positions with the default map
+        (int row, int column, char direction) = _findGuard(map);
+        List<(int, int)> visited = [(row, column)];
+        while (true)
+        {
+            char next = _getNext(map, row, column, direction);
+            if (next == 'X')
+            {
+                break;
+            }
+            else if (next == '.')
+            {
+                (row, column) = _move(row, column, direction);
+                if (!visited.Contains((row, column)))
+                {
+                    visited.Add((row, column));
+                }
+            }
+            else if (next == '^')
+            {
+                (row, column) = _move(row, column, direction);
+            }
+            else
+            {
+                direction = _turn(direction);
+            }
+        }
+
+        return visited.Count(v => _isLoop(map, v));
+    }
+
+    private bool _isLoop(string[] map, (int, int) obstruction)
+    {
+        (int row, int column, char direction) = _findGuard(map);
+        HashSet<(int, int, char)> visited = [(row, column, direction)];
+
+        while (true)
+        {
+            char next = _getNext(map, row, column, direction, obstruction);
+
+            if (next == 'X')
+            {
+                return false;
+            }
+            else if (next == '.' || next == '^')
+            {
+                (row, column) = _move(row, column, direction);
+            }
+            else
+            {
+                direction = _turn(direction);
+            }
+
+            if (visited.Contains((row, column, direction)))
+            {
+                return true;
+            }
+            else
+            {
+                visited.Add((row, column, direction));
+            }
+        }
+    }
+
+    #endregion
+
+    #region Common
+
     private (int, int, char) _findGuard(string[] map)
     {
         for (int row = 0; row < map.Length; row++)
@@ -52,7 +129,7 @@ public class Day6GuardGallivant
         throw new ArgumentException("Guard not found");
     }
 
-    private char _getNext(string[] map, int row, int column, char direction)
+    private char _getNext(string[] map, int row, int column, char direction, (int, int)? obstruction = null)
     {
         int width = map[0].Length;
         int height = map.Length;
@@ -64,12 +141,20 @@ public class Day6GuardGallivant
                 {
                     return 'X';
                 }
+                if (obstruction.HasValue && (row - 1, column) == obstruction)
+                {
+                    return 'O';
+                }
                 return map[row - 1][column];
 
             case 'D':
                 if (row == height - 1)
                 {
                     return 'X';
+                }
+                if (obstruction.HasValue && (row + 1, column) == obstruction)
+                {
+                    return 'O';
                 }
                 return map[row + 1][column];
 
@@ -78,12 +163,20 @@ public class Day6GuardGallivant
                 {
                     return 'X';
                 }
+                if (obstruction.HasValue && (row, column - 1) == obstruction)
+                {
+                    return 'O';
+                }
                 return map[row][column - 1];
 
             case 'R':
                 if (column == width - 1)
                 {
                     return 'X';
+                }
+                if (obstruction.HasValue && (row, column + 1) == obstruction)
+                {
+                    return 'O';
                 }
                 return map[row][column + 1];
 
@@ -133,4 +226,6 @@ public class Day6GuardGallivant
                 throw new ArgumentException($"Invalid direction {direction}");
         }
     }
+
+    #endregion
 }

@@ -41,6 +41,34 @@ public class Day6GuardGallivantTests
 
     #region Part 2
 
+    [TestMethod]
+    public void CalculateNbObstructions_Sample_PerformsCorrectly()
+    {
+        // Arrange
+        Day6GuardGallivant day6GuardGallivant = new();
+        string[] map = _getSampleMap();
+
+        // Act
+        var actual = day6GuardGallivant.CalculateNbObstructions(map);
+
+        // Assert
+        actual.Should().Be(6);
+    }
+
+    [TestMethod]
+    public void CalculateNbObstructions_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day6GuardGallivant day6GuardGallivant = new();
+        string[] map = _getTestMap();
+
+        // Act
+        var actual = day6GuardGallivant.CalculateNbObstructions(map);
+
+        // Assert
+        actual.Should().Be(1939);
+    }
+
     #endregion
 
     private string[] _getSampleMap()
