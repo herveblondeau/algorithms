@@ -11,11 +11,74 @@ public class Day5PrintQueueTests
     #region Part 1
 
     [TestMethod]
-    public void CountXmas_Sample_PerformsCorrectly()
+    public void CalculateCorrectlyOrderedMiddlePageNumbers_Sample_PerformsCorrectly()
     {
         // Arrange
         Day5PrintQueue day5PrintQueue = new();
-        List<(int, int)> paths = new()
+        List<(int, int)> paths = _getSamplePaths();
+        List<int[]> updates = _getSampleUpdates();
+
+        // Act
+        var actual = day5PrintQueue.CalculateCorrectlyOrderedMiddlePageNumbers(paths, updates);
+
+        // Assert
+        actual.Should().Be(143);
+    }
+
+    [TestMethod]
+    public void CalculateCorrectlyOrderedMiddlePageNumbers_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day5PrintQueue day5PrintQueue = new();
+        List<(int, int)> paths = _getTestPaths();
+        List<int[]> updates = _getTestUpdates();
+
+        // Act
+        var actual = day5PrintQueue.CalculateCorrectlyOrderedMiddlePageNumbers(paths, updates);
+
+        // Assert
+        actual.Should().Be(4905);
+    }
+
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    public void FixOrdersAndCalculateMiddlePageNumbers_Sample_PerformsCorrectly()
+    {
+        // Arrange
+        Day5PrintQueue day5PrintQueue = new();
+        List<(int, int)> paths = _getSamplePaths();
+        List<int[]> updates = _getSampleUpdates();
+
+        // Act
+        var actual = day5PrintQueue.FixOrdersAndCalculateMiddlePageNumbers(paths, updates);
+
+        // Assert
+        actual.Should().Be(123);
+    }
+
+    [TestMethod]
+    public void FixOrdersAndCalculateMiddlePageNumbers_Test_PerformsCorrectly()
+    {
+        // Arrange
+        Day5PrintQueue day5PrintQueue = new();
+        List<(int, int)> paths = _getTestPaths();
+        List<int[]> updates = _getTestUpdates();
+
+        // Act
+        var actual = day5PrintQueue.FixOrdersAndCalculateMiddlePageNumbers(paths, updates);
+
+        // Assert
+        actual.Should().Be(6204);
+    }
+
+    #endregion
+
+    private List<(int, int)> _getSamplePaths()
+    {
+        return new()
         {
             (47, 53),
             (97, 13),
@@ -39,7 +102,11 @@ public class Day5PrintQueueTests
             (75, 13),
             (53, 13),
         };
-        List<int[]> updates =
+    }
+
+    private List<int[]> _getSampleUpdates()
+    {
+        return
         [
             [75,47,61,53,29],
             [97,61,53,29,13],
@@ -48,73 +115,7 @@ public class Day5PrintQueueTests
             [61,13,29],
             [97,13,75,29,47],
         ];
-
-        // Act
-        var actual = day5PrintQueue.CalculateCorrectlyOrderedMiddlePageNumbers(paths, updates);
-
-        // Assert
-        actual.Should().Be(143);
     }
-
-    [TestMethod]
-    public void CountXmas_Test_PerformsCorrectly()
-    {
-        // Arrange
-        Day5PrintQueue day5PrintQueue = new();
-        List<(int, int)> paths = _getTestPaths();
-        List<int[]> updates = _getTestUpdates();
-
-        // Act
-        var actual = day5PrintQueue.CalculateCorrectlyOrderedMiddlePageNumbers(paths, updates);
-
-        // Assert
-        actual.Should().Be(4905);
-    }
-
-    #endregion
-
-    #region Part 2
-
-    // [TestMethod]
-    // public void CountCrossmas_Sample_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day5PrintQueue day5PrintQueue = new();
-    //     string[] rows =
-    //     [
-    //         "MMMSXXMASM",
-    //         "MSAMXMSMSA",
-    //         "AMXSXMAAMM",
-    //         "MSAMASMSMX",
-    //         "XMASAMXAMM",
-    //         "XXAMMXXAMA",
-    //         "SMSMSASXSS",
-    //         "SAXAMASAAA",
-    //         "MAMMMXMMMM",
-    //         "MXMXAXMASX",
-    //     ];
-
-    //     // Act
-    //     var actual = day5PrintQueue.CountCrossmas(rows);
-
-    //     // Assert
-    //     actual.Should().Be(9);
-    // }
-
-    // [TestMethod]
-    // public void CountCrossmas_Test_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day5PrintQueue day5PrintQueue = new();
-
-    //     // Act
-    //     var actual = day5PrintQueue.CountCrossmas(_getTestInput());
-
-    //     // Assert
-    //     actual.Should().Be(1923);
-    // }
-
-    #endregion
 
     private List<(int, int)> _getTestPaths()
     {
