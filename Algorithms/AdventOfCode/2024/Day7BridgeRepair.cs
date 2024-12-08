@@ -8,12 +8,12 @@ public class Day7BridgeRepair
 {
     #region Part 1
 
-    public long CalculateCalibrationResult(Dictionary<long, int[]> equations)
+    public long CalculateCalibrationResult(Dictionary<long, int[]> equations, byte nbOperators)
     {
-        return equations.Where(e => _isSolvable(e.Key, e.Value)).Sum(e => e.Key);
+        return equations.Where(e => _isSolvable(e.Key, e.Value, nbOperators)).Sum(e => e.Key);
     }
 
-    private bool _isSolvable(long total, int[] numbers)
+    private bool _isSolvable(long total, int[] numbers, int nbOperators)
     {
         Operator[] operators = new Operator[numbers.Length - 1];
         for (int i = 0; i < operators.Length; i++)
@@ -26,7 +26,7 @@ public class Day7BridgeRepair
         while (!isSolved && !allOperatorsTested)
         {
             isSolved = _isSolved(total, numbers, operators);
-            allOperatorsTested = !_incrementOperators(operators);
+            allOperatorsTested = !_incrementOperators(operators, nbOperators);
         }
 
         return isSolved;
@@ -50,9 +50,14 @@ public class Day7BridgeRepair
             {
                 currentTotal *= numbers[i];
             }
-            else
+            else if (operators[i - 1] == Operator.Add)
             {
                 currentTotal += numbers[i];
+            }
+            else
+            {
+                int nbDigitsCurrentNumber = (int)Math.Log10(numbers[i]) + 1;
+                currentTotal = currentTotal * (int)Math.Pow(10, nbDigitsCurrentNumber) + numbers[i];
             }
 
             if (currentTotal > total)
@@ -68,7 +73,7 @@ public class Day7BridgeRepair
         return false;
     }
 
-    private bool _incrementOperators(Operator[] operators)
+    private bool _incrementOperators(Operator[] operators, int nbOperators)
     {
         if (operators.All(o => o == Operator.Add))
         {
@@ -78,14 +83,14 @@ public class Day7BridgeRepair
         int lastIncrementableOperatorIndex = -1;
         for (int i = operators.Length - 1; i >= 0; i--)
         {
-            if (operators[i] == Operator.Multiply)
+            if (operators[i] == Operator.Multiply || operators[i] == Operator.Concatenate)
             {
                 lastIncrementableOperatorIndex = i;
                 break;
             }
         }
 
-        operators[lastIncrementableOperatorIndex] = Operator.Add;
+        operators[lastIncrementableOperatorIndex] = operators[lastIncrementableOperatorIndex] == Operator.Multiply && nbOperators == 3 ? Operator.Concatenate : Operator.Add;
         for (int i = lastIncrementableOperatorIndex + 1; i < operators.Length; i++)
         {
             operators[i] = Operator.Multiply;
@@ -99,6 +104,7 @@ public class Day7BridgeRepair
     private enum Operator
     {
         Multiply,
+        Concatenate,
         Add,
     }
 }

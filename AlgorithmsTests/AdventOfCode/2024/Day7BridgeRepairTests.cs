@@ -7,35 +7,66 @@ namespace Algorithms.AdventOfCode._2024;
 [TestClass]
 public class Day7BridgeRepairTests
 {
-
     #region Part 1
 
     [TestMethod]
-    public void CalculateNbPositionsBeforeExiting_Sample_PerformsCorrectly()
+    public void CalculateCalibrationResults_Sample2Operators_PerformsCorrectly()
     {
         // Arrange
         Day7BridgeRepair day7BridgeRepair = new();
         var equations = _getSampleEquations();
 
         // Act
-        var actual = day7BridgeRepair.CalculateCalibrationResult(equations);
+        var actual = day7BridgeRepair.CalculateCalibrationResult(equations, nbOperators: 2);
 
         // Assert
         actual.Should().Be(3749);
     }
 
     [TestMethod]
-    public void CalculateNbPositionsBeforeExiting_Test_PerformsCorrectly()
+    public void CalculateCalibrationResults_Test_2Operators_PerformsCorrectly()
     {
         // Arrange
         Day7BridgeRepair day7BridgeRepair = new();
         var equations = _getTestEquations();
 
         // Act
-        var actual = day7BridgeRepair.CalculateCalibrationResult(equations);
+        var actual = day7BridgeRepair.CalculateCalibrationResult(equations, nbOperators: 2);
 
         // Assert
         actual.Should().Be(5512534574980);
+    }
+
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateCalibrationResults_Sample3Operators_PerformsCorrectly()
+    {
+        // Arrange
+        Day7BridgeRepair day7BridgeRepair = new();
+        var equations = _getSampleEquations();
+
+        // Act
+        var actual = day7BridgeRepair.CalculateCalibrationResult(equations, nbOperators: 3);
+
+        // Assert
+        actual.Should().Be(11387);
+    }
+
+    [TestMethod]
+    public void CalculateCalibrationResults_Test_3Operators_PerformsCorrectly()
+    {
+        // Arrange
+        Day7BridgeRepair day7BridgeRepair = new();
+        var equations = _getTestEquations();
+
+        // Act
+        var actual = day7BridgeRepair.CalculateCalibrationResult(equations, nbOperators: 3);
+
+        // Assert
+        actual.Should().Be(328790210468594);
     }
 
     #endregion
