@@ -22,6 +22,7 @@ using Codingame.Hard.ClosestNumber;
 using Codingame.Medium.ShadowsOfTheKnight1;
 using Codingame.Easy.MimeType;
 using Algorithms.AdventOfCode._2024;
+using Codingame.Expert.RecurringDecimals;
 
 namespace Algorithms;
 
@@ -810,5 +811,8 @@ class Program
         // Console.WriteLine($"Target: {target}");
         // Console.WriteLine($"Source: {source}");
         // Console.WriteLine($"=> Closest: {closestNumber.GetClosestPermutation(target, source)}");
+
+        RecurringDecimals recurringDecimals = new();
+        Console.WriteLine(recurringDecimals.Invert(44));
     }
 }
