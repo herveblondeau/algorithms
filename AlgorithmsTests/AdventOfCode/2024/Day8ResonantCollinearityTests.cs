@@ -38,6 +38,38 @@ public class Day8ResonantCollinearityTests
 
     #endregion
 
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateNbAntinodesWithResonantHarmonics_SampleMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day8ResonantCollinearity day8ResonantCollinearity = new();
+        var map = _getSampleMap();
+
+        // Act
+        var actual = day8ResonantCollinearity.CalculateNbAntinodesWithResonantHarmonics(map);
+
+        // Assert
+        actual.Should().Be(34);
+    }
+
+    [TestMethod]
+    public void CalculateNbAntinodesWithResonantHarmonics_TestMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day8ResonantCollinearity day8ResonantCollinearity = new();
+        var map = _getTestMap();
+
+        // Act
+        var actual = day8ResonantCollinearity.CalculateNbAntinodesWithResonantHarmonics(map);
+
+        // Assert
+        actual.Should().Be(1067);
+    }
+
+    #endregion
+
     private string[] _getSampleMap()
     {
         return
