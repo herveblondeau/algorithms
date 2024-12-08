@@ -1,4 +1,4 @@
-﻿// https://www.codingame.com/ide/puzzle/bank-robbers
+﻿// https://www.codingame.com/training/easy/bank-robbers
 
 using System;
 using System.Collections.Generic;
