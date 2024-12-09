@@ -816,6 +816,6 @@ class Program
         // Console.WriteLine(recurringDecimals.Invert(44));
 
         Day9DiskFragmenter day9DiskFragmenter = new();
-        var result = day9DiskFragmenter.CalculateChecksumWithBlockDefragmentation("2333133121414131402");
+        var result = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation("2333133121414131402");
     }
 }

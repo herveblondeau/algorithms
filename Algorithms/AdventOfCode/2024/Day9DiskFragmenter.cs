@@ -53,75 +53,122 @@ public class Day9DiskFragmenter
 
     #region Part 2
 
-    // public long CalculateChecksumWithFileDefragmentation(string diskMap)
-    // {
-    //     var decompressedDiskMap = _decompress(diskMap);
-    //     var defragmentedDiskMap = _defragmentFiles(decompressedDiskMap);
-    //     return _calculateChecksum(defragmentedDiskMap);
-    // }
+    public long CalculateChecksumWithFileDefragmentation(string diskMap)
+    {
+        var decompressedDiskMap = _decompress(diskMap);
+        _defragmentFiles(decompressedDiskMap);
+        return _calculateChecksum(decompressedDiskMap);
+    }
 
-    // private List<int> _defragmentFiles(List<int> decompressedDiskMap)
-    // {
-    //     var blockStartIndexes
+    private void _defragmentFiles(List<int?> decompressedDiskMap)
+    {
+        var files = _getAllFiles(decompressedDiskMap);
 
-    //     List<int> defragmentedDiskMap = new();
+        for (int i = files.Count - 1; i >= 0; i--)
+        {
+            var file = files[i];
 
-    //     var nextEmptyBlock = _getNextEmptyBlock(decompressedDiskMap, -1);
-    //     var nextFileToMove = _getPreviousFile(decompressedDiskMap, decompressedDiskMap.Count);
+            (int StartIndex, int Size)? empty = _getFirstEmpty(decompressedDiskMap, file.Size, file.StartIndex);
+            if (empty is not null)
+            {
+                _moveFile(decompressedDiskMap, file, empty.Value);
+            }
+        }
+    }
 
-    //     while (nextEmptyBlock.StartIndex < nextFileToMove.StartIndex)
-    //     {
-    //         while (nextFileToMove.Size > nextEmptyBlock.Size)
-    //         {
-    //             nextFileToMove = _getPreviousFile(decompressedDiskMap, decompressedDiskMap.Count);
-    //         }
+    private (int StartIndex, int Size)? _getFirstEmpty(List<int?> decompressedDiskMap, int size, int belowIndex)
+    {
+        bool isEmpty = false;
+        int startIndex = -1;
+        int availableSpace = 0;
 
-    //         _moveFile(nextFileToMove, nextEmptyBlock);
+        for (int i = 0; i < belowIndex; i++)
+        {
+            if (decompressedDiskMap[i] is not null)
+            {
+                isEmpty = false;
+                continue;
+            }
 
-    //         nextEmptyBlock = _getNextEmptyBlock(decompressedDiskMap, -1);
-    //         nextFileToMove = _getPreviousFile(decompressedDiskMap, decompressedDiskMap.Count);
-    //     }
+            if (!isEmpty)
+            {
+                startIndex = i;
+                availableSpace = 1;
+            }
+            else
+            {
+                availableSpace++;
+            }
 
-    //     return defragmentedDiskMap;
-    // }
+            if (availableSpace == size)
+            {
+                return (startIndex, size);
+            }
 
-    // private (int StartIndex, int Size) _getNextEmptyBlock(List<int> decompressedDiskMap, int currentIndex)
-    // {
-    //     currentIndex++;
-    //     while (decompressedDiskMap[currentIndex] != -1)
-    //     {
-    //         currentIndex++;
-    //     }
+            isEmpty = true;
+        }
 
-    //     var startIndex = currentIndex;
-    //     var fileSize = 0;
-    //     while (decompressedDiskMap[currentIndex] == -1)
-    //     {
-    //         fileSize++;
-    //         currentIndex++;
-    //     }
+        return null;
+    }
 
-    //     return (startIndex, fileSize);
-    // }
+    private List<(int Id, int StartIndex, int Size)> _getAllFiles(List<int?> decompressedDiskMap)
+    {
+        List<(int Id, int StartIndex, int Size)> files = new();
 
-    // private (int Id, int StartIndex, int Size) _getPreviousFile(List<int> decompressedDiskMap, int currentIndex)
-    // {
-    //     currentIndex--;
-    //     while (decompressedDiskMap[currentIndex] == -1)
-    //     {
-    //         currentIndex--;
-    //     }
+        bool isFile = false;
+        int id = -1;
+        int startIndex = -1;
+        int size = 0;
+        for (int i = 0; i < decompressedDiskMap.Count; i++)
+        {
+            // Empty
+            if (decompressedDiskMap[i] is null)
+            {
+                if (isFile)
+                {
+                    files.Add((id, startIndex, size));
+                    id = -1;
+                }
 
-    //     var fileId = decompressedDiskMap[currentIndex];
-    //     var fileSize = 0;
-    //     while (decompressedDiskMap[currentIndex] == fileId)
-    //     {
-    //         fileSize++;
-    //         currentIndex--;
-    //     }
+                isFile = false;
+                continue;
+            }
 
-    //     return (fileId, currentIndex, fileSize);
-    // }
+            isFile = true;
+            // Same file
+            if (decompressedDiskMap[i] == id)
+            {
+                size++;
+            }
+            // New file
+            else
+            {
+                if (id != -1)
+                {
+                    files.Add((id, startIndex, size));
+                }
+                id = decompressedDiskMap[i]!.Value;
+                startIndex = i;
+                size = 1;
+            }
+        }
+
+        if (isFile)
+        {
+            files.Add((id, startIndex, size));
+        }
+
+        return files;
+    }
+
+    private void _moveFile(List<int?> decompressedDiskMap, (int Id, int StartIndex, int Size) file, (int StartIndex, int Size) empty)
+    {
+        for (int i = 0; i < file.Size; i++)
+        {
+            decompressedDiskMap[empty.StartIndex + i] = file.Id;
+            decompressedDiskMap[file.StartIndex + i] = null;
+        }
+    }
 
     #endregion
 
@@ -157,11 +204,13 @@ public class Day9DiskFragmenter
     {
         long sum = 0;
 
-        int i = 0;
-        while (i < defragmentedDiskMap.Count && defragmentedDiskMap[i] is not null)
+        for (int i = 0; i < defragmentedDiskMap.Count; i++)
         {
+            if (defragmentedDiskMap[i] is null)
+            {
+                continue;
+            }
             sum = sum + i * defragmentedDiskMap[i]!.Value;
-            i++;
         }
 
         return sum;

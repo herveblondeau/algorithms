@@ -38,37 +38,37 @@ public class Day9DiskFragmenterTests
 
     #endregion
 
-    // #region Part 2
+    #region Part 2
 
-    // [TestMethod]
-    // public void CalculateChecksumWithFileDefragmentation_SampleMap_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day9DiskFragmenter day9DiskFragmenter = new();
-    //     var diskMap = _getSampleMap();
+    [TestMethod]
+    public void CalculateChecksumWithFileDefragmentation_SampleMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day9DiskFragmenter day9DiskFragmenter = new();
+        var diskMap = _getSampleMap();
 
-    //     // Act
-    //     var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
+        // Act
+        var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
 
-    //     // Assert
-    //     actual.Should().Be(2858);
-    // }
+        // Assert
+        actual.Should().Be(2858);
+    }
 
-    // [TestMethod]
-    // public void CalculateChecksumWithFileDefragmentation_TestMap_PerformsCorrectly()
-    // {
-    //     // Arrange
-    //     Day9DiskFragmenter day9DiskFragmenter = new();
-    //     var diskMap = _getTestMap();
+    [TestMethod]
+    public void CalculateChecksumWithFileDefragmentation_TestMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day9DiskFragmenter day9DiskFragmenter = new();
+        var diskMap = _getTestMap();
 
-    //     // Act
-    //     var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
+        // Act
+        var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
 
-    //     // Assert
-    //     actual.Should().Be(0);
-    // }
+        // Assert
+        actual.Should().Be(6301361958738);
+    }
 
-    // #endregion
+    #endregion
 
     private string _getSampleMap()
     {
