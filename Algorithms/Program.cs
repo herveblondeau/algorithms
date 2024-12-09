@@ -812,7 +812,10 @@ class Program
         // Console.WriteLine($"Source: {source}");
         // Console.WriteLine($"=> Closest: {closestNumber.GetClosestPermutation(target, source)}");
 
-        RecurringDecimals recurringDecimals = new();
-        Console.WriteLine(recurringDecimals.Invert(44));
+        // RecurringDecimals recurringDecimals = new();
+        // Console.WriteLine(recurringDecimals.Invert(44));
+
+        Day9DiskFragmenter day9DiskFragmenter = new();
+        var result = day9DiskFragmenter.CalculateChecksumWithBlockDefragmentation("2333133121414131402");
     }
 }

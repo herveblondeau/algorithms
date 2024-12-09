@@ -9,34 +9,66 @@ public class Day9DiskFragmenterTests
     #region Part 1
 
     [TestMethod]
-    public void CalculateChecksum_SampleMap_PerformsCorrectly()
+    public void CalculateChecksumWithBlockDefragmentation_SampleMap_PerformsCorrectly()
     {
         // Arrange
         Day9DiskFragmenter day9DiskFragmenter = new();
         var diskMap = _getSampleMap();
 
         // Act
-        var actual = day9DiskFragmenter.CalculateChecksum(diskMap);
+        var actual = day9DiskFragmenter.CalculateChecksumWithBlockDefragmentation(diskMap);
 
         // Assert
         actual.Should().Be(1928);
     }
 
     [TestMethod]
-    public void CalculateChecksum_TestMap_PerformsCorrectly()
+    public void CalculateChecksumWithBlockDefragmentation_TestMap_PerformsCorrectly()
     {
         // Arrange
         Day9DiskFragmenter day9DiskFragmenter = new();
         var diskMap = _getTestMap();
 
         // Act
-        var actual = day9DiskFragmenter.CalculateChecksum(diskMap);
+        var actual = day9DiskFragmenter.CalculateChecksumWithBlockDefragmentation(diskMap);
 
         // Assert
         actual.Should().Be(6279058075753);
     }
 
     #endregion
+
+    // #region Part 2
+
+    // [TestMethod]
+    // public void CalculateChecksumWithFileDefragmentation_SampleMap_PerformsCorrectly()
+    // {
+    //     // Arrange
+    //     Day9DiskFragmenter day9DiskFragmenter = new();
+    //     var diskMap = _getSampleMap();
+
+    //     // Act
+    //     var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
+
+    //     // Assert
+    //     actual.Should().Be(2858);
+    // }
+
+    // [TestMethod]
+    // public void CalculateChecksumWithFileDefragmentation_TestMap_PerformsCorrectly()
+    // {
+    //     // Arrange
+    //     Day9DiskFragmenter day9DiskFragmenter = new();
+    //     var diskMap = _getTestMap();
+
+    //     // Act
+    //     var actual = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation(diskMap);
+
+    //     // Assert
+    //     actual.Should().Be(0);
+    // }
+
+    // #endregion
 
     private string _getSampleMap()
     {
