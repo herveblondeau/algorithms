@@ -6,6 +6,7 @@ namespace Algorithms.AdventOfCode._2024;
 [TestClass]
 public class Day10HoofItTests
 {
+
     #region Part 1
 
     [TestMethod]
@@ -34,6 +35,38 @@ public class Day10HoofItTests
 
         // Assert
         actual.Should().Be(638);
+    }
+
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateSumOfRatings_SampleMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day10HoofIt day10HoofIt = new();
+        var map = _getSampleMap();
+
+        // Act
+        var actual = day10HoofIt.CalculateSumOfRatings(map);
+
+        // Assert
+        actual.Should().Be(81);
+    }
+
+    [TestMethod]
+    public void CalculateSumOfRatings_TestMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day10HoofIt day10HoofIt = new();
+        var map = _getTestMap();
+
+        // Act
+        var actual = day10HoofIt.CalculateSumOfRatings(map);
+
+        // Assert
+        actual.Should().Be(1289);
     }
 
     #endregion
