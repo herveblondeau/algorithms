@@ -1,3 +1,5 @@
+// https://adventofcode.com/2024/day/4
+
 namespace Algorithms.AdventOfCode._2024;
 
 public class Day4CeresSearch

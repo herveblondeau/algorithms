@@ -1,5 +1,6 @@
+// https://adventofcode.com/2024/day/10
+
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Algorithms.AdventOfCode._2024;
 
@@ -71,17 +72,10 @@ public class Day10HoofIt
         int height = map.Length;
 
         int sum = 0;
-        List<(int Row, int Column)> zeros = new();
-
         for (byte i = 0; i < height; i++)
         {
             for (byte j = 0; j < width; j++)
             {
-                if (map[i][j] == 0)
-                {
-                    zeros.Add((i, j));
-                }
-
                 sum += _calculateRating(i, j, 0, map);
             }
         }

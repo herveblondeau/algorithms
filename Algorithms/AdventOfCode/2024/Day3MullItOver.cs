@@ -1,3 +1,5 @@
+// https://adventofcode.com/2024/day/3
+
 using System.Linq;
 using System.Text.RegularExpressions;
 
