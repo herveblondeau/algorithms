@@ -14,9 +14,9 @@ public class Day10HoofIt
         int height = map.Length;
 
         int sum = 0;
-        for (byte i = 0; i < height; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (byte j = 0; j < width; j++)
+            for (int j = 0; j < width; j++)
             {
                 var reachableNines = _findReachableNines(i, j, 0, map);
                 sum += reachableNines.Count;
@@ -72,9 +72,9 @@ public class Day10HoofIt
         int height = map.Length;
 
         int sum = 0;
-        for (byte i = 0; i < height; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (byte j = 0; j < width; j++)
+            for (int j = 0; j < width; j++)
             {
                 sum += _calculateRating(i, j, 0, map);
             }
