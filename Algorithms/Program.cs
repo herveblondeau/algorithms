@@ -815,7 +815,10 @@ class Program
         // RecurringDecimals recurringDecimals = new();
         // Console.WriteLine(recurringDecimals.Invert(44));
 
-        Day9DiskFragmenter day9DiskFragmenter = new();
-        var result = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation("2333133121414131402");
+        // Day9DiskFragmenter day9DiskFragmenter = new();
+        // var result = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation("2333133121414131402");
+
+        Day11PlutonianPebbles day11PlutonianPebbles = new();
+        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStones([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 25));
     }
 }
