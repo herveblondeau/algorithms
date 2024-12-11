@@ -18,7 +18,7 @@ public class Day11PlutonianPebblesTests
         var stones = _getSampleStones();
 
         // Act
-        var actual = day11PlutonianPebbles.CalculateNumberOfStones(stones, 25);
+        var actual = day11PlutonianPebbles.CalculateNumberOfStonesWithRegularLoop(stones, 25);
 
         // Assert
         actual.Should().Be(55312);
@@ -32,7 +32,7 @@ public class Day11PlutonianPebblesTests
         var stones = _getTestStones();
 
         // Act
-        var actual = day11PlutonianPebbles.CalculateNumberOfStones(stones, 25);
+        var actual = day11PlutonianPebbles.CalculateNumberOfStonesWithRegularLoop(stones, 25);
 
         // Assert
         actual.Should().Be(186175);

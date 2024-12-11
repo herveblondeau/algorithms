@@ -819,6 +819,9 @@ class Program
         // var result = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation("2333133121414131402");
 
         Day11PlutonianPebbles day11PlutonianPebbles = new();
-        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStones([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 25));
+        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 6));
+        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 25));
+        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 25));
+        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 75));
     }
 }

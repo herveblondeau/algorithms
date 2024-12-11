@@ -10,7 +10,7 @@ public class Day11PlutonianPebbles
 {
     #region Part 1
 
-    public long CalculateNumberOfStones(List<long> stones, int nbBlinks)
+    public long CalculateNumberOfStonesWithRegularLoop(List<long> stones, int nbBlinks)
     {
         for (int i = 0; i < nbBlinks; i++)
         {
@@ -43,6 +43,73 @@ public class Day11PlutonianPebbles
 
         return stonesAfterBlink;
     }
+
+    #endregion
+
+    #region Part 2
+
+    public long CalculateNumberOfStonesWithMemoization(List<long> stones, int nbBlinks)
+    {
+        Dictionary<(long, int), long> nbStonesByStoneAndNbBlinks = new();
+
+        long nbTotal = 0;
+        for (int i = 0; i < stones.Count; i++)
+        {
+            nbTotal += _getNbStones(stones[i], nbBlinks, nbStonesByStoneAndNbBlinks);
+        }
+        return nbTotal;
+    }
+
+    private long _getNbStones(long stone, int nbBlinks, Dictionary<(long, int), long> nbStonesByStoneAndNbBlinks)
+    {
+        long nbStones = 0;
+
+        // Exit conditions
+        if (nbBlinks == 0)
+        {
+            return 1;
+        }
+
+        if (nbStonesByStoneAndNbBlinks.ContainsKey((stone, nbBlinks)))
+        {
+            return nbStonesByStoneAndNbBlinks[(stone, nbBlinks)];
+        }
+
+        // Split and recursively add the subresults
+        var nextStones = _blink(stone);
+        foreach (var nextStone in nextStones)
+        {
+            var currentNbStones = _getNbStones(nextStone, nbBlinks - 1, nbStonesByStoneAndNbBlinks);
+            if (!nbStonesByStoneAndNbBlinks.ContainsKey((nextStone, nbBlinks - 1)))
+            {
+                nbStonesByStoneAndNbBlinks.Add((nextStone, nbBlinks - 1), currentNbStones);
+            }
+            nbStones += currentNbStones;
+        }
+
+        return nbStones;
+    }
+
+    private List<long> _blink(long stone)
+    {
+        if (stone == 0)
+        {
+            return [1];
+        }
+        else if (_hasEvenDigits(stone))
+        {
+            var splitStone = _split(stone);
+            return [splitStone.LeftHalf, splitStone.RightHalf];
+        }
+        else
+        {
+            return [stone * 2024];
+        }
+    }
+
+    #endregion
+
+    #region Common
 
     private bool _hasEvenDigits(long n)
     {
