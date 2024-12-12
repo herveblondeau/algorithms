@@ -14,11 +14,11 @@ public class Day12GardenGroupsTests
     public void CalculateTotalPrice_SampleMap_PerformsCorrectly()
     {
         // Arrange
-        Day12GardenGroups day11PlutonianPebbles = new();
+        Day12GardenGroups day12GardenGroup = new();
         var map = _getSampleMap();
 
         // Act
-        var actual = day11PlutonianPebbles.CalculateTotalPrice(map);
+        var actual = day12GardenGroup.CalculateTotalPrice(map);
 
         // Assert
         actual.Should().Be(1930);
@@ -28,14 +28,46 @@ public class Day12GardenGroupsTests
     public void CalculateTotalPrice_TestMap_PerformsCorrectly()
     {
         // Arrange
-        Day12GardenGroups day11PlutonianPebbles = new();
+        Day12GardenGroups day12GardenGroup = new();
         var map = _getTestMap();
 
         // Act
-        var actual = day11PlutonianPebbles.CalculateTotalPrice(map);
+        var actual = day12GardenGroup.CalculateTotalPrice(map);
 
         // Assert
-        actual.Should().Be(0);
+        actual.Should().Be(1431440);
+    }
+
+    #endregion
+
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateBulkDiscountPrice_SampleMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day12GardenGroups day12GardenGroup = new();
+        var map = _getSampleMap();
+
+        // Act
+        var actual = day12GardenGroup.CalculateBulkDiscountPrice(map);
+
+        // Assert
+        actual.Should().Be(1206);
+    }
+
+    [TestMethod]
+    public void CalculateBulkDiscountPrice_TestMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day12GardenGroups day12GardenGroup = new();
+        var map = _getTestMap();
+
+        // Act
+        var actual = day12GardenGroup.CalculateBulkDiscountPrice(map);
+
+        // Assert
+        actual.Should().Be(869070);
     }
 
     #endregion
