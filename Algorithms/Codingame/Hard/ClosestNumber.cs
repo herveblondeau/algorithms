@@ -30,6 +30,15 @@ public class ClosestNumber
             {
                 return _getLowestPermutation(source);
             }
+            else
+            {
+                for (int i = 0; i < source.Length - target.Length; i++)
+                {
+                    lowAvailableDigits[0]--;
+                    sameAvailableDigits[0]--;
+                    highAvailableDigits[0]--;
+                }
+            }
         }
         else if (source.Length < target.Length)
         {
@@ -232,11 +241,17 @@ public class ClosestNumber
 
         if (low.HasValue && high.HasValue)
         {
-            if ((target - low.Value) > (high.Value - target) + 1)
+            var lowDelta = target - low.Value;
+            if (lowDelta < 0)
+            {
+                lowDelta += 100;
+            }
+            var highDelta = high.Value - target;
+            if (lowDelta > highDelta + 1)
             {
                 low = null;
             }
-            else if ((target - low.Value) < (high.Value - target) - 1)
+            else if (lowDelta < highDelta - 1)
             {
                 high = null;
             }
