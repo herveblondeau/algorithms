@@ -26,7 +26,7 @@ public class ClosestNumber
         // Special cases
         if (source.Length > target.Length)
         {
-            if (!sameAvailableDigits.ContainsKey(0) || sameAvailableDigits[0] < source.Length - target.Length)
+            if (!sameAvailableDigits.ContainsKey(0) || sameAvailableDigits[0] <= source.Length - target.Length)
             {
                 return _getLowestPermutation(source);
             }
@@ -139,18 +139,22 @@ public class ClosestNumber
             index++;
         }
 
+        List<int?> result;
+
         if (currentSame.HasValue)
         {
-            return string.Join(string.Empty, sames);
+            result = sames;
         }
         else if (currentLow.HasValue) // lower numbers have precedence over higher number in case of equal distance
         {
-            return string.Join(string.Empty, lows);
+            result = lows;
         }
         else
         {
-            return string.Join(string.Empty, highs);
+            result = highs;
         }
+
+        return string.Join(string.Empty, _removeLeadingZeros(result));
     }
 
     private string _getLowestPermutation(string input)
@@ -167,7 +171,7 @@ public class ClosestNumber
             }
         }
 
-        return string.Join("", permutation);
+        return string.Join(string.Empty, _removeLeadingZeros(permutation));
     }
 
     private string _getHighestPermutation(string input)
@@ -184,7 +188,7 @@ public class ClosestNumber
             }
         }
 
-        return string.Join("", permutation);
+        return string.Join(string.Empty, _removeLeadingZeros(permutation));
     }
 
     private Dictionary<int, int> _getAvailableDigits(string source)
@@ -311,6 +315,24 @@ public class ClosestNumber
                 availableDigits.Remove(digit);
             }
         }
+    }
+
+    private List<int> _removeLeadingZeros(List<int> digits)
+    {
+        while (digits[0] == 0)
+        {
+            digits.RemoveAt(0);
+        }
+        return digits;
+    }
+
+    private List<int?> _removeLeadingZeros(List<int?> digits)
+    {
+        while (digits[0] == 0)
+        {
+            digits.RemoveAt(0);
+        }
+        return digits;
     }
 
     private Dictionary<int, int> _clone(Dictionary<int, int> availableDigits)
