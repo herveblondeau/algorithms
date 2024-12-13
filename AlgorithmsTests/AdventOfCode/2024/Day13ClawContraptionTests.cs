@@ -40,7 +40,25 @@ public class Day13ClawContraptionTests
 
     #endregion
 
-    private List<((int DeltaX, int DeltaY) ButtonA, (int DeltaX, int DeltaY) ButtonB, (int X, int Y) Prize)> _getSampleMachines()
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateNbTokensEquation_TestMap_PerformsCorrectly()
+    {
+        // Arrange
+        Day13ClawContraption day13ClawContraption = new();
+        var map = _getTestMachines();
+
+        // Act
+        var actual = day13ClawContraption.CalculateNbTokensEquation(map);
+
+        // Assert
+        actual.Should().Be(95273925552482);
+    }
+
+    #endregion
+
+    private List<((int DeltaX, int DeltaY) ButtonA, (int DeltaX, int DeltaY) ButtonB, (long X, long Y) Prize)> _getSampleMachines()
     {
         return
         [
@@ -51,7 +69,7 @@ public class Day13ClawContraptionTests
         ];
     }
 
-    private List<((int DeltaX, int DeltaY) ButtonA, (int DeltaX, int DeltaY) ButtonB, (int X, int Y) Prize)> _getTestMachines()
+    private List<((int DeltaX, int DeltaY) ButtonA, (int DeltaX, int DeltaY) ButtonB, (long X, long Y) Prize)> _getTestMachines()
     {
         return
         [
