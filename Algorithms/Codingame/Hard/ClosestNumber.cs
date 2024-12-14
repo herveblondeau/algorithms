@@ -15,8 +15,22 @@ public class ClosestNumber
 
         // Unfortunately, we cannot apply a simple algorithm such as "start by adding as many digits that are identical to the target",
         // because that doesn't work with simple cases like 506->590 as it returns 560 instead of 605
-        // Instead, we simultaneously build three prefixes:
-        // TODO: expand
+        // Instead, we simultaneously build three prefixes: low, same and high
+        // - low is the highest sequence that is lower than the target
+        // - same is the sequence that has the most common digits with the target
+        // - high is the lowest sequence that is higher than the target
+
+        // Basically, at each step, we expand each sequence by one digit and keep only the sequences that are closest to the target
+        // Example: the target is 3746 and we have built 374
+        // - if the remaining digits in our pool are 2, 4, 8, 9, then low=3744, high=3749 and there is no same. Then we only keep low, as 3749 is unuambiguously further than 3744 from 3746
+        // - if the remaining digits in our pool are 2, 5, 6, 8, then low=3745, high=3748 and same=3746. Then we only keep low and same, as 3748 is unuambiguously further than 3745 and 3746 from 3746. At this stage, we cannot discard 3745 or 3746, as only the following digits will tell which one is closer. For instance, if target=48653, then 48649 is closer than 46858, even though 4864 is farther than 4685
+        // Notes:
+        // 1) when comparing to the target, we don't need to compare the whole sequence; the last two digits are enough
+        // 2) the "same" sequence is not just expanded: it also generates its own low, same and high. If it itself has a low, then that new low replaces the previous one as it is necessarily closer
+        // For instance, with target=3454786, low=3453, same=3454 and high=3455, and assuming all digits are available to pick from the remaining pool, then:
+        // - next low=34539
+        // - next high=34550
+        // - next same gives three possibilities: 34546, 34547 and 34548 => 34546 and 34548 become the new low and high
 
         // Build a dictionary of the digits available for permutation
         Dictionary<int, int> lowAvailableDigits = _getAvailableDigits(source);
@@ -26,11 +40,8 @@ public class ClosestNumber
         // Special cases
         if (source.Length > target.Length)
         {
-            if (!sameAvailableDigits.ContainsKey(0) || sameAvailableDigits[0] <= source.Length - target.Length)
-            {
-                return _getLowestPermutation(source);
-            }
-            else
+            // More digits that required in the target, and enough zeros to remove (leading zeros)
+            if (sameAvailableDigits.ContainsKey(0) && sameAvailableDigits[0] > source.Length - target.Length)
             {
                 for (int i = 0; i < source.Length - target.Length; i++)
                 {
@@ -39,18 +50,26 @@ public class ClosestNumber
                     highAvailableDigits[0]--;
                 }
             }
+            // More digits that required in the target, and not enough zeros to remove
+            // The number we build will have more digits and therefore be higher than the target regardless of the permutation
+            // Therefore, the closest number to the target is the smallest permutation we can create
+            else
+            {
+                return _getLowestPermutation(source);
+            }
         }
         else if (source.Length < target.Length)
         {
+            // Conversely, if we have less digits than the target requires, the number we build will be lower than the target regardless of the permutation
+            // Therefore, the closest number to the target is the highest permutation we can create
             return _getHighestPermutation(source);
         }
 
-        //
         List<int?> lows = new();
         List<int?> sames = new();
         List<int?> highs = new();
 
-        // First digit has special treatment
+        // First digit
         (int? currentLow, int? currentSame, int? currentHigh) = _getLowSameHighForDigit(index: 0, target, lowAvailableDigits);
         (currentLow, currentSame, currentHigh) = _removeFarthest(_parse(target[0]), currentLow, currentSame, currentHigh);
         lows.Add(currentLow);
@@ -58,20 +77,19 @@ public class ClosestNumber
         highs.Add(currentHigh);
         if (currentLow.HasValue)
         {
-            _removeDigit(currentLow.Value, lowAvailableDigits);
+            _removeAvailableDigit(currentLow.Value, lowAvailableDigits);
         }
         if (currentSame.HasValue)
         {
-            _removeDigit(currentSame.Value, sameAvailableDigits);
+            _removeAvailableDigit(currentSame.Value, sameAvailableDigits);
         }
         if (currentHigh.HasValue)
         {
-            _removeDigit(currentHigh.Value, highAvailableDigits);
+            _removeAvailableDigit(currentHigh.Value, highAvailableDigits);
         }
 
-        // From the second digit
-        int index = 1;
-        while (index < target.Length)
+        // Subsequent digits
+        for (int index = 1; index < target.Length; index++)
         {
             int? nextLow = null;
             if (currentLow.HasValue)
@@ -117,7 +135,7 @@ public class ClosestNumber
                 currentHigh.HasValue && nextHigh.HasValue ? 10 * currentHigh + nextHigh : null);
             if (tempLow.HasValue)
             {
-                _removeDigit(nextLow!.Value, lowAvailableDigits);
+                _removeAvailableDigit(nextLow!.Value, lowAvailableDigits);
             }
             else
             {
@@ -125,7 +143,7 @@ public class ClosestNumber
             }
             if (tempSame.HasValue)
             {
-                _removeDigit(nextSame!.Value, sameAvailableDigits);
+                _removeAvailableDigit(nextSame!.Value, sameAvailableDigits);
             }
             else
             {
@@ -133,7 +151,7 @@ public class ClosestNumber
             }
             if (tempHigh.HasValue)
             {
-                _removeDigit(nextHigh!.Value, highAvailableDigits);
+                _removeAvailableDigit(nextHigh!.Value, highAvailableDigits);
             }
             else
             {
@@ -145,7 +163,6 @@ public class ClosestNumber
             highs.Add(nextHigh);
 
             (currentLow, currentSame, currentHigh) = (nextLow, nextSame, nextHigh);
-            index++;
         }
 
         List<int?> result;
@@ -176,7 +193,7 @@ public class ClosestNumber
             while (availableDigits.ContainsKey(i))
             {
                 permutation.Add(i);
-                _removeDigit(i, availableDigits);
+                _removeAvailableDigit(i, availableDigits);
             }
         }
 
@@ -193,7 +210,7 @@ public class ClosestNumber
             while (availableDigits.ContainsKey(i))
             {
                 permutation.Add(i);
-                _removeDigit(i, availableDigits);
+                _removeAvailableDigit(i, availableDigits);
             }
         }
 
@@ -242,7 +259,7 @@ public class ClosestNumber
         if (low.HasValue && high.HasValue)
         {
             var lowDelta = target - low.Value;
-            if (lowDelta < 0)
+            if (lowDelta < 0) // can happen for instance if target=03 and low=97
             {
                 lowDelta += 100;
             }
@@ -317,7 +334,7 @@ public class ClosestNumber
         return null;
     }
 
-    private void _removeDigit(int digit, Dictionary<int, int> availableDigits)
+    private void _removeAvailableDigit(int digit, Dictionary<int, int> availableDigits)
     {
         if (availableDigits.ContainsKey(digit))
         {
