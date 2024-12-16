@@ -56,6 +56,40 @@ public class Day15WarehouseWoesTests
 
     #endregion
 
+    #region Part 2
+
+    [TestMethod]
+    public void CalculateExtendedGpsCoordinatesSum_LargeSampleWarehouse_PerformsCorrectly()
+    {
+        // Arrange
+        Day15WarehouseWoes day15WarehouseWoes = new();
+        var warehouse = _getLargeSampleWarehouse();
+        var moves = _getLargeSampleMoves();
+
+        // Act
+        var actual = day15WarehouseWoes.CalculateExtendedGpsCoordinatesSum(warehouse, moves);
+
+        // Assert
+        actual.Should().Be(9021);
+    }
+
+    [TestMethod]
+    public void CalculateExtendedGpsCoordinatesSum_TestWarehouse_PerformsCorrectly()
+    {
+        // Arrange
+        Day15WarehouseWoes day15WarehouseWoes = new();
+        var warehouse = _getTestWarehouse();
+        var moves = _getTestMoves();
+
+        // Act
+        var actual = day15WarehouseWoes.CalculateExtendedGpsCoordinatesSum(warehouse, moves);
+
+        // Assert
+        actual.Should().Be(1386070);
+    }
+
+    #endregion
+
     private string[] _getSmallSampleWarehouse()
     {
         return
