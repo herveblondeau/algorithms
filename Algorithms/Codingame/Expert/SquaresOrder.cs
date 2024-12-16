@@ -10,15 +10,29 @@ public class SquaresOrder
     public List<(int Number, int Size)> GetOrder(int[][] map, int nbSquares)
     {
         var order = new List<(int Number, int Size)>();
+        HashSet<int> availableIds = new(Enumerable.Range(1, nbSquares));
+        HashSet<int> processedIds = new();
 
-        // Identify top square
-        for (int n = 1; n <= nbSquares; n++)
+        int iteration = 1;
+        while (availableIds.Count > 0)
         {
-            var square = _findSquare(map, n, new());
-            if (square is not null)
+            bool squareFound = false;
+            foreach (var id in availableIds)
             {
-                order.Add((n, square.Value.Size));
-                break;
+                var square = _findSquare(map, id, processedIds);
+                if (square is not null)
+                {
+                    order.Add((id, square.Value.Size));
+                    availableIds.Remove(id);
+                    processedIds.Add(id);
+                    squareFound = true;
+                    iteration++;
+                    break;
+                }
+            }
+            if (!squareFound)
+            {
+                throw new Exception($"No square found on iteration {iteration}");
             }
         }
 
@@ -26,70 +40,135 @@ public class SquaresOrder
         return order;
     }
 
-    private (int number, int StartRow, int StartColumn, int Size)? _findSquare(int[][] map, int square, HashSet<int> overlappingSquares)
+    private (int Id, int StartRow, int StartColumn, int Size)? _findSquare(int[][] map, int id, HashSet<int> overlappingIds)
     {
-        bool isTopLeftCornerFound = false;
-        int startRow;
-        int startColumn;
+        (int startRow, int startColumn) = _findFirstVisibleBlock(map, id);
 
-        for (int row = 0; row < map.Length; row++)
+        var size = _getSize(map, id, overlappingIds, startRow, startColumn);
+        if (size.HasValue)
         {
-            for (int column = 0; column < map[0].Length; column++)
+            return (id, startRow, startColumn, size.Value);
+        }
+
+        var currentRow = startRow - 1;
+        while (currentRow >= 0 && overlappingIds.Contains(map[currentRow][startColumn]))
+        {
+            size = _getSize(map, id, overlappingIds, currentRow, startColumn);
+            if (size.HasValue)
             {
-                if (map[row][column] == square)
-                {
-                    if (!isTopLeftCornerFound)
-                    {
-                        isTopLeftCornerFound = true;
-                        startRow = row;
-                        startColumn = column;
-                        var size = _getSize(map, square, overlappingSquares, row, column);
-                        return size.HasValue ? (square, startRow, startColumn, size.Value) : null;
-                    }
-                }
+                return (id, currentRow, startColumn, size.Value);
             }
+            currentRow--;
+        }
+
+        var currentColumn = startColumn - 1;
+        while (currentColumn >= 0 && overlappingIds.Contains(map[startRow][currentColumn]))
+        {
+            size = _getSize(map, id, overlappingIds, startRow, currentColumn);
+            if (size.HasValue)
+            {
+                return (id, startRow, currentColumn, size.Value);
+            }
+            currentColumn--;
         }
 
         return null;
     }
 
-    private int? _getSize(int[][] map, int square, HashSet<int> overlappingSquares, int startRow, int startColumn)
+    private (int Row, int Column) _findFirstVisibleBlock(int[][] map, int id)
     {
-        // Compute size on one side
-        int size = 0;
-        while (startRow + size < map.Length && map[startRow + size][startColumn] == square)
+        for (int row = 0; row < map.Length; row++)
         {
-            size++;
+            for (int column = 0; column < map[0].Length; column++)
+            {
+                if (map[row][column] == id)
+                {
+                    return (row, column);
+                }
+            }
         }
 
-        if (size <= 1)
+        throw new Exception($"No block found for id {id}");
+    }
+
+    private int? _getSize(int[][] map, int id, HashSet<int> overlappingIds, int startRow, int startColumn)
+    {
+        int minimumSize = 1;
+        int potentialSize = 1;
+        int currentSize = 2;
+
+        // Check down
+        while (startRow + currentSize - 1 < map.Length)
+        {
+            if (map[startRow + currentSize - 1][startColumn] == id)
+            {
+                minimumSize = currentSize;
+                currentSize++;
+            }
+            else if (overlappingIds.Contains(map[startRow + currentSize - 1][startColumn]))
+            {
+                potentialSize = currentSize;
+                currentSize++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (potentialSize < minimumSize)
+        {
+            potentialSize = minimumSize;
+        }
+
+        if (minimumSize <= 1)
         {
             return null;
         }
 
-        // Check that the other sides are complete
-        for (int column = startColumn; column < startColumn + size; column++)
+        for (int size = minimumSize; size <= potentialSize; size++)
         {
-            if (map[startRow][column] != square)
+            if (_isSizePossible(map, [..overlappingIds, id], startRow, startColumn, size))
             {
-                return null;
+                return size;
             }
         }
-        for (int column = startColumn; column < startColumn + size; column++)
+
+        return null;
+
+    }
+
+    private bool _isSizePossible(int[][] map, HashSet<int> allowedIds, int startRow, int startColumn, int size)
+    {
+        // Check that all sides are complete
+        for (int row = startRow; row < startRow + size; row++)
         {
-            if (map[startRow + size - 1][column] != square)
+            if (!allowedIds.Contains(map[row][startColumn]))
             {
-                return null;
+                return false;
             }
         }
         for (int row = startRow; row < startRow + size; row++)
         {
-            if (map[row][startColumn + size - 1] != square)
+            if (!allowedIds.Contains(map[row][startColumn + size - 1]))
             {
-                return null;
+                return false;
+            }
+        }
+        for (int column = startColumn; column < startColumn + size; column++)
+        {
+            if (!allowedIds.Contains(map[startRow][column]))
+            {
+                return false;
+            }
+        }
+        for (int column = startColumn; column < startColumn + size; column++)
+        {
+            if (!allowedIds.Contains(map[startRow + size - 1][column]))
+            {
+                return false;
             }
         }
 
-        return size;
+        return true;
     }
 }
