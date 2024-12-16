@@ -44,19 +44,21 @@ public class SquaresOrder
     {
         (int startRow, int startColumn) = _findFirstVisibleBlock(map, id);
 
-        var size = _getSize(map, id, overlappingIds, startRow, startColumn);
-        if (size.HasValue)
+        int size = 0;
+
+        var currentSize = _getSize(map, id, overlappingIds, startRow, startColumn);
+        if (currentSize.HasValue && currentSize.Value > size)
         {
-            return (id, startRow, startColumn, size.Value);
+            size = currentSize.Value;
         }
 
         var currentRow = startRow - 1;
         while (currentRow >= 0 && overlappingIds.Contains(map[currentRow][startColumn]))
         {
-            size = _getSize(map, id, overlappingIds, currentRow, startColumn);
-            if (size.HasValue)
+            currentSize = _getSize(map, id, overlappingIds, currentRow, startColumn);
+            if (currentSize.HasValue && currentSize.Value > size)
             {
-                return (id, currentRow, startColumn, size.Value);
+                size = currentSize.Value;
             }
             currentRow--;
         }
@@ -64,15 +66,15 @@ public class SquaresOrder
         var currentColumn = startColumn - 1;
         while (currentColumn >= 0 && overlappingIds.Contains(map[startRow][currentColumn]))
         {
-            size = _getSize(map, id, overlappingIds, startRow, currentColumn);
-            if (size.HasValue)
+            currentSize = _getSize(map, id, overlappingIds, startRow, currentColumn);
+            if (currentSize.HasValue && currentSize.Value > size)
             {
-                return (id, startRow, currentColumn, size.Value);
+                size = currentSize.Value;
             }
             currentColumn--;
         }
 
-        return null;
+        return size > 0 ? (id, startRow, startColumn, size) : null;
     }
 
     private (int Row, int Column) _findFirstVisibleBlock(int[][] map, int id)
@@ -93,7 +95,7 @@ public class SquaresOrder
 
     private int? _getSize(int[][] map, int id, HashSet<int> overlappingIds, int startRow, int startColumn)
     {
-        int minimumSize = 1;
+        int minimumSize = 2;
         int potentialSize = 1;
         int currentSize = 2;
 
@@ -125,7 +127,7 @@ public class SquaresOrder
             return null;
         }
 
-        for (int size = minimumSize; size <= potentialSize; size++)
+        for (int size = potentialSize; size >= minimumSize; size--)
         {
             if (_isSizePossible(map, [..overlappingIds, id], startRow, startColumn, size))
             {
@@ -139,6 +141,11 @@ public class SquaresOrder
 
     private bool _isSizePossible(int[][] map, HashSet<int> allowedIds, int startRow, int startColumn, int size)
     {
+        if (startRow + size - 1 >= map.Length || startColumn + size - 1 >= map[0].Length)
+        {
+            return false;
+        }
+
         // Check that all sides are complete
         for (int row = startRow; row < startRow + size; row++)
         {
