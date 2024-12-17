@@ -818,10 +818,33 @@ class Program
         // Day9DiskFragmenter day9DiskFragmenter = new();
         // var result = day9DiskFragmenter.CalculateChecksumWithFileDefragmentation("2333133121414131402");
 
-        Day11PlutonianPebbles day11PlutonianPebbles = new();
-        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 6));
-        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 25));
-        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 25));
-        Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 75));
+        // Day11PlutonianPebbles day11PlutonianPebbles = new();
+        // Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 6));
+        // Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([125, 17], 25));
+        // Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 25));
+        // Console.WriteLine(day11PlutonianPebbles.CalculateNumberOfStonesWithMemoization([5688, 62084, 2, 3248809, 179, 79, 0, 172169], 75));
+
+        // Day12GardenGroups day12GardenGroups = new();
+        // Console.WriteLine(day12GardenGroups.CalculateBulkDiscountPrice([
+        //     "RRRRIICCFF",
+        //     "RRRRIICCCF",
+        //     "VVRRRCCFFF",
+        //     "VVRCCCJFFF",
+        //     "VVVVCJJCFE",
+        //     "VVIVCCJJEE",
+        //     "VVIIICJJEE",
+        //     "MIIIIIJJEE",
+        //     "MIIISIJEEE",
+        //     "MMMISSJEEE",
+        // ]));
+
+        ClosestNumber closestNumber = new();
+        Console.WriteLine(closestNumber.GetClosestPermutation("3204", "111"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("284512", "2749"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("4000007", "8732"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("57645", "64545"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("95", "77"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("506", "590"));
+        // Console.WriteLine(closestNumber.GetClosestPermutation("95", "77"));
     }
 }
