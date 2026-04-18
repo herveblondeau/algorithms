@@ -1,0 +1,123 @@
+THIRD-PARTY NOTICES
+
+This project uses the following third-party packages. Licenses and copyright notices are listed below.
+
+================================================================================
+
+AwesomeAssertions (9.4.0)
+https://github.com/AwesomeAssertions/AwesomeAssertions
+Copyright Dennis Doomen 2010-2025, AwesomeAssertions 2025-
+Authors: AwesomeAssertions, Dennis Doomen, Jonas Nyrup and contributors
+License: Apache-2.0 (https://licenses.nuget.org/Apache-2.0)
+
+--------------------------------------------------------------------------------
+
+Microsoft.ApplicationInsights (2.23.0)
+https://go.microsoft.com/fwlink/?LinkId=392727
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.CodeCoverage (18.4.0)
+https://github.com/microsoft/vstest
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.NET.Test.Sdk (18.4.0)
+https://github.com/microsoft/vstest
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.Testing.Extensions.Telemetry (2.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.Testing.Extensions.TrxReport.Abstractions (2.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.Testing.Extensions.VSTestBridge (2.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.Testing.Platform (2.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.Testing.Platform.MSBuild (2.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.TestPlatform.ObjectModel (18.4.0)
+https://github.com/microsoft/vstest
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Microsoft.TestPlatform.TestHost (18.4.0)
+https://github.com/microsoft/vstest
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+MSTest.Analyzers (4.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+MSTest.TestAdapter (4.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+MSTest.TestFramework (4.2.1)
+https://github.com/microsoft/testfx
+© Microsoft Corporation. All rights reserved.
+Authors: Microsoft
+License: MIT (https://licenses.nuget.org/MIT)
+
+--------------------------------------------------------------------------------
+
+Newtonsoft.Json (13.0.3)
+https://www.newtonsoft.com/json
+Copyright © James Newton-King 2008
+Authors: James Newton-King
+License: MIT (https://licenses.nuget.org/MIT)
