@@ -9,7 +9,7 @@ public class LumenTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(CountDarkSpots_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CountDarkSpots_WhenCalled_PerformsCorrectly_Data))]
     public void CountDarkSpots_WhenCalled_PerformsCorrectly(List<string> lines, int baseCandleLight, int expected)
     {
         // Arrange

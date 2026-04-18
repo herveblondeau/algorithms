@@ -9,7 +9,7 @@ public class TheBarnyardTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(GetAnimalCounts_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetAnimalCounts_WhenCalled_PerformsCorrectly_Data))]
     public void GetAnimalCounts_WhenCalled_PerformsCorrectly(string[] animals, Dictionary<string, int> bodyParts, Dictionary<string, int> expected)
     {
         // Arrange

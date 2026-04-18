@@ -11,7 +11,7 @@ public class Day2RedNosedReportsTests
     #region Part 1
 
     [TestMethod]
-    [DynamicData(nameof(CalculateNbSafeReports_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CalculateNbSafeReports_SimpleCases_PerformsCorrectly_data))]
     public void CalculateNbSafeReports_SimpleCases_PerformsCorrectly(List<List<int>> reports, int expected)
     {
         // Arrange
@@ -99,7 +99,7 @@ public class Day2RedNosedReportsTests
     #region Part 2
 
     [TestMethod]
-    [DynamicData(nameof(CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly_data))]
     public void CalculateNbPseudoSafeReports_SimpleCases_PerformsCorrectly(List<List<int>> reports, int expected)
     {
         // Arrange
@@ -147,7 +147,7 @@ public class Day2RedNosedReportsTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly_data))]
     public void CalculateNbPseudoSafeReports_AdvancedCases_PerformsCorrectly(List<List<int>> reports, int expected)
     {
         // Arrange

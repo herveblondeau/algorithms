@@ -8,7 +8,7 @@ namespace Codingame.Easy.Defibrillators;
 public class DefibrillatorsTests
 {
     [TestMethod]
-    [DynamicData(nameof(GetClosestDefibrillator_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetClosestDefibrillator_WhenCalled_PerformsCorrectly_Data))]
     public void GetClosestDefibrillator_WhenCalled_PerformsCorrectly(double longitude, double latitude, string[] defibrillatorDescriptions, string expected)
     {
         // Arrange

@@ -10,7 +10,7 @@ public class DiceProbabilityCalculatorTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(ComputeProbabilities_Miscellaneous_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(ComputeProbabilities_Miscellaneous_PerformsCorrectly_Data))]
     public void ComputeProbabilities_Miscellaneous_PerformsCorrectly(string input, Dictionary<int, double> expected)
     {
         // Arrange

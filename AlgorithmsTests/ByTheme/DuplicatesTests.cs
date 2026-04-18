@@ -30,14 +30,13 @@ public class DuplicatesTests
     [DataRow(new int[] { 1, 2 })]
     [DataRow(new int[] { 1, 2, 3, 4, 5, 6 })]
     [DataRow(new int[] { 182, 452, 263, 424, 385, 156 })]
-    [ExpectedException(typeof(KeyNotFoundException))]
     public void FindFirstDuplicate_NoDuplicateInt_ThrowsException(int[] elements)
     {
         // Arrange
         Duplicates firstDuplicate = new();
 
-        // Act
-        firstDuplicate.FindFirstDuplicate(elements);
+        // Act & Assert
+        Assert.ThrowsExactly<KeyNotFoundException>(() => firstDuplicate.FindFirstDuplicate(elements));
     }
 
     [TestMethod]
@@ -63,14 +62,13 @@ public class DuplicatesTests
     [TestMethod]
     [DataRow(new int[] { 1, 1 })]
     [DataRow(new int[] { 1, 1, 2, 2 })]
-    [DataRow(new int[] { 1, 2, 3, 1, 2, 3, 1, 2, 3})]
-    [ExpectedException(typeof(KeyNotFoundException))]
+    [DataRow(new int[] { 1, 2, 3, 1, 2, 3, 1, 2, 3 })]
     public void FindFirstNonDuplicate_NoNonDuplicateInt_ThrowsException(int[] elements)
     {
         // Arrange
         Duplicates duplicates = new();
 
-        // Act
-        duplicates.FindFirstNonDuplicate(elements);
+        // Act & Assert
+        Assert.ThrowsExactly<KeyNotFoundException>(() => duplicates.FindFirstNonDuplicate(elements));
     }
 }

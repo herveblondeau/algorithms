@@ -8,7 +8,7 @@ namespace Fundamentals.Dijkstra;
 public class BreadthFirstSearchTests
 {
     [TestMethod]
-    [DynamicData(nameof(GetShortestPath_WhenConnected_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetShortestPath_WhenConnected_PerformsCorrectly_Data))]
     public void GetShortestPath_WhenConnected_PerformsCorrectly(string from, string to, List<string> expected)
     {
         // Arrange

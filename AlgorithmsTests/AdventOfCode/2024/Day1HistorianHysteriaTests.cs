@@ -10,7 +10,7 @@ public class Day1HistorianHysteriaTests
     #region Part 1
 
     [TestMethod]
-    [DynamicData(nameof(CalculateDistance_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CalculateDistance_SimpleCases_PerformsCorrectly_data))]
     public void CalculateDistance_SimpleCases_PerformsCorrectly(List<int> list1, List<int> list2, int expected)
     {
         // Arrange
@@ -82,7 +82,7 @@ public class Day1HistorianHysteriaTests
     #region Part 2
 
     [TestMethod]
-    [DynamicData(nameof(CalculateSimilarity_SimpleCases_PerformsCorrectly_data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(CalculateSimilarity_SimpleCases_PerformsCorrectly_data))]
     public void CalculateSimilarity_SimpleCases_PerformsCorrectly(List<int> list1, List<int> list2, int expected)
     {
         // Arrange

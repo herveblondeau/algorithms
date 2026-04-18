@@ -9,7 +9,7 @@ public class ChessCavalryTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(GetDistance_AlreadyAtTarget_ReturnsZero_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetDistance_AlreadyAtTarget_ReturnsZero_Data))]
     public void GetDistance_AlreadyAtTarget_ReturnsZero(int width, int height, int startX, int startY, (int, int)[] obstacles)
     {
         // Arrange
@@ -29,7 +29,7 @@ public class ChessCavalryTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(GetDistance_NoObstacle_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetDistance_NoObstacle_PerformsCorrectly_Data))]
     public void GetDistance_NoObstacle_PerformsCorrectly(int width, int height, (int,int) start, (int, int) target, int expected)
     {
         // Arrange
@@ -50,7 +50,7 @@ public class ChessCavalryTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(GetDistance_WithObstacles_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetDistance_WithObstacles_PerformsCorrectly_Data))]
     public void GetDistance_WithObstacles_PerformsCorrectly(int width, int height, (int, int) start, (int, int) target, (int, int)[] obstacles, int expected)
     {
         // Arrange

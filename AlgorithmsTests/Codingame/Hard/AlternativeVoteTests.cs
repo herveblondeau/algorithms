@@ -9,7 +9,7 @@ namespace Codingame.Hard.AlternativeVote;
 public class AlternativeVoteTests
 {
     [TestMethod]
-    [DynamicData(nameof(GetEliminations_Miscellaneous_PerformsCorrecly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetEliminations_Miscellaneous_PerformsCorrecly_Data))]
     public void GetEliminations_Miscellaneous_PerformsCorrecly(List<string> candidateNames, List<List<int>> preferences, List<string> expected)
     {
         // Arrange

@@ -8,7 +8,7 @@ namespace Codingame.Easy.BankRobbers;
 public class BankRobbersTests
 {
     [TestMethod]
-    [DynamicData(nameof(ComputeHeistTime_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(ComputeHeistTime_WhenCalled_PerformsCorrectly_Data))]
     public void ComputeHeistTime_WhenCalled_PerformsCorrectly(int nbRobbers, List<(int, int)> vaultDescriptions, int expected)
     {
         // Arrange

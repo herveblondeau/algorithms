@@ -9,7 +9,7 @@ public class MimeTypeTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(GetClosestPermutation_Miscellaneous_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetClosestPermutation_Miscellaneous_PerformsCorrectly_Data))]
     public void GetClosestPermutation_Miscellaneous_PerformsCorrectly(Dictionary<string, string> descriptions, List<string> filenames, List<string> expected)
     {
         // Arrange

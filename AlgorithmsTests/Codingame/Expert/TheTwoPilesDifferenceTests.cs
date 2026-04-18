@@ -9,7 +9,7 @@ public class TheTwoPilesDifferenceTests
 {
 
     [TestMethod]
-    [DynamicData(nameof(FindMinDifference_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(FindMinDifference_WhenCalled_PerformsCorrectly_Data))]
     public void FindMinDifference_WhenCalled_PerformsCorrectly(int[] input, int expected)
     {
         // Arrange

@@ -48,7 +48,7 @@ public class RectanglePartitionTests
     }
 
     [TestMethod]
-    [DynamicData(nameof(GetNbSquares_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetNbSquares_WhenCalled_PerformsCorrectly_Data))]
     public void GetNbSquares_WhenCalled_PerformsCorrectly(List<int> xMeasurements, List<int> yMeasurements, int expected)
     {
         // Arrange

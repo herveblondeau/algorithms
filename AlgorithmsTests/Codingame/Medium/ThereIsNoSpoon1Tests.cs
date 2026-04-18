@@ -8,7 +8,7 @@ namespace Codingame.Medium.ThereIsNoSpoon1;
 public class ThereIsNoSpoon1Tests
 {
     [TestMethod]
-    [DynamicData(nameof(GetNodes_WhenCalled_PerformsCorrectly_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(GetNodes_WhenCalled_PerformsCorrectly_Data))]
     public void GetNodes_WhenCalled_PerformsCorrectly(int[,] grid, List<string> expected)
     {
         // Arrange

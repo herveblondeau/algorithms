@@ -9,7 +9,7 @@ namespace Codingame.Medium.SudokuSolver;
 public class SudokuSolverTests
 {
     [TestMethod]
-    [DynamicData(nameof(Solve_HasSolution_ReturnsSolution_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(Solve_HasSolution_ReturnsSolution_Data))]
     public void Solve_HasSolution_ReturnsSolution(int[,] grid, int[,] expected)
     {
         // Arrange
@@ -109,7 +109,7 @@ public class SudokuSolverTests
         };
     }
     [TestMethod]
-    [DynamicData(nameof(Solve_NoSolution_ReturnsNull_Data), DynamicDataSourceType.Method)]
+    [DynamicData(nameof(Solve_NoSolution_ReturnsNull_Data))]
     public void Solve_NoSolution_ReturnsNull(int[,] grid)
     {
         // Arrange
