@@ -19,7 +19,6 @@ public class PalindromeTests
     [DataRow("  a bc c b  a")]
     [DataRow(" c a bc  b c a")]
     [DataRow("abbaa")]
-    [DataRow("abbaa")]
     [DataRow("aabbcc")]
     [DataRow("aabbccb")]
     public void IsPalindromePermutation_IsPermutation_ReturnsTrue(string input)
