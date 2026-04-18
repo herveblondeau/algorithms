@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using FluentAssertions;
+using AwesomeAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Codingame.Medium.SudokuSolver;
